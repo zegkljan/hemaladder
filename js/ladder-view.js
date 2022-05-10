@@ -80,7 +80,7 @@ export default {
                                     <td class="text-left">{{ t.tournament.name }}</td>
                                     <td class="text-center">{{ t.tournament.date }}</td>
                                     <td class="text-center">{{ t.tournament.country }}</td>
-                                    <td class="text-center">{{ t.tournament.ranking.indexOf(props.row.participantID) + 1 }}</td>
+                                    <td class="text-center">{{ t.tournament.categories[$route.params['category']].indexOf(props.row.participantID) + 1 }}</td>
                                     <td class="text-center">{{ t.tournament.coefficient }}</td>
                                     <td class="text-center">{{ t.points }}</td>
                                     <td class="text-center">

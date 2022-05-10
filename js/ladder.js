@@ -3,16 +3,13 @@
 import { loadJSON, objectFilter } from './utils.js'
 import { allFilter } from './constants.js'
 
-export async function getLadder(categoryFilter, tournamentCountryFilter, peopleNationalityFilter) {
+export async function getLadder(category, tournamentCountryFilter, peopleNationalityFilter) {
     const now = luxon.DateTime.now().startOf('day')
     const interval = luxon.Interval.fromDateTimes(now.minus({ years: 1 }), now)
 
     let tournaments = await loadJSON('data/tournaments.json')
     tournaments = objectFilter(tournaments, (k) => {
         const t = tournaments[k]
-        if (categoryFilter != allFilter && t.category != categoryFilter) {
-            return false
-        }
         if (tournamentCountryFilter != allFilter && t.country != tournamentCountryFilter) {
             return false
         }
@@ -30,19 +27,32 @@ export async function getLadder(categoryFilter, tournamentCountryFilter, peopleN
 
     let clubs = await loadJSON('data/clubs.json')
 
-    return computeLadder(tournaments, people, clubs)
+    return computeLadder(tournaments, people, clubs, category, peopleNationalityFilter != allFilter)
 }
 
-function computeLadder(tournaments, people, clubs) {
+function computeLadder(tournaments, people, clubs, category, national) {
     let intermediate = {}
     for (let tk in tournaments) {
         const t = tournaments[tk]
-        const participants = t.ranking.length
-        t.ranking.forEach((p, i) => {
+        if (!t.categories.hasOwnProperty(category)) {
+            continue
+        }
+        const ranking = t.categories[category]
+        const participants = ranking.length
+        ranking.forEach((p, i) => {
             if (!people.hasOwnProperty(p)) {
                 return
             }
-            let coef = t.coefficient
+            let coef = 0
+            if (national) {
+                if (t.country == clubs[people[p].club].country) {
+                    coef = t.coefficient["home"]
+                } else {
+                    coef = t.coefficient["away"]
+                }
+            } else {
+                coef = t.coefficient["home"]
+            }
             switch (i) {
                 case 0:
                     coef = coef * 1.5
