@@ -76,6 +76,20 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "7301": {
+    "surname": "Budzowski",
+    "name": "Paweł",
+    "clubID": "904",
+    "nationality": "pl",
+    "category": "mo"
+  },
+  "8220": {
+    "surname": "Bugryn",
+    "name": "Dawid",
+    "clubID": "774",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "9767": {
     "name": "Maciej",
     "surname": "Bulicz",
@@ -89,6 +103,20 @@
     "clubID": "393",
     "nationality": "cz",
     "category": "w"
+  },
+  "4879": {
+    "surname": "Celichowski",
+    "name": "Piotr",
+    "clubID": "855",
+    "nationality": "pl",
+    "category": "mo"
+  },
+  "8766": {
+    "surname": "Cisowski",
+    "name": "Piotr",
+    "clubID": "250",
+    "nationality": "pl",
+    "category": "mo"
   },
   "2292": {
     "surname": "Csizmadia",
@@ -277,6 +305,20 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "9770": {
+    "surname": "Istuszkin",
+    "name": "Artemij",
+    "clubID": "774",
+    "nationality": "pl",
+    "category": "mo"
+  },
+  "10286": {
+    "surname": "Jabłoński",
+    "name": "Karol",
+    "clubID": "250",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "9349": {
     "surname": "Janeček",
     "name": "Viktor",
@@ -316,6 +358,13 @@
     "surname": "Jurczyk",
     "name": "Artur",
     "clubID": "250",
+    "nationality": "pl",
+    "category": "mo"
+  },
+  "9328": {
+    "surname": "Kaczmarski",
+    "name": "Maciej",
+    "clubID": "784",
     "nationality": "pl",
     "category": "mo"
   },
@@ -375,6 +424,13 @@
     "nationality": "pl",
     "category": "mo"
   },
+  "10283": {
+    "surname": "Koncewicz",
+    "name": "Filip",
+    "clubID": "958",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "8367": {
     "surname": "Kontriš",
     "name": "Samuel",
@@ -382,11 +438,25 @@
     "nationality": "sk",
     "category": "mo"
   },
+  "3264": {
+    "surname": "Koprowska",
+    "name": "Joanna",
+    "clubID": "502",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "6601": {
     "surname": "Kosán",
     "name": "Aleš",
     "clubID": "787",
     "nationality": "cz",
+    "category": "mo"
+  },
+  "4893": {
+    "surname": "Kozak",
+    "name": "Krzysztof",
+    "clubID": "958",
+    "nationality": "pl",
     "category": "mo"
   },
   "-4": {
@@ -401,6 +471,13 @@
     "name": "Matouš",
     "clubID": "655",
     "nationality": "cz",
+    "category": "mo"
+  },
+  "10285": {
+    "surname": "Krzyżanek",
+    "name": "Aleksander",
+    "clubID": "502",
+    "nationality": "pl",
     "category": "mo"
   },
   "9338": {
@@ -436,6 +513,20 @@
     "name": "Martin",
     "clubID": "377",
     "nationality": "sk",
+    "category": "mo"
+  },
+  "8565": {
+    "surname": "Kumięga",
+    "name": "Marcin",
+    "clubID": "774",
+    "nationality": "pl",
+    "category": "mo"
+  },
+  "2124": {
+    "surname": "Kwiek",
+    "name": "Maciej",
+    "clubID": "855",
+    "nationality": "pl",
     "category": "mo"
   },
   "8366": {
@@ -515,6 +606,20 @@
     "nationality": "cz",
     "category": "w"
   },
+  "10284": {
+    "surname": "Malinowski",
+    "name": "Kacper",
+    "clubID": "247",
+    "nationality": "pl",
+    "category": "mo"
+  },
+  "10288": {
+    "surname": "Mamak",
+    "name": "Michał",
+    "clubID": "1283",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "1478": {
     "surname": "Markupová",
     "name": "Pavla",
@@ -555,6 +660,13 @@
     "name": "Jan",
     "clubID": "288",
     "nationality": "cz",
+    "category": "mo"
+  },
+  "4769": {
+    "surname": "Miga",
+    "name": "Wojciech",
+    "clubID": "247",
+    "nationality": "pl",
     "category": "mo"
   },
   "1481": {
@@ -634,6 +746,13 @@
     "nationality": "sk",
     "category": "mo"
   },
+  "8767": {
+    "surname": "Nowak",
+    "name": "Adrian",
+    "clubID": "958",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "9351": {
     "surname": "Ocelík",
     "name": "Matej",
@@ -655,6 +774,20 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "7305": {
+    "surname": "Pająk",
+    "name": "Paulina",
+    "clubID": "904",
+    "nationality": "pl",
+    "category": "w"
+  },
+  "5935": {
+    "surname": "Parell",
+    "name": "Mikolaj",
+    "clubID": "248",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "10125": {
     "surname": "Pasierbek",
     "name": "Maksymilian",
@@ -674,6 +807,13 @@
     "name": "Josef",
     "clubID": "790",
     "nationality": "cz",
+    "category": "mo"
+  },
+  "10287": {
+    "surname": "Pawełek",
+    "name": "Kuba",
+    "clubID": "250",
+    "nationality": "pl",
     "category": "mo"
   },
   "5576": {
@@ -732,11 +872,25 @@
     "nationality": "sk",
     "category": "mo"
   },
+  "7839": {
+    "surname": "Pospiech",
+    "name": "Filip",
+    "clubID": "247",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "2138": {
     "surname": "Prokeš",
     "name": "Honza",
     "clubID": "787",
     "nationality": "cz",
+    "category": "mo"
+  },
+  "7293": {
+    "surname": "Raczyński",
+    "name": "Jacek",
+    "clubID": "247",
+    "nationality": "pl",
     "category": "mo"
   },
   "2139": {
@@ -767,6 +921,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "6493": {
+    "surname": "Salomao",
+    "name": "Leonardo",
+    "clubID": "502",
+    "nationality": "br",
+    "category": "mo"
+  },
   "9638": {
     "surname": "Shmidt",
     "name": "Kirill",
@@ -795,6 +956,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "9274": {
+    "surname": "Stolarek",
+    "name": "Kasper",
+    "clubID": "247",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "1489": {
     "surname": "Sucha",
     "name": "Tomáš",
@@ -807,6 +975,13 @@
     "name": "Jakub",
     "clubID": "1125",
     "nationality": "cz",
+    "category": "mo"
+  },
+  "6865": {
+    "surname": "Suchy",
+    "name": "Gabriel",
+    "clubID": "1099",
+    "nationality": "pl",
     "category": "mo"
   },
   "9273": {
@@ -991,6 +1166,13 @@
     "nationality": "sk",
     "category": "mo"
   },
+  "9779": {
+    "surname": "Wacławik",
+    "name": "Aleksandra",
+    "clubID": "458",
+    "nationality": "pl",
+    "category": "w"
+  },
   "9339": {
     "surname": "Wurstová",
     "name": "Adéla",
@@ -1003,6 +1185,13 @@
     "name": "Antonín",
     "clubID": "790",
     "nationality": "cz",
+    "category": "mo"
+  },
+  "4773": {
+    "surname": "Zakrzewski",
+    "name": "Karol",
+    "clubID": "774",
+    "nationality": "pl",
     "category": "mo"
   },
   "8904": {

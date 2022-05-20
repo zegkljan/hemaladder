@@ -3,6 +3,14 @@
     "name": "Akademia Szermierzy",
     "country": "pl"
   },
+  "247": {
+    "name": "ARMA Poland (ARMA PL)",
+    "country": "pl"
+  },
+  "855": {
+    "name": "ARMA Poland Poznan",
+    "country": "pl"
+  },
   "853": {
     "name": "ARMA Poland Warszawa",
     "country": "pl"
@@ -55,6 +63,10 @@
     "name": "Duelanti od Svatého Rocha",
     "country": "cz"
   },
+  "248": {
+    "name": "Fechtschule Gdańsk",
+    "country": "pl"
+  },
   "1171": {
     "name": "HELOPS",
     "country": "cz"
@@ -79,9 +91,17 @@
     "name": "Košický šermiarský cech",
     "country": "sk"
   },
+  "774": {
+    "name": "Krakowska Szkoła Fechtunku",
+    "country": "pl"
+  },
   "1096": {
     "name": "Manu Forti",
     "country": "sk"
+  },
+  "458": {
+    "name": "Mordschlag Łódź",
+    "country": "pl"
   },
   "288": {
     "name": "Pardubický spolek šermířský",
@@ -119,8 +139,20 @@
     "name": "Sportovní šerm Tábor",
     "country": "cz"
   },
+  "784": {
+    "name": "Szermierka Kielce",
+    "country": "pl"
+  },
   "958": {
     "name": "Szkoła Fechtunku Gryf",
+    "country": "pl"
+  },
+  "1099": {
+    "name": "Szkoła Szermierki Aramis",
+    "country": "pl"
+  },
+  "904": {
+    "name": "Szkoła Szermierki Małopolskiej Zgrai Sarmackiej (Małopolska Zgraja Sarmacka)",
     "country": "pl"
   },
   "1115": {
@@ -133,6 +165,10 @@
   },
   "250": {
     "name": "Vectir",
+    "country": "pl"
+  },
+  "1283": {
+    "name": "Wrocłąwska Szkoła Miecza",
     "country": "pl"
   }
 }
