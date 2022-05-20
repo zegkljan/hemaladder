@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866668"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="/home/zegkljan/git/hemaladder/public/icons/favicon-256x256.png"
+   inkscape:export-xdpi="192.00002"
+   inkscape:export-ydpi="192.00002"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="128px"
+     inkscape:zoom="4.1978414"
+     inkscape:cx="46.571555"
+     inkscape:cy="59.3162"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text2828" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       aria-label="H"
+       id="text2828"
+       style="font-size:10.5833px;line-height:1.25;text-align:center;text-anchor:middle;stroke-width:0.264583">
+      <path
+         d="m 23.87268,18.81134 0,4.764371 h 3.441917 V 10.290956 H 23.87268 l 0,4.369585 H 9.9939856 l 0,-4.369585 H 6.5520685 v 13.284755 h 3.4419171 l 0,-4.764371 z"
+         id="path3546"
+         style="stroke-width:0.264582;fill:#ff0025;fill-opacity:1"
+         sodipodi:nodetypes="ccccccccccccc" />
+      <path
+         d="m 23.87268,5.526587 v 4.764369 h 3.441917 V -2.993792 H 23.87268 V 1.375791 H 9.9939856 V -2.993792 H 6.5520685 V 10.290956 H 9.9939856 V 5.526587 Z"
+         id="path4448"
+         style="stroke-width:0.264582;fill:#ffffff;fill-opacity:1"
+         sodipodi:nodetypes="ccccccccccccc" />
+      <path
+         d="m 23.87268,32.09609 v 4.764369 h 3.441917 V 23.575711 H 23.87268 v 4.369583 H 9.9939856 V 23.575711 H 6.5520685 V 36.860459 H 9.9939856 V 32.09609 Z"
+         id="path4450"
+         style="stroke-width:0.264582;fill:#0069ff;fill-opacity:1"
+         sodipodi:nodetypes="ccccccccccccc" />
+    </g>
+  </g>
+</svg>

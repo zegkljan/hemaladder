@@ -1,90 +1,21 @@
 <!DOCTYPE html>
 <html>
-<!--
-    WARNING! Make sure that you match all Quasar related
-    tags to the same version! (Below it's "@2.6.6")
-  -->
+  <head>
+    <title><%= productName %></title>
 
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet"
-        type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@^6.0.0/css/materialdesignicons.min.css" rel="stylesheet"
-        type="text/css">
-    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.prod.css" rel="stylesheet" type="text/css">
-</head>
+    <meta charset="utf-8">
+    <meta name="description" content="<%= productDescription %>">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (ctx.mode.cordova || ctx.mode.capacitor) { %>, viewport-fit=cover<% } %>">
 
-<body>
-    <div id="app">
-        <q-layout view="hHh LpR lFf">
-            <q-header>
-                <q-toolbar>
-                    <q-btn flat @click="toggleDrawer" round dense icon="menu"></q-btn>
-                    <q-toolbar-title>
-                        <router-view name="header" />
-                    </q-toolbar-title>
-                </q-toolbar>
-            </q-header>
-
-            <q-drawer v-model="drawer" side="left" bordered>
-                <q-scroll-area class="fit">
-                    <q-list>
-                        <q-item>
-                            <q-item-section avatar>
-                                <q-icon name="people"></q-icon>
-                            </q-item-section>
-                            <q-item-section>Šermíři</q-item-section>
-                        </q-item>
-                        <q-item clickable v-for="x in peopleOptions" :key="x" :active="$route.params['people'] === x"
-                            :to="routePeople(x)">
-                            <q-item-section>{{ x == allFilter ? 'Všichni' : x }}</q-item-section>
-                        </q-item>
-                    </q-list>
-                    <q-separator></q-separator>
-                    <q-list>
-                        <q-item>
-                            <q-item-section avatar>
-                                <q-icon name="emoji_events"></q-icon>
-                            </q-item-section>
-                            <q-item-section>Turnaje</q-item-section>
-                        </q-item>
-                        <q-item clickable v-for="x in tournamentsOptions" :key="x"
-                            :active="$route.params['tournaments'] === x" :to="routeTournaments(x)">
-                            <q-item-section>{{ x == allFilter ? 'Všechny' : x }}</q-item-section>
-                            <q-tooltip v-if="x == allFilter">V datech jsou zatím pouze české turnaje.</q-tooltip>
-                        </q-item>
-                    </q-list>
-                    <q-separator></q-separator>
-                    <q-list>
-                        <q-item>
-                            <q-item-section avatar>
-                                <q-icon name="category"></q-icon>
-                            </q-item-section>
-                            <q-item-section>Kategorie</q-item-section>
-                        </q-item>
-                        <q-item clickable v-for="x in categoryOptions" :key="x"
-                            :active="$route.params['category'] === x" :to="routeCategory(x)">
-                            <q-item-section>{{ x }}</q-item-section>
-                            <q-tooltip v-if="x == 'LSW'">V datech zatím ženy nejsou.</q-tooltip>
-                        </q-item>
-                    </q-list>
-                    <q-separator></q-separator>
-                </q-scroll-area>
-            </q-drawer>
-
-            <q-page-container>
-                <router-view />
-            </q-page-container>
-        </q-layout>
-    </div>
-    <!-- Add the following at the end of your body tag -->
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://unpkg.com/vue-router@4"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.umd.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/lang/cs.umd.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/icon-set/mdi-v6.umd.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.2/build/global/luxon.min.js"></script>
-    <script type="module" src="js/main.js"></script>
-</body>
-
+    <link rel="icon" type="image/png" sizes="128x128" href="icons/favicon-128x128.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="icon" type="image/ico" href="favicon.ico">
+  </head>
+  <body>
+    <!-- quasar:entry-point -->
+  </body>
 </html>
