@@ -39,21 +39,21 @@
           </thead>
           <tbody>
             <tr
-              v-for="(p, i) in data.tournaments[modelValue!.tournamentID].results[modelValue!.division][modelValue!.category]"
-              :key="p"
-              :class="{'highlight': p == modelValue!.fencerID}"
+              v-for="p in data.tournaments[modelValue!.tournamentID].results[modelValue!.division][modelValue!.category]"
+              :key="p.id"
+              :class="{'highlight': p.id == modelValue!.fencerID}"
             >
               <td class="text-left">
-                {{ i + 1 }}
+                {{ p.rank }}
               </td>
               <td class="text-left">
-                {{ data.people[p].name }}
+                {{ data.people[p.id].name }}
               </td>
               <td class="text-left">
-                {{ data.people[p].surname }}
+                {{ data.people[p.id].surname }}
               </td>
               <td class="text-left">
-                {{ data.clubs[data.people[p].clubID].name }}
+                {{ data.clubs[data.people[p.id].clubID].name }}
               </td>
             </tr>
           </tbody>

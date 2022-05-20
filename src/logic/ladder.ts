@@ -51,7 +51,12 @@ export type Tournament = {
   date: Date;
   country: string;
   coefficient: number;
-  results: Record<Division, Record<Category, string[]>>;
+  results: Record<Division, Record<Category, ResultEntry[]>>;
+};
+
+export type ResultEntry = {
+  id: string;
+  rank: number;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -70,14 +75,16 @@ function parseTournaments(json: Record<string, any>): Tournaments {
 }
 
 function parseResults(
-  json: Record<string, Record<string, string[]>>
-): Record<Division, Record<Category, string[]>> {
-  const res = {} as Record<Division, Record<Category, string[]>>;
+  json: Record<string, Record<string, Record<string, string | number>[]>>
+): Record<Division, Record<Category, ResultEntry[]>> {
+  const res = {} as Record<Division, Record<Category, ResultEntry[]>>;
   for (const d in json) {
     const divRaw = json[d];
-    const div = {} as Record<Category, string[]>;
+    const div = {} as Record<Category, ResultEntry[]>;
     for (const c in divRaw) {
-      div[categoryReverseMap[c as keyof typeof categoryReverseMap]] = divRaw[c];
+      div[categoryReverseMap[c as keyof typeof categoryReverseMap]] = divRaw[
+        c
+      ] as ResultEntry[];
     }
     res[divisionReverseMap[d as keyof typeof divisionReverseMap]] = div;
   }
@@ -214,8 +221,8 @@ export function computeLadder(
       continue;
     }
     const participantsNum = ranking.length;
-    ranking.forEach((participant, rank) => {
-      const p = people[participant];
+    ranking.forEach((resultEntry) => {
+      const p = people[resultEntry.id];
       if (!p) {
         return;
       }
@@ -232,7 +239,7 @@ export function computeLadder(
         },
       ];
       if (national) {
-        if (t.country != clubs[people[participant].clubID].country) {
+        if (t.country != clubs[people[resultEntry.id].clubID].country) {
           coeffs.push({
             type: CoefficientType.FOREIGN,
             value: params.coefficients.foreignTournament,
@@ -245,26 +252,26 @@ export function computeLadder(
           value: params.coefficients.higherCategory,
         });
       }
-      switch (rank) {
-        case 0:
+      switch (resultEntry.rank) {
+        case 1:
           coeffs.push({
             type: CoefficientType.RANK_1,
             value: params.coefficients.place.first,
           });
           break;
-        case 1:
+        case 2:
           coeffs.push({
             type: CoefficientType.RANK_2,
             value: params.coefficients.place.second,
           });
           break;
-        case 2:
+        case 3:
           coeffs.push({
             type: CoefficientType.RANK_3,
             value: params.coefficients.place.third,
           });
           break;
-        case 3:
+        case 4:
           coeffs.push({
             type: CoefficientType.RANK_4,
             value: params.coefficients.place.fourth,
@@ -272,19 +279,21 @@ export function computeLadder(
           break;
       }
       const coef = coeffs.map((c) => c.value).reduce((a, b) => a * b, 1);
-      const points = Math.round((participantsNum - rank) * coef);
+      const points = Math.round(
+        (participantsNum - resultEntry.rank + 1) * coef
+      );
 
-      if (!intermediate.hasOwnProperty(participant)) {
-        intermediate[participant] = {
-          fencerID: participant,
+      if (!intermediate.hasOwnProperty(resultEntry.id)) {
+        intermediate[resultEntry.id] = {
+          fencerID: resultEntry.id,
           rank: 0,
           points: 0,
           tournaments: [],
         };
       }
-      intermediate[participant].points =
-        intermediate[participant].points + points;
-      intermediate[participant].tournaments.push({
+      intermediate[resultEntry.id].points =
+        intermediate[resultEntry.id].points + points;
+      intermediate[resultEntry.id].tournaments.push({
         tournamentID: tk,
         category: cat,
         points: points,
@@ -293,16 +302,29 @@ export function computeLadder(
     });
   }
 
+  const entries: LadderEntry[] = Array<LadderEntry>(
+    Object.keys(intermediate).length
+  );
+  let rank = 1;
+  let i = 0;
+  for (const k of Object.keys(intermediate).sort(
+    (a, b) => intermediate[b].points - intermediate[a].points
+  )) {
+    const entry = intermediate[k];
+    if (i - 1 >= 0 && entries[i - 1].points == entry.points) {
+      entry.rank = entries[i - 1].rank;
+    } else {
+      entry.rank = rank;
+    }
+    entries[i] = entry;
+    rank++;
+    i++;
+  }
+
   return {
     category: category,
     fencerNationality: params.fencers,
     tournamentsCountry: params.tournaments,
-    entries: Object.keys(intermediate)
-      .sort((a, b) => intermediate[b].points - intermediate[a].points)
-      .map((k, i) => {
-        const entry = intermediate[k];
-        entry.rank = i + 1;
-        return entry;
-      }),
+    entries: entries,
   };
 }

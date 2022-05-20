@@ -5,7 +5,8 @@
       :columns="columns"
       :rows="ladder.entries"
       row-key="fencerID"
-      :pagination="{ rowsPerPage: 0 }"
+      :pagination="{ rowsPerPage: 0, sortBy: 'rank', descending: false }"
+      binary-state-sort
       hide-bottom
       square
       :style="style"
@@ -95,6 +96,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       label: t('ladderTable.rankLabel'),
       field: (row: LadderEntry) => row.rank,
       align: 'right',
+      sortable: true,
       // style: 'width: 1px; max-width: 1px',
     },
     {
@@ -102,6 +104,8 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       label: t('ladderTable.nameLabel'),
       field: (row: LadderEntry) => data.people[row.fencerID].name,
       align: 'left',
+      sortable: true,
+      sort: (a: string, b: string) => a.localeCompare(b),
       // style: 'width: 1px; max-width: 1px',
     },
     {
@@ -109,6 +113,8 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       label: t('ladderTable.surnameLabel'),
       field: (row: LadderEntry) => data.people[row.fencerID].surname,
       align: 'left',
+      sortable: true,
+      sort: (a: string, b: string) => a.localeCompare(b),
       // style: 'width: 1px; max-width: 1px',
     },
     {
@@ -117,6 +123,8 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       field: (row: LadderEntry) =>
         data.clubs[data.people[row.fencerID].clubID].name,
       align: 'left',
+      sortable: true,
+      sort: (a: string, b: string) => a.localeCompare(b),
       // style: 'width: 1px; max-width: 1px',
     },
     {
@@ -124,6 +132,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       label: t('ladderTable.pointsLabel'),
       field: (row: LadderEntry) => row.points,
       align: 'right',
+      sortable: true,
       // style: 'width: 1px; max-width: 1px',
     },
     {

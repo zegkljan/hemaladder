@@ -34,6 +34,13 @@
     "nationality": "pl",
     "category": "mo"
   },
+  "10391": {
+    "surname": "Biško",
+    "name": "Jan",
+    "clubID": "786",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "9635": {
     "surname": "Blažek",
     "name": "Honza",
@@ -452,6 +459,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "10392": {
+    "surname": "Lazar",
+    "name": "Václav",
+    "clubID": "786",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "9352": {
     "surname": "Liberský",
     "name": "Miroslav",
@@ -745,6 +759,13 @@
     "clubID": "377",
     "nationality": "sk",
     "category": "w"
+  },
+  "10394": {
+    "surname": "Ruč",
+    "name": "Ondřej",
+    "clubID": "286",
+    "nationality": "cz",
+    "category": "mo"
   },
   "9638": {
     "surname": "Shmidt",

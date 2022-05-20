@@ -157,7 +157,7 @@
                   {{ data.tournaments[t.tournamentID].results[division!][t.category].length }}
                 </td>
                 <td class="text-center">
-                  {{ data.tournaments[t.tournamentID].results[division!][t.category].indexOf(modelValue!.fencerID) + 1 }}
+                  {{ data.tournaments[t.tournamentID].results[division!][t.category].find(entry => entry.id == modelValue!.fencerID)?.rank }}
                 </td>
                 <td class="text-right">
                   {{
