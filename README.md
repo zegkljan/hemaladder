@@ -1,6 +1,6 @@
 # HEMA žebříček (hemaladder)
 
-Neoficiální český HEMA žebříček.
+Zdrojový kód stránky pro neoficiální český HEMA žebříček. Stránka samotná žije na [https://zegkljan.net/hemaladder](https://zegkljan.net/hemaladder).
 
 ## Install the dependencies
 
