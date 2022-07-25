@@ -4,9 +4,12 @@
     "date": "2021-10-30",
     "country": "cz",
     "coefficient": 1,
-    "results": {
-      "ls": {
-        "mo": [
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 14,
+        "results": [
           {
             "id": "5822",
             "rank": 1
@@ -65,7 +68,7 @@
           }
         ]
       }
-    }
+    ]
   },
   "1640": {
     "name": "Podzimové mečoklání",
