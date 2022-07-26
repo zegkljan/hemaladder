@@ -30,7 +30,7 @@ class CoefficientType(enum.Enum):
 
 @dataclass
 class TournamentResultEntry:
-    id: str
+    fencer_id: str
     rank: int
 
 
@@ -51,7 +51,7 @@ class Tournament:
         self.competitions: Mapping[Division, Mapping[Category, Competition]] = {
             Division(k1): {
                 Category(k2): Competition(v2['no_participants'], [
-                    TournamentResultEntry(entry['id'], int(entry['rank'])) for entry in v2['results']
+                    TournamentResultEntry(entry['fencer_id'], int(entry['rank'])) for entry in v2['results']
                 ]) for k2, v2 in v1.items()
             } for k1, v1 in raw['competitions'].items()
         }
@@ -199,7 +199,7 @@ class LadderBuilder:
         _intermediate = self._intermediate[division][category]
 
         for entry in competition.results:
-            person = self.people[entry.id]
+            person = self.people[entry.fencer_id]
             if person.club_id is not None:
                 club = self.clubs[person.club_id]
                 nationality = club.country
@@ -209,8 +209,8 @@ class LadderBuilder:
             if nationality != 'cz':
                 return
 
-            if entry.id not in _intermediate:
-                _intermediate[entry.id] = LadderEntry(entry.id, 0, [])
+            if entry.fencer_id not in _intermediate:
+                _intermediate[entry.fencer_id] = LadderEntry(entry.fencer_id, 0, [])
 
             coeffs = [Coefficient(tournament.coefficient,
                                   CoefficientType.TOURNAMENT)]
@@ -235,7 +235,7 @@ class LadderBuilder:
                 coeffs.append(Coefficient(
                     self.settings.higher_category_coefficient, CoefficientType.HIGHER_CATEGORY))
 
-            _intermediate[entry.id].tournaments.append(TournamentLadderEntry(
+            _intermediate[entry.fencer_id].tournaments.append(TournamentLadderEntry(
                 tournament_id=tournament.tournament_id,
                 coefficients=coeffs,
                 base_points=self.get_base_points(competition, entry.rank),

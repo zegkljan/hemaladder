@@ -1,15 +1,20 @@
 import * as date from 'date-fns';
 import { loadJSON } from './utils';
 
-export enum FencerNationality {
-  CZ = 'cz',
-  ALL = 'all',
+export type Season = {
+  name: string;
+  folder: string;
+};
+
+export enum Category {
+  MEN_OPEN = 'mo',
+  WOMEN = 'w',
 }
 
-export enum TournamentsCountry {
-  CZ = 'cz',
-  ALL = 'all',
-}
+const categoryReverseMap = {
+  mo: Category.MEN_OPEN,
+  w: Category.WOMEN,
+};
 
 export enum Division {
   LS = 'ls',
@@ -25,39 +30,46 @@ const divisionReverseMap = {
   rd: Division.RD,
 };
 
-export enum Category {
-  MO = 'mo',
-  W = 'w',
+export enum CoefficientType {
+  TOURNAMENT = 'tournament',
+  FOREIGN = 'foreign',
+  HIGHER_CATEGORY = 'higher_category',
+  RANK_1 = 'rank_1',
+  RANK_2 = 'rank_2',
+  RANK_3 = 'rank_3',
+  RANK_4 = 'rank_4',
 }
 
-const categoryReverseMap = {
-  mo: Category.MO,
-  w: Category.W,
+const coefficientTypeReverseMap = {
+  tournament: CoefficientType.TOURNAMENT,
+  foreign: CoefficientType.FOREIGN,
+  higher_category: CoefficientType.HIGHER_CATEGORY,
+  rank_1: CoefficientType.RANK_1,
+  rank_2: CoefficientType.RANK_2,
+  rank_3: CoefficientType.RANK_3,
+  rank_4: CoefficientType.RANK_4,
 };
 
-export enum CoefficientType {
-  TOURNAMENT,
-  FOREIGN,
-  HIGHER_CATEGORY,
-  RANK_1,
-  RANK_2,
-  RANK_3,
-  RANK_4,
-}
 
-export type Tournaments = Record<string, Tournament>;
+export type TournamentResultEntry = {
+  fencer_id: string;
+  rank: number;
+};
+
+export type Competition = {
+  no_participants: number;
+  results: TournamentResultEntry[];
+};
+
 export type Tournament = {
   name: string;
   date: Date;
   country: string;
   coefficient: number;
-  results: Record<Division, Record<Category, ResultEntry[]>>;
+  competitions: Record<Division, Record<Category, Competition>>;
 };
 
-export type ResultEntry = {
-  id: string;
-  rank: number;
-};
+export type Tournaments = Record<string, Tournament>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseTournaments(json: Record<string, any>): Tournaments {
@@ -68,43 +80,51 @@ function parseTournaments(json: Record<string, any>): Tournaments {
       date: date.parseISO(json[k].date),
       country: json[k].country,
       coefficient: json[k].coefficient,
-      results: parseResults(json[k].results),
-    };
+      competitions: Object.keys(json['competitions']).reduce((divs, div) => {
+        divs[divisionReverseMap[div]] = Object.keys(json['competitions'][div]).reduce((cats, cat) => {
+          cats[categoryReverseMap[cat]] = parseCompetition(json['competitions'][div][cat]);
+          return cats;
+        }, {});
+        return divs;
+      }, {} as Record<Division, Record<Category, Competition>>)
+    }
   });
   return res;
 }
 
-function parseResults(
-  json: Record<string, Record<string, Record<string, string | number>[]>>
-): Record<Division, Record<Category, ResultEntry[]>> {
-  const res = {} as Record<Division, Record<Category, ResultEntry[]>>;
-  for (const d in json) {
-    const divRaw = json[d];
-    const div = {} as Record<Category, ResultEntry[]>;
-    for (const c in divRaw) {
-      div[categoryReverseMap[c as keyof typeof categoryReverseMap]] = divRaw[
-        c
-      ] as ResultEntry[];
-    }
-    res[divisionReverseMap[d as keyof typeof divisionReverseMap]] = div;
-  }
-  return res;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function parseCompetition(json: Record<string, any>): Competition {
+  return {
+    no_participants: json['no_participants'],
+    results: parseResults(json['results'])
+  };
 }
 
-export async function loadTournaments(): Promise<Tournaments> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function parseResults(json: Record<string, any>[]): TournamentResultEntry[] {
+  return json.map((result) => {
+    return {
+      fencer_id: result['fencer_id'],
+      rank: result['rank']
+    };
+  });
+}
+
+export async function loadTournaments(season: Season): Promise<Tournaments> {
   return parseTournaments(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (await loadJSON('data/tournaments.json')) as Record<string, any>
+    (await loadJSON(`data/seasons/${season.folder}/tournaments.json`)) as Record<string, any>
   );
 }
 
 export type People = Record<string, Person>;
 export type Person = {
+  id: string;
   name: string;
   surname: string;
-  clubID: string;
-  nationality: string;
-  category: Category;
+  club_id: string;
+  nationality?: string;
+  category?: Category;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -112,9 +132,10 @@ function parsePeople(json: Record<string, any>): People {
   const res = {} as People;
   Object.keys(json).forEach((k) => {
     res[k] = {
+      id: k,
       name: json[k].name,
       surname: json[k].surname,
-      clubID: json[k].clubID,
+      club_id: json[k].club_id,
       nationality: json[k].nationality,
       category:
         categoryReverseMap[json[k].category as keyof typeof categoryReverseMap],
@@ -132,6 +153,7 @@ export async function loadPeople(): Promise<People> {
 
 export type Clubs = Record<string, Club>;
 export type Club = {
+  id: string;
   name: string;
   country: string;
 };
@@ -141,6 +163,7 @@ function parseClubs(json: Record<string, any>): Clubs {
   const res = {} as Clubs;
   Object.keys(json).forEach((k) => {
     res[k] = {
+      id: k,
       name: json[k].name,
       country: json[k].country,
     };
@@ -155,176 +178,63 @@ export async function loadClubs(): Promise<Clubs> {
   );
 }
 
-export type Ladder = {
-  category: Category;
-  fencerNationality: FencerNationality;
-  tournamentsCountry: TournamentsCountry;
-  entries: LadderEntry[];
-};
 export type Coefficient = {
-  value: number;
-  type: CoefficientType;
+  c: number;
+  type: CoefficientType
 };
-export type LadderEntry = {
-  fencerID: string;
+
+export type TournamentLadderEntry = {
+  tournament_id: string;
+  coefficients: Coefficient[];
+  base_points: number;
   rank: number;
   points: number;
-  tournaments: {
-    tournamentID: string;
-    category: Category;
-    coefficients: Coefficient[];
-    points: number;
-  }[];
 };
 
-export type LadderParams = {
-  coefficients: {
-    place: {
-      first: number;
-      second: number;
-      third: number;
-      fourth: number;
-    };
-    foreignTournament: number;
-    higherCategory: number;
-  };
-  fencers: FencerNationality;
-  tournaments: TournamentsCountry;
+export type LadderEntry = {
+  fencer_id: string;
+  rank: number;
+  tournaments: TournamentLadderEntry[];
 };
 
-export function computeLadder(
-  tournaments: Tournaments,
-  people: People,
-  clubs: Clubs,
-  division: Division,
-  category: Category,
-  national: boolean,
-  params: LadderParams
-): Ladder {
-  const intermediate = {} as Record<string, LadderEntry>;
-  for (const tk in tournaments) {
-    const t = tournaments[tk];
-    if (
-      params.tournaments != TournamentsCountry.ALL &&
-      t.country != params.tournaments
-    ) {
-      continue;
-    }
-    const div = t.results[division];
-    if (!div) {
-      continue;
-    }
+export type Ladder = LadderEntry[];
+export type Ladders = Record<Division, Record<Category, Ladder>>;
 
-    const cat = category;
-    const ranking = div[cat];
-    if (!ranking) {
-      continue;
-    }
-    const participantsNum = ranking.length;
-    ranking.forEach((resultEntry) => {
-      const p = people[resultEntry.id];
-      if (!p) {
-        return;
-      }
-      if (
-        params.fencers != FencerNationality.ALL &&
-        clubs[p.clubID].country != params.fencers
-      ) {
-        return;
-      }
-      const coeffs: Coefficient[] = [
-        {
-          type: CoefficientType.TOURNAMENT,
-          value: t.coefficient,
-        },
-      ];
-      if (national) {
-        if (t.country != clubs[people[resultEntry.id].clubID].country) {
-          coeffs.push({
-            type: CoefficientType.FOREIGN,
-            value: params.coefficients.foreignTournament,
-          });
-        }
-      }
-      if (cat != category) {
-        coeffs.push({
-          type: CoefficientType.HIGHER_CATEGORY,
-          value: params.coefficients.higherCategory,
-        });
-      }
-      switch (resultEntry.rank) {
-        case 1:
-          coeffs.push({
-            type: CoefficientType.RANK_1,
-            value: params.coefficients.place.first,
-          });
-          break;
-        case 2:
-          coeffs.push({
-            type: CoefficientType.RANK_2,
-            value: params.coefficients.place.second,
-          });
-          break;
-        case 3:
-          coeffs.push({
-            type: CoefficientType.RANK_3,
-            value: params.coefficients.place.third,
-          });
-          break;
-        case 4:
-          coeffs.push({
-            type: CoefficientType.RANK_4,
-            value: params.coefficients.place.fourth,
-          });
-          break;
-      }
-      const coef = coeffs.map((c) => c.value).reduce((a, b) => a * b, 1);
-      const points = Math.round(
-        (participantsNum - resultEntry.rank + 1) * coef
-      );
+function parseLadders(json: Record<string, any>): Ladders {
+  return Object.keys(json).reduce((divs, div) => {
+    divs[divisionReverseMap[div]] = Object.keys(json[div]).reduce((cats, cat) => {
+      cats[categoryReverseMap[cat]] = parseLadder(json[div][cat]);
+      return cats;
+    }, {});
+    return divs;
+  }, {} as Ladders);
+}
 
-      if (!intermediate.hasOwnProperty(resultEntry.id)) {
-        intermediate[resultEntry.id] = {
-          fencerID: resultEntry.id,
-          rank: 0,
-          points: 0,
-          tournaments: [],
-        };
-      }
-      intermediate[resultEntry.id].points =
-        intermediate[resultEntry.id].points + points;
-      intermediate[resultEntry.id].tournaments.push({
-        tournamentID: tk,
-        category: cat,
-        points: points,
-        coefficients: coeffs,
-      });
-    });
-  }
+function parseLadder(json: any[]): Ladder {
+  return json.map(parseLadderEntry);
+}
 
-  const entries: LadderEntry[] = Array<LadderEntry>(
-    Object.keys(intermediate).length
-  );
-  let rank = 1;
-  let i = 0;
-  for (const k of Object.keys(intermediate).sort(
-    (a, b) => intermediate[b].points - intermediate[a].points
-  )) {
-    const entry = intermediate[k];
-    if (i - 1 >= 0 && entries[i - 1].points == entry.points) {
-      entry.rank = entries[i - 1].rank;
-    } else {
-      entry.rank = rank;
-    }
-    entries[i] = entry;
-    rank++;
-    i++;
-  }
-
+function parseLadderEntry(json: Record<string, any>): LadderEntry {
   return {
-    category: category,
-    fencerNationality: params.fencers,
-    tournamentsCountry: params.tournaments,
-    entries: entries,
+    fencer_id: json['fencer_id'],
+    rank: json['rank'],
+    tournaments: (json['tournaments'] as any[]).map(parseTournamentLadderEntry)
+  };
+}
+
+function parseTournamentLadderEntry(json: Record<string, any>): TournamentLadderEntry {
+  return {
+    tournament_id: json['tournament_id'],
+    rank: json['rank'],
+    base_points: json['base_points'],
+    coefficients: (json['coefficients'] as any[]).map(parseCoefficient),
+    points: json['points']
+  };
+}
+
+function parseCoefficient(json: Record<string, any>): Coefficient {
+  return {
+    c: json['c'],
+    type: json['type']
   };
 }
