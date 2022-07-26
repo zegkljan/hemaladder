@@ -33,5 +33,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 
-# Generated ladder
-/public/data/ladder.json
+# Generated data
+/public/data/seasons/*/ladders.json

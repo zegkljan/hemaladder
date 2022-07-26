@@ -1,13 +1,9 @@
-from dataclasses import dataclass
 import enum
 import json
-from math import prod
-from nis import cat
 import pathlib
-from typing import Any, List, Mapping, MutableMapping, Sequence, Tuple, Union
-from unicodedata import category
-
-from torch import isin
+from dataclasses import dataclass
+from math import prod
+from typing import Any, List, Mapping, Sequence, Tuple, Union
 
 
 class Category(enum.Enum):
@@ -103,15 +99,32 @@ class Coefficient:
     c: float
     c_type: CoefficientType
 
+    def to_dict(self) -> dict:
+        return {
+            "c": self.c,
+            "type": self.c_type.value
+        }
+
 
 @dataclass
 class TournamentLadderEntry:
     tournament_id: str
     coefficients: List[Coefficient]
     base_points: float
+    rank: int
 
     def points(self) -> int:
         return round(self.base_points * prod(map(lambda x: x.c, self.coefficients)))
+
+    def to_dict(self) -> dict:
+        return {
+            "tournament_id": self.tournament_id,
+            "base_points": self.base_points,
+            "points": self.points(),
+            "coefficients": [
+                coeff.to_dict() for coeff in self.coefficients
+            ]
+        }
 
 
 @dataclass
@@ -122,6 +135,16 @@ class LadderEntry:
 
     def points(self) -> int:
         return sum(map(lambda x: x.points(), self.tournaments))
+
+    def to_dict(self) -> dict:
+        return {
+            "fencer_id": self.fencer_id,
+            "rank": self.rank,
+            "points": self.points(),
+            "tournaments": [
+                tournament.to_dict() for tournament in self.tournaments
+            ]
+        }
 
 
 Ladder = List[LadderEntry]
@@ -165,10 +188,8 @@ class LadderBuilder:
 
         return {
             division: {
-                category: [
-                    LadderEntry(entry.fencer_id, rank + 1, entry.tournaments)
-                    for rank, entry in enumerate(sorted(self._intermediate[division][category].values(), key=lambda x: x.points(), reverse=True))
-                ]
+                category: self.sorted_entries(
+                    self._intermediate[division][category].values())
                 for category in self._intermediate[division]
             } for division in self._intermediate
         }
@@ -215,13 +236,36 @@ class LadderBuilder:
                     self.settings.higher_category_coefficient, CoefficientType.HIGHER_CATEGORY))
 
             _intermediate[entry.id].tournaments.append(TournamentLadderEntry(
-                tournament.tournament_id,
-                coeffs,
-                self.get_base_points(competition, entry.rank)
+                tournament_id=tournament.tournament_id,
+                coefficients=coeffs,
+                base_points=self.get_base_points(competition, entry.rank),
+                rank=entry.rank
             ))
 
     def get_base_points(self, competition: Competition, rank: int) -> int:
         return competition.no_participants - rank + 1
+
+    @staticmethod
+    def sorted_entries(entries: Sequence[LadderEntry]) -> Sequence[LadderEntry]:
+        def key(e: LadderEntry) -> Tuple:
+            return (
+                -e.points(),
+                sum(map(lambda t: t.rank, e.tournaments)) / len(e.tournaments),
+                # -len(e.tournaments)
+            )
+        srt = sorted([(key(e), e) for e in entries], key=lambda x: x[0])
+        final = [LadderEntry(srt[0][1].fencer_id, 1, srt[0][1].tournaments)]
+        for i in range(1, len(srt)):
+            k, e = srt[i]
+            k_prev, _ = srt[i - 1]
+            if k_prev == k:
+                final.append(LadderEntry(
+                    e.fencer_id, final[-1].rank, e.tournaments))
+            else:
+                final.append(LadderEntry(
+                    e.fencer_id, len(final) + 1, e.tournaments))
+
+        return final
 
 
 def main():
@@ -233,7 +277,8 @@ def main():
     seasons = read_json(data_dir.joinpath('seasons.json'))
 
     for season in seasons:
-        tournaments = read_json(data_dir.joinpath(season, 'tournaments.json'))
+        tournaments = read_json(data_dir.joinpath(
+            'seasons', season['folder'], 'tournaments.json'))
         builder = LadderBuilder(tournaments, people, clubs, LadderSettings(
             category_ranking={
                 Category.MEN_OPEN: 10,
@@ -244,19 +289,18 @@ def main():
             rank_coefficients=(1.5, 1.33, 1.25, 1.16)
         ))
         ladders = builder.build()
-        write_json(data_dir.joinpath(season, 'ladders.json'), ladders)
+        write_json(data_dir.joinpath('seasons', season['folder'], 'ladders.json'),
+                   ladders_to_dict(ladders))
 
 
-class LadderEntryEncoder(json.JSONEncoder):
-    def default(self, o: Any) -> Any:
-        if isinstance(o, LadderEntry):
-            return {
-                "fencer_id": o.fencer_id,
-                "rank": o.rank,
-                "points": o.points(),
-                "tournaments": o.tournaments
-            }
-        return json.JSONEncoder.default(self, o)
+def ladders_to_dict(ladders: Ladders) -> dict:
+    return {
+        division.value: {
+            category.value: [
+                entry.to_dict() for entry in c
+            ] for category, c in d.items()
+        } for division, d in ladders.items()
+    }
 
 
 def read_json(path: pathlib.Path) -> dict:
@@ -266,7 +310,7 @@ def read_json(path: pathlib.Path) -> dict:
 
 def write_json(path: pathlib.Path, obj: Any):
     with open(path, 'w') as f:
-        json.dump(obj, f, cls=LadderEntryEncoder)
+        json.dump(obj, f, indent=2)
 
 
 if __name__ == '__main__':
