@@ -1,25 +1,10 @@
-import {
-  Category,
-  CoefficientType,
-  Division,
-  FencerNationality,
-  TournamentsCountry,
-} from 'src/logic/ladder';
+import { Category, CoefficientType, Division } from 'src/logic/ladder';
 
 export default {
   appName: 'Unofficial czech HEMA ladder',
   sourceCode: 'Source code',
   settings: 'Settings',
-  fencerCountryTitle: 'Fencers',
-  fencerCountry: {
-    [FencerNationality.CZ]: 'CZ',
-    [FencerNationality.ALL]: 'All',
-  },
-  tournamentsCountryTitle: 'Tournaments',
-  tournamentsCountry: {
-    [TournamentsCountry.CZ]: 'CZ',
-    [TournamentsCountry.ALL]: 'All',
-  },
+  seasonTitle: 'Season',
   divisionTitle: 'Division',
   division: {
     [Division.LS]: 'Long sword',
@@ -29,8 +14,8 @@ export default {
   },
   categoryTitle: 'Category',
   category: {
-    [Category.MO]: 'Men/open',
-    [Category.W]: 'Women',
+    [Category.MEN_OPEN]: 'Men/open',
+    [Category.WOMEN]: 'Women',
   },
   ladderTable: {
     rankLabel: 'Rank',

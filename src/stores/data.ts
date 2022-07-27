@@ -1,11 +1,13 @@
 import { defineStore } from 'pinia';
-import { People, Tournaments, Clubs } from 'src/logic/ladder';
+import { People, Tournaments, Clubs, Ladders, Season } from 'src/logic/ladder';
 
 export const useData = defineStore('data', {
   state: () => ({
     people: {} as People,
     clubs: {} as Clubs,
-    tournaments: {} as Tournaments,
+    seasons: [] as Season[],
+    tournaments: {} as Tournaments | undefined,
+    ladders: {} as Ladders | undefined,
   }),
 
   getters: {},

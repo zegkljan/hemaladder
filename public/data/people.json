@@ -2,1223 +2,1223 @@
   "8928": {
     "name": "Matej",
     "surname": "Andrejkovic",
-    "clubID": "287",
+    "club_id": "287",
     "nationality": "sk",
     "category": "mo"
   },
   "9594": {
     "surname": "Bagdi",
     "name": "Richard",
-    "clubID": "56",
+    "club_id": "56",
     "nationality": "hu",
     "category": "mo"
   },
   "-5": {
     "surname": "Bártl",
     "name": "Jan",
-    "clubID": "1125",
+    "club_id": "1125",
     "nationality": "cz",
     "category": "mo"
   },
   "9639": {
     "surname": "Beneš",
     "name": "Jan",
-    "clubID": "1125",
+    "club_id": "1125",
     "nationality": "cz",
     "category": "mo"
   },
   "6497": {
     "surname": "Bijok",
     "name": "Sebastian",
-    "clubID": "250",
+    "club_id": "250",
     "nationality": "pl",
     "category": "mo"
   },
   "10391": {
     "surname": "Biško",
     "name": "Jan",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "9635": {
     "surname": "Blažek",
     "name": "Honza",
-    "clubID": "983",
+    "club_id": "983",
     "nationality": "cz",
     "category": "mo"
   },
   "10346": {
     "surname": "Boček",
     "name": "Martina",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "1465": {
     "surname": "Böhm",
     "name": "Pavel",
-    "clubID": "1115",
+    "club_id": "1115",
     "nationality": "cz",
     "category": "mo"
   },
   "10056": {
     "surname": "Borrmann",
     "name": "Ewen",
-    "clubID": "132",
+    "club_id": "132",
     "nationality": "de",
     "category": "mo"
   },
   "2090": {
     "surname": "Brýdl",
     "name": "Zdeněk",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "7301": {
     "surname": "Budzowski",
     "name": "Paweł",
-    "clubID": "904",
+    "club_id": "904",
     "nationality": "pl",
     "category": "mo"
   },
   "8220": {
     "surname": "Bugryn",
     "name": "Dawid",
-    "clubID": "774",
+    "club_id": "774",
     "nationality": "pl",
     "category": "mo"
   },
   "9767": {
     "name": "Maciej",
     "surname": "Bulicz",
-    "clubID": "502",
+    "club_id": "502",
     "nationality": "pl",
     "category": "mo"
   },
   "9600": {
     "surname": "Burešová",
     "name": "Klára",
-    "clubID": "393",
+    "club_id": "393",
     "nationality": "cz",
     "category": "w"
   },
   "4879": {
     "surname": "Celichowski",
     "name": "Piotr",
-    "clubID": "855",
+    "club_id": "855",
     "nationality": "pl",
     "category": "mo"
   },
   "8766": {
     "surname": "Cisowski",
     "name": "Piotr",
-    "clubID": "250",
+    "club_id": "250",
     "nationality": "pl",
     "category": "mo"
   },
   "2292": {
     "surname": "Csizmadia",
     "name": "Réka",
-    "clubID": "291",
+    "club_id": "291",
     "nationality": "hu",
     "category": "w"
   },
   "2759": {
     "surname": "Czégé",
     "name": "Dávid",
-    "clubID": "56",
+    "club_id": "56",
     "nationality": "hu",
     "category": "mo"
   },
   "9270": {
     "surname": "Čarek",
     "name": "Jiří",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "6597": {
     "surname": "Čechura",
     "name": "Jaroslav",
-    "clubID": "787",
+    "club_id": "787",
     "nationality": "cz",
     "category": "mo"
   },
   "7828": {
     "surname": "Čermáková Lukšová",
     "name": "Zuzana",
-    "clubID": "393",
+    "club_id": "393",
     "nationality": "cz",
     "category": "w"
   },
   "10347": {
     "surname": "Černý",
     "name": "Martin",
-    "clubID": "1171",
+    "club_id": "1171",
     "nationality": "cz",
     "category": "mo"
   },
   "-2": {
     "surname": "Daneš",
     "name": "Karel",
-    "clubID": "983",
+    "club_id": "983",
     "nationality": "cz",
     "category": "mo"
   },
   "6596": {
     "surname": "Doms",
     "name": "Ján",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "sk",
     "category": "mo"
   },
   "10202": {
     "surname": "Doseděl",
     "name": "Tomáš",
-    "clubID": "285",
+    "club_id": "285",
     "nationality": "cz",
     "category": "mo"
   },
   "5822": {
     "surname": "Dostál",
     "name": "Pavel",
-    "clubID": "288",
+    "club_id": "288",
     "nationality": "cz",
     "category": "mo"
   },
   "6598": {
     "surname": "Erlebach",
     "name": "Petr",
-    "clubID": "1171",
+    "club_id": "1171",
     "nationality": "cz",
     "category": "mo"
   },
   "4865": {
     "name": "Alexander",
     "surname": "Farkas",
-    "clubID": "650",
+    "club_id": "650",
     "nationality": "sk",
     "category": "mo"
   },
   "10053": {
     "surname": "Filip",
     "name": "Jan",
-    "clubID": "1171",
+    "club_id": "1171",
     "nationality": "cz",
     "category": "mo"
   },
   "9595": {
     "surname": "Gajdoš",
     "name": "Marek",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "mo"
   },
   "3627": {
     "name": "Radovan",
     "surname": "Geist",
-    "clubID": "1096",
+    "club_id": "1096",
     "nationality": "sk",
     "category": "mo"
   },
   "9601": {
     "surname": "Gloserová",
     "name": "Alexandra",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "w"
   },
   "5825": {
     "name": "Bence",
     "surname": "Gombás",
-    "clubID": "291",
+    "club_id": "291",
     "nationality": "hu",
     "category": "mo"
   },
   "10127": {
     "surname": "Greń",
     "name": "Arkadiusz",
-    "clubID": "958",
+    "club_id": "958",
     "nationality": "pl",
     "category": "mo"
   },
   "-3": {
     "surname": "Hála",
     "name": "Petr",
-    "clubID": "983",
+    "club_id": "983",
     "nationality": "cz",
     "category": "mo"
   },
   "6753": {
     "surname": "Herčík",
     "name": "Ondřej",
-    "clubID": "1171",
+    "club_id": "1171",
     "nationality": "cz",
     "category": "mo"
   },
   "5115": {
     "name": "Matej",
     "surname": "Hlavatý",
-    "clubID": "264",
+    "club_id": "264",
     "nationality": "sk",
     "category": "mo"
   },
   "7825": {
     "surname": "Horňák",
     "name": "Matěj",
-    "clubID": "1115",
+    "club_id": "1115",
     "nationality": "cz",
     "category": "mo"
   },
   "2294": {
     "surname": "Hornáková",
     "name": "Hana",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "w"
   },
   "1471": {
     "surname": "Hozák",
     "name": "Kamil",
-    "clubID": "288",
+    "club_id": "288",
     "nationality": "cz",
     "category": "mo"
   },
   "10133": {
     "surname": "Hritz",
     "name": "Richard",
-    "clubID": "651"
+    "club_id": "651"
   },
   "5826": {
     "surname": "Hruška",
     "name": "Zdeněk",
-    "clubID": "393",
+    "club_id": "393",
     "nationality": "cz",
     "category": "mo"
   },
   "8934": {
     "surname": "Hubař",
     "name": "Jan",
-    "clubID": "288",
+    "club_id": "288",
     "nationality": "cz",
     "category": "mo"
   },
   "9770": {
     "surname": "Istuszkin",
     "name": "Artemij",
-    "clubID": "774",
+    "club_id": "774",
     "nationality": "pl",
     "category": "mo"
   },
   "10286": {
     "surname": "Jabłoński",
     "name": "Karol",
-    "clubID": "250",
+    "club_id": "250",
     "nationality": "pl",
     "category": "mo"
   },
   "9349": {
     "surname": "Janeček",
     "name": "Viktor",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "4831": {
     "surname": "Janus",
     "name": "Krzysztof",
-    "clubID": "853",
+    "club_id": "853",
     "nationality": "pl",
     "category": "mo"
   },
   "8935": {
     "surname": "Javůrek",
     "name": "David",
-    "clubID": "1125",
+    "club_id": "1125",
     "nationality": "cz",
     "category": "mo"
   },
   "-6": {
     "surname": "Jeřábek",
     "name": "David",
-    "clubID": "1125",
+    "club_id": "1125",
     "nationality": "cz",
     "category": "mo"
   },
   "10052": {
     "surname": "John",
     "name": "Tina",
-    "clubID": "132",
+    "club_id": "132",
     "nationality": "de",
     "category": "w"
   },
   "4886": {
     "surname": "Jurczyk",
     "name": "Artur",
-    "clubID": "250",
+    "club_id": "250",
     "nationality": "pl",
     "category": "mo"
   },
   "9328": {
     "surname": "Kaczmarski",
     "name": "Maciej",
-    "clubID": "784",
+    "club_id": "784",
     "nationality": "pl",
     "category": "mo"
   },
   "5116": {
     "surname": "Kedro",
     "name": "Tomáš",
-    "clubID": "624",
+    "club_id": "624",
     "nationality": "sk",
     "category": "mo"
   },
   "5865": {
     "surname": "Kelemen",
     "name": "Tamás Pál",
-    "clubID": "291",
+    "club_id": "291",
     "nationality": "hu",
     "category": "mo"
   },
   "1475": {
     "surname": "Kirschweng",
     "name": "Balázs",
-    "clubID": "291",
+    "club_id": "291",
     "nationality": "hu",
     "category": "mo"
   },
   "3624": {
     "surname": "Kliment",
     "name": "Viktor",
-    "clubID": "790",
+    "club_id": "790",
     "nationality": "cz",
     "category": "mo"
   },
   "7783": {
     "name": "Peter",
     "surname": "Kmec",
-    "clubID": "287",
+    "club_id": "287",
     "nationality": "sk",
     "category": "mo"
   },
   "8145": {
     "surname": "Köhler",
     "name": "Markus",
-    "clubID": "132",
+    "club_id": "132",
     "nationality": "de",
     "category": "mo"
   },
   "8941": {
     "name": "Igor",
     "surname": "Kois",
-    "clubID": "1096",
+    "club_id": "1096",
     "nationality": "sk",
     "category": "mo"
   },
   "4823": {
     "name": "Mikołaj",
     "surname": "Kołodziej",
-    "clubID": "502",
+    "club_id": "502",
     "nationality": "pl",
     "category": "mo"
   },
   "10283": {
     "surname": "Koncewicz",
     "name": "Filip",
-    "clubID": "958",
+    "club_id": "958",
     "nationality": "pl",
     "category": "mo"
   },
   "8367": {
     "surname": "Kontriš",
     "name": "Samuel",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "mo"
   },
   "3264": {
     "surname": "Koprowska",
     "name": "Joanna",
-    "clubID": "502",
+    "club_id": "502",
     "nationality": "pl",
     "category": "mo"
   },
   "6601": {
     "surname": "Kosán",
     "name": "Aleš",
-    "clubID": "787",
+    "club_id": "787",
     "nationality": "cz",
     "category": "mo"
   },
   "4893": {
     "surname": "Kozak",
     "name": "Krzysztof",
-    "clubID": "958",
+    "club_id": "958",
     "nationality": "pl",
     "category": "mo"
   },
   "-4": {
     "surname": "Král",
     "name": "Michal",
-    "clubID": "1125",
+    "club_id": "1125",
     "nationality": "cz",
     "category": "mo"
   },
   "10057": {
     "surname": "Krhutek",
     "name": "Matouš",
-    "clubID": "655",
+    "club_id": "655",
     "nationality": "cz",
     "category": "mo"
   },
   "10285": {
     "surname": "Krzyżanek",
     "name": "Aleksander",
-    "clubID": "502",
+    "club_id": "502",
     "nationality": "pl",
     "category": "mo"
   },
   "9338": {
     "surname": "Kubacki",
     "name": "Lukáš",
-    "clubID": "983",
+    "club_id": "983",
     "nationality": "cz",
     "category": "mo"
   },
   "4785": {
     "surname": "Kubalík",
     "name": "Vojtěch",
-    "clubID": "288",
+    "club_id": "288",
     "nationality": "cz",
     "category": "mo"
   },
   "10348": {
     "surname": "Kubinec",
     "name": "Samuel",
-    "clubID": "393",
+    "club_id": "393",
     "nationality": "cz",
     "category": "mo"
   },
   "2295": {
     "surname": "Kukumbergova",
     "name": "Alexandra",
-    "clubID": "264",
+    "club_id": "264",
     "nationality": "sk",
     "category": "w"
   },
   "6516": {
     "surname": "Kumecký",
     "name": "Martin",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "mo"
   },
   "8565": {
     "surname": "Kumięga",
     "name": "Marcin",
-    "clubID": "774",
+    "club_id": "774",
     "nationality": "pl",
     "category": "mo"
   },
   "2124": {
     "surname": "Kwiek",
     "name": "Maciej",
-    "clubID": "855",
+    "club_id": "855",
     "nationality": "pl",
     "category": "mo"
   },
   "8366": {
     "surname": "Lacinák",
     "name": "Maroš",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "mo"
   },
   "10129": {
     "surname": "Lakatoš",
     "name": "Matúš",
-    "clubID": "651",
+    "club_id": "651",
     "nationality": "sk",
     "category": "mo"
   },
   "10054": {
     "surname": "Laštovička",
     "name": "Tomáš",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "10392": {
     "surname": "Lazar",
     "name": "Václav",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "9352": {
     "surname": "Liberský",
     "name": "Miroslav",
-    "clubID": "790",
+    "club_id": "790",
     "nationality": "cz",
     "category": "mo"
   },
   "10135": {
     "surname": "Lizuch",
     "name": "Roman",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "9596": {
     "surname": "Lukeš",
     "name": "Petr",
-    "clubID": "362",
+    "club_id": "362",
     "nationality": "cz",
     "category": "mo"
   },
   "9597": {
     "surname": "Luknar",
     "name": "Rafael",
-    "clubID": "624",
+    "club_id": "624",
     "nationality": "sk",
     "category": "mo"
   },
   "9768": {
     "name": "Mateusz",
     "surname": "Malarski",
-    "clubID": "502",
+    "club_id": "502",
     "nationality": "pl",
     "category": "mo"
   },
   "9637": {
     "surname": "Malík",
     "name": "Ondřej",
-    "clubID": "1171",
+    "club_id": "1171",
     "nationality": "cz",
     "category": "mo"
   },
   "10395": {
     "surname": "Malíková",
     "name": "Lucie",
-    "clubID": "286",
+    "club_id": "286",
     "nationality": "cz",
     "category": "w"
   },
   "10284": {
     "surname": "Malinowski",
     "name": "Kacper",
-    "clubID": "247",
+    "club_id": "247",
     "nationality": "pl",
     "category": "mo"
   },
   "10288": {
     "surname": "Mamak",
     "name": "Michał",
-    "clubID": "1283",
+    "club_id": "1283",
     "nationality": "pl",
     "category": "mo"
   },
   "1478": {
     "surname": "Markupová",
     "name": "Pavla",
-    "clubID": "285",
+    "club_id": "285",
     "nationality": "cz",
     "category": "w"
   },
   "4819": {
     "surname": "Mastalerz",
     "name": "Michal",
-    "clubID": "285",
+    "club_id": "285",
     "nationality": "pl",
     "category": "mo"
   },
   "5610": {
     "surname": "Mauerhofer",
     "name": "Georg",
-    "clubID": "1275",
+    "club_id": "1275",
     "nationality": "at",
     "category": "mo"
   },
   "7829": {
     "surname": "Mazanec",
     "name": "Matej",
-    "clubID": "1157",
+    "club_id": "1157",
     "nationality": "cz",
     "category": "mo"
   },
   "8930": {
     "surname": "Medvid",
     "name": "Miroslav",
-    "clubID": "651",
+    "club_id": "651",
     "nationality": "sk",
     "category": "mo"
   },
   "9271": {
     "surname": "Mesarč",
     "name": "Jan",
-    "clubID": "288",
+    "club_id": "288",
     "nationality": "cz",
     "category": "mo"
   },
   "4769": {
     "surname": "Miga",
     "name": "Wojciech",
-    "clubID": "247",
+    "club_id": "247",
     "nationality": "pl",
     "category": "mo"
   },
   "1481": {
     "surname": "Módos",
     "name": "András",
-    "clubID": "291",
+    "club_id": "291",
     "nationality": "hu",
     "category": "mo"
   },
   "2037": {
     "surname": "Murgaš",
     "name": "Karel",
-    "clubID": "362",
+    "club_id": "362",
     "nationality": "cz",
     "category": "mo"
   },
   "1512": {
     "surname": "Musil",
     "name": "Tomáš",
-    "clubID": "288",
+    "club_id": "288",
     "nationality": "cz",
     "category": "mo"
   },
   "8118": {
     "name": "Peter",
     "surname": "Naake",
-    "clubID": "132",
+    "club_id": "132",
     "nationality": "de",
     "category": "mo"
   },
   "5310": {
     "surname": "Nagy",
     "name": "Máté Kálmán",
-    "clubID": "56",
+    "club_id": "56",
     "nationality": "hu",
     "category": "mo"
   },
   "9372": {
     "surname": "Nagy",
     "name": "Tibor Zsolt",
-    "clubID": "291",
+    "club_id": "291",
     "nationality": "hu",
     "category": "mo"
   },
   "7308": {
     "surname": "Nemec",
     "name": "Jan",
-    "clubID": "655",
+    "club_id": "655",
     "nationality": "cz",
     "category": "mo"
   },
   "8751": {
     "name": "Peter",
     "surname": "Neslušan",
-    "clubID": "287",
+    "club_id": "287",
     "nationality": "sk",
     "category": "mo"
   },
   "10131": {
     "surname": "Neuman",
     "name": "Jan",
-    "clubID": "790",
+    "club_id": "790",
     "nationality": "cz",
     "category": "mo"
   },
   "10136": {
     "surname": "Nizner",
     "name": "Josef",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "6518": {
     "surname": "Noga",
     "name": "Martin",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "mo"
   },
   "8767": {
     "surname": "Nowak",
     "name": "Adrian",
-    "clubID": "958",
+    "club_id": "958",
     "nationality": "pl",
     "category": "mo"
   },
   "9351": {
     "surname": "Ocelík",
     "name": "Matej",
-    "clubID": "380",
+    "club_id": "380",
     "nationality": "sk",
     "category": "mo"
   },
   "6519": {
     "name": "Andrej",
     "surname": "Orjabinec",
-    "clubID": "287",
+    "club_id": "287",
     "nationality": "sk",
     "category": "mo"
   },
   "9348": {
     "surname": "Országh",
     "name": "Marián",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "7305": {
     "surname": "Pająk",
     "name": "Paulina",
-    "clubID": "904",
+    "club_id": "904",
     "nationality": "pl",
     "category": "w"
   },
   "5935": {
     "surname": "Parell",
     "name": "Mikolaj",
-    "clubID": "248",
+    "club_id": "248",
     "nationality": "pl",
     "category": "mo"
   },
   "10125": {
     "surname": "Pasierbek",
     "name": "Maksymilian",
-    "clubID": "958",
+    "club_id": "958",
     "nationality": "pl",
     "category": "mo"
   },
   "8907": {
     "surname": "Paščenko",
     "name": "Petr",
-    "clubID": "983",
+    "club_id": "983",
     "nationality": "cz",
     "category": "mo"
   },
   "8753": {
     "surname": "Paul",
     "name": "Josef",
-    "clubID": "790",
+    "club_id": "790",
     "nationality": "cz",
     "category": "mo"
   },
   "10287": {
     "surname": "Pawełek",
     "name": "Kuba",
-    "clubID": "250",
+    "club_id": "250",
     "nationality": "pl",
     "category": "mo"
   },
   "5576": {
     "surname": "Pečiva",
     "name": "Lubomir",
-    "clubID": "655",
+    "club_id": "655",
     "nationality": "cz",
     "category": "mo"
   },
   "7837": {
     "surname": "Pekarek",
     "name": "Jindrich",
-    "clubID": "290",
+    "club_id": "290",
     "nationality": "cz",
     "category": "mo"
   },
   "3626": {
     "surname": "Pekárek",
     "name": "Václav",
-    "clubID": "290",
+    "club_id": "290",
     "nationality": "cz",
     "category": "mo"
   },
   "2298": {
     "surname": "Pevna",
     "name": "Beata",
-    "clubID": "380",
+    "club_id": "380",
     "nationality": "sk",
     "category": "w"
   },
   "10130": {
     "surname": "Piši",
     "name": "David",
-    "clubID": "287",
+    "club_id": "287",
     "nationality": "sk",
     "category": "mo"
   },
   "8905": {
     "surname": "Polanský",
     "name": "Kryštof",
-    "clubID": "362",
+    "club_id": "362",
     "nationality": "cz",
     "category": "mo"
   },
   "10059": {
     "surname": "Ponechal",
     "name": "Šimon",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "mo"
   },
   "10132": {
     "surname": "Porazík",
     "name": "Matej",
-    "clubID": "380",
+    "club_id": "380",
     "nationality": "sk",
     "category": "mo"
   },
   "7839": {
     "surname": "Pospiech",
     "name": "Filip",
-    "clubID": "247",
+    "club_id": "247",
     "nationality": "pl",
     "category": "mo"
   },
   "2138": {
     "surname": "Prokeš",
     "name": "Honza",
-    "clubID": "787",
+    "club_id": "787",
     "nationality": "cz",
     "category": "mo"
   },
   "7293": {
     "surname": "Raczyński",
     "name": "Jacek",
-    "clubID": "247",
+    "club_id": "247",
     "nationality": "pl",
     "category": "mo"
   },
   "2139": {
     "surname": "Richter",
     "name": "Vojtěch",
-    "clubID": "787",
+    "club_id": "787",
     "nationality": "cz",
     "category": "mo"
   },
   "8933": {
     "name": "Stefan",
     "surname": "Rimes",
-    "clubID": "1123",
+    "club_id": "1123",
     "nationality": "sk",
     "category": "mo"
   },
   "2299": {
     "surname": "Rubesova",
     "name": "Petra",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "w"
   },
   "10394": {
     "surname": "Ruč",
     "name": "Ondřej",
-    "clubID": "286",
+    "club_id": "286",
     "nationality": "cz",
     "category": "mo"
   },
   "6493": {
     "surname": "Salomao",
     "name": "Leonardo",
-    "clubID": "502",
+    "club_id": "502",
     "nationality": "br",
     "category": "mo"
   },
   "9638": {
     "surname": "Shmidt",
     "name": "Kirill",
-    "clubID": "285",
+    "club_id": "285",
     "nationality": "ru",
     "category": "mo"
   },
   "10058": {
     "surname": "Slovák",
     "name": "Jiří",
-    "clubID": "655",
+    "club_id": "655",
     "nationality": "cz",
     "category": "mo"
   },
   "7298": {
     "surname": "Sokol",
     "name": "Vaclav",
-    "clubID": "903",
+    "club_id": "903",
     "nationality": "cz",
     "category": "mo"
   },
   "10134": {
     "surname": "Stiess",
     "name": "Jan",
-    "clubID": "362",
+    "club_id": "362",
     "nationality": "cz",
     "category": "mo"
   },
   "9274": {
     "surname": "Stolarek",
     "name": "Kasper",
-    "clubID": "247",
+    "club_id": "247",
     "nationality": "pl",
     "category": "mo"
   },
   "1489": {
     "surname": "Sucha",
     "name": "Tomáš",
-    "clubID": "624",
+    "club_id": "624",
     "nationality": "sk",
     "category": "mo"
   },
   "10055": {
     "surname": "Suchan",
     "name": "Jakub",
-    "clubID": "1125",
+    "club_id": "1125",
     "nationality": "cz",
     "category": "mo"
   },
   "6865": {
     "surname": "Suchy",
     "name": "Gabriel",
-    "clubID": "1099",
+    "club_id": "1099",
     "nationality": "pl",
     "category": "mo"
   },
   "9273": {
     "name": "Mateusz",
     "surname": "Szudrawski",
-    "clubID": "502",
+    "club_id": "502",
     "nationality": "pl",
     "category": "mo"
   },
   "1487": {
     "name": "Ondrej",
     "surname": "Šauša",
-    "clubID": "264",
+    "club_id": "264",
     "nationality": "sk",
     "category": "mo"
   },
   "1488": {
     "surname": "Šilhánek",
     "name": "Pavel",
-    "clubID": "288",
+    "club_id": "288",
     "nationality": "cz",
     "category": "mo"
   },
   "10137": {
     "surname": "Šoutová",
     "name": "Ľubica",
-    "clubID": "264",
+    "club_id": "264",
     "nationality": "sk",
     "category": "w"
   },
   "-1": {
     "surname": "Šrajer",
     "name": "Matěj",
-    "clubID": "1170",
+    "club_id": "1170",
     "nationality": "cz",
     "category": "mo"
   },
   "2290": {
     "surname": "Štětina",
     "name": "Jan",
-    "clubID": "393",
+    "club_id": "393",
     "nationality": "cz",
     "category": "mo"
   },
   "9602": {
     "surname": "Šváchová",
     "name": "Nikol",
-    "clubID": "285",
+    "club_id": "285",
     "nationality": "cz",
     "category": "w"
   },
   "8936": {
     "surname": "Tichý",
     "name": "Jindřich",
-    "clubID": "1125",
+    "club_id": "1125",
     "nationality": "cz",
     "category": "mo"
   },
   "9831": {
     "surname": "Timea",
     "name": "Tang Mei",
-    "clubID": "56",
+    "club_id": "56",
     "nationality": "hu",
     "category": "w"
   },
   "8903": {
     "surname": "Tkáč",
     "name": "Rudolf",
-    "clubID": "1157",
+    "club_id": "1157",
     "nationality": "cz",
     "category": "mo"
   },
   "3486": {
     "name": "Filip",
     "surname": "Trcka",
-    "clubID": "651",
+    "club_id": "651",
     "nationality": "sk",
     "category": "mo"
   },
   "9105": {
     "surname": "Truhlář",
     "name": "Jan",
-    "clubID": "290",
+    "club_id": "290",
     "nationality": "cz",
     "category": "mo"
   },
   "2762": {
     "surname": "Třetinová",
     "name": "Michaela",
-    "clubID": "380",
+    "club_id": "380",
     "nationality": "sk",
     "category": "w"
   },
   "4787": {
     "surname": "Tylich",
     "name": "Jaroslav",
-    "clubID": "393",
+    "club_id": "393",
     "nationality": "cz",
     "category": "mo"
   },
   "3630": {
     "surname": "Typl",
     "name": "Lukáš",
-    "clubID": "285",
+    "club_id": "285",
     "nationality": "cz",
     "category": "mo"
   },
   "1493": {
     "name": "Andrej",
     "surname": "Valacsay",
-    "clubID": "264",
+    "club_id": "264",
     "nationality": "sk",
     "category": "mo"
   },
   "10349": {
     "surname": "Večeřák",
     "name": "Tadeáš",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "6755": {
     "surname": "Vincena",
     "name": "Petr",
-    "clubID": "362",
+    "club_id": "362",
     "nationality": "cz",
     "category": "mo"
   },
   "9358": {
     "surname": "Virag",
     "name": "Orsolya",
-    "clubID": "291",
+    "club_id": "291",
     "nationality": "hu",
     "category": "w"
   },
   "2097": {
     "surname": "Višňovský",
     "name": "Filip",
-    "clubID": "377",
+    "club_id": "377",
     "nationality": "sk",
     "category": "mo"
   },
   "9598": {
     "surname": "Vítek",
     "name": "Roman",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "9636": {
     "surname": "Vlasák",
     "name": "Jakub",
-    "clubID": "1125",
+    "club_id": "1125",
     "nationality": "cz",
     "category": "mo"
   },
   "9272": {
     "surname": "Vochozka",
     "name": "Josef",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "9603": {
     "surname": "Voleková",
     "name": "Marie",
-    "clubID": "362",
+    "club_id": "362",
     "nationality": "cz",
     "category": "w"
   },
   "8899": {
     "surname": "Vrabec",
     "name": "Martin",
-    "clubID": "1171",
+    "club_id": "1171",
     "nationality": "cz",
     "category": "mo"
   },
   "2140": {
     "surname": "Vrábeľ",
     "name": "Martin",
-    "clubID": "790",
+    "club_id": "790",
     "nationality": "sk",
     "category": "mo"
   },
   "9779": {
     "surname": "Wacławik",
     "name": "Aleksandra",
-    "clubID": "458",
+    "club_id": "458",
     "nationality": "pl",
     "category": "w"
   },
   "9339": {
     "surname": "Wurstová",
     "name": "Adéla",
-    "clubID": "288",
+    "club_id": "288",
     "nationality": "cz",
     "category": "w"
   },
   "8755": {
     "surname": "Zajíček",
     "name": "Antonín",
-    "clubID": "790",
+    "club_id": "790",
     "nationality": "cz",
     "category": "mo"
   },
   "4773": {
     "surname": "Zakrzewski",
     "name": "Karol",
-    "clubID": "774",
+    "club_id": "774",
     "nationality": "pl",
     "category": "mo"
   },
   "8904": {
     "surname": "Zelenka",
     "name": "Nick",
-    "clubID": "285",
+    "club_id": "285",
     "nationality": "cz",
     "category": "mo"
   },
   "9350": {
     "surname": "Zubalík",
     "name": "Jan",
-    "clubID": "786",
+    "club_id": "786",
     "nationality": "cz",
     "category": "mo"
   },
   "9599": {
     "surname": "Žebrowski",
     "name": "Mateusz",
-    "clubID": "250",
+    "club_id": "250",
     "nationality": "pl",
     "category": "mo"
   },
   "3631": {
     "surname": "Žegklitz",
     "name": "Jan",
-    "clubID": "362",
+    "club_id": "362",
     "nationality": "cz",
     "category": "mo"
   }

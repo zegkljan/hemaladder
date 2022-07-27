@@ -1,8 +1,8 @@
 import { Category, Division } from 'src/logic/ladder';
 
 export type TournamentDetailModel = {
-  fencerID: string;
-  tournamentID: string;
+  fencer_id: string;
+  tournament_id: string;
   division: Division;
   category: Category;
 };

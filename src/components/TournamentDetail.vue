@@ -3,10 +3,10 @@
     <q-card class="fit-content">
       <q-card-section class="row">
         <div class="text-h6 q-mr-md">
-          {{ data.tournaments[modelValue!.tournamentID].name }}
+          {{ data.tournaments![modelValue!.tournament_id].name }}
         </div>
         <q-btn
-          :href="'https://hemaratings.com/events/details/' + modelValue!.tournamentID"
+          :href="'https://hemaratings.com/events/details/' + modelValue!.tournament_id"
           target="_blank"
           icon="mdi-open-in-new"
           flat
@@ -39,21 +39,21 @@
           </thead>
           <tbody>
             <tr
-              v-for="p in data.tournaments[modelValue!.tournamentID].results[modelValue!.division][modelValue!.category]"
-              :key="p.id"
-              :class="{'highlight': p.id == modelValue!.fencerID}"
+              v-for="p in data.tournaments![modelValue!.tournament_id].competitions[modelValue!.division]![modelValue!.category]!.results"
+              :key="p.fencer_id"
+              :class="{'highlight': p.fencer_id == modelValue!.fencer_id}"
             >
               <td class="text-left">
                 {{ p.rank }}
               </td>
               <td class="text-left">
-                {{ data.people[p.id].name }}
+                {{ data.people[p.fencer_id].name }}
               </td>
               <td class="text-left">
-                {{ data.people[p.id].surname }}
+                {{ data.people[p.fencer_id].surname }}
               </td>
               <td class="text-left">
-                {{ data.clubs[data.people[p.id].clubID].name }}
+                {{ data.clubs[data.people[p.fencer_id].club_id].name }}
               </td>
             </tr>
           </tbody>

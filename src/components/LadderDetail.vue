@@ -3,8 +3,8 @@
     <q-card class="fit-content">
       <q-card-section>
         <div class="text-h6">
-          {{ data.people[modelValue!.fencerID].name }}
-          {{ data.people[modelValue!.fencerID].surname }}
+          {{ data.people[modelValue!.fencer_id].name }}
+          {{ data.people[modelValue!.fencer_id].surname }}
         </div>
       </q-card-section>
 
@@ -27,8 +27,8 @@
           <div class="row">
             <div>
               <q-item
-                v-if="data.people[modelValue!.fencerID].clubID"
-                v-bind="data.people[modelValue!.fencerID].clubID.startsWith('-') ? {} : {href: 'https://hemaratings.com/clubs/details/' + data.people[modelValue!.fencerID].clubID}"
+                v-if="data.people[modelValue!.fencer_id].club_id"
+                v-bind="data.people[modelValue!.fencer_id].club_id.startsWith('-') ? {} : {href: 'https://hemaratings.com/clubs/details/' + data.people[modelValue!.fencer_id].club_id}"
                 target="_blank"
               >
                 <q-item-section>
@@ -36,11 +36,11 @@
                     $t('ladderTable.clubLabel')
                   }}</q-item-label>
                   <q-item-label
-                    >{{data.clubs[data.people[modelValue!.fencerID].clubID].name}}</q-item-label
+                    >{{data.clubs[data.people[modelValue!.fencer_id].club_id].name}}</q-item-label
                   >
                 </q-item-section>
                 <q-item-section
-                  v-if="!data.people[modelValue!.fencerID].clubID.startsWith('-')"
+                  v-if="!data.people[modelValue!.fencer_id].club_id.startsWith('-')"
                   side
                 >
                   <q-icon name="mdi-open-in-new" />
@@ -58,8 +58,8 @@
 
             <div>
               <q-item
-                v-if="!modelValue!.fencerID.startsWith('-')"
-                :href="'https://hemaratings.com/fighters/details/' + modelValue!.fencerID"
+                v-if="!modelValue!.fencer_id.startsWith('-')"
+                :href="'https://hemaratings.com/fighters/details/' + modelValue!.fencer_id"
                 target="_blank"
               >
                 <q-item-section>
@@ -110,9 +110,9 @@
                 <th class="text-left">
                   {{ $t('ladderTable.fencerDetail.tournament') }}
                 </th>
-                <th class="text-left">
+                <!-- <th class="text-left">
                   {{ $t('categoryTitle') }}
-                </th>
+                </th> -->
                 <th class="text-left">
                   {{ $t('ladderTable.fencerDetail.date') }}
                 </th>
@@ -137,36 +137,27 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="t in modelValue!.tournaments"
-                :key="t.tournamentID + t.category"
-              >
+              <tr v-for="t in modelValue!.tournaments" :key="t.tournament_id">
                 <td class="text-left">
-                  {{ data.tournaments[t.tournamentID].name }}
+                  {{ data.tournaments![t.tournament_id].name }}
                 </td>
-                <td class="text-left">
+                <!-- <td class="text-left">
                   {{ $t('category.' + t.category) }}
-                </td>
+                </td> -->
                 <td class="text-left">
-                  {{ $d(data.tournaments[t.tournamentID].date) }}
+                  {{ $d(data.tournaments![t.tournament_id].date) }}
                 </td>
                 <td class="text-center">
-                  {{ data.tournaments[t.tournamentID].country }}
+                  {{ data.tournaments![t.tournament_id].country }}
                 </td>
                 <td class="text-center">
-                  {{ data.tournaments[t.tournamentID].results[division!][t.category].length }}
+                  {{ data.tournaments![t.tournament_id].competitions[division!]![category!]!.no_participants }}
                 </td>
                 <td class="text-center">
-                  {{ data.tournaments[t.tournamentID].results[division!][t.category].find(entry => entry.id == modelValue!.fencerID)?.rank }}
+                  {{ data.tournaments![t.tournament_id].competitions[division!]![category!]!.results!.find(entry => entry.fencer_id == modelValue!.fencer_id)?.rank }}
                 </td>
                 <td class="text-right">
-                  {{
-                    Math.round(
-                      t.coefficients
-                        .map((c) => c.value)
-                        .reduce((a, b) => a * b, 1) * 100
-                    ) / 100
-                  }}
+                  {{ Math.round(t.points * 100) / 100 }}
                   <q-badge
                     color="transparent"
                     text-color="black"
@@ -184,7 +175,7 @@
                               )
                             }}
                           </td>
-                          <td class="text-right">{{ c.value }}</td>
+                          <td class="text-right">{{ c.c }}</td>
                         </tr>
                         <tr>
                           <td>
@@ -196,7 +187,7 @@
                             {{
                               Math.round(
                                 t.coefficients
-                                  .map((c) => c.value)
+                                  .map((c) => c.c)
                                   .reduce((a, b) => a * b, 1) * 100
                               ) / 100
                             }}
@@ -211,7 +202,7 @@
                 </td>
                 <td class="text-center">
                   <q-btn
-                    @click="onTournamentDetail(t.tournamentID, t.category)"
+                    @click="onTournamentDetail(t.tournament_id, category!)"
                     flat
                     dense
                     round
@@ -280,6 +271,7 @@ const data = useData();
 const props = defineProps<{
   modelValue: LadderEntry | null;
   division: Division | null;
+  category: Category | null;
 }>();
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const emit = defineEmits<{
@@ -287,8 +279,8 @@ const emit = defineEmits<{
   (
     e: 'tournamentDetail',
     value: {
-      fencerID: string;
-      tournamentID: string;
+      fencer_id: string;
+      tournament_id: string;
       category: Category;
     }
   ): void;
@@ -305,11 +297,11 @@ const shown = computed<boolean>({
 
 const tab = ref('fencer');
 
-function onTournamentDetail(tournamentID: string, category: Category) {
+function onTournamentDetail(tournament_id: string, category: Category) {
   emit('tournamentDetail', {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    fencerID: props.modelValue!.fencerID,
-    tournamentID: tournamentID,
+    fencer_id: props.modelValue!.fencer_id,
+    tournament_id: tournament_id,
     category: category,
   });
 }

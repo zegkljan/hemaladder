@@ -3,8 +3,8 @@
     <q-table
       ref="table"
       :columns="columns"
-      :rows="ladder.entries"
-      row-key="fencerID"
+      :rows="ladder"
+      row-key="fencer_id"
       :pagination="{ rowsPerPage: 0, sortBy: 'rank', descending: false }"
       binary-state-sort
       hide-bottom
@@ -26,7 +26,7 @@
     <ladder-detail
       v-model="detailTarget"
       :division="division"
-      :category="ladder.category"
+      :category="category"
       @tournament-detail="onTournamentDetail"
     ></ladder-detail>
     <tournament-detail v-model="tournamentDetail"></tournament-detail>
@@ -60,13 +60,12 @@ thead tr:first-child th {
 <script setup lang="ts">
 import { QTableProps } from 'quasar';
 import {
-  Category,
-  FencerNationality,
-  Ladder,
-  TournamentsCountry,
-  computeLadder,
-  LadderEntry,
   Division,
+  Category,
+  Ladder,
+  LadderEntry,
+  loadTournaments,
+  loadLadders,
 } from 'src/logic/ladder';
 import { useI18n } from 'vue-i18n';
 import { useData } from 'src/stores/data';
@@ -81,13 +80,14 @@ const { t } = useI18n();
 
 const data = useData();
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
-  fencerCountry: FencerNationality;
-  tournamentsCountry: TournamentsCountry;
+  season: string;
   division: Division;
   category: Category;
 }>();
+
+data.tournaments = await loadTournaments(props.season);
+data.ladders = await loadLadders(props.season);
 
 const columns: ComputedRef<QTableProps['columns']> = computed(
   (): QTableProps['columns'] => [
@@ -102,7 +102,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
     {
       name: 'name',
       label: t('ladderTable.nameLabel'),
-      field: (row: LadderEntry) => data.people[row.fencerID].name,
+      field: (row: LadderEntry) => data.people[row.fencer_id].name,
       align: 'left',
       sortable: true,
       sort: (a: string, b: string) => a.localeCompare(b),
@@ -111,7 +111,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
     {
       name: 'surname',
       label: t('ladderTable.surnameLabel'),
-      field: (row: LadderEntry) => data.people[row.fencerID].surname,
+      field: (row: LadderEntry) => data.people[row.fencer_id].surname,
       align: 'left',
       sortable: true,
       sort: (a: string, b: string) => a.localeCompare(b),
@@ -121,7 +121,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       name: 'club',
       label: t('ladderTable.clubLabel'),
       field: (row: LadderEntry) =>
-        data.clubs[data.people[row.fencerID].clubID].name,
+        data.clubs[data.people[row.fencer_id].club_id]?.name,
       align: 'left',
       sortable: true,
       sort: (a: string, b: string) => a.localeCompare(b),
@@ -145,31 +145,13 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
   ]
 );
 
-const ladder: ComputedRef<Ladder> = computed(
-  (): Ladder =>
-    computeLadder(
-      data.tournaments,
-      data.people,
-      data.clubs,
-      props.division,
-      props.category,
-      props.fencerCountry != FencerNationality.ALL,
-      {
-        coefficients: {
-          foreignTournament: 1.25,
-          higherCategory: 1.25,
-          place: {
-            first: 1.5,
-            second: 1.33,
-            third: 1.25,
-            fourth: 1.16,
-          },
-        },
-        fencers: props.fencerCountry,
-        tournaments: props.tournamentsCountry,
-      }
-    )
-);
+const ladder: ComputedRef<Ladder> = computed((): Ladder => {
+  const res = data.ladders?.[props.division]?.[props.category];
+  if (res === undefined) {
+    throw Error('undefined ladder');
+  }
+  return res;
+});
 
 let style = {
   width: '100%',
@@ -192,8 +174,8 @@ function onDetailClick(entry: LadderEntry) {
 let tournamentDetail: Ref<TournamentDetailModel | null> = ref(null);
 
 function onTournamentDetail(detail: {
-  fencerID: string;
-  tournamentID: string;
+  fencer_id: string;
+  tournament_id: string;
   category: Category;
 }) {
   tournamentDetail.value = { ...detail, division: props.division };

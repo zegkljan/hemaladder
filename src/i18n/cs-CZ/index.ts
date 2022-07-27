@@ -1,25 +1,10 @@
-import {
-  Category,
-  CoefficientType,
-  Division,
-  FencerNationality,
-  TournamentsCountry,
-} from 'src/logic/ladder';
+import { Category, CoefficientType, Division } from 'src/logic/ladder';
 
 export default {
   appName: 'Neoficiální český HEMA žebříček',
   sourceCode: 'Zdrojový kód',
   settings: 'Nastavení',
-  fencerCountryTitle: 'Šermíři',
-  fencerCountry: {
-    [FencerNationality.CZ]: 'CZ',
-    [FencerNationality.ALL]: 'Všichni',
-  },
-  tournamentsCountryTitle: 'Turnaje',
-  tournamentsCountry: {
-    [TournamentsCountry.CZ]: 'CZ',
-    [TournamentsCountry.ALL]: 'Všechny',
-  },
+  seasonTitle: 'Sezóna',
   divisionTitle: 'Divize',
   division: {
     [Division.LS]: 'Dlouhý meč',
@@ -29,8 +14,8 @@ export default {
   },
   categoryTitle: 'Kategorie',
   category: {
-    [Category.MO]: 'Muži/open',
-    [Category.W]: 'Ženy',
+    [Category.MEN_OPEN]: 'Muži/open',
+    [Category.WOMEN]: 'Ženy',
   },
   ladderTable: {
     rankLabel: 'Pořadí',

@@ -1,28 +1,41 @@
+import { Store } from 'pinia';
+import { Season } from 'src/logic/ladder';
 import { RouteRecordRaw } from 'vue-router';
 
-const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      {
-        path: '',
-        redirect: '/cz/all/ls/mo',
-      },
-      {
-        path: '/:fencerCountry/:tournamentsCountry/:division/:category',
-        component: () => import('pages/LadderPage.vue'),
-        props: true,
-      },
-    ],
-  },
+function buildRoutes(
+  data: Store<
+    'data',
+    {
+      seasons: Season[];
+    }
+  >
+): RouteRecordRaw[] {
+  return [
+    {
+      path: '/',
+      component: () => import('layouts/MainLayout.vue'),
+      children: [
+        {
+          path: '',
+          redirect: () => {
+            return `/${data.seasons.at(-1)?.folder}/ls/mo`;
+          },
+        },
+        {
+          path: '/:season/:division/:category',
+          component: () => import('pages/LadderPage.vue'),
+          props: true,
+        },
+      ],
+    },
 
-  // Always leave this as last one,
-  // but you can also remove it
-  {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
-  },
-];
+    // Always leave this as last one,
+    // but you can also remove it
+    {
+      path: '/:catchAll(.*)*',
+      component: () => import('pages/ErrorNotFound.vue'),
+    },
+  ];
+}
 
-export default routes;
+export default buildRoutes;

@@ -70,7 +70,7 @@ class Person:
         self.id = id
         self.name = raw['name']
         self.surname = raw['surname']
-        self.club_id = raw['clubID']
+        self.club_id = raw['club_id']
         if 'nationality' not in raw:
             self.nationality = None
         else:
@@ -207,10 +207,11 @@ class LadderBuilder:
                 nationality = person.nationality
 
             if nationality != 'cz':
-                return
+                continue
 
             if entry.fencer_id not in _intermediate:
-                _intermediate[entry.fencer_id] = LadderEntry(entry.fencer_id, 0, [])
+                _intermediate[entry.fencer_id] = LadderEntry(
+                    entry.fencer_id, 0, [])
 
             coeffs = [Coefficient(tournament.coefficient,
                                   CoefficientType.TOURNAMENT)]

@@ -43,31 +43,17 @@
         <q-item-label header> {{ $t('settings') }} </q-item-label>
         <q-separator />
 
-        <q-item-label header caption>{{
-          $t('fencerCountryTitle')
-        }}</q-item-label>
-        <q-item
-          v-for="c in getEnumValues(FencerNationality)"
-          :key="c"
-          :to="routeLink({ what: 'fencers', target: c })"
-        >
-          <q-item-section>
-            <q-item-label>{{ $t('fencerCountry.' + c) }}</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-separator />
-
-        <q-item-label header caption>{{
-          $t('tournamentsCountryTitle')
-        }}</q-item-label>
-        <q-item
-          v-for="c in getEnumValues(TournamentsCountry)"
-          :key="c"
-          :to="routeLink({ what: 'tournaments', target: c })"
-        >
-          <q-item-section>
-            <q-item-label>{{ $t('tournamentsCountry.' + c) }}</q-item-label>
-          </q-item-section>
+        <q-item-label header caption>{{ $t('seasonTitle') }}</q-item-label>
+        <q-item>
+          <q-select
+            :model-value="season"
+            @update:model-value="onSeasonChange"
+            :options="data.seasons"
+            option-value="folder"
+            option-label="name"
+            style="width: 100%"
+            borderless
+          ></q-select>
         </q-item>
         <q-separator />
 
@@ -98,22 +84,24 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <suspense :timeout="0">
+        <router-view />
+        <template #fallback>
+          <q-page class="row items-top justify-evenly"> Loading... </q-page>
+        </template>
+      </suspense>
     </q-page-container>
   </q-layout>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, ComputedRef } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { getEnumValues } from 'src/logic/utils';
-import { useRoute } from 'vue-router';
-import {
-  Category,
-  FencerNationality,
-  TournamentsCountry,
-  Division,
-} from 'src/logic/ladder';
+import { useRoute, useRouter } from 'vue-router';
+import { Season, Category, Division } from 'src/logic/ladder';
+import { useData } from 'src/stores/data';
+import { computed } from '@vue/reactivity';
 
 const leftDrawerOpen = ref(false);
 
@@ -124,30 +112,43 @@ const localeOptions = [
 ];
 
 const route = useRoute();
+const router = useRouter();
+
+const data = useData();
+
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
+
+const season: ComputedRef<Season | undefined> = computed(
+  (): Season | undefined => {
+    const rawSeason = router.currentRoute.value.params['season'];
+    const s = data.seasons.find((s) => s.folder === rawSeason);
+    return s;
+  }
+);
+
+function onSeasonChange(val: Season) {
+  router.push(routeLink({ what: 'season', target: val }));
+}
+
 function routeLink(
   options:
-    | { what: 'fencers'; target: FencerNationality }
-    | { what: 'tournaments'; target: TournamentsCountry }
+    | { what: 'season'; target: Season }
     | { what: 'division'; target: Division }
     | { what: 'category'; target: Category }
 ): string {
-  const fencers = route.params.fencerCountry;
-  const tournaments = route.params.tournamentsCountry;
+  const season = route.params.season;
   const division = route.params.division;
   const category = route.params.category;
 
   switch (options.what) {
-    case 'fencers':
-      return `/${options.target}/${tournaments}/${division}/${category}`;
-    case 'tournaments':
-      return `/${fencers}/${options.target}/${division}/${category}`;
+    case 'season':
+      return `/${options.target.folder}/${division}/${category}`;
     case 'division':
-      return `/${fencers}/${tournaments}/${options.target}/${category}`;
+      return `/${season}/${options.target}/${category}`;
     case 'category':
-      return `/${fencers}/${tournaments}/${division}/${options.target}`;
+      return `/${season}/${division}/${options.target}`;
   }
 }
 </script>
