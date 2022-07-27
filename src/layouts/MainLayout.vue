@@ -64,23 +64,29 @@
         <q-item
           v-else
           v-for="d in divisions"
-          :key="d"
-          :to="routeLink(null, d, null)"
+          :key="d.division"
+          :to="routeLink(null, d.division, null)"
+          :disable="!d.hasData"
+          :active="d.division === division"
         >
+          <q-tooltip v-if="!d.hasData">{{ $t('divisionNoData') }}</q-tooltip>
           <q-item-section>
-            <q-item-label>{{ $t('division.' + d) }}</q-item-label>
+            <q-item-label>{{ $t('division.' + d.division) }}</q-item-label>
           </q-item-section>
         </q-item>
         <q-separator />
 
         <q-item-label header caption> {{ $t('categoryTitle') }} </q-item-label>
         <q-item
-          v-for="c in getEnumValues(Category)"
-          :key="c"
-          :to="routeLink(null, null, c)"
+          v-for="c in categories"
+          :key="c.category"
+          :to="routeLink(null, null, c.category)"
+          :disable="!c.hasData"
+          :active="c.category === category"
         >
+          <q-tooltip v-if="!c.hasData">{{ $t('categoryNoData') }}</q-tooltip>
           <q-item-section>
-            <q-item-label>{{ $t('category.' + c) }}</q-item-label>
+            <q-item-label>{{ $t('category.' + c.category) }}</q-item-label>
           </q-item-section>
         </q-item>
         <q-separator />
@@ -102,11 +108,11 @@
 import { computed } from '@vue/reactivity';
 import {
   Category,
+  categoryReverseMap,
   Division,
   divisionReverseMap,
   Season,
 } from 'src/logic/ladder';
-import { getEnumValues } from 'src/logic/utils';
 import { useData } from 'src/stores/data';
 import { ComputedRef, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -139,27 +145,71 @@ const season: ComputedRef<Season | null> = computed(() => {
 });
 
 function onSeasonChanged(val: Season) {
-  router.replace(routeLink(val, null, null));
+  router.push(routeLink(val, null, null));
 }
 
-const divisions: ComputedRef<Division[] | undefined> = computed(
-  (): Division[] | undefined => {
-    if (!!data.tournaments) {
-      const tours = Object.values(data.tournaments);
-      const divs = new Set<Division>();
-      tours
-        .flatMap((t) => Object.keys(t.competitions))
-        .forEach((k) => {
-          const div = divisionReverseMap[k as keyof typeof divisionReverseMap];
-          divs.add(div);
-        });
-      const res = Array.from(divs);
-      res.sort();
-      return res;
-    } else {
-      return undefined;
-    }
+const divisions: ComputedRef<
+  { division: Division; hasData: boolean }[] | undefined
+> = computed((): { division: Division; hasData: boolean }[] | undefined => {
+  if (!!data.tournaments) {
+    const tours = Object.values(data.tournaments);
+    const divs = new Set<Division>();
+    tours
+      .flatMap((t) => Object.keys(t.competitions))
+      .forEach((k) => {
+        const div = divisionReverseMap[k as keyof typeof divisionReverseMap];
+        divs.add(div);
+      });
+    const res = Object.keys(divisionReverseMap)
+      .map((d) => {
+        const div = divisionReverseMap[d as keyof typeof divisionReverseMap];
+        return {
+          division: div,
+          hasData: divs.has(div),
+        };
+      })
+      .sort();
+    return res;
+  } else {
+    return undefined;
   }
+});
+
+const division: ComputedRef<Division> = computed(
+  (): Division =>
+    divisionReverseMap[route.params.division as keyof typeof divisionReverseMap]
+);
+
+const categories: ComputedRef<
+  { category: Category; hasData: boolean }[] | undefined
+> = computed((): { category: Category; hasData: boolean }[] | undefined => {
+  if (!!data.tournaments) {
+    const tours = Object.values(data.tournaments);
+    const cats = new Set<Category>();
+    tours
+      .flatMap((t) => Object.keys(t.competitions[division.value] ?? {}))
+      .forEach((k) => {
+        const cat = categoryReverseMap[k as keyof typeof categoryReverseMap];
+        cats.add(cat);
+      });
+    const res = Object.keys(categoryReverseMap)
+      .map((c) => {
+        const cat = categoryReverseMap[c as keyof typeof categoryReverseMap];
+        return {
+          category: cat,
+          hasData: cats.has(cat),
+        };
+      })
+      .sort();
+    return res;
+  } else {
+    return undefined;
+  }
+});
+
+const category: ComputedRef<Category> = computed(
+  (): Category =>
+    categoryReverseMap[route.params.category as keyof typeof categoryReverseMap]
 );
 
 function routeLink(
@@ -172,5 +222,21 @@ function routeLink(
   const c = category === null ? route.params.category : category;
 
   return `/${s}/${d}/${c}`;
+}
+
+function routeMatches(
+  season: Season | null,
+  division: Division | null,
+  category: Category | null
+): boolean {
+  const s = route.params.season;
+  const d = route.params.division;
+  const c = route.params.category;
+
+  return (
+    (season === null || season.folder === s) &&
+    (division === null || division === d) &&
+    (category === null || category === c)
+  );
 }
 </script>

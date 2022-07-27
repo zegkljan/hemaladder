@@ -5,6 +5,9 @@ export default {
   sourceCode: 'Source code',
   settings: 'Settings',
   chooseSeason: 'Choose season sezónu',
+  divisionNoData: 'There is no data for this division in this season.',
+  categoryNoData:
+    'There is no data for this category in this season and division.',
   noData:
     'There is no data for this combination of season, division, and category.',
   seasonTitle: 'Season',
