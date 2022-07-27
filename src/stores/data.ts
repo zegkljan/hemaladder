@@ -1,5 +1,13 @@
 import { defineStore } from 'pinia';
-import { People, Tournaments, Clubs, Ladders, Season } from 'src/logic/ladder';
+import {
+  People,
+  Tournaments,
+  Clubs,
+  Ladders,
+  Season,
+  loadTournaments,
+  loadLadders,
+} from 'src/logic/ladder';
 
 export const useData = defineStore('data', {
   state: () => ({
@@ -12,5 +20,13 @@ export const useData = defineStore('data', {
 
   getters: {},
 
-  actions: {},
+  actions: {
+    async loadSeason(season: string) {
+      console.debug('Loading season', season);
+      this.tournaments = undefined;
+      this.ladders = undefined;
+      this.tournaments = await loadTournaments(season);
+      this.ladders = await loadLadders(season);
+    },
+  },
 });

@@ -1,11 +1,13 @@
 <template>
   <q-page class="row items-top justify-evenly">
     <q-table
+      v-if="ladder !== null"
       ref="table"
       :columns="columns"
       :rows="ladder"
       row-key="fencer_id"
       :pagination="{ rowsPerPage: 0, sortBy: 'rank', descending: false }"
+      :loading="ladder === undefined"
       binary-state-sort
       hide-bottom
       square
@@ -23,7 +25,13 @@
         </q-td>
       </template>
     </q-table>
+    <div v-else>
+      <div class="text-center text-h2" style="margin: 2rem">
+        {{ $t('noData') }}
+      </div>
+    </div>
     <ladder-detail
+      v-if="ladder !== null"
       v-model="detailTarget"
       :division="division"
       :category="category"
@@ -58,23 +66,14 @@ thead tr:first-child th {
 </style>
 
 <script setup lang="ts">
-import { QTableProps } from 'quasar';
-import {
-  Division,
-  Category,
-  Ladder,
-  LadderEntry,
-  loadTournaments,
-  loadLadders,
-} from 'src/logic/ladder';
-import { useI18n } from 'vue-i18n';
-import { useData } from 'src/stores/data';
-import { ComputedRef, Ref } from 'vue';
 import { computed, ref } from '@vue/reactivity';
+import { QTableProps } from 'quasar';
 import LadderDetail from 'src/components/LadderDetail.vue';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import TournamentDetail from 'src/components/TournamentDetail.vue';
 import { TournamentDetailModel } from 'src/components/models';
+import { Category, Division, Ladder, LadderEntry } from 'src/logic/ladder';
+import { useData } from 'src/stores/data';
+import { ComputedRef, Ref, watchEffect } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
@@ -86,8 +85,9 @@ const props = defineProps<{
   category: Category;
 }>();
 
-data.tournaments = await loadTournaments(props.season);
-data.ladders = await loadLadders(props.season);
+watchEffect(async () => {
+  await data.loadSeason(props.season);
+});
 
 const columns: ComputedRef<QTableProps['columns']> = computed(
   (): QTableProps['columns'] => [
@@ -145,13 +145,20 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
   ]
 );
 
-const ladder: ComputedRef<Ladder> = computed((): Ladder => {
-  const res = data.ladders?.[props.division]?.[props.category];
-  if (res === undefined) {
-    throw Error('undefined ladder');
+const ladder: ComputedRef<Ladder | undefined | null> = computed(
+  (): Ladder | undefined | null => {
+    if (data.ladders === undefined) {
+      return undefined;
+    } else {
+      const ldr = data.ladders[props.division]?.[props.category];
+      if (ldr === undefined) {
+        return null;
+      } else {
+        return ldr;
+      }
+    }
   }
-  return res;
-});
+);
 
 let style = {
   width: '100%',

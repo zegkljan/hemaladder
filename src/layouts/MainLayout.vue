@@ -46,7 +46,8 @@
         <q-item-label header caption>{{ $t('seasonTitle') }}</q-item-label>
         <q-item>
           <q-select
-            v-model="season"
+            :model-value="season"
+            @update:model-value="onSeasonChanged"
             :options="data.seasons"
             option-value="folder"
             option-label="name"
@@ -57,14 +58,14 @@
         <q-separator />
 
         <q-item-label header caption> {{ $t('divisionTitle') }} </q-item-label>
-        <q-item v-if="!!season">
+        <q-item v-if="season === null">
           {{ $t('chooseSeason') }}
         </q-item>
         <q-item
           v-else
           v-for="d in divisions"
           :key="d"
-          :to="routeLink({ what: 'division', target: d })"
+          :to="routeLink(null, d, null)"
         >
           <q-item-section>
             <q-item-label>{{ $t('division.' + d) }}</q-item-label>
@@ -76,7 +77,7 @@
         <q-item
           v-for="c in getEnumValues(Category)"
           :key="c"
-          :to="routeLink({ what: 'category', target: c })"
+          :to="routeLink(null, null, c)"
         >
           <q-item-section>
             <q-item-label>{{ $t('category.' + c) }}</q-item-label>
@@ -98,18 +99,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, ComputedRef, WritableComputedRef } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { getEnumValues } from 'src/logic/utils';
-import { useRoute, useRouter } from 'vue-router';
+import { computed } from '@vue/reactivity';
 import {
-  Season,
   Category,
   Division,
   divisionReverseMap,
+  Season,
 } from 'src/logic/ladder';
+import { getEnumValues } from 'src/logic/utils';
 import { useData } from 'src/stores/data';
-import { computed } from '@vue/reactivity';
+import { ComputedRef, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useRoute, useRouter } from 'vue-router';
 
 const leftDrawerOpen = ref(false);
 
@@ -128,23 +129,17 @@ function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 
-const season: WritableComputedRef<Season | undefined> = computed({
-  get: () => {
-    const rawSeason = router.currentRoute.value.params['season'];
-    const s = data.seasons.find((s) => s.folder === rawSeason);
+const season: ComputedRef<Season | null> = computed(() => {
+  const rawSeason = router.currentRoute.value.params['season'];
+  const s = data.seasons.find((s) => s.folder === rawSeason);
+  if (!!s) {
     return s;
-  },
-  set: (val) => {
-    console.debug(val);
-    if (!!val) {
-      router.push(routeLink({ what: 'season', target: val }));
-    }
-  },
+  }
+  return null;
 });
 
-function onSeasonChange(val: Season) {
-  console.debug(val);
-  router.push(routeLink({ what: 'season', target: val }));
+function onSeasonChanged(val: Season) {
+  router.replace(routeLink(val, null, null));
 }
 
 const divisions: ComputedRef<Division[] | undefined> = computed(
@@ -168,22 +163,14 @@ const divisions: ComputedRef<Division[] | undefined> = computed(
 );
 
 function routeLink(
-  options:
-    | { what: 'season'; target: Season }
-    | { what: 'division'; target: Division }
-    | { what: 'category'; target: Category }
+  season: Season | null,
+  division: Division | null,
+  category: Category | null
 ): string {
-  const season = route.params.season;
-  const division = route.params.division;
-  const category = route.params.category;
+  const s = season === null ? route.params.season : season.folder;
+  const d = division === null ? route.params.division : division;
+  const c = category === null ? route.params.category : category;
 
-  switch (options.what) {
-    case 'season':
-      return `/${options.target.folder}/${division}/${category}`;
-    case 'division':
-      return `/${season}/${options.target}/${category}`;
-    case 'category':
-      return `/${season}/${division}/${options.target}`;
-  }
+  return `/${s}/${d}/${c}`;
 }
 </script>

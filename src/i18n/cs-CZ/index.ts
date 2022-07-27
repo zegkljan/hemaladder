@@ -5,6 +5,7 @@ export default {
   sourceCode: 'Zdrojový kód',
   settings: 'Nastavení',
   chooseSeason: 'Vyberte sezónu',
+  noData: 'Pro tuto kombinaci sezóny, divize a kategorie nejsou žádná data.',
   seasonTitle: 'Sezóna',
   divisionTitle: 'Divize',
   division: {

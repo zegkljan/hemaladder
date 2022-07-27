@@ -4,7 +4,9 @@ export default {
   appName: 'Unofficial czech HEMA ladder',
   sourceCode: 'Source code',
   settings: 'Settings',
-  chooseSeason: 'Vyberte sezónu',
+  chooseSeason: 'Choose season sezónu',
+  noData:
+    'There is no data for this combination of season, division, and category.',
   seasonTitle: 'Season',
   divisionTitle: 'Division',
   division: {
