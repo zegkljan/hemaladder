@@ -4,6 +4,7 @@ export default {
   appName: 'Neoficiální český HEMA žebříček',
   sourceCode: 'Zdrojový kód',
   settings: 'Nastavení',
+  chooseSeason: 'Vyberte sezónu',
   seasonTitle: 'Sezóna',
   divisionTitle: 'Divize',
   division: {
@@ -11,6 +12,7 @@ export default {
     [Division.R]: 'Rapír',
     [Division.RD]: 'Rapír a dýka',
     [Division.SB]: 'Meč a štítek',
+    [Division.SAB]: 'Šavle',
   },
   categoryTitle: 'Kategorie',
   category: {

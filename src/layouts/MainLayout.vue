@@ -46,8 +46,7 @@
         <q-item-label header caption>{{ $t('seasonTitle') }}</q-item-label>
         <q-item>
           <q-select
-            :model-value="season"
-            @update:model-value="onSeasonChange"
+            v-model="season"
             :options="data.seasons"
             option-value="folder"
             option-label="name"
@@ -58,8 +57,12 @@
         <q-separator />
 
         <q-item-label header caption> {{ $t('divisionTitle') }} </q-item-label>
+        <q-item v-if="!!season">
+          {{ $t('chooseSeason') }}
+        </q-item>
         <q-item
-          v-for="d in getEnumValues(Division).filter((d) => d == Division.LS)"
+          v-else
+          v-for="d in divisions"
           :key="d"
           :to="routeLink({ what: 'division', target: d })"
         >
@@ -95,11 +98,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, ComputedRef } from 'vue';
+import { ref, ComputedRef, WritableComputedRef } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { getEnumValues } from 'src/logic/utils';
 import { useRoute, useRouter } from 'vue-router';
-import { Season, Category, Division } from 'src/logic/ladder';
+import {
+  Season,
+  Category,
+  Division,
+  divisionReverseMap,
+} from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
 import { computed } from '@vue/reactivity';
 
@@ -120,17 +128,44 @@ function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 
-const season: ComputedRef<Season | undefined> = computed(
-  (): Season | undefined => {
+const season: WritableComputedRef<Season | undefined> = computed({
+  get: () => {
     const rawSeason = router.currentRoute.value.params['season'];
     const s = data.seasons.find((s) => s.folder === rawSeason);
     return s;
-  }
-);
+  },
+  set: (val) => {
+    console.debug(val);
+    if (!!val) {
+      router.push(routeLink({ what: 'season', target: val }));
+    }
+  },
+});
 
 function onSeasonChange(val: Season) {
+  console.debug(val);
   router.push(routeLink({ what: 'season', target: val }));
 }
+
+const divisions: ComputedRef<Division[] | undefined> = computed(
+  (): Division[] | undefined => {
+    if (!!data.tournaments) {
+      const tours = Object.values(data.tournaments);
+      const divs = new Set<Division>();
+      tours
+        .flatMap((t) => Object.keys(t.competitions))
+        .forEach((k) => {
+          const div = divisionReverseMap[k as keyof typeof divisionReverseMap];
+          divs.add(div);
+        });
+      const res = Array.from(divs);
+      res.sort();
+      return res;
+    } else {
+      return undefined;
+    }
+  }
+);
 
 function routeLink(
   options:

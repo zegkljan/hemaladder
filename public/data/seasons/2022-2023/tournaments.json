@@ -1,0 +1,149 @@
+{
+  "1663": {
+    "name": "KR Spring Tournament 2022",
+    "date": "2022-05-28",
+    "country": "hu",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 41,
+          "results": [
+            {
+              "fencer_id": "2090",
+              "rank": 1
+            },
+            {
+              "fencer_id": "9349",
+              "rank": 2
+            },
+            {
+              "fencer_id": "9598",
+              "rank": 3
+            },
+            {
+              "fencer_id": "9348",
+              "rank": 6
+            },
+            {
+              "fencer_id": "9270",
+              "rank": 7
+            },
+            {
+              "fencer_id": "9272",
+              "rank": 13
+            },
+            {
+              "fencer_id": "10136",
+              "rank": 18
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 19
+            },
+            {
+              "fencer_id": "10349",
+              "rank": 30
+            },
+            {
+              "fencer_id": "10131",
+              "rank": 34
+            }
+          ]
+        }
+      }
+    }
+  },
+  "t1": {
+    "name": "Black Horns Cup 2022",
+    "date": "2022-06-04",
+    "country": "pl",
+    "coefficient": 1,
+    "competitions": {
+      "sab": {
+        "mo": {
+          "no_participants": 34,
+          "results": [
+            {
+              "fencer_id": "3626",
+              "rank": 20
+            },
+            {
+              "fencer_id": "7837",
+              "rank": 24
+            },
+            {
+              "fencer_id": "9598",
+              "rank": 26
+            }
+          ]
+        }
+      },
+      "ls": {
+        "mo": {
+          "no_participants": 30,
+          "results": [
+            {
+              "fencer_id": "3631",
+              "rank": 2
+            },
+            {
+              "fencer_id": "9598",
+              "rank": 9
+            },
+            {
+              "fencer_id": "3626",
+              "rank": 26
+            }
+          ]
+        }
+      },
+      "rd": {
+        "mo": {
+          "no_participants": 27,
+          "results": [
+            {
+              "fencer_id": "9598",
+              "rank": 5
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 9
+            },
+            {
+              "fencer_id": "7837",
+              "rank": 19
+            },
+            {
+              "fencer_id": "3626",
+              "rank": 23
+            }
+          ]
+        }
+      },
+      "sb": {
+        "mo": {
+          "no_participants": 14,
+          "results": [
+            {
+              "fencer_id": "9598",
+              "rank": 8
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 8
+            },
+            {
+              "fencer_id": "3626",
+              "rank": 14
+            },
+            {
+              "fencer_id": "7837",
+              "rank": 14
+            }
+          ]
+        }
+      }
+    }
+  }
+}

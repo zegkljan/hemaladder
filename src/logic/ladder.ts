@@ -18,7 +18,7 @@ export enum Category {
   WOMEN = 'w',
 }
 
-const categoryReverseMap = {
+export const categoryReverseMap = {
   mo: Category.MEN_OPEN,
   w: Category.WOMEN,
 };
@@ -28,13 +28,15 @@ export enum Division {
   SB = 'sb',
   R = 'r',
   RD = 'rd',
+  SAB = 'sab',
 }
 
-const divisionReverseMap = {
+export const divisionReverseMap = {
   ls: Division.LS,
   sb: Division.SB,
   r: Division.R,
   rd: Division.RD,
+  sab: Division.SAB,
 };
 
 export enum CoefficientType {

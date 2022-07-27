@@ -16,6 +16,7 @@ class Division(enum.Enum):
     SB = 'sb'
     R = 'r'
     RD = 'rd'
+    SAB = 'sab'
 
 
 class CoefficientType(enum.Enum):
