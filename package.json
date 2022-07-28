@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -16,7 +17,8 @@
     "pinia": "^2.0.14",
     "quasar": "^2.6.0",
     "vue": "^3.0.0",
-    "vue-i18n": "^9.2.0-beta.35",
+    "vue-country-flag-next": "^2.3.2",
+    "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.0"
   },
   "devDependencies": {

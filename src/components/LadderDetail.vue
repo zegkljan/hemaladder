@@ -148,7 +148,14 @@
                   {{ $d(data.tournaments![t.tournament_id].date) }}
                 </td>
                 <td class="text-center">
-                  {{ data.tournaments![t.tournament_id].country }}
+                  <country-flag
+                    :country="data.tournaments![t.tournament_id].country"
+                    :shadow="true"
+                    size="normal"
+                  />
+                  <q-tooltip>
+                    {{ $t('countries.' + data.tournaments![t.tournament_id].country) }}
+                  </q-tooltip>
                 </td>
                 <td class="text-center">
                   {{ data.tournaments![t.tournament_id].competitions[division!]![category!]!.no_participants }}
@@ -276,6 +283,7 @@ import { useI18n } from 'vue-i18n';
 import { useData } from 'src/stores/data';
 import { ref } from 'vue';
 import { computed } from '@vue/reactivity';
+import CountryFlag from 'vue-country-flag-next';
 
 const { t } = useI18n();
 

@@ -7,6 +7,7 @@ export default boot(({ app }) => {
   const i18n = createI18n({
     locale: 'cs-CZ',
     messages,
+    globalInjection: true,
   });
 
   // Set i18n instance on app

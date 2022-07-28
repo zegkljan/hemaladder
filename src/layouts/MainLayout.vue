@@ -11,7 +11,11 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> {{ $t('appName') }} </q-toolbar-title>
+        <q-toolbar-title>
+          {{ $t('appName') }} - {{ season?.name }} -
+          {{ $t('division.' + division) }} -
+          {{ $t('category.' + category) }}</q-toolbar-title
+        >
       </q-toolbar>
     </q-header>
 
@@ -40,10 +44,8 @@
           </q-item-section>
         </q-item>
         <q-separator />
-        <q-item-label header> {{ $t('settings') }} </q-item-label>
-        <q-separator />
 
-        <q-item-label header caption>{{ $t('seasonTitle') }}</q-item-label>
+        <q-item-label header>{{ $t('seasonTitle') }}</q-item-label>
         <q-item>
           <q-select
             :model-value="season"
@@ -57,7 +59,7 @@
         </q-item>
         <q-separator />
 
-        <q-item-label header caption> {{ $t('divisionTitle') }} </q-item-label>
+        <q-item-label header> {{ $t('divisionTitle') }} </q-item-label>
         <q-item v-if="season === null">
           {{ $t('chooseSeason') }}
         </q-item>
@@ -76,7 +78,7 @@
         </q-item>
         <q-separator />
 
-        <q-item-label header caption> {{ $t('categoryTitle') }} </q-item-label>
+        <q-item-label header> {{ $t('categoryTitle') }} </q-item-label>
         <q-item
           v-for="c in categories"
           :key="c.category"
