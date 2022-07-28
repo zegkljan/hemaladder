@@ -54,11 +54,10 @@ export default {
       },
       coefficientTotal: 'Celkem',
       points: 'Počet bodů',
-      tournamentDetailLabel: 'Detail turnaje',
+      tournamentDetailLabel: 'HEMA Ratings',
       close: 'Zavřít',
     },
-    tournamentDetail: {
-      hemaratingsDetailTooltip: 'Otevřít záznam na HEMA Ratings',
-    },
+    hemaratingsDetailTooltip: 'Otevřít záznam turnaje na HEMA Ratings',
+    hemaratingsNoDetailTooltip: 'Turnaj nemá záznam na HEMA Ratings',
   },
 };

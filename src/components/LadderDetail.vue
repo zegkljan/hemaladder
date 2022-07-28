@@ -201,13 +201,27 @@
                   {{ t.points }}
                 </td>
                 <td class="text-center">
-                  <q-btn
-                    @click="onTournamentDetail(t.tournament_id, category!)"
-                    flat
-                    dense
-                    round
-                    icon="mdi-information-outline"
-                  />
+                  <div>
+                    <q-btn
+                      :href="
+                        'https://hemaratings.com/events/details/' +
+                        t.tournament_id
+                      "
+                      target="_blank"
+                      icon="mdi-open-in-new"
+                      flat
+                      dense
+                      round
+                      :disable="t.tournament_id.startsWith('-')"
+                    >
+                    </q-btn>
+                    <q-tooltip v-if="t.tournament_id.startsWith('-')">
+                      {{ $t('ladderTable.hemaratingsNoDetailTooltip') }}
+                    </q-tooltip>
+                    <q-tooltip v-else>
+                      {{ $t('ladderTable.hemaratingsDetailTooltip') }}
+                    </q-tooltip>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -296,13 +310,4 @@ const shown = computed<boolean>({
 });
 
 const tab = ref('fencer');
-
-function onTournamentDetail(tournament_id: string, category: Category) {
-  emit('tournamentDetail', {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    fencer_id: props.modelValue!.fencer_id,
-    tournament_id: tournament_id,
-    category: category,
-  });
-}
 </script>

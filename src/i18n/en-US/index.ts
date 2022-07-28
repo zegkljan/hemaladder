@@ -54,11 +54,10 @@ export default {
       },
       coefficientTotal: 'Total',
       points: 'No. of points',
-      tournamentDetailLabel: 'Tournament detail',
+      tournamentDetailLabel: 'HEMA Ratings',
       close: 'Close',
     },
-    tournamentDetail: {
-      hemaratingsDetailTooltip: 'Open record at HEMA Ratings',
-    },
+    hemaratingsDetailTooltip: 'Open tournament record at HEMA Ratings',
+    hemaratingsNoDetailTooltip: 'Tournament has no record at HEMA Ratings',
   },
 };
