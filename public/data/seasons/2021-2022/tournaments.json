@@ -22,20 +22,12 @@
               "rank": 3
             },
             {
-              "fencer_id": "2097",
-              "rank": 4
-            },
-            {
               "fencer_id": "3624",
               "rank": 5
             },
             {
               "fencer_id": "9271",
               "rank": 6
-            },
-            {
-              "fencer_id": "8366",
-              "rank": 7
             },
             {
               "fencer_id": "6598",
@@ -85,16 +77,8 @@
               "rank": 1
             },
             {
-              "fencer_id": "1489",
-              "rank": 2
-            },
-            {
               "fencer_id": "2290",
               "rank": 3
-            },
-            {
-              "fencer_id": "5116",
-              "rank": 4
             },
             {
               "fencer_id": "7298",
@@ -143,10 +127,6 @@
             {
               "fencer_id": "4787",
               "rank": 16
-            },
-            {
-              "fencer_id": "8366",
-              "rank": 17
             },
             {
               "fencer_id": "8935",
@@ -203,10 +183,6 @@
             {
               "fencer_id": "9596",
               "rank": 31
-            },
-            {
-              "fencer_id": "9597",
-              "rank": 32
             },
             {
               "fencer_id": "8899",
@@ -335,22 +311,6 @@
               "rank": 8
             },
             {
-              "fencer_id": "2097",
-              "rank": 9
-            },
-            {
-              "fencer_id": "1489",
-              "rank": 10
-            },
-            {
-              "fencer_id": "5116",
-              "rank": 11
-            },
-            {
-              "fencer_id": "5310",
-              "rank": 12
-            },
-            {
               "fencer_id": "2140",
               "rank": 13
             },
@@ -371,20 +331,8 @@
               "rank": 17
             },
             {
-              "fencer_id": "5865",
-              "rank": 18
-            },
-            {
-              "fencer_id": "8366",
-              "rank": 19
-            },
-            {
               "fencer_id": "9639",
               "rank": 20
-            },
-            {
-              "fencer_id": "2759",
-              "rank": 21
             },
             {
               "fencer_id": "1488",
@@ -393,10 +341,6 @@
             {
               "fencer_id": "9270",
               "rank": 23
-            },
-            {
-              "fencer_id": "1481",
-              "rank": 24
             },
             {
               "fencer_id": "2037",
@@ -411,16 +355,8 @@
               "rank": 27
             },
             {
-              "fencer_id": "6518",
-              "rank": 28
-            },
-            {
               "fencer_id": "9271",
               "rank": 29
-            },
-            {
-              "fencer_id": "1475",
-              "rank": 30
             },
             {
               "fencer_id": "6597",
@@ -431,20 +367,8 @@
               "rank": 32
             },
             {
-              "fencer_id": "4886",
-              "rank": 33
-            },
-            {
-              "fencer_id": "6516",
-              "rank": 34
-            },
-            {
               "fencer_id": "9348",
               "rank": 35
-            },
-            {
-              "fencer_id": "9595",
-              "rank": 36
             },
             {
               "fencer_id": "7298",
@@ -455,10 +379,6 @@
               "rank": 38
             },
             {
-              "fencer_id": "6497",
-              "rank": 39
-            },
-            {
               "fencer_id": "9338",
               "rank": 40
             },
@@ -467,16 +387,8 @@
               "rank": 41
             },
             {
-              "fencer_id": "9594",
-              "rank": 42
-            },
-            {
               "fencer_id": "8936",
               "rank": 43
-            },
-            {
-              "fencer_id": "2292",
-              "rank": 44
             },
             {
               "fencer_id": "8907",
@@ -487,10 +399,6 @@
               "rank": 46
             },
             {
-              "fencer_id": "9599",
-              "rank": 47
-            },
-            {
               "fencer_id": "5826",
               "rank": 48
             },
@@ -499,20 +407,8 @@
               "rank": 49
             },
             {
-              "fencer_id": "5310",
-              "rank": 50
-            },
-            {
-              "fencer_id": "8367",
-              "rank": 51
-            },
-            {
               "fencer_id": "9339",
               "rank": 52
-            },
-            {
-              "fencer_id": "9597",
-              "rank": 53
             }
           ]
         },
@@ -520,16 +416,8 @@
           "no_participants": 8,
           "results": [
             {
-              "fencer_id": "2299",
-              "rank": 1
-            },
-            {
               "fencer_id": "7828",
               "rank": 2
-            },
-            {
-              "fencer_id": "2292",
-              "rank": 3
             },
             {
               "fencer_id": "9600",
@@ -538,10 +426,6 @@
             {
               "fencer_id": "9339",
               "rank": 5
-            },
-            {
-              "fencer_id": "9601",
-              "rank": 6
             },
             {
               "fencer_id": "9603",
@@ -575,10 +459,6 @@
               "rank": 2
             },
             {
-              "fencer_id": "2097",
-              "rank": 3
-            },
-            {
               "fencer_id": "6755",
               "rank": 4
             },
@@ -607,20 +487,8 @@
               "rank": 10
             },
             {
-              "fencer_id": "8145",
-              "rank": 11
-            },
-            {
-              "fencer_id": "8930",
-              "rank": 12
-            },
-            {
               "fencer_id": "1478",
               "rank": 13
-            },
-            {
-              "fencer_id": "6518",
-              "rank": 14
             },
             {
               "fencer_id": "9271",
@@ -643,20 +511,12 @@
               "rank": 19
             },
             {
-              "fencer_id": "2299",
-              "rank": 20
-            },
-            {
               "fencer_id": "8936",
               "rank": 21
             },
             {
               "fencer_id": "8907",
               "rank": 22
-            },
-            {
-              "fencer_id": "10052",
-              "rank": 23
             },
             {
               "fencer_id": "10054",
@@ -683,10 +543,6 @@
               "rank": 29
             },
             {
-              "fencer_id": "10056",
-              "rank": 30
-            },
-            {
               "fencer_id": "9596",
               "rank": 31
             },
@@ -705,10 +561,6 @@
             {
               "fencer_id": "8899",
               "rank": 35
-            },
-            {
-              "fencer_id": "10059",
-              "rank": 36
             },
             {
               "fencer_id": "9350",
@@ -742,16 +594,8 @@
               "rank": 2
             },
             {
-              "fencer_id": "4823",
-              "rank": 3
-            },
-            {
               "fencer_id": "2140",
               "rank": 4
-            },
-            {
-              "fencer_id": "9273",
-              "rank": 5
             },
             {
               "fencer_id": "3631",
@@ -762,52 +606,12 @@
               "rank": 7
             },
             {
-              "fencer_id": "5116",
-              "rank": 8
-            },
-            {
               "fencer_id": "5576",
               "rank": 9
             },
             {
-              "fencer_id": "2759",
-              "rank": 10
-            },
-            {
-              "fencer_id": "6519",
-              "rank": 11
-            },
-            {
-              "fencer_id": "8118",
-              "rank": 12
-            },
-            {
-              "fencer_id": "8930",
-              "rank": 13
-            },
-            {
-              "fencer_id": "1489",
-              "rank": 14
-            },
-            {
-              "fencer_id": "5310",
-              "rank": 15
-            },
-            {
-              "fencer_id": "1487",
-              "rank": 16
-            },
-            {
               "fencer_id": "6753",
               "rank": 17
-            },
-            {
-              "fencer_id": "9767",
-              "rank": 18
-            },
-            {
-              "fencer_id": "1493",
-              "rank": 19
             },
             {
               "fencer_id": "8907",
@@ -822,24 +626,8 @@
               "rank": 22
             },
             {
-              "fencer_id": "10129",
-              "rank": 23
-            },
-            {
-              "fencer_id": "5115",
-              "rank": 24
-            },
-            {
               "fencer_id": "9348",
               "rank": 25
-            },
-            {
-              "fencer_id": "3486",
-              "rank": 26
-            },
-            {
-              "fencer_id": "10127",
-              "rank": 27
             },
             {
               "fencer_id": "3624",
@@ -850,10 +638,6 @@
               "rank": 29
             },
             {
-              "fencer_id": "10133",
-              "rank": 30
-            },
-            {
               "fencer_id": "9352",
               "rank": 31
             },
@@ -862,36 +646,12 @@
               "rank": 32
             },
             {
-              "fencer_id": "10130",
-              "rank": 33
-            },
-            {
-              "fencer_id": "5825",
-              "rank": 34
-            },
-            {
               "fencer_id": "7308",
               "rank": 35
             },
             {
-              "fencer_id": "7783",
-              "rank": 36
-            },
-            {
-              "fencer_id": "8928",
-              "rank": 37
-            },
-            {
               "fencer_id": "9598",
               "rank": 38
-            },
-            {
-              "fencer_id": "9768",
-              "rank": 39
-            },
-            {
-              "fencer_id": "10125",
-              "rank": 40
             },
             {
               "fencer_id": "8936",
@@ -906,32 +666,12 @@
               "rank": 43
             },
             {
-              "fencer_id": "3627",
-              "rank": 44
-            },
-            {
-              "fencer_id": "4865",
-              "rank": 45
-            },
-            {
-              "fencer_id": "9351",
-              "rank": 46
-            },
-            {
               "fencer_id": "10136",
               "rank": 47
             },
             {
-              "fencer_id": "10132",
-              "rank": 48
-            },
-            {
               "fencer_id": "10058",
               "rank": 49
-            },
-            {
-              "fencer_id": "8751",
-              "rank": 50
             },
             {
               "fencer_id": "9271",
@@ -942,24 +682,12 @@
               "rank": 52
             },
             {
-              "fencer_id": "8941",
-              "rank": 53
-            },
-            {
               "fencer_id": "9350",
               "rank": 54
             },
             {
-              "fencer_id": "10059",
-              "rank": 55
-            },
-            {
               "fencer_id": "10134",
               "rank": 56
-            },
-            {
-              "fencer_id": "8933",
-              "rank": 57
             },
             {
               "fencer_id": "10135",
@@ -971,16 +699,8 @@
           "no_participants": 14,
           "results": [
             {
-              "fencer_id": "2299",
-              "rank": 1
-            },
-            {
               "fencer_id": "1478",
               "rank": 2
-            },
-            {
-              "fencer_id": "9358",
-              "rank": 3
             },
             {
               "fencer_id": "9600",
@@ -991,40 +711,8 @@
               "rank": 5
             },
             {
-              "fencer_id": "2294",
-              "rank": 6
-            },
-            {
-              "fencer_id": "2292",
-              "rank": 7
-            },
-            {
-              "fencer_id": "2295",
-              "rank": 8
-            },
-            {
-              "fencer_id": "9831",
-              "rank": 9
-            },
-            {
-              "fencer_id": "2762",
-              "rank": 10
-            },
-            {
               "fencer_id": "7828",
               "rank": 11
-            },
-            {
-              "fencer_id": "10137",
-              "rank": 12
-            },
-            {
-              "fencer_id": "9601",
-              "rank": 13
-            },
-            {
-              "fencer_id": "2298",
-              "rank": 14
             }
           ]
         }
@@ -1042,156 +730,20 @@
           "no_participants": 38,
           "results": [
             {
-              "fencer_id": "8220",
-              "rank": 1
-            },
-            {
-              "fencer_id": "4823",
-              "rank": 2
-            },
-            {
               "fencer_id": "3631",
               "rank": 3
-            },
-            {
-              "fencer_id": "6493",
-              "rank": 4
-            },
-            {
-              "fencer_id": "8366",
-              "rank": 5
-            },
-            {
-              "fencer_id": "9274",
-              "rank": 5
-            },
-            {
-              "fencer_id": "2759",
-              "rank": 5
-            },
-            {
-              "fencer_id": "2124",
-              "rank": 5
-            },
-            {
-              "fencer_id": "4773",
-              "rank": 9
             },
             {
               "fencer_id": "5822",
               "rank": 9
             },
             {
-              "fencer_id": "4893",
-              "rank": 9
-            },
-            {
-              "fencer_id": "4886",
-              "rank": 9
-            },
-            {
-              "fencer_id": "7293",
-              "rank": 9
-            },
-            {
-              "fencer_id": "9767",
-              "rank": 9
-            },
-            {
-              "fencer_id": "5310",
-              "rank": 9
-            },
-            {
-              "fencer_id": "10125",
-              "rank": 9
-            },
-            {
-              "fencer_id": "7301",
-              "rank": 17
-            },
-            {
-              "fencer_id": "10284",
-              "rank": 17
-            },
-            {
-              "fencer_id": "9273",
-              "rank": 17
-            },
-            {
-              "fencer_id": "5935",
-              "rank": 17
-            },
-            {
-              "fencer_id": "8565",
-              "rank": 17
-            },
-            {
               "fencer_id": "9271",
               "rank": 17
             },
             {
-              "fencer_id": "10285",
-              "rank": 17
-            },
-            {
-              "fencer_id": "9328",
-              "rank": 17
-            },
-            {
-              "fencer_id": "9770",
-              "rank": 25
-            },
-            {
-              "fencer_id": "4879",
-              "rank": 26
-            },
-            {
-              "fencer_id": "8767",
-              "rank": 27
-            },
-            {
-              "fencer_id": "10283",
-              "rank": 28
-            },
-            {
-              "fencer_id": "3264",
-              "rank": 28
-            },
-            {
               "fencer_id": "9339",
               "rank": 30
-            },
-            {
-              "fencer_id": "4769",
-              "rank": 31
-            },
-            {
-              "fencer_id": "10288",
-              "rank": 32
-            },
-            {
-              "fencer_id": "10127",
-              "rank": 33
-            },
-            {
-              "fencer_id": "8766",
-              "rank": 34
-            },
-            {
-              "fencer_id": "10287",
-              "rank": 34
-            },
-            {
-              "fencer_id": "6865",
-              "rank": 36
-            },
-            {
-              "fencer_id": "7839",
-              "rank": 37
-            },
-            {
-              "fencer_id": "10286",
-              "rank": 38
             }
           ]
         },
@@ -1199,16 +751,8 @@
           "no_participants": 3,
           "results": [
             {
-              "fencer_id": "7305",
-              "rank": 1
-            },
-            {
               "fencer_id": "9339",
               "rank": 2
-            },
-            {
-              "fencer_id": "9779",
-              "rank": 3
             }
           ]
         }
@@ -1248,10 +792,6 @@
             {
               "fencer_id": "8936",
               "rank": 6
-            },
-            {
-              "fencer_id": "5610",
-              "rank": 7
             },
             {
               "fencer_id": "10202",
@@ -1296,10 +836,6 @@
         "mo": {
           "no_participants": 54,
           "results": [
-            {
-              "fencer_id": "2097",
-              "rank": 1
-            },
             {
               "fencer_id": "3631",
               "rank": 2
@@ -1365,14 +901,6 @@
               "rank": 17
             },
             {
-              "fencer_id": "8366",
-              "rank": 18
-            },
-            {
-              "fencer_id": "8930",
-              "rank": 19
-            },
-            {
               "fencer_id": "9271",
               "rank": 20
             },
@@ -1383,10 +911,6 @@
             {
               "fencer_id": "9348",
               "rank": 22
-            },
-            {
-              "fencer_id": "4831",
-              "rank": 23
             },
             {
               "fencer_id": "7825",
@@ -1413,10 +937,6 @@
               "rank": 29
             },
             {
-              "fencer_id": "9351",
-              "rank": 30
-            },
-            {
               "fencer_id": "9596",
               "rank": 31
             },
@@ -1439,10 +959,6 @@
             {
               "fencer_id": "10057",
               "rank": 36
-            },
-            {
-              "fencer_id": "2299",
-              "rank": 37
             },
             {
               "fencer_id": "4785",
@@ -1507,10 +1023,6 @@
             {
               "fencer_id": "10346",
               "rank": 53
-            },
-            {
-              "fencer_id": "10059",
-              "rank": 54
             }
           ]
         },
@@ -1518,20 +1030,12 @@
           "no_participants": 4,
           "results": [
             {
-              "fencer_id": "2299",
-              "rank": 1
-            },
-            {
               "fencer_id": "9339",
               "rank": 2
             },
             {
               "fencer_id": "9600",
               "rank": 3
-            },
-            {
-              "fencer_id": "9601",
-              "rank": 4
             }
           ]
         }

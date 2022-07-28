@@ -71,7 +71,7 @@ class Person:
         self.id = id
         self.name = raw['name']
         self.surname = raw['surname']
-        self.club_id = raw['club_id']
+        self.club_id = raw.get('club_id', None)
         if 'nationality' not in raw:
             self.nationality = None
         else:
