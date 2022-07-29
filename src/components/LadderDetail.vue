@@ -35,9 +35,9 @@
                   <q-item-label caption>{{
                     $t('ladderTable.clubLabel')
                   }}</q-item-label>
-                  <q-item-label
-                    >{{data.clubs[data.people[modelValue!.fencer_id].club_id].name}}</q-item-label
-                  >
+                  <q-item-label>{{
+                    data.clubs[data.people[modelValue!.fencer_id].club_id].name
+                  }}</q-item-label>
                 </q-item-section>
                 <q-item-section
                   v-if="!data.people[modelValue!.fencer_id].club_id.startsWith('-')"
@@ -79,9 +79,9 @@
                   <q-item-label caption>{{
                     $t('ladderTable.fencerDetail.noTournamentsLabel')
                   }}</q-item-label>
-                  <q-item-label
-                    >{{ modelValue!.tournaments.length }}</q-item-label
-                  >
+                  <q-item-label>{{
+                    modelValue!.tournaments.length
+                  }}</q-item-label>
                 </q-item-section>
               </q-item>
             </div>
@@ -92,9 +92,12 @@
                   <q-item-label caption>{{
                     $t('ladderTable.fencerDetail.avgPtsPerTournamentLabel')
                   }}</q-item-label>
-                  <q-item-label
-                    >{{ Math.round(modelValue!.points / modelValue!.tournaments.length * 100) / 100 }}</q-item-label
-                  >
+                  <q-item-label>{{
+                    Math.round(
+                      (modelValue!.points / modelValue!.tournaments.length) *
+                        100
+                    ) / 100
+                  }}</q-item-label>
                 </q-item-section>
               </q-item>
             </div>
@@ -154,14 +157,29 @@
                     size="normal"
                   />
                   <q-tooltip>
-                    {{ $t('countries.' + data.tournaments![t.tournament_id].country) }}
+                    {{
+                      $t(
+                        'countries.' +
+                          data.tournaments![t.tournament_id].country
+                      )
+                    }}
                   </q-tooltip>
                 </td>
                 <td class="text-center">
-                  {{ data.tournaments![t.tournament_id].competitions[division!]![category!]!.no_participants }}
+                  {{
+                    data.tournaments![t.tournament_id].competitions[division!]![
+                      category!
+                    ]!.no_participants
+                  }}
                 </td>
                 <td class="text-center">
-                  {{ data.tournaments![t.tournament_id].competitions[division!]![category!]!.results!.find(entry => entry.fencer_id == modelValue!.fencer_id)?.rank }}
+                  {{
+                    data.tournaments![t.tournament_id].competitions[division!]![
+                      category!
+                    ]!.results!.find(
+                      (entry) => entry.fencer_id == modelValue!.fencer_id
+                    )?.rank
+                  }}
                 </td>
                 <td class="text-right">
                   {{ Math.round(t.points * 100) / 100 }}
@@ -238,11 +256,7 @@
 
       <q-separator />
       <q-card-actions align="right" class="text-primary">
-        <q-btn
-          v-close-popup
-          flat
-          :label="t('ladderTable.fencerDetail.close')"
-        />
+        <q-btn v-close-popup flat :label="t('close')" />
       </q-card-actions>
     </q-card>
   </q-dialog>

@@ -18,7 +18,7 @@ function buildRoutes(
         {
           path: '',
           redirect: () => {
-            return `/${data.seasons.at(-1)?.folder}/ls/mo`;
+            return `/${data.seasons[0].folder}/ls/mo`;
           },
         },
         {

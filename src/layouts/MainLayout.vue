@@ -30,7 +30,6 @@
               borderless
               emit-value
               map-options
-              options-dense
             />
           </q-item-section>
         </q-item>
@@ -42,6 +41,12 @@
           <q-item-section side>
             <q-icon name="mdi-open-in-new"></q-icon>
           </q-item-section>
+        </q-item>
+        <q-item clickable @click="addResultsDialogOpen = true">
+          <q-item-section avatar>
+            <q-icon name="mdi-file-document-plus"></q-icon>
+          </q-item-section>
+          <q-item-section>{{ $t('addResults.buttonLabel') }}</q-item-section>
         </q-item>
         <q-separator />
 
@@ -93,6 +98,22 @@
         </q-item>
         <q-separator />
       </q-list>
+      <q-dialog v-model="addResultsDialogOpen">
+        <q-card class="fit-content">
+          <q-card-section>
+            <div class="text-h6">{{ $t('addResults.title') }}</div>
+          </q-card-section>
+          <q-card-section v-html="$t('addResults.main')"> </q-card-section>
+          <q-separator inset />
+          <q-card-section
+            class="footnotes"
+            v-html="$t('addResults.footnotes')"
+          ></q-card-section>
+          <q-card-actions align="right" class="text-primary">
+            <q-btn v-close-popup flat :label="$t('close')" />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </q-drawer>
 
     <q-page-container>
@@ -105,6 +126,50 @@
     </q-page-container>
   </q-layout>
 </template>
+
+<style lang="scss">
+.fit-content {
+  width: fit-content;
+  max-width: fit-content !important;
+}
+
+.footnotes {
+  font-size: smaller;
+
+  ol {
+    list-style: none;
+    counter-reset: fnc;
+
+    li {
+      counter-increment: fnc;
+
+      &::before {
+        content: counter(fnc);
+        vertical-align: super;
+        font-size: smaller;
+      }
+    }
+
+    li {
+      counter-increment: fnc;
+
+      & + li {
+        margin-top: 0.4rem;
+      }
+
+      &::before {
+        content: counter(fnc);
+        vertical-align: super;
+        font-size: smaller;
+        float: left;
+        position: relative;
+        top: -0.15rem;
+        margin-right: 0.1rem;
+      }
+    }
+  }
+}
+</style>
 
 <script setup lang="ts">
 import { computed } from '@vue/reactivity';
@@ -124,9 +189,11 @@ const leftDrawerOpen = ref(false);
 
 const { locale } = useI18n({ useScope: 'global' });
 const localeOptions = [
-  { value: 'cs-CZ', label: 'Čeština' },
-  { value: 'en-US', label: 'English' },
+  { value: 'cs-CZ', label: 'Čeština', flag: 'cz' },
+  { value: 'en-US', label: 'English', flag: 'uk' },
 ];
+
+let addResultsDialogOpen = ref(false);
 
 const route = useRoute();
 const router = useRouter();
@@ -224,21 +291,5 @@ function routeLink(
   const c = category === null ? route.params.category : category;
 
   return `/${s}/${d}/${c}`;
-}
-
-function routeMatches(
-  season: Season | null,
-  division: Division | null,
-  category: Category | null
-): boolean {
-  const s = route.params.season;
-  const d = route.params.division;
-  const c = route.params.category;
-
-  return (
-    (season === null || season.folder === s) &&
-    (division === null || division === d) &&
-    (category === null || category === c)
-  );
 }
 </script>
