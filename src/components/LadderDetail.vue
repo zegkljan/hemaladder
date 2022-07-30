@@ -182,7 +182,13 @@
                   }}
                 </td>
                 <td class="text-right">
-                  {{ Math.round(t.points * 100) / 100 }}
+                  {{
+                    Math.round(
+                      t.coefficients
+                        .map((c) => c.c)
+                        .reduce((a, b) => a * b, 1) * 100
+                    ) / 100
+                  }}
                   <q-badge
                     color="transparent"
                     text-color="black"

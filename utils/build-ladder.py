@@ -233,9 +233,9 @@ class LadderBuilder:
                 coeffs.append(Coefficient(
                     self.settings.foreign_tournament_coefficient, CoefficientType.FOREIGN))
 
-            if self.settings.category_ranking[person.category] < self.settings.category_ranking[category]:
-                coeffs.append(Coefficient(
-                    self.settings.higher_category_coefficient, CoefficientType.HIGHER_CATEGORY))
+            # if self.settings.category_ranking[person.category] < self.settings.category_ranking[category]:
+            #    coeffs.append(Coefficient(
+            #        self.settings.higher_category_coefficient, CoefficientType.HIGHER_CATEGORY))
 
             _intermediate[entry.fencer_id].tournaments.append(TournamentLadderEntry(
                 tournament_id=tournament.tournament_id,
