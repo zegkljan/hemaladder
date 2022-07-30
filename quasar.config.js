@@ -55,6 +55,10 @@ module.exports = configure(function (/* ctx */) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#build
     build: {
+      // hack to make paths relative
+      extendViteConf(viteConf, { isServer, isClient }) {
+        viteConf.base = '';
+      },
       target: {
         browser: ['es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1'],
         node: 'node16'
@@ -67,7 +71,7 @@ module.exports = configure(function (/* ctx */) {
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
 
-      publicPath: '/hemaladder',
+      // publicPath: '.',
       // analyze: true,
       // env: {},
       // rawDefine: {}
@@ -82,7 +86,8 @@ module.exports = configure(function (/* ctx */) {
       vitePlugins: [
         ['@intlify/vite-plugin-vue-i18n', {
           // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
-          // compositionOnly: false,
+          compositionOnly: true,
+          runtimeOnly: false,
 
           // you need to set i18n resource including paths !
           include: path.resolve(__dirname, './src/i18n/**')
