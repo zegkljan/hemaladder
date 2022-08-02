@@ -42,6 +42,15 @@
             <q-icon name="mdi-open-in-new"></q-icon>
           </q-item-section>
         </q-item>
+        <q-item href="https://facebook.com/HEMAzebricekCZ" target="_blank">
+          <q-item-section avatar>
+            <q-icon name="mdi-facebook"></q-icon>
+          </q-item-section>
+          <q-item-section>{{ $t('ladderOnFacebook') }}</q-item-section>
+          <q-item-section side>
+            <q-icon name="mdi-open-in-new"></q-icon>
+          </q-item-section>
+        </q-item>
         <q-item clickable @click="addResultsDialogOpen = true">
           <q-item-section avatar>
             <q-icon name="mdi-file-document-plus"></q-icon>

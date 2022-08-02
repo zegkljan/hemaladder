@@ -3,6 +3,7 @@ import { Category, CoefficientType, Division } from 'src/logic/ladder';
 export default {
   appName: 'Neoficiální český HEMA žebříček',
   sourceCode: 'Zdrojový kód',
+  ladderOnFacebook: 'Facebooková stránka',
   addResults: {
     buttonLabel: 'Doplnit výsledky',
     title: 'Jak doplnit výsledky?',

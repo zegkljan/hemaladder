@@ -9,7 +9,8 @@
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "quasar dev"
+    "dev": "quasar dev",
+    "build": "quasar build"
   },
   "dependencies": {
     "date-fns": "^2.29.1",

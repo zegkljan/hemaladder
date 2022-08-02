@@ -3,6 +3,7 @@ import { Category, CoefficientType, Division } from 'src/logic/ladder';
 export default {
   appName: 'Unofficial czech HEMA ladder',
   sourceCode: 'Source code',
+  ladderOnFacebook: 'Facebook page',
   addResults: {
     buttonLabel: 'Supply results',
     title: 'How to supply results?',
@@ -86,6 +87,7 @@ export default {
     [Division.R]: 'Rapier',
     [Division.RD]: 'Rapier and dagger',
     [Division.SB]: 'Sword and buckler',
+    [Division.SAB]: 'Saber',
   },
   categoryTitle: 'Category',
   category: {
