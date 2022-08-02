@@ -145,5 +145,32 @@
         }
       }
     }
+  },
+  "-2": {
+    "name": "Dresdner HEMA-Cup 2022",
+    "date": "2022-07-09",
+    "country": "de",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 36,
+          "results": [
+            {
+              "fencer_id": "3624",
+              "rank": 2
+            },
+            {
+              "fencer_id": "2140",
+              "rank": 3
+            },
+            {
+              "fencer_id": "8755",
+              "rank": 27
+            }
+          ]
+        }
+      }
+    }
   }
 }
