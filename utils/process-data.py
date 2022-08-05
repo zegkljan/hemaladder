@@ -177,7 +177,22 @@ class LadderSettings:
                 float(d['rank_coefficients'][3])))
 
 
-class LadderBuilder:
+@dataclass
+class Stats:
+    national_fencer_count: Mapping[Division,
+                                   Mapping[Category, Mapping[str, int]]]
+
+    def to_dict(self):
+        return {
+            "national_fencer_count": {
+                d.value: {
+                    c.value: cv for c, cv in dv.items()
+                } for d, dv in self.national_fencer_count.items()
+            }
+        }
+
+
+class Builder:
     def __init__(self, tournaments: dict, people: dict, clubs: dict, settings: LadderSettings) -> None:
         self.tournaments: List[Tournament] = list(
             map(lambda x: Tournament(x[0], x[1]), tournaments.items()))
@@ -192,8 +207,9 @@ class LadderBuilder:
 
         self._intermediate: dict[Division,
                                  dict[Category, dict[str, LadderEntry]]] = {}
+        self._stats = Stats(dict())
 
-    def build(self, previous_season: Ladders) -> Ladders:
+    def build(self, previous_season: Ladders) -> Tuple[Ladders, Stats]:
         self._intermediate = {}
         for tournament in self.tournaments:
             for division in tournament.competitions:
@@ -216,11 +232,17 @@ class LadderBuilder:
                     self._intermediate[division][category].values())]
                 for category in self._intermediate[division]
             } for division in self._intermediate
-        }
+        }, self._stats
 
     def process_competition(self, tournament: Tournament, division: Division, category: Category):
         competition = tournament.competitions[division][category]
         _intermediate = self._intermediate[division][category]
+
+        if division not in self._stats.national_fencer_count:
+            self._stats.national_fencer_count[division] = dict()
+        if category not in self._stats.national_fencer_count[division]:
+            self._stats.national_fencer_count[division][category] = dict()
+        self._stats.national_fencer_count[division][category][tournament.tournament_id] = 0
 
         for entry in competition.results:
             person = self.people[entry.fencer_id]
@@ -232,6 +254,8 @@ class LadderBuilder:
 
             if nationality != 'cz':
                 continue
+
+            self._stats.national_fencer_count[division][category][tournament.tournament_id] += 1
 
             if entry.fencer_id not in _intermediate:
                 _intermediate[entry.fencer_id] = LadderEntry(
@@ -313,11 +337,13 @@ def main():
     for season in sorted(seasons, key=lambda s: s["name"]):
         tournaments = read_json(data_dir.joinpath(
             'seasons', season['folder'], 'tournaments.json'))
-        builder = LadderBuilder(
+        builder = Builder(
             tournaments, people, clubs, LadderSettings.from_dict(season['settings']))
-        ladders = builder.build(ladders)
+        ladders, stats = builder.build(ladders)
         write_json(data_dir.joinpath('seasons', season['folder'], 'ladders.json'),
                    ladders_to_dict(ladders))
+        write_json(data_dir.joinpath(
+            'seasons', season['folder'], 'stats.json'), stats.to_dict())
 
 
 def ladders_to_dict(ladders: Ladders) -> dict:
