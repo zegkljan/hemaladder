@@ -3,7 +3,7 @@ import json
 import pathlib
 from dataclasses import dataclass
 from math import prod
-from typing import Any, List, Mapping, Sequence, Tuple, Union
+from typing import Any, List, Mapping, Optional, Sequence, Tuple, Union
 
 
 class Category(enum.Enum):
@@ -121,6 +121,7 @@ class TournamentLadderEntry:
         return {
             "tournament_id": self.tournament_id,
             "base_points": self.base_points,
+            "rank": self.rank,
             "points": self.points(),
             "coefficients": [
                 coeff.to_dict() for coeff in self.coefficients
@@ -132,13 +133,14 @@ class TournamentLadderEntry:
 class LadderEntry:
     fencer_id: str
     rank: int
+    last_season_rank: Optional[int]
     tournaments: List[TournamentLadderEntry]
 
     def points(self) -> int:
         return sum(map(lambda x: x.points(), self.tournaments))
 
     def to_dict(self) -> dict:
-        return {
+        res = {
             "fencer_id": self.fencer_id,
             "rank": self.rank,
             "points": self.points(),
@@ -146,6 +148,9 @@ class LadderEntry:
                 tournament.to_dict() for tournament in self.tournaments
             ]
         }
+        if self.last_season_rank is not None:
+            res["last_season_rank"] = self.last_season_rank
+        return res
 
 
 Ladder = List[LadderEntry]
@@ -157,7 +162,19 @@ class LadderSettings:
     foreign_tournament_coefficient: float
     higher_category_coefficient: float
     rank_coefficients: Tuple[float, float, float, float]
-    category_ranking: Mapping[Category, int]
+
+    @staticmethod
+    def from_dict(d: dict) -> 'LadderSettings':
+        return LadderSettings(
+            foreign_tournament_coefficient=float(
+                d['foreign_tournament_coefficient']),
+            higher_category_coefficient=float(
+                d['higher_category_coefficient']),
+            rank_coefficients=(
+                float(d['rank_coefficients'][0]),
+                float(d['rank_coefficients'][1]),
+                float(d['rank_coefficients'][2]),
+                float(d['rank_coefficients'][3])))
 
 
 class LadderBuilder:
@@ -176,7 +193,7 @@ class LadderBuilder:
         self._intermediate: dict[Division,
                                  dict[Category, dict[str, LadderEntry]]] = {}
 
-    def build(self) -> Ladders:
+    def build(self, previous_season: Ladders) -> Ladders:
         self._intermediate = {}
         for tournament in self.tournaments:
             for division in tournament.competitions:
@@ -189,8 +206,14 @@ class LadderBuilder:
 
         return {
             division: {
-                category: self.sorted_entries(
-                    self._intermediate[division][category].values())
+                category: [LadderEntry(
+                    fencer_id=e.fencer_id,
+                    rank=e.rank,
+                    last_season_rank=self.find_previous_rank(
+                        e.fencer_id, previous_season.get(division, dict()).get(category, list())),
+                    tournaments=e.tournaments
+                ) for e in self.sorted_entries(
+                    self._intermediate[division][category].values())]
                 for category in self._intermediate[division]
             } for division in self._intermediate
         }
@@ -212,7 +235,7 @@ class LadderBuilder:
 
             if entry.fencer_id not in _intermediate:
                 _intermediate[entry.fencer_id] = LadderEntry(
-                    entry.fencer_id, 0, [])
+                    fencer_id=entry.fencer_id, tournaments=[], rank=0, last_season_rank=None)
 
             coeffs = [Coefficient(tournament.coefficient,
                                   CoefficientType.TOURNAMENT)]
@@ -256,18 +279,26 @@ class LadderBuilder:
                 # -len(e.tournaments)
             )
         srt = sorted([(key(e), e) for e in entries], key=lambda x: x[0])
-        final = [LadderEntry(srt[0][1].fencer_id, 1, srt[0][1].tournaments)]
+        final = [LadderEntry(fencer_id=srt[0][1].fencer_id,
+                             rank=1, tournaments=srt[0][1].tournaments, last_season_rank=None)]
         for i in range(1, len(srt)):
             k, e = srt[i]
             k_prev, _ = srt[i - 1]
             if k_prev == k:
                 final.append(LadderEntry(
-                    e.fencer_id, final[-1].rank, e.tournaments))
+                    fencer_id=e.fencer_id, rank=final[-1].rank, tournaments=e.tournaments, last_season_rank=None))
             else:
                 final.append(LadderEntry(
-                    e.fencer_id, len(final) + 1, e.tournaments))
+                    fencer_id=e.fencer_id, rank=len(final) + 1, tournaments=e.tournaments, last_season_rank=None))
 
         return final
+
+    @staticmethod
+    def find_previous_rank(fencer_id: str, previous_ladder: Ladder) -> Optional[int]:
+        for e in previous_ladder:
+            if e.fencer_id == fencer_id:
+                return e.rank
+        return None
 
 
 def main():
@@ -278,19 +309,13 @@ def main():
 
     seasons = read_json(data_dir.joinpath('seasons.json'))
 
-    for season in seasons:
+    ladders = dict()
+    for season in sorted(seasons, key=lambda s: s["name"]):
         tournaments = read_json(data_dir.joinpath(
             'seasons', season['folder'], 'tournaments.json'))
-        builder = LadderBuilder(tournaments, people, clubs, LadderSettings(
-            category_ranking={
-                Category.MEN_OPEN: 10,
-                Category.WOMEN: 5
-            },
-            foreign_tournament_coefficient=1.25,
-            higher_category_coefficient=1.25,
-            rank_coefficients=(1.5, 1.33, 1.25, 1.16)
-        ))
-        ladders = builder.build()
+        builder = LadderBuilder(
+            tournaments, people, clubs, LadderSettings.from_dict(season['settings']))
+        ladders = builder.build(ladders)
         write_json(data_dir.joinpath('seasons', season['folder'], 'ladders.json'),
                    ladders_to_dict(ladders))
 

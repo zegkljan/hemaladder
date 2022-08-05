@@ -13,6 +13,65 @@
       square
       :style="style"
     >
+      <template v-slot:header-cell-previous-season-change="props">
+        <q-th :props="props">
+          {{ props.col.label }}
+          <q-tooltip>
+            {{ $t('ladderTable.previousSeasonChangeTooltip') }}
+          </q-tooltip>
+        </q-th>
+      </template>
+      <template v-slot:body-cell-previous-season-change="props">
+        <q-td :props="props">
+          <template v-if="props.value === null">
+            <div class="change new">
+              {{ props.value }}
+            </div>
+            <q-tooltip>{{
+              $t('ladderTable.previousSeasonChangeNewInSeasonTooltip')
+            }}</q-tooltip>
+          </template>
+          <template v-else-if="props.value === 0">
+            <q-tooltip>{{
+              $t('ladderTable.previousSeasonChangeNoChangeTooltip')
+            }}</q-tooltip>
+          </template>
+          <template v-else-if="props.value > 0">
+            <div class="change worse">
+              {{ props.value }}
+            </div>
+            <q-tooltip v-if="props.value == -1">{{
+              t('ladderTable.previousSeasonChangeWorseTooltip.n1')
+            }}</q-tooltip>
+            <q-tooltip v-else-if="props.value > -5">{{
+              t('ladderTable.previousSeasonChangeWorseTooltip.n2', props.value)
+            }}</q-tooltip>
+            <q-tooltip v-else>{{
+              t('ladderTable.previousSeasonChangeWorseTooltip.n5', props.value)
+            }}</q-tooltip>
+          </template>
+          <template v-else-if="props.value < 0">
+            <div class="change better">
+              {{ -props.value }}
+            </div>
+            <q-tooltip v-if="props.value == -1">{{
+              t('ladderTable.previousSeasonChangeBetterTooltip.n1')
+            }}</q-tooltip>
+            <q-tooltip v-else-if="props.value > -5">{{
+              t(
+                'ladderTable.previousSeasonChangeBetterTooltip.n2',
+                -props.value
+              )
+            }}</q-tooltip>
+            <q-tooltip v-else>{{
+              t(
+                'ladderTable.previousSeasonChangeBetterTooltip.n5',
+                -props.value
+              )
+            }}</q-tooltip>
+          </template>
+        </q-td>
+      </template>
       <template v-slot:body-cell-details="props">
         <q-td :props="props">
           <q-btn
@@ -63,6 +122,36 @@ thead tr:first-child th {
 .table-scroll {
   opacity: 0.5;
 }
+
+.change {
+  width: fit-content;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.new {
+    &::before {
+      content: '★';
+      color: gold;
+    }
+  }
+
+  &.worse {
+    &::before {
+      position: unset;
+      content: '▼';
+      color: red;
+    }
+  }
+
+  &.better {
+    &::before {
+      position: unset;
+      content: '▲';
+      color: green;
+    }
+  }
+}
 </style>
 
 <script setup lang="ts">
@@ -98,6 +187,20 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       align: 'right',
       sortable: true,
       // style: 'width: 1px; max-width: 1px',
+    },
+    {
+      name: 'previous-season-change',
+      label: t('ladderTable.previousSeasonChangeLabel'),
+      field: (row: LadderEntry): number | null => {
+        if (row.last_season_rank === undefined) {
+          return null;
+        }
+        return row.rank - row.last_season_rank;
+      },
+      align: 'center',
+      sortable: true,
+      style: 'width: fit-content; max-width: fit-content',
+      headerStyle: 'width: fit-content; max-width: fit-content',
     },
     {
       name: 'name',

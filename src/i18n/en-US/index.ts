@@ -96,6 +96,20 @@ export default {
   },
   ladderTable: {
     rankLabel: 'Rank',
+    previousSeasonChangeLabel: '+/-',
+    previousSeasonChangeTooltip: 'Change from last season',
+    previousSeasonChangeNewInSeasonTooltip: 'No record in previous season',
+    previousSeasonChangeBetterTooltip: {
+      n1: 'Better by 1 place',
+      n2: 'Better by {n} places',
+      n5: 'Better by {n} places',
+    },
+    previousSeasonChangeWorseTooltip: {
+      n1: 'Worse by 1 place',
+      n2: 'Worse by {n} places',
+      n5: 'Worse by {n} places',
+    },
+    previousSeasonChangeNoChangeTooltip: 'No change',
     nameLabel: 'Name',
     surnameLabel: 'Surname',
     clubLabel: 'Club',

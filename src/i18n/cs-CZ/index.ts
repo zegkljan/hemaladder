@@ -107,6 +107,20 @@ export default {
   },
   ladderTable: {
     rankLabel: 'Pořadí',
+    previousSeasonChangeLabel: '+/-',
+    previousSeasonChangeTooltip: 'Změna od předchozí sezóny',
+    previousSeasonChangeNewInSeasonTooltip: 'Žádný záznam v předchozí sezóně',
+    previousSeasonChangeBetterTooltip: {
+      n1: 'Zlepšení o 1 místo',
+      n2: 'Zlepšení o {n} místa',
+      n5: 'Zlepšení o {n} míst',
+    },
+    previousSeasonChangeWorseTooltip: {
+      n1: 'Zhoršení o 1 místo',
+      n2: 'Zhoršení o {n} místa',
+      n5: 'Zhoršení o {n} míst',
+    },
+    previousSeasonChangeNoChangeTooltip: 'Beze změny',
     nameLabel: 'Jméno',
     surnameLabel: 'Příjmení',
     clubLabel: 'Klub',

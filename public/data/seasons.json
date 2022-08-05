@@ -1,10 +1,30 @@
 [
   {
     "name": "2022/2023",
-    "folder": "2022-2023"
+    "folder": "2022-2023",
+    "settings": {
+      "foreign_tournament_coefficient": 1.25,
+      "higher_category_coefficient": 1.25,
+      "rank_coefficients": [
+        1.5,
+        1.33,
+        1.25,
+        1.16
+      ]
+    }
   },
   {
     "name": "2021/2022",
-    "folder": "2021-2022"
+    "folder": "2021-2022",
+    "settings": {
+      "foreign_tournament_coefficient": 1.25,
+      "higher_category_coefficient": 1.25,
+      "rank_coefficients": [
+        1.5,
+        1.33,
+        1.25,
+        1.16
+      ]
+    }
   }
 ]

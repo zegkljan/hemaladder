@@ -196,6 +196,7 @@ export type TournamentLadderEntry = {
 export type LadderEntry = {
   fencer_id: string;
   rank: number;
+  last_season_rank?: number;
   points: number;
   tournaments: TournamentLadderEntry[];
 };
@@ -233,6 +234,7 @@ function parseLadderEntry(json: Record<string, unknown>): LadderEntry {
   return {
     fencer_id: json['fencer_id'] as string,
     rank: json['rank'] as number,
+    last_season_rank: json['last_season_rank'] as number | undefined,
     points: json['points'] as number,
     tournaments: (json['tournaments'] as Record<string, unknown>[]).map(
       parseTournamentLadderEntry
