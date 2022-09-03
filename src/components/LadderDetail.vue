@@ -298,7 +298,7 @@ table.coefficient-tooltip {
 </style>
 
 <script setup lang="ts">
-import { LadderEntry, Division, Category } from 'src/logic/ladder';
+import { LadderIndividualEntry, Division, Category } from 'src/logic/ladder';
 import { useI18n } from 'vue-i18n';
 import { useData } from 'src/stores/data';
 import { ref } from 'vue';
@@ -311,13 +311,13 @@ const data = useData();
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
-  modelValue: LadderEntry | null;
+  modelValue: LadderIndividualEntry | null;
   division: Division | null;
   category: Category | null;
 }>();
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: LadderEntry | null): void;
+  (e: 'update:modelValue', value: LadderIndividualEntry | null): void;
   (
     e: 'tournamentDetail',
     value: {

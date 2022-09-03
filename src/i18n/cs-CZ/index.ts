@@ -107,8 +107,13 @@ export default {
   },
   view: {
     [View.LADDER]: 'Žebříček',
+    [View.CLUBS]: 'Kluby',
     [View.TOURNAMENTS]: 'Turnaje',
   },
+  clubLabel: 'Klub',
+  pointsLabel: 'Počet bodů',
+  noClub: '(bez klubu)',
+  pointsPerFencerLabel: 'Počet bodů na šermíře',
   tournamentLabel: 'Turnaj',
   dateLabel: 'Datum',
   countryLabel: 'Země',
@@ -117,6 +122,7 @@ export default {
   hemaratingsLabel: 'HEMA Ratings',
   hemaratingsDetailTooltip: 'Otevřít záznam turnaje na HEMA Ratings',
   hemaratingsNoDetailTooltip: 'Turnaj nemá záznam na HEMA Ratings',
+  noFencersLabel: 'Počet šermířů',
   ladderTable: {
     rankLabel: 'Pořadí',
     previousSeasonChangeLabel: '+/-',
@@ -135,8 +141,6 @@ export default {
     previousSeasonChangeNoChangeTooltip: 'Beze změny',
     nameLabel: 'Jméno',
     surnameLabel: 'Příjmení',
-    clubLabel: 'Klub',
-    pointsLabel: 'Počet bodů',
     detailsLabel: 'Detaily',
     fencerDetail: {
       fencer: 'O šermíři',
@@ -158,6 +162,9 @@ export default {
       points: 'Počet bodů',
       tournamentDetailLabel: 'HEMA Ratings',
     },
+  },
+  clubsTable: {
+    pointsHeaderTooltip: 'Součet počtu bodů získaných šermíři daného klubu',
   },
   countries: {
     af: 'Afghánistán',

@@ -31,6 +31,11 @@ function buildRoutes(
               props: true,
             },
             {
+              path: ':view(clubs)',
+              component: () => import('components/ClubsView.vue'),
+              props: true,
+            },
+            {
               path: ':view(tournaments)',
               component: () => import('components/TournamentsView.vue'),
               props: true,

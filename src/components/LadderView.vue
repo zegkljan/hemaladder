@@ -151,7 +151,12 @@ import { computed, ref } from '@vue/reactivity';
 import { QTableProps } from 'quasar';
 import LadderDetail from 'src/components/LadderDetail.vue';
 import { TournamentDetailModel } from 'src/components/models';
-import { Category, Division, Ladder, LadderEntry } from 'src/logic/ladder';
+import {
+  Category,
+  Division,
+  LadderIndividual,
+  LadderIndividualEntry,
+} from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
 import { ComputedRef, Ref, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -175,7 +180,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
     {
       name: 'rank',
       label: t('ladderTable.rankLabel'),
-      field: (row: LadderEntry) => row.rank,
+      field: (row: LadderIndividualEntry) => row.rank,
       align: 'right',
       sortable: true,
       // style: 'width: 1px; max-width: 1px',
@@ -183,7 +188,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
     {
       name: 'previous-season-change',
       label: t('ladderTable.previousSeasonChangeLabel'),
-      field: (row: LadderEntry): number | null => {
+      field: (row: LadderIndividualEntry): number | null => {
         if (row.last_season_rank === undefined) {
           return null;
         }
@@ -197,7 +202,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
     {
       name: 'name',
       label: t('ladderTable.nameLabel'),
-      field: (row: LadderEntry) => data.people[row.fencer_id].name,
+      field: (row: LadderIndividualEntry) => data.people[row.fencer_id].name,
       align: 'left',
       sortable: true,
       sort: (a: string, b: string) => a.localeCompare(b),
@@ -206,7 +211,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
     {
       name: 'surname',
       label: t('ladderTable.surnameLabel'),
-      field: (row: LadderEntry) => data.people[row.fencer_id].surname,
+      field: (row: LadderIndividualEntry) => data.people[row.fencer_id].surname,
       align: 'left',
       sortable: true,
       sort: (a: string, b: string) => a.localeCompare(b),
@@ -214,18 +219,31 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
     },
     {
       name: 'club',
-      label: t('ladderTable.clubLabel'),
-      field: (row: LadderEntry) =>
-        data.clubs[data.people[row.fencer_id].club_id]?.name,
+      label: t('clubLabel'),
+      field: (row: LadderIndividualEntry) => {
+        const clubId = data.people[row.fencer_id].club_id;
+        return clubId === undefined
+          ? '_'
+          : data.clubs[data.people[row.fencer_id].club_id].name;
+      },
+      format: (val: string): string => (val === '_' ? t('noClub') : val),
       align: 'left',
       sortable: true,
-      sort: (a: string, b: string) => a.localeCompare(b),
+      sort: (a: string, b: string): number => {
+        if (a === '_') {
+          return b === '_' ? 0 : 1;
+        }
+        if (b === '_') {
+          return a === '_' ? 0 : -1;
+        }
+        return a.localeCompare(b);
+      },
       // style: 'width: 1px; max-width: 1px',
     },
     {
       name: 'points',
-      label: t('ladderTable.pointsLabel'),
-      field: (row: LadderEntry) => row.points,
+      label: t('pointsLabel'),
+      field: (row: LadderIndividualEntry) => row.points,
       align: 'right',
       sortable: true,
       // style: 'width: 1px; max-width: 1px',
@@ -240,12 +258,12 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
   ]
 );
 
-const ladder: ComputedRef<Ladder | undefined | null> = computed(
-  (): Ladder | undefined | null => {
-    if (data.ladders === undefined) {
+const ladder: ComputedRef<LadderIndividual | undefined | null> = computed(
+  (): LadderIndividual | undefined | null => {
+    if (data.laddersIndividual === undefined) {
       return undefined;
     } else {
-      const ldr = data.ladders[props.division]?.[props.category];
+      const ldr = data.laddersIndividual[props.division]?.[props.category];
       if (ldr === undefined) {
         return null;
       } else {
@@ -267,9 +285,9 @@ function handleResize() {
 window.addEventListener('resize', handleResize);
 handleResize();
 
-let detailTarget: Ref<LadderEntry | null> = ref(null);
+let detailTarget: Ref<LadderIndividualEntry | null> = ref(null);
 
-function onDetailClick(entry: LadderEntry) {
+function onDetailClick(entry: LadderIndividualEntry) {
   detailTarget.value = entry;
 }
 

@@ -130,7 +130,7 @@ class TournamentLadderEntry:
 
 
 @dataclass
-class LadderEntry:
+class LadderIndividualEntry:
     fencer_id: str
     rank: int
     last_season_rank: Optional[int]
@@ -153,8 +153,33 @@ class LadderEntry:
         return res
 
 
-Ladder = List[LadderEntry]
-Ladders = Mapping[Division, Mapping[Category, Ladder]]
+@dataclass
+class LadderClubEntry:
+    club_id: Optional[str]
+    fencers: Mapping[str, int]
+
+    def points(self) -> int:
+        return sum(self.fencers.values())
+
+    def to_dict(self) -> dict:
+        res = {
+            "points": self.points(),
+            "fencers": [
+                {
+                    "fencer_id": fencer_id,
+                    "points": points
+                } for fencer_id, points in self.fencers.items()
+            ]
+        }
+        if self.club_id is not None:
+            res['club_id'] = self.club_id
+        return res
+
+
+LadderIndividual = List[LadderIndividualEntry]
+LaddersIndividual = Mapping[Division, Mapping[Category, LadderIndividual]]
+LaddersClub = Mapping[Division,
+                      Mapping[Category, List[LadderClubEntry]]]
 
 
 @dataclass
@@ -205,38 +230,59 @@ class Builder:
 
         self.settings = settings
 
-        self._intermediate: dict[Division,
-                                 dict[Category, dict[str, LadderEntry]]] = {}
+        self._intermediate_individual: dict[Division,
+                                            dict[Category, dict[str, LadderIndividualEntry]]] = {}
         self._stats = Stats(dict())
 
-    def build(self, previous_season: Ladders) -> Tuple[Ladders, Stats]:
-        self._intermediate = {}
+    def build(self, previous_season: LaddersIndividual) -> Tuple[LaddersIndividual, LaddersClub, Stats]:
+        self._intermediate_individual = {}
         for tournament in self.tournaments:
             for division in tournament.competitions:
-                if division not in self._intermediate:
-                    self._intermediate[division] = {}
+                if division not in self._intermediate_individual:
+                    self._intermediate_individual[division] = {}
                 for category in tournament.competitions[division]:
-                    if category not in self._intermediate[division]:
-                        self._intermediate[division][category] = {}
+                    if category not in self._intermediate_individual[division]:
+                        self._intermediate_individual[division][category] = {}
                     self.process_competition(tournament, division, category)
 
-        return {
+        ladder_individual = {
             division: {
-                category: [LadderEntry(
+                category: [LadderIndividualEntry(
                     fencer_id=e.fencer_id,
                     rank=e.rank,
                     last_season_rank=self.find_previous_rank(
                         e.fencer_id, previous_season.get(division, dict()).get(category, list())),
                     tournaments=e.tournaments
                 ) for e in self.sorted_entries(
-                    self._intermediate[division][category].values())]
-                for category in self._intermediate[division]
-            } for division in self._intermediate
-        }, self._stats
+                    self._intermediate_individual[division][category].values())]
+                for category in self._intermediate_individual[division]
+            } for division in self._intermediate_individual
+        }
+
+        ladder_club: Mapping[Division,
+                             Mapping[Category, List[LadderClubEntry]]] = {}
+        for division in ladder_individual:
+            if division not in ladder_club:
+                ladder_club[division] = {}
+            ld = ladder_club[division]
+            for category in ladder_individual[division]:
+                if category not in ld:
+                    ld[category] = []
+                lc = ld[category]
+                for entry in ladder_individual[division][category]:
+                    club_id = self.people[entry.fencer_id].club_id
+                    lcl = next(
+                        filter(lambda x: x.club_id == club_id, lc), None)
+                    if lcl is None:
+                        lcl = LadderClubEntry(club_id, {})
+                        lc.append(lcl)
+                    lcl.fencers[entry.fencer_id] = entry.points()
+
+        return ladder_individual, ladder_club, self._stats
 
     def process_competition(self, tournament: Tournament, division: Division, category: Category):
         competition = tournament.competitions[division][category]
-        _intermediate = self._intermediate[division][category]
+        _intermediate_individual = self._intermediate_individual[division][category]
 
         if division not in self._stats.national_fencer_count:
             self._stats.national_fencer_count[division] = dict()
@@ -257,8 +303,8 @@ class Builder:
 
             self._stats.national_fencer_count[division][category][tournament.tournament_id] += 1
 
-            if entry.fencer_id not in _intermediate:
-                _intermediate[entry.fencer_id] = LadderEntry(
+            if entry.fencer_id not in _intermediate_individual:
+                _intermediate_individual[entry.fencer_id] = LadderIndividualEntry(
                     fencer_id=entry.fencer_id, tournaments=[], rank=0, last_season_rank=None)
 
             coeffs = [Coefficient(tournament.coefficient,
@@ -284,7 +330,7 @@ class Builder:
             #    coeffs.append(Coefficient(
             #        self.settings.higher_category_coefficient, CoefficientType.HIGHER_CATEGORY))
 
-            _intermediate[entry.fencer_id].tournaments.append(TournamentLadderEntry(
+            _intermediate_individual[entry.fencer_id].tournaments.append(TournamentLadderEntry(
                 tournament_id=tournament.tournament_id,
                 coefficients=coeffs,
                 base_points=self.get_base_points(competition, entry.rank),
@@ -295,30 +341,30 @@ class Builder:
         return competition.no_participants - rank + 1
 
     @staticmethod
-    def sorted_entries(entries: Sequence[LadderEntry]) -> Sequence[LadderEntry]:
-        def key(e: LadderEntry) -> Tuple:
+    def sorted_entries(entries: Sequence[LadderIndividualEntry]) -> Sequence[LadderIndividualEntry]:
+        def key(e: LadderIndividualEntry) -> Tuple:
             return (
                 -e.points(),
                 sum(map(lambda t: t.rank, e.tournaments)) / len(e.tournaments),
                 # -len(e.tournaments)
             )
         srt = sorted([(key(e), e) for e in entries], key=lambda x: x[0])
-        final = [LadderEntry(fencer_id=srt[0][1].fencer_id,
-                             rank=1, tournaments=srt[0][1].tournaments, last_season_rank=None)]
+        final = [LadderIndividualEntry(fencer_id=srt[0][1].fencer_id,
+                                       rank=1, tournaments=srt[0][1].tournaments, last_season_rank=None)]
         for i in range(1, len(srt)):
             k, e = srt[i]
             k_prev, _ = srt[i - 1]
             if k_prev == k:
-                final.append(LadderEntry(
+                final.append(LadderIndividualEntry(
                     fencer_id=e.fencer_id, rank=final[-1].rank, tournaments=e.tournaments, last_season_rank=None))
             else:
-                final.append(LadderEntry(
+                final.append(LadderIndividualEntry(
                     fencer_id=e.fencer_id, rank=len(final) + 1, tournaments=e.tournaments, last_season_rank=None))
 
         return final
 
     @staticmethod
-    def find_previous_rank(fencer_id: str, previous_ladder: Ladder) -> Optional[int]:
+    def find_previous_rank(fencer_id: str, previous_ladder: LadderIndividual) -> Optional[int]:
         for e in previous_ladder:
             if e.fencer_id == fencer_id:
                 return e.rank
@@ -333,24 +379,38 @@ def main():
 
     seasons = read_json(data_dir.joinpath('seasons.json'))
 
-    ladders = dict()
+    ladders_individual = dict()
     for season in sorted(seasons, key=lambda s: s["name"]):
         tournaments = read_json(data_dir.joinpath(
             'seasons', season['folder'], 'tournaments.json'))
         builder = Builder(
             tournaments, people, clubs, LadderSettings.from_dict(season['settings']))
-        ladders, stats = builder.build(ladders)
-        write_json(data_dir.joinpath('seasons', season['folder'], 'ladders.json'),
-                   ladders_to_dict(ladders))
+        ladders_individual, ladders_club, stats = builder.build(
+            ladders_individual)
+        write_json(data_dir.joinpath('seasons', season['folder'], 'ladders-individual.json'),
+                   ladders_individual_to_dict(ladders_individual))
+        write_json(data_dir.joinpath('seasons', season['folder'], 'ladders-club.json'),
+                   ladders_club_to_dict(ladders_club))
         write_json(data_dir.joinpath(
             'seasons', season['folder'], 'stats.json'), stats.to_dict())
 
 
-def ladders_to_dict(ladders: Ladders) -> dict:
+def ladders_individual_to_dict(ladders: LaddersIndividual) -> dict:
     return {
         division.value: {
             category.value: [
                 entry.to_dict() for entry in c
+            ] for category, c in d.items()
+        } for division, d in ladders.items()
+    }
+
+
+def ladders_club_to_dict(ladders: LaddersClub) -> dict:
+    return {
+        division.value: {
+            category.value: [
+                entry.to_dict()
+                for entry in c
             ] for category, c in d.items()
         } for division, d in ladders.items()
     }

@@ -96,8 +96,13 @@ export default {
   },
   view: {
     [View.LADDER]: 'Ladder',
+    [View.CLUBS]: 'Clubs',
     [View.TOURNAMENTS]: 'Tournaments',
   },
+  clubLabel: 'Club',
+  pointsLabel: 'No. of points',
+  noClub: '(no club)',
+  pointsPerFencerLabel: 'No. of points per fencer',
   tournamentLabel: 'Tournament',
   dateLabel: 'Date',
   countryLabel: 'Country',
@@ -106,6 +111,7 @@ export default {
   hemaratingsLabel: 'HEMA Ratings',
   hemaratingsDetailTooltip: 'Open tournament record at HEMA Ratings',
   hemaratingsNoDetailTooltip: 'Tournament has no record at HEMA Ratings',
+  noFencersLabel: 'No. of fencers',
   ladderTable: {
     rankLabel: 'Rank',
     previousSeasonChangeLabel: '+/-',
@@ -124,8 +130,6 @@ export default {
     previousSeasonChangeNoChangeTooltip: 'No change',
     nameLabel: 'Name',
     surnameLabel: 'Surname',
-    clubLabel: 'Club',
-    pointsLabel: 'No. of points',
     detailsLabel: 'Details',
     fencerDetail: {
       fencer: 'About fencer',
@@ -147,6 +151,10 @@ export default {
       points: 'No. of points',
       tournamentDetailLabel: 'HEMA Ratings',
     },
+  },
+  clubsTable: {
+    pointsHeaderTooltip:
+      'Sum of points gained by the fencers of the given club',
   },
   countries: {
     af: 'Afghanistan',

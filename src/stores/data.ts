@@ -3,10 +3,12 @@ import {
   People,
   Tournaments,
   Clubs,
-  Ladders,
+  LaddersIndividual,
   Season,
   loadTournaments,
-  loadLadders,
+  loadLaddersIndividual,
+  LaddersClub,
+  loadLaddersClub,
 } from 'src/logic/ladder';
 
 export const useData = defineStore('data', {
@@ -15,7 +17,8 @@ export const useData = defineStore('data', {
     clubs: {} as Clubs,
     seasons: [] as Season[],
     tournaments: {} as Tournaments | undefined,
-    ladders: {} as Ladders | undefined,
+    laddersIndividual: {} as LaddersIndividual | undefined,
+    laddersClub: {} as LaddersClub | undefined,
   }),
 
   getters: {},
@@ -24,9 +27,11 @@ export const useData = defineStore('data', {
     async loadSeason(season: string) {
       console.debug('Loading season', season);
       this.tournaments = undefined;
-      this.ladders = undefined;
+      this.laddersIndividual = undefined;
+      this.laddersClub = undefined;
       this.tournaments = await loadTournaments(season);
-      this.ladders = await loadLadders(season);
+      this.laddersIndividual = await loadLaddersIndividual(season);
+      this.laddersClub = await loadLaddersClub(season);
     },
   },
 });

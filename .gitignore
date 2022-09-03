@@ -34,5 +34,5 @@ yarn-error.log*
 *.sln
 
 # Generated data
-/public/data/seasons/*/ladders.json
+/public/data/seasons/*/ladders*.json
 /public/data/seasons/*/stats.json

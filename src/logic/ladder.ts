@@ -41,11 +41,13 @@ export const divisionReverseMap = {
 
 export enum View {
   LADDER = 'ladder',
+  CLUBS = 'clubs',
   TOURNAMENTS = 'tournaments',
 }
 
 export const viewReverseMap = {
   ladder: View.LADDER,
+  clubs: View.CLUBS,
   tournaments: View.TOURNAMENTS,
 };
 
@@ -203,7 +205,7 @@ export type TournamentLadderEntry = {
   points: number;
 };
 
-export type LadderEntry = {
+export type LadderIndividualEntry = {
   fencer_id: string;
   rank: number;
   last_season_rank?: number;
@@ -211,10 +213,27 @@ export type LadderEntry = {
   tournaments: TournamentLadderEntry[];
 };
 
-export type Ladder = LadderEntry[];
-export type Ladders = { [D in Division]?: { [C in Category]?: Ladder } };
+export type LadderClubEntry = {
+  club_id: string;
+  points: number;
+  fencers: {
+    fencer_id: string;
+    points: number;
+  }[];
+};
 
-function parseLadders(json: Record<string, unknown>): Ladders {
+export type LadderIndividual = LadderIndividualEntry[];
+export type LadderClub = LadderClubEntry[];
+export type LaddersIndividual = {
+  [D in Division]?: { [C in Category]?: LadderIndividual };
+};
+export type LaddersClub = {
+  [D in Division]?: { [C in Category]?: LadderClub };
+};
+
+function parseLaddersIndividual(
+  json: Record<string, unknown>
+): LaddersIndividual {
   return Object.keys(json).reduce((divs, div) => {
     const d: Division =
       divisionReverseMap[div as keyof typeof divisionReverseMap];
@@ -222,7 +241,7 @@ function parseLadders(json: Record<string, unknown>): Ladders {
       (cats, cat) => {
         const c: Category =
           categoryReverseMap[cat as keyof typeof categoryReverseMap];
-        cats[c] = parseLadder(
+        cats[c] = parseLadderIndividual(
           (json[div] as Record<string, unknown>)[cat] as Record<
             string,
             unknown
@@ -230,17 +249,21 @@ function parseLadders(json: Record<string, unknown>): Ladders {
         );
         return cats;
       },
-      {} as { [C in Category]?: Ladder }
+      {} as { [C in Category]?: LadderIndividual }
     );
     return divs;
-  }, {} as Ladders);
+  }, {} as LaddersIndividual);
 }
 
-function parseLadder(json: Record<string, unknown>[]): Ladder {
-  return json.map(parseLadderEntry);
+function parseLadderIndividual(
+  json: Record<string, unknown>[]
+): LadderIndividual {
+  return json.map(parseLadderIndividualEntry);
 }
 
-function parseLadderEntry(json: Record<string, unknown>): LadderEntry {
+function parseLadderIndividualEntry(
+  json: Record<string, unknown>
+): LadderIndividualEntry {
   return {
     fencer_id: json['fencer_id'] as string,
     rank: json['rank'] as number,
@@ -272,6 +295,45 @@ function parseCoefficient(json: Record<string, unknown>): Coefficient {
     type: coefficientTypeReverseMap[
       json['type'] as keyof typeof coefficientTypeReverseMap
     ],
+  };
+}
+
+function parseLaddersClub(json: Record<string, unknown>): LaddersClub {
+  return Object.keys(json).reduce((divs, div) => {
+    const d: Division =
+      divisionReverseMap[div as keyof typeof divisionReverseMap];
+    divs[d] = Object.keys(json[div] as Record<string, unknown>).reduce(
+      (cats, cat) => {
+        const c: Category =
+          categoryReverseMap[cat as keyof typeof categoryReverseMap];
+        cats[c] = parseLadderClub(
+          (json[div] as Record<string, unknown>)[cat] as Record<
+            string,
+            unknown
+          >[]
+        );
+        return cats;
+      },
+      {} as { [C in Category]?: LadderClub }
+    );
+    return divs;
+  }, {} as LaddersClub);
+}
+
+function parseLadderClub(json: Record<string, unknown>[]): LadderClub {
+  return json.map(parseLadderClubEntry);
+}
+
+function parseLadderClubEntry(json: Record<string, unknown>): LadderClubEntry {
+  return {
+    club_id: json['club_id'] as string,
+    points: json['points'] as number,
+    fencers: (json['fencers'] as Record<string, unknown>[]).map((entry) => {
+      return {
+        fencer_id: entry['fencer_id'] as string,
+        points: entry['points'] as number,
+      };
+    }),
   };
 }
 
@@ -307,9 +369,19 @@ export async function loadTournaments(season: string): Promise<Tournaments> {
   );
 }
 
-export async function loadLadders(season: string): Promise<Ladders> {
-  return parseLadders(
-    (await loadJSON(`data/seasons/${season}/ladders.json`)) as Record<
+export async function loadLaddersIndividual(
+  season: string
+): Promise<LaddersIndividual> {
+  return parseLaddersIndividual(
+    (await loadJSON(
+      `data/seasons/${season}/ladders-individual.json`
+    )) as Record<string, unknown>
+  );
+}
+
+export async function loadLaddersClub(season: string): Promise<LaddersClub> {
+  return parseLaddersClub(
+    (await loadJSON(`data/seasons/${season}/ladders-club.json`)) as Record<
       string,
       unknown
     >
