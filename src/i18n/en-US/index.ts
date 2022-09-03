@@ -1,4 +1,4 @@
-import { Category, CoefficientType, Division } from 'src/logic/ladder';
+import { Category, CoefficientType, Division, View } from 'src/logic/ladder';
 
 export default {
   appName: 'Unofficial czech HEMA ladder',
@@ -94,6 +94,18 @@ export default {
     [Category.MEN_OPEN]: 'Men/open',
     [Category.WOMEN]: 'Women',
   },
+  view: {
+    [View.LADDER]: 'Ladder',
+    [View.TOURNAMENTS]: 'Tournaments',
+  },
+  tournamentLabel: 'Tournament',
+  dateLabel: 'Date',
+  countryLabel: 'Country',
+  noParticipantsLabel: 'No. of participants',
+  coefficientLabel: 'Coefficient',
+  hemaratingsLabel: 'HEMA Ratings',
+  hemaratingsDetailTooltip: 'Open tournament record at HEMA Ratings',
+  hemaratingsNoDetailTooltip: 'Tournament has no record at HEMA Ratings',
   ladderTable: {
     rankLabel: 'Rank',
     previousSeasonChangeLabel: '+/-',
@@ -121,12 +133,7 @@ export default {
       hemaratingsLinkLabel: 'HEMA Ratings profile',
       noTournamentsLabel: 'No. of tournaments in ladder',
       avgPtsPerTournamentLabel: 'Average points per tournament',
-      tournament: 'Tournament',
-      date: 'Date',
-      country: 'Country',
-      noParticipants: 'No. of participants',
       rank: 'Rank',
-      coefficient: 'Coefficient',
       coefficientType: {
         [CoefficientType.FOREIGN]: 'Tournament abroad',
         [CoefficientType.TOURNAMENT]: 'Tournament coefficient',
@@ -140,8 +147,6 @@ export default {
       points: 'No. of points',
       tournamentDetailLabel: 'HEMA Ratings',
     },
-    hemaratingsDetailTooltip: 'Open tournament record at HEMA Ratings',
-    hemaratingsNoDetailTooltip: 'Tournament has no record at HEMA Ratings',
   },
   countries: {
     af: 'Afghanistan',

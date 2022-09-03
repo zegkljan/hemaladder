@@ -111,25 +111,25 @@
             <thead>
               <tr>
                 <th class="text-left">
-                  {{ $t('ladderTable.fencerDetail.tournament') }}
+                  {{ $t('tournamentLabel') }}
                 </th>
                 <!-- <th class="text-left">
                   {{ $t('categoryTitle') }}
                 </th> -->
                 <th class="text-left">
-                  {{ $t('ladderTable.fencerDetail.date') }}
+                  {{ $t('dateLabel') }}
                 </th>
                 <th class="text-center">
-                  {{ $t('ladderTable.fencerDetail.country') }}
+                  {{ $t('countryLabel') }}
                 </th>
                 <th class="text-center">
-                  {{ $t('ladderTable.fencerDetail.noParticipants') }}
+                  {{ $t('noParticipantsLabel') }}
                 </th>
                 <th class="text-center">
                   {{ $t('ladderTable.fencerDetail.rank') }}
                 </th>
                 <th class="text-center">
-                  {{ $t('ladderTable.fencerDetail.coefficient') }}
+                  {{ $t('coefficientLabel') }}
                 </th>
                 <th class="text-center">
                   {{ $t('ladderTable.fencerDetail.points') }}

@@ -39,6 +39,16 @@ export const divisionReverseMap = {
   sab: Division.SAB,
 };
 
+export enum View {
+  LADDER = 'ladder',
+  TOURNAMENTS = 'tournaments',
+}
+
+export const viewReverseMap = {
+  ladder: View.LADDER,
+  tournaments: View.TOURNAMENTS,
+};
+
 export enum CoefficientType {
   TOURNAMENT = 'tournament',
   FOREIGN = 'foreign',

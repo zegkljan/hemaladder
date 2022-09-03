@@ -1,4 +1,4 @@
-import { Category, CoefficientType, Division } from 'src/logic/ladder';
+import { Category, CoefficientType, Division, View } from 'src/logic/ladder';
 
 export default {
   appName: 'Neoficiální český HEMA žebříček',
@@ -105,6 +105,18 @@ export default {
     [Category.MEN_OPEN]: 'Muži/open',
     [Category.WOMEN]: 'Ženy',
   },
+  view: {
+    [View.LADDER]: 'Žebříček',
+    [View.TOURNAMENTS]: 'Turnaje',
+  },
+  tournamentLabel: 'Turnaj',
+  dateLabel: 'Datum',
+  countryLabel: 'Země',
+  noParticipantsLabel: 'Počet účastníků',
+  coefficientLabel: 'Koeficient',
+  hemaratingsLabel: 'HEMA Ratings',
+  hemaratingsDetailTooltip: 'Otevřít záznam turnaje na HEMA Ratings',
+  hemaratingsNoDetailTooltip: 'Turnaj nemá záznam na HEMA Ratings',
   ladderTable: {
     rankLabel: 'Pořadí',
     previousSeasonChangeLabel: '+/-',
@@ -132,12 +144,7 @@ export default {
       hemaratingsLinkLabel: 'HEMA Ratings profil',
       noTournamentsLabel: 'Počet turnajů v žebříčku',
       avgPtsPerTournamentLabel: 'Průměrný počet bodů na turnaj',
-      tournament: 'Turnaj',
-      date: 'Datum',
-      country: 'Země',
-      noParticipants: 'Počet účastníků',
       rank: 'Umístění',
-      coefficient: 'Koeficient',
       coefficientType: {
         [CoefficientType.FOREIGN]: 'Zahraniční turnaj',
         [CoefficientType.TOURNAMENT]: 'Koeficient turnaje',
@@ -151,8 +158,6 @@ export default {
       points: 'Počet bodů',
       tournamentDetailLabel: 'HEMA Ratings',
     },
-    hemaratingsDetailTooltip: 'Otevřít záznam turnaje na HEMA Ratings',
-    hemaratingsNoDetailTooltip: 'Turnaj nemá záznam na HEMA Ratings',
   },
   countries: {
     af: 'Afghánistán',

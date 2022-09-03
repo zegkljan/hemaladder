@@ -1,5 +1,5 @@
 {
-  "1663": {
+  "-1": {
     "name": "KR Spring Tournament 2022",
     "date": "2022-05-28",
     "country": "hu",
@@ -54,7 +54,7 @@
       }
     }
   },
-  "-1": {
+  "-2": {
     "name": "Black Horns Cup 2022",
     "date": "2022-06-04",
     "country": "pl",
@@ -146,7 +146,7 @@
       }
     }
   },
-  "-2": {
+  "-3": {
     "name": "Dresdner HEMA-Cup 2022",
     "date": "2022-07-09",
     "country": "de",

@@ -18,13 +18,24 @@ function buildRoutes(
         {
           path: '',
           redirect: () => {
-            return `/${data.seasons[0].folder}/ls/mo`;
+            return `/${data.seasons[0].folder}/ls/mo/ladder`;
           },
         },
         {
-          path: '/:season/:division/:category',
+          path: ':season/:division/:category',
           component: () => import('pages/LadderPage.vue'),
-          props: true,
+          children: [
+            {
+              path: ':view(ladder)',
+              component: () => import('components/LadderView.vue'),
+              props: true,
+            },
+            {
+              path: ':view(tournaments)',
+              component: () => import('components/TournamentsView.vue'),
+              props: true,
+            },
+          ],
         },
       ],
     },

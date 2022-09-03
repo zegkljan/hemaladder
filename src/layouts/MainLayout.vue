@@ -126,12 +126,7 @@
     </q-drawer>
 
     <q-page-container>
-      <suspense :timeout="0">
-        <router-view />
-        <template #fallback>
-          <q-page class="row items-top justify-evenly"> Loading... </q-page>
-        </template>
-      </suspense>
+      <router-view />
     </q-page-container>
   </q-layout>
 </template>
@@ -298,7 +293,9 @@ function routeLink(
   const s = season === null ? route.params.season : season.folder;
   const d = division === null ? route.params.division : division;
   const c = category === null ? route.params.category : category;
+  const w = route.params.view;
+  console.debug(w);
 
-  return `/${s}/${d}/${c}`;
+  return `/${s}/${d}/${c}/${w}`;
 }
 </script>
