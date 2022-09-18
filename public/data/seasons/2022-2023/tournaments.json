@@ -172,5 +172,64 @@
         }
       }
     }
+  },
+  "-4": {
+    "name": "Dragoon Sabre 2022",
+    "date": "2022-09-17",
+    "country": "cz",
+    "coefficient": 1,
+    "competitions": {
+      "sab": {
+        "mo": {
+          "no_participants": 17,
+          "results": [
+            {
+              "fencer_id": "1471",
+              "rank": 3
+            },
+            {
+              "fencer_id": "5822",
+              "rank": 4
+            },
+            {
+              "fencer_id": "9598",
+              "rank": 6
+            },
+            {
+              "fencer_id": "8907",
+              "rank": 8
+            },
+            {
+              "fencer_id": "9339",
+              "rank": 10
+            },
+            {
+              "fencer_id": "7829",
+              "rank": 12
+            },
+            {
+              "fencer_id": "9272",
+              "rank": 13
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 14
+            },
+            {
+              "fencer_id": "4785",
+              "rank": 15
+            },
+            {
+              "fencer_id": "6598",
+              "rank": 16
+            },
+            {
+              "fencer_id": "8899",
+              "rank": 17
+            }
+          ]
+        }
+      }
+    }
   }
 }

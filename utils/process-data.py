@@ -270,6 +270,8 @@ class Builder:
                     ld[category] = []
                 lc = ld[category]
                 for entry in ladder_individual[division][category]:
+                    if entry.fencer_id not in self.people:
+                        print(f'Unknown fencer {entry.fencer_id}!')
                     club_id = self.people[entry.fencer_id].club_id
                     lcl = next(
                         filter(lambda x: x.club_id == club_id, lc), None)
