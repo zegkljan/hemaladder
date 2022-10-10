@@ -33,6 +33,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 
+# Python compiled code
+*.pyc
+
 # Generated data
 /public/data/seasons/*/ladders*.json
 /public/data/seasons/*/stats.json

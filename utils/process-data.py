@@ -3,7 +3,9 @@ import json
 import pathlib
 from dataclasses import dataclass
 from math import prod
+import sys
 from typing import Any, List, Mapping, Optional, Sequence, Tuple, Union
+from checking import find_person, find_club
 
 
 class Category(enum.Enum):
@@ -293,9 +295,25 @@ class Builder:
         self._stats.national_fencer_count[division][category][tournament.tournament_id] = 0
 
         for entry in competition.results:
-            person = self.people[entry.fencer_id]
+            try:
+                person = self.people[entry.fencer_id]
+            except KeyError:
+                print("Tournament {}, division {}, category {} - missing person {}.".format(
+                    tournament.tournament_id, division.value, category.value, entry.fencer_id))
+                person = find_person(entry.fencer_id, None)
+                print("Attempted to find person at HR: \"{}\": {}".format(
+                    entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False)))
+                sys.exit(1)
             if person.club_id is not None:
-                club = self.clubs[person.club_id]
+                try:
+                    club = self.clubs[person.club_id]
+                except KeyError:
+                    print("Person {} - missing club {}.".format(
+                        person.id, person.club_id))
+                    club = find_club(person.club_id)
+                    print("Attempted to find club at HR: \"{}\": {}".format(
+                        person.club_id, json.dumps(club, indent=2, ensure_ascii=False)))
+                    sys.exit(1)
                 nationality = club.country
             else:
                 nationality = person.nationality

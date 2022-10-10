@@ -365,5 +365,275 @@
         }
       }
     }
+  },
+  "-6": {
+    "name": "Warszawskie Warsztaty Walki 2022",
+    "date": "2022-09-25",
+    "country": "pl",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 18,
+          "results": [
+            {
+              "fencer_id": "1478",
+              "rank": 8
+            },
+            {
+              "fencer_id": "2039",
+              "rank": 11
+            }
+          ]
+        }
+      }
+    }
+  },
+  "-7": {
+    "name": "Zabłocki Sabre (SabreSlash) 2022",
+    "date": "2022-10-02",
+    "country": "cz",
+    "coefficient": 1,
+    "competitions": {
+      "sab": {
+        "mo": {
+          "no_participants": 12,
+          "results": [
+            {
+              "fencer_id": "1471",
+              "rank": 1
+            },
+            {
+              "fencer_id": "-7",
+              "rank": 2
+            },
+            {
+              "fencer_id": "-8",
+              "rank": 3
+            },
+            {
+              "fencer_id": "-9",
+              "rank": 4
+            },
+            {
+              "fencer_id": "-10",
+              "rank": 5
+            }
+          ]
+        }
+      }
+    }
+  },
+  "-8": {
+    "name": "Podzimové mečoklání II",
+    "date": "2022-10-09",
+    "country": "cz",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 45,
+          "results": [
+            {
+              "fencer_id": "5822",
+              "rank": 1
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 3
+            },
+            {
+              "fencer_id": "1512",
+              "rank": 4
+            },
+            {
+              "fencer_id": "7298",
+              "rank": 5
+            },
+            {
+              "fencer_id": "9598",
+              "rank": 6
+            },
+            {
+              "fencer_id": "8907",
+              "rank": 7
+            },
+            {
+              "fencer_id": "9271",
+              "rank": 8
+            },
+            {
+              "fencer_id": "9349",
+              "rank": 9
+            },
+            {
+              "fencer_id": "7825",
+              "rank": 10
+            },
+            {
+              "fencer_id": "6753",
+              "rank": 11
+            },
+            {
+              "fencer_id": "10136",
+              "rank": 12
+            },
+            {
+              "fencer_id": "1480",
+              "rank": 13
+            },
+            {
+              "fencer_id": "9270",
+              "rank": 14
+            },
+            {
+              "fencer_id": "8936",
+              "rank": 15
+            },
+            {
+              "fencer_id": "10391",
+              "rank": 16
+            },
+            {
+              "fencer_id": "9338",
+              "rank": 17
+            },
+            {
+              "fencer_id": "8935",
+              "rank": 18
+            },
+            {
+              "fencer_id": "3624",
+              "rank": 19
+            },
+            {
+              "fencer_id": "5826",
+              "rank": 20
+            },
+            {
+              "fencer_id": "7829",
+              "rank": 21
+            },
+            {
+              "fencer_id": "-11",
+              "rank": 22
+            },
+            {
+              "fencer_id": "8903",
+              "rank": 23
+            },
+            {
+              "fencer_id": "6597",
+              "rank": 24
+            },
+            {
+              "fencer_id": "10202",
+              "rank": 25
+            },
+            {
+              "fencer_id": "10131",
+              "rank": 26
+            },
+            {
+              "fencer_id": "6598",
+              "rank": 27
+            },
+            {
+              "fencer_id": "8899",
+              "rank": 28
+            },
+            {
+              "fencer_id": "6601",
+              "rank": 29
+            },
+            {
+              "fencer_id": "9596",
+              "rank": 30
+            },
+            {
+              "fencer_id": "-12",
+              "rank": 31
+            },
+            {
+              "fencer_id": "-13",
+              "rank": 32
+            },
+            {
+              "fencer_id": "10053",
+              "rank": 33
+            },
+            {
+              "fencer_id": "-14",
+              "rank": 34
+            },
+            {
+              "fencer_id": "9637",
+              "rank": 35
+            },
+            {
+              "fencer_id": "-4",
+              "rank": 36
+            },
+            {
+              "fencer_id": "-15",
+              "rank": 37
+            },
+            {
+              "fencer_id": "-16",
+              "rank": 38
+            },
+            {
+              "fencer_id": "8905",
+              "rank": 39
+            },
+            {
+              "fencer_id": "-6",
+              "rank": 40
+            },
+            {
+              "fencer_id": "9339",
+              "rank": 41
+            },
+            {
+              "fencer_id": "9639",
+              "rank": 42
+            },
+            {
+              "fencer_id": "9636",
+              "rank": 43
+            },
+            {
+              "fencer_id": "-17",
+              "rank": 44
+            },
+            {
+              "fencer_id": "-18",
+              "rank": 45
+            }
+          ]
+        },
+        "w": {
+          "no_participants": 5,
+          "results": [
+            {
+              "fencer_id": "-19",
+              "rank": 1
+            },
+            {
+              "fencer_id": "9339",
+              "rank": 2
+            },
+            {
+              "fencer_id": "-20",
+              "rank": 3
+            },
+            {
+              "fencer_id": "-21",
+              "rank": 4
+            }
+          ]
+        }
+      }
+    }
   }
 }
