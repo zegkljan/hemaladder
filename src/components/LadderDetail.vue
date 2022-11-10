@@ -32,9 +32,7 @@
                 target="_blank"
               >
                 <q-item-section>
-                  <q-item-label caption>{{
-                    $t('ladderTable.clubLabel')
-                  }}</q-item-label>
+                  <q-item-label caption>{{ $t('clubLabel') }}</q-item-label>
                   <q-item-label>{{
                     data.clubs[data.people[modelValue!.fencer_id].club_id].name
                   }}</q-item-label>
@@ -48,9 +46,7 @@
               </q-item>
               <q-item v-else>
                 <q-item-section>
-                  <q-item-label caption>{{
-                    $t('ladderTable.clubLabel')
-                  }}</q-item-label>
+                  <q-item-label caption>{{ $t('clubLabel') }}</q-item-label>
                   <q-item-label>-</q-item-label>
                 </q-item-section>
               </q-item>
