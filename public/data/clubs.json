@@ -70,5 +70,9 @@
   "-1": {
     "name": "Česká zemská šermírna",
     "country": "cz"
+  },
+  "-2": {
+    "name": "FFG Ostrava",
+    "country": "cz"
   }
 }
