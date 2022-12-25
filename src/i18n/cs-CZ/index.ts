@@ -99,6 +99,7 @@ export default {
     [Division.RD]: 'Rapír a dýka',
     [Division.SB]: 'Meč a štítek',
     [Division.SAB]: 'Šavle',
+    [Division.M]: 'Tesák (messer)',
   },
   categoryTitle: 'Kategorie',
   category: {

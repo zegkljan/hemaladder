@@ -25,17 +25,21 @@ def find_person(pid, category):
         name, surname = name_find[0].split(' ', maxsplit=1)
         name = html.unescape(name)
         surname = html.unescape(surname)
-    if club_find:
-        club = club_find[0]
-    if nationality_find:
-        nationality = nationality_find[0]
+    else:
+        raise ValueError(
+            f'Name of fencer ID {pid} could not be retreived from HEMA Ratings.')
+
     new_entry = {
-        "surname": surname,
-        "name": name,
-        "club_id": club,
-        "nationality": nationality,
-        "category": category
+        'surname': surname,
+        'name': name,
     }
+
+    if club_find:
+        new_entry['club_id'] = club_find[0]
+    if nationality_find:
+        new_entry['nationality'] = nationality_find[0]
+    new_entry['category'] = category
+
     return new_entry
 
 
@@ -61,8 +65,8 @@ def find_club(cid):
     if country_find:
         country = country_find[0]
     new_entry = {
-        "name": name,
-        "country": country
+        'name': name,
+        'country': country
     }
     return new_entry
 

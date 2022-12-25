@@ -88,6 +88,7 @@ export default {
     [Division.RD]: 'Rapier and dagger',
     [Division.SB]: 'Sword and buckler',
     [Division.SAB]: 'Saber',
+    [Division.M]: 'Messer',
   },
   categoryTitle: 'Category',
   category: {

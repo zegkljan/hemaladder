@@ -19,6 +19,7 @@ class Division(enum.Enum):
     R = 'r'
     RD = 'rd'
     SAB = 'sab'
+    M = 'm'
 
 
 class CoefficientType(enum.Enum):
@@ -300,7 +301,7 @@ class Builder:
             except KeyError:
                 print("Tournament {}, division {}, category {} - missing person {}.".format(
                     tournament.tournament_id, division.value, category.value, entry.fencer_id))
-                person = find_person(entry.fencer_id, None)
+                person = find_person(entry.fencer_id, category.value)
                 print("Attempted to find person at HR: \"{}\": {}".format(
                     entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False)))
                 sys.exit(1)
