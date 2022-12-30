@@ -996,6 +996,70 @@
       }
     }
   },
+  "-10": {
+    "name": "Swordplay 2022",
+    "date": "2022-11-26",
+    "country": "rs",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 37,
+          "results": [
+            {
+              "fencer_id": "9598",
+              "rank": 15
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 24
+            }
+          ]
+        }
+      },
+      "ss": {
+        "mo": {
+          "no_participants": 30,
+          "results": [
+            {
+              "fencer_id": "9598",
+              "rank": 8
+            }
+          ]
+        }
+      },
+      "r": {
+        "mo": {
+          "no_participants": 30,
+          "results": [
+            {
+              "fencer_id": "9598",
+              "rank": 3
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 30
+            }
+          ]
+        }
+      },
+      "sm": {
+        "mo": {
+          "no_participants": 18,
+          "results": [
+            {
+              "fencer_id": "9598",
+              "rank": 3
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 11
+            }
+          ]
+        }
+      }
+    }
+  },
   "-8": {
     "name": "Vánoční šermířský přátelák 2022",
     "date": "2022-12-10",
