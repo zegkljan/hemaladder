@@ -25,20 +25,24 @@ export const categoryReverseMap = {
 
 export enum Division {
   LS = 'ls', // long sworkd
-  SB = 'sb', // sword & buckler
+  SAB = 'sab', // sword & buckler
   R = 'r', // rapier
-  RD = 'rd', // rapier & dagger
-  SAB = 'sab', // saber
+  RAD = 'rad', // rapier & dagger
+  SB = 'sb', // saber
   M = 'm', // messer
+  SS = 'ss', // sidesword
+  SM = 'sm', // smallword
 }
 
 export const divisionReverseMap = {
   ls: Division.LS,
-  sb: Division.SB,
-  r: Division.R,
-  rd: Division.RD,
   sab: Division.SAB,
+  r: Division.R,
+  rad: Division.RAD,
+  sb: Division.SB,
   m: Division.M,
+  ss: Division.SS,
+  sm: Division.SM,
 };
 
 export enum View {

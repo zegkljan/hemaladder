@@ -14,12 +14,14 @@ class Category(enum.Enum):
 
 
 class Division(enum.Enum):
-    LS = 'ls'
-    SB = 'sb'
-    R = 'r'
-    RD = 'rd'
-    SAB = 'sab'
-    M = 'm'
+    LS = 'ls'    # long sword
+    SAB = 'sab'  # sword & buckler
+    R = 'r'      # rapier
+    RAD = 'rad'  # rapier & dagger
+    SB = 'sb'    # saber
+    M = 'm'      # messer
+    SS = 'ss'    # sidesword
+    SM = 'sm'    # smallsword
 
 
 class CoefficientType(enum.Enum):

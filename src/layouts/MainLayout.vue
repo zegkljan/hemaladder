@@ -59,7 +59,11 @@
         </q-item>
         <q-separator />
 
-        <q-item-label header>{{ $t('seasonTitle') }}</q-item-label>
+        <q-item dense>
+          <q-item-section>
+            <q-item-label header>{{ $t('seasonTitle') }}</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item>
           <q-select
             :model-value="season"
@@ -73,7 +77,16 @@
         </q-item>
         <q-separator />
 
-        <q-item-label header> {{ $t('divisionTitle') }} </q-item-label>
+        <q-item dense>
+          <q-item-section>
+            <q-item-label header> {{ $t('divisionTitle') }} </q-item-label>
+          </q-item-section>
+          <q-item-section side>
+            <q-item-label class="text-caption">
+              {{ $t('divisionNoTournaments') }}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item v-if="season === null">
           {{ $t('chooseSeason') }}
         </q-item>
@@ -82,17 +95,37 @@
           v-for="d in divisions"
           :key="d.division"
           :to="routeLink(null, d.division, null)"
-          :disable="!d.hasData"
+          :disable="d.noTournaments === 0"
           :active="d.division === division"
         >
-          <q-tooltip v-if="!d.hasData">{{ $t('divisionNoData') }}</q-tooltip>
+          <q-tooltip v-if="d.noTournaments === 0">{{
+            $t('divisionNoData')
+          }}</q-tooltip>
           <q-item-section>
             <q-item-label>{{ $t('division.' + d.division) }}</q-item-label>
+          </q-item-section>
+          <q-item-section side v-if="d.noTournaments > 0">
+            <q-item-label>
+              <q-icon
+                v-if="d.noTournaments === 1"
+                name="mdi-alert"
+                color="warning"
+              >
+                <q-tooltip>{{
+                  $t('divisionSingleTournamentWarningTooltip')
+                }}</q-tooltip>
+              </q-icon>
+              {{ d.noTournaments }}
+            </q-item-label>
           </q-item-section>
         </q-item>
         <q-separator />
 
-        <q-item-label header> {{ $t('categoryTitle') }} </q-item-label>
+        <q-item dense>
+          <q-item-section>
+            <q-item-label header> {{ $t('categoryTitle') }} </q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item
           v-for="c in categories"
           :key="c.category"
@@ -222,31 +255,38 @@ function onSeasonChanged(val: Season) {
 }
 
 const divisions: ComputedRef<
-  { division: Division; hasData: boolean }[] | undefined
-> = computed((): { division: Division; hasData: boolean }[] | undefined => {
-  if (!!data.tournaments) {
-    const tours = Object.values(data.tournaments);
-    const divs = new Set<Division>();
-    tours
-      .flatMap((t) => Object.keys(t.competitions))
-      .forEach((k) => {
-        const div = divisionReverseMap[k as keyof typeof divisionReverseMap];
-        divs.add(div);
-      });
-    const res = Object.keys(divisionReverseMap)
-      .map((d) => {
-        const div = divisionReverseMap[d as keyof typeof divisionReverseMap];
-        return {
-          division: div,
-          hasData: divs.has(div),
-        };
-      })
-      .sort();
-    return res;
-  } else {
-    return undefined;
+  { division: Division; noTournaments: number }[] | undefined
+> = computed(
+  (): { division: Division; noTournaments: number }[] | undefined => {
+    if (!!data.tournaments) {
+      const tours = Object.values(data.tournaments);
+      const divs = new Map<Division, number>();
+      tours
+        .flatMap((t) => Object.keys(t.competitions))
+        .forEach((k) => {
+          const div = divisionReverseMap[k as keyof typeof divisionReverseMap];
+          divs.set(div, 1 + (divs.get(div) ?? 0));
+        });
+      const res = Object.keys(divisionReverseMap)
+        .map((d) => {
+          const div = divisionReverseMap[d as keyof typeof divisionReverseMap];
+          return {
+            division: div,
+            noTournaments: divs.get(div) ?? 0,
+          };
+        })
+        .sort((a, b) => {
+          if (a.noTournaments === b.noTournaments) {
+            return a.division.localeCompare(b.division);
+          }
+          return b.noTournaments - a.noTournaments;
+        });
+      return res;
+    } else {
+      return undefined;
+    }
   }
-});
+);
 
 const division: ComputedRef<Division> = computed(
   (): Division =>

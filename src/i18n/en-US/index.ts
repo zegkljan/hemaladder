@@ -82,14 +82,19 @@ export default {
     'There is no data for this combination of season, division, and category.',
   seasonTitle: 'Season',
   divisionTitle: 'Division',
+  divisionNoTournaments: 'No. of tournaments',
   division: {
     [Division.LS]: 'Long sword',
     [Division.R]: 'Rapier',
-    [Division.RD]: 'Rapier and dagger',
-    [Division.SB]: 'Sword and buckler',
-    [Division.SAB]: 'Saber',
+    [Division.RAD]: 'Rapier and dagger',
+    [Division.SAB]: 'Sword and buckler',
+    [Division.SB]: 'Saber',
     [Division.M]: 'Messer',
+    [Division.SS]: 'Sidesword',
+    [Division.SM]: 'Smallsword',
   },
+  divisionSingleTournamentWarningTooltip:
+    'There is only a single tournament recorded in this division.',
   categoryTitle: 'Category',
   category: {
     [Category.MEN_OPEN]: 'Men/open',

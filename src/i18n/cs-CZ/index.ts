@@ -93,14 +93,19 @@ export default {
   noData: 'Pro tuto kombinaci sezóny, divize a kategorie nejsou žádná data.',
   seasonTitle: 'Sezóna',
   divisionTitle: 'Divize',
+  divisionNoTournaments: 'Počet turnajů',
   division: {
     [Division.LS]: 'Dlouhý meč',
     [Division.R]: 'Rapír',
-    [Division.RD]: 'Rapír a dýka',
-    [Division.SB]: 'Meč a štítek',
-    [Division.SAB]: 'Šavle',
+    [Division.RAD]: 'Rapír a dýka',
+    [Division.SAB]: 'Meč a štítek',
+    [Division.SB]: 'Šavle',
     [Division.M]: 'Tesák (messer)',
+    [Division.SS]: 'Renesanční meč (sidesword)',
+    [Division.SM]: 'Kordík (smallsword)',
   },
+  divisionSingleTournamentWarningTooltip:
+    'V této divizi je zaznamenán pouze jeden turnaj.',
   categoryTitle: 'Kategorie',
   category: {
     [Category.MEN_OPEN]: 'Muži/open',

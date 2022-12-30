@@ -60,7 +60,7 @@
     "country": "pl",
     "coefficient": 1,
     "competitions": {
-      "sab": {
+      "sb": {
         "mo": {
           "no_participants": 34,
           "results": [
@@ -98,7 +98,7 @@
           ]
         }
       },
-      "rd": {
+      "rad": {
         "mo": {
           "no_participants": 27,
           "results": [
@@ -121,7 +121,7 @@
           ]
         }
       },
-      "sb": {
+      "sab": {
         "mo": {
           "no_participants": 14,
           "results": [
@@ -179,7 +179,7 @@
     "country": "cz",
     "coefficient": 1,
     "competitions": {
-      "sab": {
+      "sb": {
         "mo": {
           "no_participants": 17,
           "results": [
@@ -306,7 +306,7 @@
           ]
         }
       },
-      "sab": {
+      "sb": {
         "mo": {
           "no_participants": 27,
           "results": [
@@ -395,7 +395,7 @@
     "country": "cz",
     "coefficient": 1,
     "competitions": {
-      "sab": {
+      "sb": {
         "mo": {
           "no_participants": 12,
           "results": [
@@ -642,7 +642,7 @@
     "country": "pl",
     "coefficient": 1,
     "competitions": {
-      "rd": {
+      "rad": {
         "mo": {
           "no_participants": 30,
           "results": [
@@ -657,7 +657,7 @@
           ]
         }
       },
-      "sab": {
+      "sb": {
         "mo": {
           "no_participants": 31,
           "results": [
