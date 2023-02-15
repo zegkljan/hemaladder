@@ -1336,5 +1336,78 @@
         }
       }
     }
+  },
+  "-11": {
+    "name": "Helsinki Longsword Open 2023",
+    "date": "2023-01-27",
+    "country": "fi",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 76,
+          "results": [
+            {
+              "fencer_id": "3631",
+              "rank": 12
+            },
+            {
+              "fencer_id": "2140",
+              "rank": 15
+            },
+            {
+              "fencer_id": "5822",
+              "rank": 25
+            },
+            {
+              "fencer_id": "3624",
+              "rank": 36
+            }
+          ]
+        }
+      },
+      "sab": {
+        "mo": {
+          "no_participants": 28,
+          "results": [
+            {
+              "fencer_id": "2140",
+              "rank": 7
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 13
+            }
+          ]
+        }
+      },
+      "m": {
+        "mo": {
+          "no_participants": 31,
+          "results": [
+            {
+              "fencer_id": "2140",
+              "rank": 6
+            },
+            {
+              "fencer_id": "5822",
+              "rank": 9
+            },
+            {
+              "fencer_id": "5119",
+              "rank": 15
+            },
+            {
+              "fencer_id": "1503",
+              "rank": 18
+            },
+            {
+              "fencer_id": "10194",
+              "rank": 21
+            }
+          ]
+        }
+      }
+    }
   }
 }

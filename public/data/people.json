@@ -286,6 +286,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "1503": {
+    "surname": "Malec",
+    "name": "Leoš",
+    "club_id": "290",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "9637": {
     "surname": "Malík",
     "name": "Ondřej",
@@ -517,6 +524,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "10194": {
+    "surname": "Šindelář",
+    "name": "Jakub",
+    "club_id": "290",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "2290": {
     "surname": "Štětina",
     "name": "Jan",
@@ -591,6 +605,13 @@
     "surname": "Vlasák",
     "name": "Jakub",
     "club_id": "1125",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "5119": {
+    "surname": "Vobr",
+    "name": "David",
+    "club_id": "290",
     "nationality": "cz",
     "category": "mo"
   },
