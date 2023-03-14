@@ -35,6 +35,10 @@
     "name": "Poslední Argument",
     "country": "cz"
   },
+  "1273": {
+    "name": "Rapír klub Praha (Rapier club Prague)",
+    "country": "cz"
+  },
   "790": {
     "name": "Rotyka",
     "country": "cz"
@@ -73,6 +77,10 @@
   },
   "-2": {
     "name": "FFG Ostrava",
+    "country": "cz"
+  },
+  "-3": {
+    "name": "Ballestra Telč - Paridon",
     "country": "cz"
   }
 }
