@@ -1659,5 +1659,175 @@
         }
       }
     }
+  },
+  "-13": {
+    "name": "FechtBerg Poker Cup 2023",
+    "date": "2023-02-25",
+    "country": "pl",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 49,
+          "results": [
+            {
+              "fencer_id": "5822",
+              "rank": 5
+            },
+            {
+              "fencer_id": "8907",
+              "rank": 11
+            },
+            {
+              "fencer_id": "11158",
+              "rank": 12
+            },
+            {
+              "fencer_id": "9598",
+              "rank": 15
+            },
+            {
+              "fencer_id": "1512",
+              "rank": 17
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 20
+            },
+            {
+              "fencer_id": "9635",
+              "rank": 21
+            },
+            {
+              "fencer_id": "10392",
+              "rank": 25
+            },
+            {
+              "fencer_id": "3624",
+              "rank": 28
+            },
+            {
+              "fencer_id": "11157",
+              "rank": 32
+            }
+          ]
+        },
+        "w": {
+          "no_participants": 11,
+          "results": [
+            {
+              "fencer_id": "9339",
+              "rank": 3
+            }
+          ]
+        }
+      },
+      "sb": {
+        "mo": {
+          "no_participants": 41,
+          "results": [
+            {
+              "fencer_id": "5822",
+              "rank": 9
+            },
+            {
+              "fencer_id": "1471",
+              "rank": 13
+            },
+            {
+              "fencer_id": "9635",
+              "rank": 14
+            },
+            {
+              "fencer_id": "8907",
+              "rank": 24
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 31
+            }
+          ]
+        },
+        "w": {
+          "no_participants": 10,
+          "results": [
+            {
+              "fencer_id": "9339",
+              "rank": 3
+            }
+          ]
+        }
+      },
+      "rad": {
+        "mo": {
+          "no_participants": 40,
+          "results": [
+            {
+              "fencer_id": "1499",
+              "rank": 2
+            },
+            {
+              "fencer_id": "9598",
+              "rank": 6
+            },
+            {
+              "fencer_id": "1473",
+              "rank": 8
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 22
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 29
+            },
+            {
+              "fencer_id": "9635",
+              "rank": 33
+            },
+            {
+              "fencer_id": "10194",
+              "rank": 40
+            }
+          ]
+        }
+      },
+      "sab": {
+        "mo": {
+          "no_participants": 28,
+          "results": [
+            {
+              "fencer_id": "9598",
+              "rank": 5
+            },
+            {
+              "fencer_id": "9635",
+              "rank": 7
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 8
+            },
+            {
+              "fencer_id": "11158",
+              "rank": 10
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 15
+            },
+            {
+              "fencer_id": "11157",
+              "rank": 16
+            },
+            {
+              "fencer_id": "1473",
+              "rank": 17
+            }
+          ]
+        }
+      }
+    }
   }
 }
