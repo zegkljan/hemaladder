@@ -146,7 +146,7 @@
       }
     }
   },
-  "-3": {
+  "1768": {
     "name": "Dresdner HEMA-Cup 2022",
     "date": "2022-07-09",
     "country": "de",
@@ -1824,6 +1824,241 @@
             {
               "fencer_id": "1473",
               "rank": 17
+            }
+          ]
+        }
+      }
+    }
+  },
+  "-14": {
+    "name": "Žilinský kumšt VI.",
+    "date": "2023-03-11",
+    "country": "sk",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 70,
+          "results": [
+            {
+              "fencer_id": "2090",
+              "rank": 1
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 5
+            },
+            {
+              "fencer_id": "5576",
+              "rank": 8
+            },
+            {
+              "fencer_id": "7825",
+              "rank": 9
+            },
+            {
+              "fencer_id": "9271",
+              "rank": 11
+            },
+            {
+              "fencer_id": "8936",
+              "rank": 13
+            },
+            {
+              "fencer_id": "11158",
+              "rank": 15
+            },
+            {
+              "fencer_id": "3624",
+              "rank": 16
+            },
+            {
+              "fencer_id": "8907",
+              "rank": 17
+            },
+            {
+              "fencer_id": "2140",
+              "rank": 18
+            },
+            {
+              "fencer_id": "9349",
+              "rank": 19
+            },
+            {
+              "fencer_id": "9352",
+              "rank": 22
+            },
+            {
+              "fencer_id": "5822",
+              "rank": 26
+            },
+            {
+              "fencer_id": "10349",
+              "rank": 27
+            },
+            {
+              "fencer_id": "7308",
+              "rank": 34
+            },
+            {
+              "fencer_id": "-39",
+              "rank": 36
+            },
+            {
+              "fencer_id": "-34",
+              "rank": 37
+            },
+            {
+              "fencer_id": "10346",
+              "rank": 38
+            },
+            {
+              "fencer_id": "10202",
+              "rank": 39
+            },
+            {
+              "fencer_id": "10136",
+              "rank": 40
+            },
+            {
+              "fencer_id": "8935",
+              "rank": 41
+            },
+            {
+              "fencer_id": "-40",
+              "rank": 45
+            },
+            {
+              "fencer_id": "3626",
+              "rank": 47
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 48
+            },
+            {
+              "fencer_id": "10058",
+              "rank": 50
+            },
+            {
+              "fencer_id": "10057",
+              "rank": 53
+            },
+            {
+              "fencer_id": "7837",
+              "rank": 58
+            },
+            {
+              "fencer_id": "-41",
+              "rank": 59
+            },
+            {
+              "fencer_id": "-42",
+              "rank": 66
+            },
+            {
+              "fencer_id": "10131",
+              "rank": 70
+            }
+          ]
+        },
+        "w": {
+          "no_participants": 11,
+          "results": [
+            {
+              "fencer_id": "11065",
+              "rank": 2
+            },
+            {
+              "fencer_id": "1478",
+              "rank": 3
+            },
+            {
+              "fencer_id": "9339",
+              "rank": 4
+            },
+            {
+              "fencer_id": "11162",
+              "rank": 8
+            },
+            {
+              "fencer_id": "11064",
+              "rank": 10
+            }
+          ]
+        }
+      },
+      "sab": {
+        "mo": {
+          "no_participants": 30,
+          "results": [
+            {
+              "fencer_id": "9598",
+              "rank": 1
+            },
+            {
+              "fencer_id": "5576",
+              "rank": 3
+            },
+            {
+              "fencer_id": "9349",
+              "rank": 4
+            },
+            {
+              "fencer_id": "2090",
+              "rank": 5
+            },
+            {
+              "fencer_id": "10136",
+              "rank": 6
+            },
+            {
+              "fencer_id": "11158",
+              "rank": 8
+            },
+            {
+              "fencer_id": "1499",
+              "rank": 9
+            },
+            {
+              "fencer_id": "2140",
+              "rank": 10
+            },
+            {
+              "fencer_id": "8907",
+              "rank": 11
+            },
+            {
+              "fencer_id": "7825",
+              "rank": 13
+            },
+            {
+              "fencer_id": "5822",
+              "rank": 15
+            },
+            {
+              "fencer_id": "7837",
+              "rank": 17
+            },
+            {
+              "fencer_id": "6753",
+              "rank": 20
+            },
+            {
+              "fencer_id": "-42",
+              "rank": 21
+            },
+            {
+              "fencer_id": "3626",
+              "rank": 22
+            },
+            {
+              "fencer_id": "9352",
+              "rank": 25
+            },
+            {
+              "fencer_id": "9350",
+              "rank": 26
             }
           ]
         }

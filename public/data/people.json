@@ -966,5 +966,33 @@
     "club_id": "-3",
     "nationality": "cz",
     "category": "mo"
+  },
+  "-39": {
+    "surname": "Heinz",
+    "name": "Lukáš",
+    "club_id": "655",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "-40": {
+    "surname": "Bobula",
+    "name": "Ondrej",
+    "club_id": "786",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "-41": {
+    "surname": "Silnica",
+    "name": "Matěj",
+    "club_id": "786",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "-42": {
+    "surname": "Beneš",
+    "name": "Michael",
+    "club_id": "786",
+    "nationality": "cz",
+    "category": "mo"
   }
 }
