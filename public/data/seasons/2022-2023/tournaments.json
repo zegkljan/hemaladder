@@ -2064,5 +2064,76 @@
         }
       }
     }
+  },
+  "-15": {
+    "name": "Ordál",
+    "date": "2023-03-25",
+    "country": "cz",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 15,
+          "results": [
+            {
+              "fencer_id": "2140",
+              "rank": 1
+            },
+            {
+              "fencer_id": "5822",
+              "rank": 2
+            },
+            {
+              "fencer_id": "3631",
+              "rank": 4
+            },
+            {
+              "fencer_id": "3624",
+              "rank": 5
+            },
+            {
+              "fencer_id": "7825",
+              "rank": 6
+            },
+            {
+              "fencer_id": "1512",
+              "rank": 7
+            },
+            {
+              "fencer_id": "10054",
+              "rank": 8
+            },
+            {
+              "fencer_id": "8907",
+              "rank": 9
+            },
+            {
+              "fencer_id": "9271",
+              "rank": 10
+            },
+            {
+              "fencer_id": "9338",
+              "rank": 11
+            },
+            {
+              "fencer_id": "9596",
+              "rank": 11
+            },
+            {
+              "fencer_id": "1488",
+              "rank": 13
+            },
+            {
+              "fencer_id": "7829",
+              "rank": 14
+            },
+            {
+              "fencer_id": "2138",
+              "rank": 15
+            }
+          ]
+        }
+      }
+    }
   }
 }
