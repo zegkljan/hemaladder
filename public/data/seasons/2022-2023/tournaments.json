@@ -2135,5 +2135,104 @@
         }
       }
     }
+  },
+  "-16": {
+    "name": "Krkavčí jarní fechtík 2023",
+    "date": "2023-04-01",
+    "country": "cz",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 25,
+          "results": [
+            {
+              "fencer_id": "5822",
+              "rank": 1
+            },
+            {
+              "fencer_id": "7298",
+              "rank": 2
+            },
+            {
+              "fencer_id": "8907",
+              "rank": 3
+            },
+            {
+              "fencer_id": "8905",
+              "rank": 4
+            },
+            {
+              "fencer_id": "3624",
+              "rank": 5
+            },
+            {
+              "fencer_id": "2139",
+              "rank": 7
+            },
+            {
+              "fencer_id": "9352",
+              "rank": 8
+            },
+            {
+              "fencer_id": "9271",
+              "rank": 11
+            },
+            {
+              "fencer_id": "10348",
+              "rank": 13
+            },
+            {
+              "fencer_id": "1478",
+              "rank": 14
+            },
+            {
+              "fencer_id": "9338",
+              "rank": 15
+            },
+            {
+              "fencer_id": "6598",
+              "rank": 16
+            },
+            {
+              "fencer_id": "10131",
+              "rank": 17
+            },
+            {
+              "fencer_id": "10347",
+              "rank": 18
+            },
+            {
+              "fencer_id": "-35",
+              "rank": 19
+            },
+            {
+              "fencer_id": "-43",
+              "rank": 20
+            },
+            {
+              "fencer_id": "10053",
+              "rank": 21
+            },
+            {
+              "fencer_id": "-44",
+              "rank": 22
+            },
+            {
+              "fencer_id": "8935",
+              "rank": 23
+            },
+            {
+              "fencer_id": "2041",
+              "rank": 24
+            },
+            {
+              "fencer_id": "11064",
+              "rank": 25
+            }
+          ]
+        }
+      }
+    }
   }
 }
