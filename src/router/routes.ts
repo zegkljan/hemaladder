@@ -1,6 +1,18 @@
 import { Store } from 'pinia';
-import { Season } from 'src/logic/ladder';
-import { RouteRecordRaw } from 'vue-router';
+import { Category, Division, Season, categoryReverseMap, divisionReverseMap } from 'src/logic/ladder';
+import { RouteLocationNormalized, RouteRecordRaw } from 'vue-router';
+
+function passProps(route: RouteLocationNormalized): {
+  season: string;
+  division: Division;
+  category: Category;
+} {
+  return {
+    season: route.params.season as string,
+    division: divisionReverseMap[route.params.division as keyof typeof divisionReverseMap],
+    category: categoryReverseMap[route.params.category as keyof typeof categoryReverseMap]
+  };
+}
 
 function buildRoutes(
   data: Store<
@@ -28,17 +40,17 @@ function buildRoutes(
             {
               path: ':view(ladder)',
               component: () => import('components/LadderView.vue'),
-              props: true,
+              props: passProps,
             },
             {
               path: ':view(clubs)',
               component: () => import('components/ClubsView.vue'),
-              props: true,
+              props: passProps,
             },
             {
               path: ':view(tournaments)',
               component: () => import('components/TournamentsView.vue'),
-              props: true,
+              props: passProps,
             },
           ],
         },

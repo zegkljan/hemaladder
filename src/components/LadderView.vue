@@ -89,7 +89,7 @@
     :category="category"
     @tournament-detail="onTournamentDetail"
   ></ladder-detail>
-  <tournament-detail v-model="tournamentDetail"></tournament-detail>
+  <!-- <tournament-detail v-model="tournamentDetail"></tournament-detail> -->
 </template>
 
 <style lang="scss">

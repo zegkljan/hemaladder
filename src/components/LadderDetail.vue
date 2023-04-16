@@ -243,10 +243,10 @@
                     >
                     </q-btn>
                     <q-tooltip v-if="t.tournament_id.startsWith('-')">
-                      {{ $t('ladderTable.hemaratingsNoDetailTooltip') }}
+                      {{ $t('hemaratingsNoDetailTooltip') }}
                     </q-tooltip>
                     <q-tooltip v-else>
-                      {{ $t('ladderTable.hemaratingsDetailTooltip') }}
+                      {{ $t('hemaratingsDetailTooltip') }}
                     </q-tooltip>
                   </div>
                 </td>

@@ -18,8 +18,10 @@ export async function loadJSON(
 ): Promise<
   Record<string, unknown> | Array<unknown> | string | number | null | boolean
 > {
+  console.debug('loading', url);
   const res = await fetch(url);
-  return res.json();
+  const json = res.json();
+  return json;
 }
 
 export function objectFilter<T>(
