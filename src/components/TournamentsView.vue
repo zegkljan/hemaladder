@@ -103,17 +103,15 @@ thead tr:first-child th {
 </style>
 
 <script setup lang="ts">
-import { computed, ref } from '@vue/reactivity';
+import { computed } from '@vue/reactivity';
 import { QTableProps } from 'quasar';
-import { TournamentDetailModel } from 'src/components/models';
 import {
   Category,
   Division,
-  LadderEntry,
   TournamentResultEntry,
 } from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
-import { ComputedRef, Ref, watchEffect } from 'vue';
+import { ComputedRef, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 import CountryFlag from 'vue-country-flag-next';
 
@@ -235,19 +233,4 @@ function handleResize() {
 window.addEventListener('resize', handleResize);
 handleResize();
 
-let detailTarget: Ref<LadderEntry | null> = ref(null);
-
-function onDetailClick(entry: LadderEntry) {
-  detailTarget.value = entry;
-}
-
-let tournamentDetail: Ref<TournamentDetailModel | null> = ref(null);
-
-function onTournamentDetail(detail: {
-  fencer_id: string;
-  tournament_id: string;
-  category: Category;
-}) {
-  tournamentDetail.value = { ...detail, division: props.division };
-}
 </script>
