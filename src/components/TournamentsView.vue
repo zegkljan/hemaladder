@@ -20,6 +20,26 @@
         </q-tooltip>
       </q-td>
     </template>
+    <template v-slot:body-cell-results="props">
+      <q-td :props="props">
+        <q-btn
+          :href="props.row.results_link"
+          target="_blank"
+          icon="mdi-open-in-new"
+          flat
+          dense
+          round
+          :disable="props.row.results_link === undefined"
+        >
+        </q-btn>
+        <q-tooltip v-if="props.row.id.startsWith('-')">
+          {{ $t('resultsNoDetailTooltip') }}
+        </q-tooltip>
+        <q-tooltip v-else>
+          {{ $t('resultsDetailTooltip') }}
+        </q-tooltip>
+      </q-td>
+    </template>
     <template v-slot:body-cell-hemaratings="props">
       <q-td :props="props">
         <q-btn
@@ -123,6 +143,7 @@ type TournamentView = {
   coefficient: number;
   noParticipants: number;
   results: TournamentResultEntry[];
+  results_link?: string;
 };
 
 const { t, d } = useI18n();
@@ -183,6 +204,13 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       // style: 'width: 1px; max-width: 1px',
     },
     {
+      name: 'results',
+      label: t('resultsLabel'),
+      field: '',
+      align: 'center',
+      // style: 'width: 1px; max-width: 1px',
+    },
+    {
       name: 'hemaratings',
       label: t('hemaratingsLabel'),
       field: '',
@@ -213,6 +241,7 @@ const tournaments: ComputedRef<TournamentView[] | undefined | null> = computed(
               coefficient: tournament.coefficient,
               noParticipants: comp.no_participants,
               results: comp.results,
+              results_link: comp.results_link
             },
           ];
         }

@@ -44,6 +44,7 @@ class TournamentResultEntry:
 class Competition:
     no_participants: int
     results: List[TournamentResultEntry]
+    results_link: Optional[str]
 
 
 class Tournament:
@@ -56,9 +57,13 @@ class Tournament:
 
         self.competitions: Mapping[Division, Mapping[Category, Competition]] = {
             Division(k1): {
-                Category(k2): Competition(v2['no_participants'], [
-                    TournamentResultEntry(entry['fencer_id'], int(entry['rank'])) for entry in v2['results']
-                ]) for k2, v2 in v1.items()
+                Category(k2): Competition(
+                    v2['no_participants'],
+                    [
+                        TournamentResultEntry(entry['fencer_id'], int(entry['rank'])) for entry in v2['results']
+                    ],
+                    v2.get('results_link', None)
+                ) for k2, v2 in v1.items()
             } for k1, v1 in raw['competitions'].items()
         }
 

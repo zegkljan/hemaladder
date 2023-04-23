@@ -28,7 +28,7 @@
             <div>
               <q-item
                 v-if="data.people[modelValue!.fencer_id].club_id"
-                v-bind="data.people[modelValue!.fencer_id].club_id.startsWith('-') ? {} : {href: 'https://hemaratings.com/clubs/details/' + data.people[modelValue!.fencer_id].club_id}"
+                v-bind="data.people[modelValue!.fencer_id].club_id.startsWith('-') ? {} : { href: 'https://hemaratings.com/clubs/details/' + data.people[modelValue!.fencer_id].club_id }"
                 target="_blank"
               >
                 <q-item-section>
@@ -131,6 +131,9 @@
                   {{ $t('ladderTable.fencerDetail.points') }}
                 </th>
                 <th class="text-center">
+                  {{ $t('ladderTable.fencerDetail.tournamentResultsLabel') }}
+                </th>
+                <th class="text-center">
                   {{ $t('ladderTable.fencerDetail.tournamentDetailLabel') }}
                 </th>
               </tr>
@@ -226,6 +229,26 @@
                 </td>
                 <td class="text-center">
                   {{ t.points }}
+                </td>
+                <td class="text-center">
+                  <div>
+                    <q-btn
+                      :href="resultsLink(t.tournament_id)"
+                      target="_blank"
+                      icon="mdi-open-in-new"
+                      flat
+                      dense
+                      round
+                      :disable="resultsLink(t.tournament_id) === undefined"
+                    >
+                    </q-btn>
+                    <q-tooltip v-if="resultsLink(t.tournament_id) === undefined">
+                      {{ $t('resultsNoDetailTooltip') }}
+                    </q-tooltip>
+                    <q-tooltip v-else>
+                      {{ $t('resultsDetailTooltip') }}
+                    </q-tooltip>
+                  </div>
                 </td>
                 <td class="text-center">
                   <div>
@@ -332,6 +355,13 @@ const shown = computed<boolean>({
     emit('update:modelValue', value ? props.modelValue : null);
   },
 });
+
+function resultsLink(tid: string): string | undefined {
+  if (props.division === null || props.category === null) {
+    return undefined;
+  }
+  return data.tournaments?.[tid].competitions[props.division]?.[props.category]?.results_link;
+}
 
 const tab = ref('fencer');
 </script>

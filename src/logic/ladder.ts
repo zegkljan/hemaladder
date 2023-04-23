@@ -85,6 +85,7 @@ export type TournamentResultEntry = {
 export type Competition = {
   no_participants: number;
   results: TournamentResultEntry[];
+  results_link?: string;
 };
 
 export type CompetitionsCategories = { [C in Category]?: Competition };
@@ -138,6 +139,7 @@ function parseCompetition(json: Record<string, any>): Competition {
   return {
     no_participants: json['no_participants'],
     results: parseResults(json['results']),
+    results_link: json['results_link']
   };
 }
 
