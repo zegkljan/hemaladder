@@ -2499,5 +2499,35 @@
         }
       }
     }
+  },
+  "-18": {
+    "name": "Trofeo Dukale 2022",
+    "date": "2022-12-04",
+    "country": "it",
+    "coefficient": 1,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 65,
+          "results": [
+            {
+              "fencer_id": "9600",
+              "rank": 27
+            }
+          ],
+          "results_link": "https://www.facebook.com/CSENsettorescherma/posts/pfbid0t16w4SGp5DkRdVLq1yRNZ3RwvVKjMtguD7ruAcwr5McoTENfuBdtJN1rdT7oFwFcl"
+        },
+        "w": {
+          "no_participants": 6,
+          "results": [
+            {
+              "fencer_id": "9600",
+              "rank": 1
+            }
+          ],
+          "results_link": "https://www.facebook.com/CSENsettorescherma/posts/pfbid0t16w4SGp5DkRdVLq1yRNZ3RwvVKjMtguD7ruAcwr5McoTENfuBdtJN1rdT7oFwFcl"
+        }
+      }
+    }
   }
 }
