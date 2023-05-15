@@ -244,6 +244,39 @@ class Builder:
                                             dict[Category, dict[str, LadderIndividualEntry]]] = {}
         self._stats = Stats(dict())
 
+    def check_duplicities(self) -> bool:
+        res = True
+
+        people_rev_map: Mapping[Tuple[str, str], List[Person]] = dict()
+        for p in self.people.values():
+            k = (p.name, p.surname)
+            if k not in people_rev_map:
+                people_rev_map[k] = [p]
+            else:
+                people_rev_map[k].append(p)
+        dup_people = [ps for ps in people_rev_map.values() if len(ps) > 1]
+        if len(dup_people) > 0:
+            res = False
+        for dup in dup_people:
+            details = [f'{{id: {p.id}, club: {p.club_id}, nationality: {p.nationality}}}' for p in dup]
+            print(f'Duplicate person {dup[0].name} {dup[0].surname}: {", ".join(details)}')
+        
+        club_rev_map: Mapping[str, List[Club]] = dict()
+        for c in self.clubs.values():
+            if c.name not in club_rev_map:
+                club_rev_map[c.name] = [c]
+            else:
+                club_rev_map[c.name].append(c)
+        dup_clubs = [cs for cs in club_rev_map.values() if len(cs) > 1]
+        if len(dup_clubs) > 0:
+            res = False
+        for dup in dup_clubs:
+            details = [f'{{id: {c.id}, country: {c.country}}}' for c in dup]
+            print(f'Duplicate club {dup[0].name}: {", ".join(details)}')
+        
+        return res
+                
+    
     def build(self, previous_season: LaddersIndividual) -> Tuple[LaddersIndividual, LaddersClub, Stats]:
         self._intermediate_individual = {}
         for tournament in self.tournaments:
@@ -413,6 +446,8 @@ def main():
             'seasons', season['folder'], 'tournaments.json'))
         builder = Builder(
             tournaments, people, clubs, LadderSettings.from_dict(season['settings']))
+        if not builder.check_duplicities():
+            return
         ladders_individual, ladders_club, stats = builder.build(
             ladders_individual)
         write_json(data_dir.joinpath('seasons', season['folder'], 'ladders-individual.json'),
@@ -421,6 +456,7 @@ def main():
                    ladders_club_to_dict(ladders_club))
         write_json(data_dir.joinpath(
             'seasons', season['folder'], 'stats.json'), stats.to_dict())
+    print('DONE')
 
 
 def ladders_individual_to_dict(ladders: LaddersIndividual) -> dict:

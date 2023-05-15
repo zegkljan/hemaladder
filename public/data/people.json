@@ -139,6 +139,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "11298": {
+    "surname": "Heinz",
+    "name": "Lukáš",
+    "club_id": "655",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "6753": {
     "surname": "Herčík",
     "name": "Ondřej",
@@ -216,6 +223,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "11308": {
+    "surname": "Jurko",
+    "name": "Roman",
+    "club_id": "655",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "1473": {
     "surname": "Kazelle",
     "name": "Kamil",
@@ -262,6 +276,13 @@
     "surname": "Král",
     "name": "Michal",
     "club_id": "1125",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "11286": {
+    "surname": "Kretek",
+    "name": "Tomáš",
+    "club_id": "655",
     "nationality": "cz",
     "category": "mo"
   },
@@ -412,6 +433,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "9355": {
+    "surname": "Mihula",
+    "name": "Marek",
+    "club_id": "393",
+    "nationality": "sk",
+    "category": "mo"
+  },
   "11278": {
     "surname": "Modráček",
     "name": "Jan",
@@ -500,6 +528,13 @@
     "surname": "Paščenko",
     "name": "Petr",
     "club_id": "983",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "7831": {
+    "surname": "Patala",
+    "name": "Petr",
+    "club_id": "985",
     "nationality": "cz",
     "category": "mo"
   },
@@ -898,13 +933,6 @@
     "nationality": "cz",
     "category": "mo"
   },
-  "-22": {
-    "surname": "Jurko",
-    "name": "Roman",
-    "club_id": "655",
-    "nationality": "cz",
-    "category": "mo"
-  },
   "-23": {
     "surname": "Horanský",
     "name": "Martin",
@@ -974,13 +1002,6 @@
     "nationality": "cz",
     "category": "mo"
   },
-  "-34": {
-    "surname": "Kretek",
-    "name": "Tomáš",
-    "club_id": "655",
-    "nationality": "cz",
-    "category": "mo"
-  },
   "-35": {
     "surname": "Lieberzeit",
     "name": "Vladimír",
@@ -992,13 +1013,6 @@
     "surname": "Hudínek",
     "name": "Šimon",
     "club_id": "-3",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-39": {
-    "surname": "Heinz",
-    "name": "Lukáš",
-    "club_id": "655",
     "nationality": "cz",
     "category": "mo"
   },
@@ -1021,6 +1035,13 @@
     "name": "Michael",
     "club_id": "786",
     "nationality": "cz",
+    "category": "mo"
+  },
+  "-43": {
+    "surname": "Leushin",
+    "name": "Nikolai",
+    "club_id": "1357",
+    "nationality": "ru",
     "category": "mo"
   }
 }
