@@ -258,6 +258,13 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "11306": {
+    "surname": "Koutský",
+    "name": "Martin",
+    "club_id": "393",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "11034": {
     "surname": "Kovárník",
     "name": "Tomáš",
@@ -829,6 +836,13 @@
     "nationality": "sk",
     "category": "mo"
   },
+  "11399": {
+    "surname": "Wawrosz",
+    "name": "Artur",
+    "club_id": "393",
+    "nationality": "pl",
+    "category": "mo"
+  },
   "2041": {
     "surname": "Weber",
     "name": "Petr",
@@ -940,23 +954,9 @@
     "nationality": "cz",
     "category": "mo"
   },
-  "-24": {
-    "surname": "Koutský",
-    "name": "Martin",
-    "club_id": "393",
-    "nationality": "cz",
-    "category": "mo"
-  },
   "-25": {
     "surname": "Kostelný",
     "name": "Adam",
-    "club_id": "393",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-26": {
-    "surname": "Wawrosz",
-    "name": "Artur",
     "club_id": "393",
     "nationality": "cz",
     "category": "mo"
