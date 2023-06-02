@@ -1073,5 +1073,82 @@
         }
       }
     }
+  },
+  "-20": {
+    "name": "MČR v šermu dlouhým mečem",
+    "date": "2023-06-03",
+    "country": "cz",
+    "coefficient": 1.5,
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 47,
+          "results": [
+            { "fencer_id": "5822", "rank": 0, "_comment": "Pavel Dostál  Pardubický spolek šermířský" },
+            { "fencer_id": "3631", "rank": 0, "_comment": "Jan Žegklitz  SHŠ Krkavci" },
+            { "fencer_id": "2140", "rank": 0, "_comment": "Martin Vrábeľ  Rotyka" },
+            { "fencer_id": "8907", "rank": 0, "_comment": "Petr Paščenko  Duelanti od Svatého Rocha" },
+            { "fencer_id": "2090", "rank": 0, "_comment": "Zdeněk Brýdl  Brněnští Fechteři" },
+            { "fencer_id": "9349", "rank": 0, "_comment": "Viktor Janeček  Brněnští Fechteři" },
+            { "fencer_id": "3624", "rank": 0, "_comment": "Viktor Kliment  Rotyka" },
+            { "fencer_id": "10136", "rank": 0, "_comment": "Josef Nizner  Brněnští Fechteři" },
+            { "fencer_id": "9271", "rank": 0, "_comment": "Jan Mesarč  Pardubický spolek šermířský" },
+            { "fencer_id": "9348", "rank": 0, "_comment": "Marián Országh  Brněnští Fechteři" },
+            { "fencer_id": "7298", "rank": 0, "_comment": "Vaclav Sokol  Sportovní Klub Středověkého Kontaktního Boje Praha" },
+            { "fencer_id": "11158", "rank": 0, "_comment": "Ondřej Malina  Rožnovsky šermirsky klub" },
+            { "fencer_id": "9270", "rank": 0, "_comment": "Jiří Čarek  Brněnští Fechteři" },
+            { "fencer_id": "8936", "rank": 0, "_comment": "Jindřich Tichy  Poslední Argument" },
+            { "fencer_id": "1512", "rank": 0, "_comment": "Tomáš Musil  Pardubický spolek šermířský" },
+            { "fencer_id": "9352", "rank": 0, "_comment": "Miroslav Liberský  Rotyka" },
+            { "fencer_id": "10057", "rank": 0, "_comment": "Matouš Krhutek  Rožnovsky šermirsky klub" },
+            { "fencer_id": "10392", "rank": 0, "_comment": "Václav Lazar  Brněnští Fechteři" },
+            { "fencer_id": "6755", "rank": 0, "_comment": "Petr Vincena  SHŠ Krkavci" },
+            { "fencer_id": "6598", "rank": 0, "_comment": "Petr Erlebach  HELOPS" },
+            { "fencer_id": "1478", "rank": 0, "_comment": "Pavla Markupová  Digladior" },
+            { "fencer_id": "10054", "rank": 0, "_comment": "Tomáš Laštovička  Brněnští Fechteři" },
+            { "fencer_id": "10202", "rank": 0, "_comment": "Tomáš Doseděl  Digladior" },
+            { "fencer_id": "10058", "rank": 0, "_comment": "Jiří Slovák  Rožnovsky šermirsky klub" },
+            { "fencer_id": "10131", "rank": 0, "_comment": "Jan Neuman  Rotyka" },
+            { "fencer_id": "9338", "rank": 0, "_comment": "Lukáš Kubacki  Duelanti od Svatého Rocha" },
+            { "fencer_id": "9600", "rank": 0, "_comment": "Klára Burešová  Dobrovoľný Šerm" },
+            { "fencer_id": "9339", "rank": 0, "_comment": "Adéla Wurstová  Pardubický spolek šermířský" },
+            { "fencer_id": "9635", "rank": 0, "_comment": "Honza Blažek  Duelanti od Svatého Rocha" },
+            { "fencer_id": "11286", "rank": 0, "_comment": "Tomáš Kretek  Rožnovsky šermirsky klub" },
+            { "fencer_id": "10053", "rank": 0, "_comment": "Jan Filip  HELOPS" },
+            { "fencer_id": "11069", "rank": 0, "_comment": "Michal Belina  Digladior" },
+            { "fencer_id": "10348", "rank": 0, "_comment": "Samuel Kubinec  Dobrovoľný Šerm" },
+            { "fencer_id": "11071", "rank": 0, "_comment": "David Jeřábek  Poslední Argument" },
+            { "fencer_id": "11308", "rank": 0, "_comment": "Roman Jurko  Rožnovsky šermirsky klub" },
+            { "fencer_id": "11073", "rank": 0, "_comment": "Tomáš Weber  Digladior" },
+            { "fencer_id": "2041", "rank": 0, "_comment": "Petr Weber  Škola šermu Paridon" },
+            { "fencer_id": "9637", "rank": 0, "_comment": "Ondřej Malík  HELOPS" },
+            { "fencer_id": "5826", "rank": 0, "_comment": "Zdeněk Hruška  Dobrovoľný Šerm" },
+            { "fencer_id": "11306", "rank": 0, "_comment": "Martin Koutský  Dobrovoľný Šerm" },
+            { "fencer_id": "9636", "rank": 0, "_comment": "Jakub Vlasák  Poslední Argument" },
+            { "fencer_id": "11278", "rank": 0, "_comment": "Jan Modráček  Pardubický spolek šermířský" },
+            { "fencer_id": "11399", "rank": 0, "_comment": "Artur Wawrosz  Dobrovoľný Šerm" },
+            { "fencer_id": "11067", "rank": 0, "_comment": "Michal Král  Poslední Argument" },
+            { "fencer_id": "11064", "rank": 0, "_comment": "Sedláková Terezie  Digladior" },
+            { "fencer_id": "11284", "rank": 0, "_comment": "Dávid Kuzder  SHŠ Krkavci" },
+            { "fencer_id": "11285", "rank": 0, "_comment": "Marek Vinklát  Digladior" }
+          ],
+          "results_link": ""
+        },
+        "w": {
+          "no_participants": 8,
+          "results": [
+            { "fencer_id": "9339", "rank": 0, "_comment": "Adéla Wurstová  Pardubický spolek šermířský" },
+            { "fencer_id": "1478", "rank": 0, "_comment": "Pavla Markupová  Digladior" },
+            { "fencer_id": "11065", "rank": 0, "_comment": "Marie Sváčková  Rožnovsky šermirsky klub" },
+            { "fencer_id": "11060", "rank": 0, "_comment": "Miroslava Kozlová  T. J. Sokol České Budějovice" },
+            { "fencer_id": "9603", "rank": 0, "_comment": "Marie Voleková  SHŠ Krkavci" },
+            { "fencer_id": "9600", "rank": 0, "_comment": "Klára Burešová  Dobrovoľný Šerm" },
+            { "fencer_id": "11064", "rank": 0, "_comment": "Sedláková Terezie  Digladior" },
+            { "fencer_id": "7828", "rank": 0, "_comment": "Zuzana Čermáková  Dobrovoľný Šerm" }
+          ],
+          "results_link": ""
+        }
+      }
+    }
   }
 }
