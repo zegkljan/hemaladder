@@ -22,6 +22,7 @@ class Division(enum.Enum):
     M = 'm'      # messer
     SS = 'ss'    # sidesword
     SM = 'sm'    # smallsword
+    B = 'b'      # bayonet
 
 
 class CoefficientType(enum.Enum):
@@ -228,16 +229,10 @@ class Stats:
 
 
 class Builder:
-    def __init__(self, tournaments: dict, people: dict, clubs: dict, settings: LadderSettings) -> None:
-        self.tournaments: List[Tournament] = list(
-            map(lambda x: Tournament(x[0], x[1]), tournaments.items()))
-        self.people: Mapping[str, Person] = {
-            x[0]: Person(x[0], x[1]) for x in people.items()
-        }
-        self.clubs: Mapping[str, Club] = {
-            x[0]: Club(x[0], x[1]) for x in clubs.items()
-        }
-
+    def __init__(self, tournaments: List[Tournament], people: Mapping[str, Person], clubs: Mapping[str, Club], settings: LadderSettings) -> None:
+        self.tournaments = tournaments
+        self.people = people
+        self.clubs = clubs
         self.settings = settings
 
         self._intermediate_individual: dict[Division,
@@ -435,15 +430,21 @@ class Builder:
 def main():
     data_dir = pathlib.Path(__file__).parent.parent.joinpath('public', 'data')
 
-    people = read_json(data_dir.joinpath('people.json'))
-    clubs = read_json(data_dir.joinpath('clubs.json'))
+    people: Mapping[str, Person] = {
+        x[0]: Person(x[0], x[1]) for x in read_json(data_dir.joinpath('people.json')).items()
+    }
+    clubs: Mapping[str, Club] = {
+        x[0]: Club(x[0], x[1]) for x in read_json(data_dir.joinpath('clubs.json')).items()
+    }
 
     seasons = read_json(data_dir.joinpath('seasons.json'))
 
     ladders_individual = dict()
     for season in sorted(seasons, key=lambda s: s["name"]):
-        tournaments = read_json(data_dir.joinpath(
-            'seasons', season['folder'], 'tournaments.json'))
+        tournaments: List[Tournament] = list(map(
+            lambda x: Tournament(x[0], x[1]),
+            read_json(data_dir.joinpath('seasons', season['folder'], 'tournaments.json')).items()
+        ))
         builder = Builder(
             tournaments, people, clubs, LadderSettings.from_dict(season['settings']))
         if not builder.check_duplicities():
@@ -457,6 +458,13 @@ def main():
         write_json(data_dir.joinpath(
             'seasons', season['folder'], 'stats.json'), stats.to_dict())
     print('DONE')
+
+    print()
+    print('Check for existence of these people on HR (have no HR ID yet):')
+    print('\n'.join([f'{v.name} {v.surname}' for k, v in people.items() if int(k) < 0]))
+    print()
+    print('Check for existence of these clubs on HR (have no HR ID yet):')
+    print('\n'.join([f'{v.name} (ppl {", ".join([l for l, w in people.items() if w.club_id == k])})' for k, v in clubs.items() if int(k) < 0]))
 
 
 def ladders_individual_to_dict(ladders: LaddersIndividual) -> dict:

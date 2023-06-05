@@ -92,6 +92,7 @@ export default {
     [Division.M]: 'Messer',
     [Division.SS]: 'Sidesword',
     [Division.SM]: 'Smallsword',
+    [Division.B]: 'Bayonet',
   },
   divisionSingleTournamentWarningTooltip:
     'There is only a single tournament recorded in this division.',

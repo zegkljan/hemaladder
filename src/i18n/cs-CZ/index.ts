@@ -103,6 +103,7 @@ export default {
     [Division.M]: 'Tesák (messer)',
     [Division.SS]: 'Renesanční meč (sidesword)',
     [Division.SM]: 'Kordík (smallsword)',
+    [Division.B]: 'Bodák',
   },
   divisionSingleTournamentWarningTooltip:
     'V této divizi je zaznamenán pouze jeden turnaj.',

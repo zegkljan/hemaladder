@@ -32,6 +32,7 @@ export enum Division {
   M = 'm', // messer
   SS = 'ss', // sidesword
   SM = 'sm', // smallword
+  B = 'b', // bayonet
 }
 
 export const divisionReverseMap = {
@@ -43,6 +44,7 @@ export const divisionReverseMap = {
   m: Division.M,
   ss: Division.SS,
   sm: Division.SM,
+  b: Division.B,
 };
 
 export enum View {
