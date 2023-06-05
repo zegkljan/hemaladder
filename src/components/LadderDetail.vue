@@ -251,7 +251,6 @@ table.coefficient-tooltip {
 import { LadderIndividualEntry, Division, Category } from 'src/logic/ladder';
 import { useI18n } from 'vue-i18n';
 import { useData } from 'src/stores/data';
-import { ref } from 'vue';
 import { computed } from '@vue/reactivity';
 import CountryFlag from 'vue-country-flag-next';
 
@@ -294,5 +293,4 @@ function resultsLink(tid: string): string | undefined {
   return data.tournaments?.[tid].competitions[props.division]?.[props.category]?.results_link;
 }
 
-const tab = ref('fencer');
 </script>
