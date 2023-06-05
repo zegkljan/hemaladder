@@ -256,7 +256,7 @@ let style = {
 };
 
 function handleResize() {
-  style.height = window.innerHeight - 50 + 'px';
+  style.height = window.innerHeight - 98 + 'px';
 }
 
 window.addEventListener('resize', handleResize);

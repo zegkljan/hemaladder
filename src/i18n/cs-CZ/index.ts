@@ -119,6 +119,8 @@ export default {
   },
   clubLabel: 'Klub',
   pointsLabel: 'Počet bodů',
+  noTournamentsLabel: 'Počet turnajů v žebříčku',
+  avgPtsPerTournamentLabel: 'Průměrný počet bodů na turnaj',
   noClub: '(bez klubu)',
   pointsPerFencerLabel: 'Počet bodů na šermíře',
   tournamentLabel: 'Turnaj',
@@ -155,9 +157,8 @@ export default {
     fencerDetail: {
       fencer: 'O šermíři',
       tournaments: 'Účast na turnajích',
-      hemaratingsLinkLabel: 'HEMA Ratings profil',
-      noTournamentsLabel: 'Počet turnajů v žebříčku',
-      avgPtsPerTournamentLabel: 'Průměrný počet bodů na turnaj',
+      hemaratingsFencerLinkLabel: 'HEMA Ratings profil šermíře',
+      hemaratingsClubLinkLabel: 'HEMA Ratings profil klubu',
       rank: 'Umístění',
       coefficientType: {
         [CoefficientType.FOREIGN]: 'Zahraniční turnaj',

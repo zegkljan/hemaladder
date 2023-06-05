@@ -108,6 +108,8 @@ export default {
   },
   clubLabel: 'Club',
   pointsLabel: 'No. of points',
+  noTournamentsLabel: 'No. of tournaments in ladder',
+  avgPtsPerTournamentLabel: 'Average points per tournament',
   noClub: '(no club)',
   pointsPerFencerLabel: 'No. of points per fencer',
   tournamentLabel: 'Tournament',
@@ -144,9 +146,8 @@ export default {
     fencerDetail: {
       fencer: 'About fencer',
       tournaments: 'Tournament participation',
-      hemaratingsLinkLabel: 'HEMA Ratings profile',
-      noTournamentsLabel: 'No. of tournaments in ladder',
-      avgPtsPerTournamentLabel: 'Average points per tournament',
+      hemaratingsFencerLinkLabel: 'HEMA Ratings fencer profile',
+      hemaratingsClubLinkLabel: 'HEMA Ratings club profile',
       rank: 'Rank',
       coefficientType: {
         [CoefficientType.FOREIGN]: 'Tournament abroad',

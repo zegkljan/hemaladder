@@ -249,6 +249,22 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       // style: 'width: 1px; max-width: 1px',
     },
     {
+      name: 'noTournaments',
+      label: t('noTournamentsLabel'),
+      field: (row: LadderIndividualEntry) => row.tournaments.length,
+      align: 'right',
+      sortable: true,
+      // style: 'width: 1px; max-width: 1px',
+    },
+    {
+      name: 'avgPtsPerTournament',
+      label: t('avgPtsPerTournamentLabel'),
+      field: (row: LadderIndividualEntry) => Math.round((row.points / row.tournaments.length) * 100) / 100,
+      align: 'right',
+      sortable: true,
+      // style: 'width: 1px; max-width: 1px',
+    },
+    {
       name: 'details',
       label: t('ladderTable.detailsLabel'),
       field: '',
