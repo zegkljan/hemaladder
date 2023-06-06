@@ -1088,6 +1088,37 @@
       }
     }
   },
+  "1814": {
+    "name": "Bratislava En Garde! 2023",
+    "date": "2023-05-27",
+    "country": "sk",
+    "coefficient": 1,
+    "competitions": {
+      "rad": {
+        "mo": {
+          "no_participants": 15,
+          "results": [
+            { "fencer_id": "1499", "rank": 2 },
+            { "fencer_id": "9598", "rank": 5 },
+            { "fencer_id": "10193", "rank": 7 },
+            { "fencer_id": "9350", "rank": 8 },
+            { "fencer_id": "1503", "rank": 9 }
+          ],
+          "results_link": "https://system.onlyfence.eu/public/54"
+        }
+      },
+      "sab": {
+        "mo": {
+          "no_participants": 10,
+          "results": [
+            { "fencer_id": "9598", "rank": 2 },
+            { "fencer_id": "9350", "rank": 10 }
+          ],
+          "results_link": "https://system.onlyfence.eu/public/53"
+        }
+      }
+    }
+  },
   "-20": {
     "name": "MČR v šermu dlouhým mečem",
     "date": "2023-06-03",
