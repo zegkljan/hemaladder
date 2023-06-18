@@ -18,11 +18,11 @@
               $t('ladderTable.fencerDetail.hemaratingsFencerLinkLabel')
             }}</q-tooltip>
           </q-btn>
-          <span v-if="data.people[modelValue!.fencer_id].club_id" class="club">
-            {{ data.clubs[data.people[modelValue!.fencer_id].club_id].name }}
+          <span v-if="data.peopleClubs?.[modelValue!.fencer_id]" class="club">
+            {{ data.clubs[data.peopleClubs[modelValue!.fencer_id]].name }}
             <q-btn
-              v-if="!data.people[modelValue!.fencer_id].club_id.startsWith('-')"
-              :href="'https://hemaratings.com/clubs/details/' + data.people[modelValue!.fencer_id].club_id"
+              v-if="!data.peopleClubs[modelValue!.fencer_id].startsWith('-')"
+              :href="'https://hemaratings.com/clubs/details/' + data.peopleClubs[modelValue!.fencer_id]"
               target="_blank"
               icon="mdi-open-in-new"
               size="sm"

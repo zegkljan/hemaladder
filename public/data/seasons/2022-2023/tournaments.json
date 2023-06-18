@@ -3,7 +3,6 @@
     "name": "KR Spring Tournament 2022",
     "date": "2022-05-28",
     "country": "hu",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -29,7 +28,6 @@
     "name": "Black Horns Cup 2022",
     "date": "2022-06-04",
     "country": "pl",
-    "coefficient": 1,
     "competitions": {
       "sb": {
         "mo": {
@@ -83,7 +81,6 @@
     "name": "Dresdner HEMA-Cup 2022",
     "date": "2022-07-09",
     "country": "de",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -101,7 +98,6 @@
     "name": "Dragoon Sabre 2022",
     "date": "2022-09-17",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "sb": {
         "mo": {
@@ -128,7 +124,6 @@
     "name": "MHS Grand Prix 2022",
     "date": "2022-09-24",
     "country": "hu",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -189,7 +184,6 @@
     "name": "Warszawskie Warsztaty Walki 2022",
     "date": "2022-09-25",
     "country": "pl",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -206,7 +200,6 @@
     "name": "Zabłocki Sabre (SabreSlash) 2022",
     "date": "2022-10-02",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "sb": {
         "mo": {
@@ -226,7 +219,6 @@
     "name": "Podzimové mečoklání II",
     "date": "2022-10-09",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -296,7 +288,6 @@
     "name": "Valkyrie Cup 2",
     "date": "2022-10-22",
     "country": "pl",
-    "coefficient": 1,
     "competitions": {
       "rad": {
         "mo": {
@@ -331,7 +322,6 @@
     "name": "Krkavčí podzimní fechtík 2022",
     "date": "2022-11-05",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -364,7 +354,6 @@
     "name": "Pardubický meč 2022",
     "date": "2022-11-26",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -438,7 +427,6 @@
     "name": "Swordplay 2022",
     "date": "2022-11-26",
     "country": "rs",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -479,7 +467,6 @@
     "name": "Vánoční šermířský přátelák 2022",
     "date": "2022-12-10",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -512,7 +499,6 @@
     "name": "Pilsen Hau 2022",
     "date": "2022-12-17",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -577,7 +563,6 @@
     "name": "Helsinki Longsword Open 2023",
     "date": "2023-01-27",
     "country": "fi",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -620,7 +605,6 @@
     "name": "Rotyčí spár 2023",
     "date": "2023-02-11",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -701,7 +685,6 @@
     "name": "FechtBerg Poker Cup 2023",
     "date": "2023-02-25",
     "country": "pl",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -780,7 +763,6 @@
     "name": "Žilinský kumšt VI.",
     "date": "2023-03-11",
     "country": "sk",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -862,7 +844,6 @@
     "name": "Ordál",
     "date": "2023-03-25",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -892,7 +873,6 @@
     "name": "Krkavčí jarní fechtík 2023",
     "date": "2023-04-01",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -929,7 +909,6 @@
     "name": "Pražský Argument 2023",
     "date": "2023-04-15",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -1003,7 +982,6 @@
     "name": "Trofeo Dukale 2022",
     "date": "2022-12-04",
     "country": "it",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -1023,7 +1001,6 @@
     "name": "Brünner Stich 2023",
     "date": "2023-05-13",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "ls": {
         "mo": {
@@ -1078,7 +1055,6 @@
     "name": "Bratislava En Garde! 2023",
     "date": "2023-05-27",
     "country": "sk",
-    "coefficient": 1,
     "competitions": {
       "rad": {
         "mo": {
@@ -1186,7 +1162,6 @@
     "name": "C. a K. Turnaj ve vojenském šermu",
     "date": "2023-04-23",
     "country": "cz",
-    "coefficient": 1,
     "competitions": {
       "sb": {
         "mo": {

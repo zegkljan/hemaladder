@@ -164,7 +164,6 @@ export type Person = {
   id: string;
   name: string;
   surname: string;
-  club_id: string;
   nationality?: string;
 };
 
@@ -176,7 +175,6 @@ function parsePeople(json: Record<string, any>): People {
       id: k,
       name: json[k].name,
       surname: json[k].surname,
-      club_id: json[k].club_id,
       nationality: json[k].nationality,
     };
   });
@@ -201,6 +199,12 @@ function parseClubs(json: Record<string, any>): Clubs {
     };
   });
   return res;
+}
+
+export type PeopleClubs = Record<string, string>;
+
+function parsePeopleClubs(json: Record<string, unknown>): PeopleClubs {
+  return json as PeopleClubs;
 }
 
 export type Coefficient = {
@@ -372,6 +376,16 @@ export async function loadSeasons(): Promise<Season[]> {
   return (
     (await loadJSON('data/seasons.json')) as Record<string, unknown>[]
   ).map(parseSeason);
+}
+
+export async function loadPeopleClubs(season: string): Promise<PeopleClubs> {
+  return parsePeopleClubs(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (await loadJSON(`data/seasons/${season}/people-clubs.json`)) as Record<
+      string,
+      unknown
+    >
+  );
 }
 
 export async function loadTournaments(season: string): Promise<Tournaments> {

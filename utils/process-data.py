@@ -106,7 +106,6 @@ class Person:
     id: str
     name: str
     surname: str
-    club_id: Union[str, None]
     nationality: Union[str, None]
     category: Union[Category, None]
 
@@ -114,7 +113,6 @@ class Person:
         self.id = id
         self.name = raw['name']
         self.surname = raw['surname']
-        self.club_id = raw.get('club_id', None)
         if 'nationality' not in raw:
             self.nationality = None
         else:
@@ -328,11 +326,13 @@ class Builder:
                  tournaments: Mapping[str, Tournament],
                  people: Mapping[str, Person],
                  clubs: Mapping[str, Club],
+                 people_clubs: Mapping[str, str],
                  scorer: Scorer,
                  combiners: Combiners) -> None:
         self.tournaments = tournaments
         self.people = people
         self.clubs = clubs
+        self.people_clubs = people_clubs
         self.scorer = scorer
         self.combiners = combiners
 
@@ -409,7 +409,7 @@ class Builder:
                 for entry in ladder_individual[division][category]:
                     if entry.fencer_id not in self.people:
                         print(f'Unknown fencer {entry.fencer_id}!')
-                    club_id = self.people[entry.fencer_id].club_id
+                    club_id = self.people_clubs.get(entry.fencer_id, None)
                     lcl = next(
                         filter(lambda x: x.club_id == club_id, lc), None)
                     if lcl is None:
@@ -435,19 +435,19 @@ class Builder:
             except KeyError:
                 print("Tournament {}, division {}, category {} - missing person {}.".format(
                     tournament.tournament_id, division.value, category.value, entry.fencer_id))
-                person = find_person(entry.fencer_id, category.value)
-                print("Attempted to find person at HR: \"{}\": {}".format(
-                    entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False)))
+                person, person_club = find_person(entry.fencer_id, category.value)
+                print("Attempted to find person at HR:\n\"{}\": {}\n{}".format(
+                    entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False), person_club))
                 sys.exit(1)
-            if person.club_id is not None:
+            if self.people_clubs.get(person.id, None) is not None:
                 try:
-                    club = self.clubs[person.club_id]
+                    club = self.clubs[self.people_clubs[person.id]]
                 except KeyError:
                     print("Person {} - missing club {}.".format(
-                        person.id, person.club_id))
-                    club = find_club(person.club_id)
+                        person.id, self.people_clubs[person.id]))
+                    club = find_club(self.people_clubs[person.id])
                     print("Attempted to find club at HR: \"{}\": {}".format(
-                        person.club_id, json.dumps(club, indent=2, ensure_ascii=False)))
+                        self.people_clubs[person.id], json.dumps(club, indent=2, ensure_ascii=False)))
                     sys.exit(1)
                 nationality = club.country
             else:
@@ -533,6 +533,7 @@ def main():
 
     ladders_individual = dict()
     for season in sorted(seasons, key=lambda s: s["name"]):
+        people_clubs: Mapping[str, str] = read_json(data_dir.joinpath('seasons', season['folder'], 'people-clubs.json'))
         tournaments: Mapping[str, Tournament] = {
             tid: Tournament(tid, data)
             for tid, data
@@ -540,7 +541,7 @@ def main():
         }
         scorer = Scorer(season['scorer'])
         combiners = Combiners(season['combiner'])
-        builder = Builder(tournaments, people, clubs, scorer, combiners)
+        builder = Builder(tournaments, people, clubs, people_clubs, scorer, combiners)
         if not builder.check_duplicities():
             return
         ladders_individual, ladders_club, stats = builder.build(
@@ -558,7 +559,7 @@ def main():
     print('\n'.join([f'{v.name} {v.surname}' for k, v in people.items() if int(k) < 0]))
     print()
     print('Check for existence of these clubs on HR (have no HR ID yet):')
-    print('\n'.join([f'{v.name} (ppl {", ".join([l for l, w in people.items() if w.club_id == k])})' for k, v in clubs.items() if int(k) < 0]))
+    print('\n'.join([v.name for k, v in clubs.items() if int(k) < 0]))
 
 
 def ladders_individual_to_dict(ladders: LaddersIndividual) -> dict:

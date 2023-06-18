@@ -92,7 +92,15 @@
     "country": "cz"
   },
   "-4": {
-    "name": "KEBU Plzeň",
+    "name": "KEBU Plzeň Paridon",
+    "country": "cz"
+  },
+  "-5": {
+    "name": "Manus Regis",
+    "country": "cz"
+  },
+  "-6": {
+    "name": "Ars Dimicatoria",
     "country": "cz"
   }
 }
