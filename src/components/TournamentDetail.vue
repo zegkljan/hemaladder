@@ -53,7 +53,11 @@
                 {{ data.people[p.fencer_id].surname }}
               </td>
               <td class="text-left">
-                {{ data.peopleClubs?.[p.fencer_id] === undefined ? t('noClub') : data.clubs[data.peopleClubs?.[p.fencer_id]].name }}
+                {{
+                  data.peopleClubs?.[p.fencer_id] === undefined
+                    ? t('noClub')
+                    : data.clubs[data.peopleClubs?.[p.fencer_id]].name
+                }}
               </td>
             </tr>
           </tbody>

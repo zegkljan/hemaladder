@@ -230,9 +230,7 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       label: t('clubLabel'),
       field: (row: LadderIndividualEntry) => {
         const clubId = data.peopleClubs?.[row.fencer_id];
-        return clubId === undefined
-          ? '_'
-          : data.clubs[clubId].name;
+        return clubId === undefined ? '_' : data.clubs[clubId].name;
       },
       format: (val: string): string => (val === '_' ? t('noClub') : val),
       align: 'left',
