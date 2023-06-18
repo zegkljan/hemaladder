@@ -12,6 +12,16 @@
     square
     :style="style"
   >
+    <template v-slot:body-cell-name="props">
+      <q-td :props="props">
+        {{ props.value }}
+        <q-icon v-if="props.row.championship" name="mdi-trophy">
+          <q-tooltip>
+            {{ $t('championship') }}
+          </q-tooltip>
+        </q-icon>
+      </q-td>
+    </template>
     <template v-slot:body-cell-country="props">
       <q-td :props="props">
         <country-flag :country="props.value" :shadow="true" size="normal" />
@@ -125,11 +135,7 @@ thead tr:first-child th {
 <script setup lang="ts">
 import { computed } from '@vue/reactivity';
 import { QTableProps } from 'quasar';
-import {
-  Category,
-  Division,
-  TournamentResultEntry,
-} from 'src/logic/ladder';
+import { Category, Division, TournamentResultEntry } from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
 import { ComputedRef, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -140,7 +146,7 @@ type TournamentView = {
   name: string;
   date: Date;
   country: string;
-  coefficient: number;
+  championship: boolean;
   noParticipants: number;
   results: TournamentResultEntry[];
   results_link?: string;
@@ -196,14 +202,6 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       // style: 'width: 1px; max-width: 1px',
     },
     {
-      name: 'coefficient',
-      label: t('coefficientLabel'),
-      field: (row: TournamentView): number => row.coefficient,
-      align: 'right',
-      sortable: true,
-      // style: 'width: 1px; max-width: 1px',
-    },
-    {
       name: 'results',
       label: t('resultsLabel'),
       field: '',
@@ -238,10 +236,10 @@ const tournaments: ComputedRef<TournamentView[] | undefined | null> = computed(
               name: tournament.name,
               date: tournament.date,
               country: tournament.country,
-              coefficient: tournament.coefficient,
+              championship: tournament.championship,
               noParticipants: comp.no_participants,
               results: comp.results,
-              results_link: comp.results_link
+              results_link: comp.results_link,
             },
           ];
         }
@@ -261,5 +259,4 @@ function handleResize() {
 
 window.addEventListener('resize', handleResize);
 handleResize();
-
 </script>

@@ -14,7 +14,9 @@
             dense
             round
           >
-            <q-tooltip>{{ $t('ladderTable.fencerDetail.hemaratingsFencerLinkLabel') }}</q-tooltip>
+            <q-tooltip>{{
+              $t('ladderTable.fencerDetail.hemaratingsFencerLinkLabel')
+            }}</q-tooltip>
           </q-btn>
           <span v-if="data.people[modelValue!.fencer_id].club_id" class="club">
             {{ data.clubs[data.people[modelValue!.fencer_id].club_id].name }}
@@ -28,185 +30,51 @@
               dense
               round
             >
-              <q-tooltip>{{ $t('ladderTable.fencerDetail.hemaratingsClubLinkLabel') }}</q-tooltip>
+              <q-tooltip>{{
+                $t('ladderTable.fencerDetail.hemaratingsClubLinkLabel')
+              }}</q-tooltip>
             </q-btn>
           </span>
         </div>
       </q-card-section>
 
-      <q-markup-table square flat class="fit-content">
-        <thead>
-          <tr>
-            <th class="text-left">
-              {{ $t('tournamentLabel') }}
-            </th>
-            <!-- <th class="text-left">
-              {{ $t('categoryTitle') }}
-            </th> -->
-            <th class="text-left">
-              {{ $t('dateLabel') }}
-            </th>
-            <th class="text-center">
-              {{ $t('countryLabel') }}
-            </th>
-            <th class="text-center">
-              {{ $t('noParticipantsLabel') }}
-            </th>
-            <th class="text-center">
-              {{ $t('ladderTable.fencerDetail.rank') }}
-            </th>
-            <th class="text-center">
-              {{ $t('coefficientLabel') }}
-            </th>
-            <th class="text-center">
-              {{ $t('ladderTable.fencerDetail.points') }}
-            </th>
-            <th class="text-center">
-              {{ $t('ladderTable.fencerDetail.tournamentResultsLabel') }}
-            </th>
-            <th class="text-center">
-              {{ $t('ladderTable.fencerDetail.tournamentDetailLabel') }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="t in modelValue!.tournaments" :key="t.tournament_id">
-            <td class="text-left">
-              {{ data.tournaments![t.tournament_id].name }}
-            </td>
-            <!-- <td class="text-left">
-              {{ $t('category.' + t.category) }}
-            </td> -->
-            <td class="text-left">
-              {{ $d(data.tournaments![t.tournament_id].date) }}
-            </td>
-            <td class="text-center">
-              <country-flag
-                :country="data.tournaments![t.tournament_id].country"
-                :shadow="true"
-                size="normal"
-              />
-              <q-tooltip>
-                {{
-                  $t(
-                    'countries.' +
-                      data.tournaments![t.tournament_id].country
-                  )
-                }}
-              </q-tooltip>
-            </td>
-            <td class="text-center">
-              {{
-                data.tournaments![t.tournament_id].competitions[division!]![
-                  category!
-                ]!.no_participants
-              }}
-            </td>
-            <td class="text-center">
-              {{
-                data.tournaments![t.tournament_id].competitions[division!]![
-                  category!
-                ]!.results!.find(
-                  (entry) => entry.fencer_id == modelValue!.fencer_id
-                )?.rank
-              }}
-            </td>
-            <td class="text-right">
-              {{
-                Math.round(
-                  t.coefficients
-                    .map((c) => c.c)
-                    .reduce((a, b) => a * b, 1) * 100
-                ) / 100
-              }}
-              <q-badge
-                color="transparent"
-                text-color="black"
-                class="coeff-badge"
-              >
-                <q-icon name="mdi-information-outline" />
-                <q-tooltip>
-                  <table class="coefficient-tooltip" cellspacing="0">
-                    <tr v-for="c in t.coefficients" :key="c.type">
-                      <td>
-                        {{
-                          $t(
-                            'ladderTable.fencerDetail.coefficientType.' +
-                              c.type
-                          )
-                        }}
-                      </td>
-                      <td class="text-right">{{ c.c }}</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {{
-                          $t('ladderTable.fencerDetail.coefficientTotal')
-                        }}
-                      </td>
-                      <td class="text-right">
-                        {{
-                          Math.round(
-                            t.coefficients
-                              .map((c) => c.c)
-                              .reduce((a, b) => a * b, 1) * 100
-                          ) / 100
-                        }}
-                      </td>
-                    </tr>
-                  </table>
-                </q-tooltip>
-              </q-badge>
-            </td>
-            <td class="text-center">
-              {{ t.points }}
-            </td>
-            <td class="text-center">
-              <div>
-                <q-btn
-                  :href="resultsLink(t.tournament_id)"
-                  target="_blank"
-                  icon="mdi-open-in-new"
-                  flat
-                  dense
-                  round
-                  :disable="resultsLink(t.tournament_id) === undefined"
-                >
-                </q-btn>
-                <q-tooltip v-if="resultsLink(t.tournament_id) === undefined">
-                  {{ $t('resultsNoDetailTooltip') }}
-                </q-tooltip>
-                <q-tooltip v-else>
-                  {{ $t('resultsDetailTooltip') }}
-                </q-tooltip>
-              </div>
-            </td>
-            <td class="text-center">
-              <div>
-                <q-btn
-                  :href="
-                    'https://hemaratings.com/events/details/' +
-                    t.tournament_id
-                  "
-                  target="_blank"
-                  icon="mdi-open-in-new"
-                  flat
-                  dense
-                  round
-                  :disable="t.tournament_id.startsWith('-')"
-                >
-                </q-btn>
-                <q-tooltip v-if="t.tournament_id.startsWith('-')">
-                  {{ $t('hemaratingsNoDetailTooltip') }}
-                </q-tooltip>
-                <q-tooltip v-else>
-                  {{ $t('hemaratingsDetailTooltip') }}
-                </q-tooltip>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </q-markup-table>
+      <q-card-section v-if="modelValue!.uncounted_tournaments.length > 0">
+        <q-expansion-item
+          :label="$t('ladderTable.fencerDetail.countedTournaments')"
+          :model-value="true"
+          header-class="text-subtitle1 text-weight-medium"
+        >
+          <div class="table-container">
+            <individual-tournaments-detail
+              :fencer-id="modelValue!.fencer_id"
+              :tournaments="modelValue!.counted_tournaments"
+              :division="division"
+              :category="category"
+            />
+          </div>
+        </q-expansion-item>
+        <q-expansion-item
+          :label="$t('ladderTable.fencerDetail.uncountedTournaments')"
+          header-class="text-subtitle1 text-weight-medium"
+        >
+          <div class="table-container">
+            <individual-tournaments-detail
+              :fencer-id="modelValue!.fencer_id"
+              :tournaments="modelValue!.uncounted_tournaments"
+              :division="division"
+              :category="category"
+            />
+          </div>
+        </q-expansion-item>
+      </q-card-section>
+      <q-card-section v-else>
+        <individual-tournaments-detail
+          :fencer-id="modelValue!.fencer_id"
+          :tournaments="modelValue!.counted_tournaments"
+          :division="division"
+          :category="category"
+        />
+      </q-card-section>
 
       <q-separator />
       <q-card-actions align="right" class="text-primary">
@@ -216,10 +84,15 @@
   </q-dialog>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .fit-content {
   width: fit-content;
   max-width: fit-content !important;
+}
+
+.table-container {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .coeff-badge {
@@ -249,10 +122,10 @@ table.coefficient-tooltip {
 
 <script setup lang="ts">
 import { LadderIndividualEntry, Division, Category } from 'src/logic/ladder';
+import IndividualTournamentsDetail from './IndividualTournamentsDetail.vue';
 import { useI18n } from 'vue-i18n';
 import { useData } from 'src/stores/data';
 import { computed } from '@vue/reactivity';
-import CountryFlag from 'vue-country-flag-next';
 
 const { t } = useI18n();
 
@@ -285,12 +158,4 @@ const shown = computed<boolean>({
     emit('update:modelValue', value ? props.modelValue : null);
   },
 });
-
-function resultsLink(tid: string): string | undefined {
-  if (props.division === null || props.category === null) {
-    return undefined;
-  }
-  return data.tournaments?.[tid].competitions[props.division]?.[props.category]?.results_link;
-}
-
 </script>

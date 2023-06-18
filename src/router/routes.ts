@@ -1,5 +1,11 @@
 import { Store } from 'pinia';
-import { Category, Division, Season, categoryReverseMap, divisionReverseMap } from 'src/logic/ladder';
+import {
+  Category,
+  Division,
+  Season,
+  categoryReverseMap,
+  divisionReverseMap,
+} from 'src/logic/ladder';
 import { RouteLocationNormalized, RouteRecordRaw } from 'vue-router';
 
 function passProps(route: RouteLocationNormalized): {
@@ -9,8 +15,14 @@ function passProps(route: RouteLocationNormalized): {
 } {
   return {
     season: route.params.season as string,
-    division: divisionReverseMap[route.params.division as keyof typeof divisionReverseMap],
-    category: categoryReverseMap[route.params.category as keyof typeof categoryReverseMap]
+    division:
+      divisionReverseMap[
+        route.params.division as keyof typeof divisionReverseMap
+      ],
+    category:
+      categoryReverseMap[
+        route.params.category as keyof typeof categoryReverseMap
+      ],
   };
 }
 

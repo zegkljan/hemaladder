@@ -152,9 +152,7 @@
         },
         "w": {
           "no_participants": 13,
-          "results": [
-            { "fencer_id": "9339", "rank": 1 }
-          ],
+          "results": [{ "fencer_id": "9339", "rank": 1 }],
           "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
         }
       },
@@ -313,9 +311,7 @@
       "sb": {
         "mo": {
           "no_participants": 31,
-          "results": [
-            { "fencer_id": "9350", "rank": 13 }
-          ],
+          "results": [{ "fencer_id": "9350", "rank": 13 }],
           "results_link": "https://hemascorecard.com/infoSummary.php?e=285"
         }
       },
@@ -456,9 +452,7 @@
       "ss": {
         "mo": {
           "no_participants": 30,
-          "results": [
-            { "fencer_id": "9598", "rank": 8 }
-          ]
+          "results": [{ "fencer_id": "9598", "rank": 8 }]
         }
       },
       "r": {
@@ -728,9 +722,7 @@
         },
         "w": {
           "no_participants": 11,
-          "results": [
-            { "fencer_id": "9339", "rank": 3 }
-          ],
+          "results": [{ "fencer_id": "9339", "rank": 3 }],
           "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
         }
       },
@@ -748,9 +740,7 @@
         },
         "w": {
           "no_participants": 10,
-          "results": [
-            { "fencer_id": "9339", "rank": 3 }
-          ],
+          "results": [{ "fencer_id": "9339", "rank": 3 }],
           "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
         }
       },
@@ -1018,16 +1008,12 @@
       "ls": {
         "mo": {
           "no_participants": 65,
-          "results": [
-            { "fencer_id": "9600", "rank": 27 }
-          ],
+          "results": [{ "fencer_id": "9600", "rank": 27 }],
           "results_link": "https://www.facebook.com/CSENsettorescherma/posts/pfbid0t16w4SGp5DkRdVLq1yRNZ3RwvVKjMtguD7ruAcwr5McoTENfuBdtJN1rdT7oFwFcl"
         },
         "w": {
           "no_participants": 6,
-          "results": [
-            { "fencer_id": "9600", "rank": 1 }
-          ],
+          "results": [{ "fencer_id": "9600", "rank": 1 }],
           "results_link": "https://www.facebook.com/CSENsettorescherma/posts/pfbid0t16w4SGp5DkRdVLq1yRNZ3RwvVKjMtguD7ruAcwr5McoTENfuBdtJN1rdT7oFwFcl"
         }
       }
@@ -1123,7 +1109,7 @@
     "name": "MČR v šermu dlouhým mečem",
     "date": "2023-06-03",
     "country": "cz",
-    "coefficient": 1.5,
+    "championship": true,
     "competitions": {
       "ls": {
         "mo": {

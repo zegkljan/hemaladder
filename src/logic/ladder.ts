@@ -60,9 +60,11 @@ export const viewReverseMap = {
 };
 
 export enum CoefficientType {
-  TOURNAMENT = 'tournament',
+  CHAMPIONSHIP = 'championship',
   FOREIGN = 'foreign',
-  HIGHER_CATEGORY = 'higher_category',
+  FOREIGN_25_50 = 'foreign_25_50',
+  FOREIGN_50_75 = 'foreign_50_75',
+  FOREIGN_75_100 = 'foreign_75_100',
   RANK_1 = 'rank_1',
   RANK_2 = 'rank_2',
   RANK_3 = 'rank_3',
@@ -70,9 +72,11 @@ export enum CoefficientType {
 }
 
 const coefficientTypeReverseMap = {
-  tournament: CoefficientType.TOURNAMENT,
+  championship: CoefficientType.CHAMPIONSHIP,
   foreign: CoefficientType.FOREIGN,
-  higher_category: CoefficientType.HIGHER_CATEGORY,
+  foreign_25_50: CoefficientType.FOREIGN_25_50,
+  foreign_50_75: CoefficientType.FOREIGN_50_75,
+  foreign_75_100: CoefficientType.FOREIGN_75_100,
   rank_1: CoefficientType.RANK_1,
   rank_2: CoefficientType.RANK_2,
   rank_3: CoefficientType.RANK_3,
@@ -99,7 +103,7 @@ export type Tournament = {
   name: string;
   date: Date;
   country: string;
-  coefficient: number;
+  championship: boolean;
   competitions: CompetitionsDivisions;
 };
 
@@ -112,14 +116,14 @@ function parseTournaments(json: Record<string, unknown>): Tournaments {
       name: string;
       date: string;
       country: string;
-      coefficient: number;
+      championship: boolean;
       competitions: Record<string, Record<string, Record<string, unknown>>>;
     };
     res[k] = {
       name: d.name,
       date: date.parseISO(d.date),
       country: d.country,
-      coefficient: d.coefficient,
+      championship: d.championship,
       competitions: Object.keys(d.competitions).reduce((divs, div) => {
         const categories = d.competitions[div];
         divs[divisionReverseMap[div as keyof typeof divisionReverseMap]] =
@@ -141,7 +145,7 @@ function parseCompetition(json: Record<string, any>): Competition {
   return {
     no_participants: json['no_participants'],
     results: parseResults(json['results']),
-    results_link: json['results_link']
+    results_link: json['results_link'],
   };
 }
 
@@ -162,7 +166,6 @@ export type Person = {
   surname: string;
   club_id: string;
   nationality?: string;
-  category?: Category;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -175,8 +178,6 @@ function parsePeople(json: Record<string, any>): People {
       surname: json[k].surname,
       club_id: json[k].club_id,
       nationality: json[k].nationality,
-      category:
-        categoryReverseMap[json[k].category as keyof typeof categoryReverseMap],
     };
   });
   return res;
@@ -220,7 +221,8 @@ export type LadderIndividualEntry = {
   rank: number;
   last_season_rank?: number;
   points: number;
-  tournaments: TournamentLadderEntry[];
+  counted_tournaments: TournamentLadderEntry[];
+  uncounted_tournaments: TournamentLadderEntry[];
 };
 
 export type LadderClubEntry = {
@@ -279,9 +281,12 @@ function parseLadderIndividualEntry(
     rank: json['rank'] as number,
     last_season_rank: json['last_season_rank'] as number | undefined,
     points: json['points'] as number,
-    tournaments: (json['tournaments'] as Record<string, unknown>[]).map(
-      parseTournamentLadderEntry
-    ),
+    counted_tournaments: (
+      json['counted_tournaments'] as Record<string, unknown>[]
+    ).map(parseTournamentLadderEntry),
+    uncounted_tournaments: (
+      json['uncounted_tournaments'] as Record<string, unknown>[]
+    ).map(parseTournamentLadderEntry),
   };
 }
 

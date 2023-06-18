@@ -1046,7 +1046,7 @@
     "name": "MČR v šermu dlouhým mečem",
     "date": "2022-05-15",
     "country": "cz",
-    "coefficient": 1.5,
+    "championship": true,
     "competitions": {
       "ls": {
         "mo": {

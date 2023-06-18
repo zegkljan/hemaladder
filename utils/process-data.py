@@ -1,11 +1,14 @@
+from distutils.command.config import LANG_EXT
 import enum
 import json
 import pathlib
 from dataclasses import dataclass
 from math import prod
+from re import U
 import sys
 from typing import Any, List, Mapping, Optional, Sequence, Tuple, Union
 from checking import find_person, find_club
+import json_logic as jl
 
 
 class Category(enum.Enum):
@@ -26,9 +29,11 @@ class Division(enum.Enum):
 
 
 class CoefficientType(enum.Enum):
-    TOURNAMENT = 'tournament'
     FOREIGN = 'foreign'
-    HIGHER_CATEGORY = 'higher_category'
+    FOREIGN_25_50 = 'foreign_25_50'
+    FOREIGN_50_75 = 'foreign_50_75'
+    FOREIGN_75_100 = 'foreign_75_100'
+    CHAMPIONSHIP = 'championship'
     RANK_1 = 'rank_1'
     RANK_2 = 'rank_2'
     RANK_3 = 'rank_3'
@@ -40,12 +45,25 @@ class TournamentResultEntry:
     fencer_id: str
     rank: int
 
+    def as_dict(self) -> dict:
+        return {
+            'fencer_id': self.fencer_id,
+            'rank': self.rank
+        }
+
 
 @dataclass
 class Competition:
     no_participants: int
     results: List[TournamentResultEntry]
     results_link: Optional[str]
+
+    def as_dict(self) -> dict:
+        return {
+            'no_participants': self.no_participants,
+            'results': [e.as_dict() for e in self.results],
+            'results_link': self.results_link
+        }
 
 
 class Tournament:
@@ -54,7 +72,7 @@ class Tournament:
         self.name: str = raw['name']
         self.date: str = raw['date']
         self.country: str = raw['country']
-        self.coefficient: float = raw['coefficient']
+        self.championship: bool = raw.get('championship', False)
 
         self.competitions: Mapping[Division, Mapping[Category, Competition]] = {
             Division(k1): {
@@ -66,6 +84,20 @@ class Tournament:
                     v2.get('results_link', None)
                 ) for k2, v2 in v1.items()
             } for k1, v1 in raw['competitions'].items()
+        }
+    
+    def as_dict(self) -> dict:
+        return {
+            'tournament_id': self.tournament_id,
+            'name': self.name,
+            'date': self.date,
+            'country': self.country,
+            'championship': self.championship,
+            'competitions': {
+                division.value: {
+                    category.value: competition.as_dict() for category, competition in categories.items()
+                } for division, categories in self.competitions.items()
+            }
         }
 
 
@@ -124,6 +156,7 @@ class TournamentLadderEntry:
     coefficients: List[Coefficient]
     base_points: float
     rank: int
+    championship: bool
 
     def points(self) -> int:
         return round(self.base_points * prod(map(lambda x: x.c, self.coefficients)))
@@ -145,18 +178,22 @@ class LadderIndividualEntry:
     fencer_id: str
     rank: int
     last_season_rank: Optional[int]
-    tournaments: List[TournamentLadderEntry]
+    counted_tournaments: List[TournamentLadderEntry]
+    uncounted_tournaments: List[TournamentLadderEntry]
 
     def points(self) -> int:
-        return sum(map(lambda x: x.points(), self.tournaments))
+        return sum(map(lambda x: x.points(), self.counted_tournaments))
 
     def to_dict(self) -> dict:
         res = {
             "fencer_id": self.fencer_id,
             "rank": self.rank,
             "points": self.points(),
-            "tournaments": [
-                tournament.to_dict() for tournament in self.tournaments
+            "counted_tournaments": [
+                tournament.to_dict() for tournament in self.counted_tournaments
+            ],
+            "uncounted_tournaments": [
+                tournament.to_dict() for tournament in self.uncounted_tournaments
             ]
         }
         if self.last_season_rank is not None:
@@ -192,25 +229,83 @@ LaddersIndividual = Mapping[Division, Mapping[Category, LadderIndividual]]
 LaddersClub = Mapping[Division,
                       Mapping[Category, List[LadderClubEntry]]]
 
+class Scorer:
+    def __init__(self, d: dict) -> None:
+        self.rules: List[dict] = d['coefficients']
+    
+    def score(self, t: Tournament, d: Division, c: Category, r: int) -> Tuple[List[Coefficient], int]:
+        """Returns list of coefficients applied to this tournament and rank, and base number of points for this rank."""
+        coeffs = []
+        for rule in self.rules:
+            result = jl.jsonLogic(rule, {
+                'tournament': t.as_dict(),
+                'competition': t.competitions[d][c].as_dict(),
+                'rank': r
+            })
+            if result is None:
+                continue
+            coeffs.append(Coefficient(result['value'], CoefficientType(result['type'])))
+        
+        points = t.competitions[d][c].no_participants - r + 1
 
-@dataclass
-class LadderSettings:
-    foreign_tournament_coefficient: float
-    higher_category_coefficient: float
-    rank_coefficients: Tuple[float, float, float, float]
+        return coeffs, points
+    
 
+class Combiner:
+    def combine(self, ts: Sequence[TournamentLadderEntry]) -> Tuple[Sequence[TournamentLadderEntry], Sequence[TournamentLadderEntry]]:
+        raise NotImplementedError()
+
+
+class AllCombiner(Combiner):
+    def combine(self, ts: Sequence[TournamentLadderEntry]) -> Tuple[Sequence[TournamentLadderEntry], Sequence[TournamentLadderEntry]]:
+        return ts, []
+
+
+class BestNCombiner(Combiner):
+    def __init__(self, n: int) -> None:
+        self.n = n
+
+    def combine(self, ts: Sequence[TournamentLadderEntry]) -> Tuple[Sequence[TournamentLadderEntry], Sequence[TournamentLadderEntry]]:
+        champ = next(filter(lambda e: e.championship, ts), None)
+        if champ is None:
+            champ = []
+        else:
+            champ = [champ]
+        nonchamp = list(filter(lambda e: not e.championship, ts))
+        nonchamp.sort(key=lambda e: e.points(), reverse=True)
+        return champ + nonchamp[:self.n], nonchamp[self.n:]
+
+
+class Combiners:
+    def __init__(self, d: dict) -> None:
+        self.combiners: Mapping[Tuple[Optional[Division], Optional[Category]], Combiner] = {}
+        if '*' in d:
+            self.combiners[None, None] = self.get_combiner(d['*'])
+        for division in Division:
+            if '*' in d.get(division.value, {}):
+                self.combiners[division, None] = self.get_combiner(d[division.value]['*'])
+            for category in Category:
+                if division.value in d and category.value in d[division.value]:
+                    self.combiners[division, category] = self.get_combiner(d[division.value][category.value])
+    
+    def get(self, d: Division, c: Category) -> Combiner:
+        res = self.combiners.get((d, c), None)
+        if res is not None:
+            return res
+        res = self.combiners.get((d, None), None)
+        if res is not None:
+            return res
+        return self.combiners[None, None]
+    
     @staticmethod
-    def from_dict(d: dict) -> 'LadderSettings':
-        return LadderSettings(
-            foreign_tournament_coefficient=float(
-                d['foreign_tournament_coefficient']),
-            higher_category_coefficient=float(
-                d['higher_category_coefficient']),
-            rank_coefficients=(
-                float(d['rank_coefficients'][0]),
-                float(d['rank_coefficients'][1]),
-                float(d['rank_coefficients'][2]),
-                float(d['rank_coefficients'][3])))
+    def get_combiner(d: dict) -> Combiner:
+        t = d['type']
+        if t == 'all':
+            return AllCombiner()
+        if t == 'best-n+champ':
+            n = int(d['n'])
+            return BestNCombiner(n)
+        raise ValueError(f'Invalid combiner type {t}.')
 
 
 @dataclass
@@ -229,14 +324,22 @@ class Stats:
 
 
 class Builder:
-    def __init__(self, tournaments: List[Tournament], people: Mapping[str, Person], clubs: Mapping[str, Club], settings: LadderSettings) -> None:
+    def __init__(self,
+                 tournaments: Mapping[str, Tournament],
+                 people: Mapping[str, Person],
+                 clubs: Mapping[str, Club],
+                 scorer: Scorer,
+                 combiners: Combiners) -> None:
         self.tournaments = tournaments
         self.people = people
         self.clubs = clubs
-        self.settings = settings
+        self.scorer = scorer
+        self.combiners = combiners
 
         self._intermediate_individual: dict[Division,
-                                            dict[Category, dict[str, LadderIndividualEntry]]] = {}
+                                            dict[Category,
+                                                 dict[str,
+                                                      List[TournamentLadderEntry]]]] = {}
         self._stats = Stats(dict())
 
     def check_duplicities(self) -> bool:
@@ -274,7 +377,7 @@ class Builder:
     
     def build(self, previous_season: LaddersIndividual) -> Tuple[LaddersIndividual, LaddersClub, Stats]:
         self._intermediate_individual = {}
-        for tournament in self.tournaments:
+        for tournament in self.tournaments.values():
             for division in tournament.competitions:
                 if division not in self._intermediate_individual:
                     self._intermediate_individual[division] = {}
@@ -285,14 +388,10 @@ class Builder:
 
         ladder_individual = {
             division: {
-                category: [LadderIndividualEntry(
-                    fencer_id=e.fencer_id,
-                    rank=e.rank,
-                    last_season_rank=self.find_previous_rank(
-                        e.fencer_id, previous_season.get(division, dict()).get(category, list())),
-                    tournaments=e.tournaments
-                ) for e in self.sorted_entries(
-                    self._intermediate_individual[division][category].values())]
+                category: self.make_ladder(
+                    combiner=self.combiners.get(division, category),
+                    input=self._intermediate_individual[division][category],
+                    prev_season=previous_season.get(division, dict()).get(category, list()))
                 for category in self._intermediate_individual[division]
             } for division in self._intermediate_individual
         }
@@ -360,62 +459,55 @@ class Builder:
             self._stats.national_fencer_count[division][category][tournament.tournament_id] += 1
 
             if entry.fencer_id not in _intermediate_individual:
-                _intermediate_individual[entry.fencer_id] = LadderIndividualEntry(
-                    fencer_id=entry.fencer_id, tournaments=[], rank=0, last_season_rank=None)
+                _intermediate_individual[entry.fencer_id] = []
 
-            coeffs = [Coefficient(tournament.coefficient,
-                                  CoefficientType.TOURNAMENT)]
-            if entry.rank == 1:
-                coeffs.append(Coefficient(
-                    self.settings.rank_coefficients[0], CoefficientType.RANK_1))
-            if entry.rank == 2:
-                coeffs.append(Coefficient(
-                    self.settings.rank_coefficients[1], CoefficientType.RANK_2))
-            if entry.rank == 3:
-                coeffs.append(Coefficient(
-                    self.settings.rank_coefficients[2], CoefficientType.RANK_3))
-            if entry.rank == 4:
-                coeffs.append(Coefficient(
-                    self.settings.rank_coefficients[3], CoefficientType.RANK_4))
+            coeffs, base_points = self.scorer.score(tournament, division, category, entry.rank)
+            ladder_entry = TournamentLadderEntry(tournament_id=tournament.tournament_id,
+                                                 coefficients=coeffs,
+                                                 base_points=base_points,
+                                                 rank=entry.rank,
+                                                 championship=tournament.championship)
 
-            if tournament.country != nationality:
-                coeffs.append(Coefficient(
-                    self.settings.foreign_tournament_coefficient, CoefficientType.FOREIGN))
+            _intermediate_individual[entry.fencer_id].append(ladder_entry)
 
-            # if self.settings.category_ranking[person.category] < self.settings.category_ranking[category]:
-            #    coeffs.append(Coefficient(
-            #        self.settings.higher_category_coefficient, CoefficientType.HIGHER_CATEGORY))
+    def make_ladder(self, combiner: Combiner, input: Mapping[str, List[TournamentLadderEntry]], prev_season: LadderIndividual) -> Sequence[LadderIndividualEntry]:
+        entries: List[LadderIndividualEntry] = []
+        for k, v in input.items():
+            counted, uncounted = combiner.combine(v)
+            entry = LadderIndividualEntry(
+                fencer_id=k,
+                counted_tournaments=sorted(counted, key=lambda t: self.tournaments[t.tournament_id].date),
+                uncounted_tournaments=sorted(uncounted, key=lambda t: self.tournaments[t.tournament_id].date),
+                last_season_rank=0,
+                rank=0
+            )
+            entries.append(entry)
+        
 
-            _intermediate_individual[entry.fencer_id].tournaments.append(TournamentLadderEntry(
-                tournament_id=tournament.tournament_id,
-                coefficients=coeffs,
-                base_points=self.get_base_points(competition, entry.rank),
-                rank=entry.rank
-            ))
-
-    def get_base_points(self, competition: Competition, rank: int) -> int:
-        return competition.no_participants - rank + 1
-
-    @staticmethod
-    def sorted_entries(entries: Sequence[LadderIndividualEntry]) -> Sequence[LadderIndividualEntry]:
-        def key(e: LadderIndividualEntry) -> Tuple:
+        def key(e: LadderIndividualEntry) -> Tuple[int, float]:
             return (
                 -e.points(),
-                sum(map(lambda t: t.rank, e.tournaments)) / len(e.tournaments),
-                # -len(e.tournaments)
+                sum(map(lambda t: t.rank, e.counted_tournaments)) / len(e.counted_tournaments)
             )
         srt = sorted([(key(e), e) for e in entries], key=lambda x: x[0])
         final = [LadderIndividualEntry(fencer_id=srt[0][1].fencer_id,
-                                       rank=1, tournaments=srt[0][1].tournaments, last_season_rank=None)]
+                                       rank=1,
+                                       counted_tournaments=srt[0][1].counted_tournaments,
+                                       uncounted_tournaments=srt[0][1].uncounted_tournaments,
+                                       last_season_rank=self.find_previous_rank(srt[0][1].fencer_id, prev_season))]
         for i in range(1, len(srt)):
             k, e = srt[i]
             k_prev, _ = srt[i - 1]
             if k_prev == k:
-                final.append(LadderIndividualEntry(
-                    fencer_id=e.fencer_id, rank=final[-1].rank, tournaments=e.tournaments, last_season_rank=None))
+                r = final[-1].rank
             else:
-                final.append(LadderIndividualEntry(
-                    fencer_id=e.fencer_id, rank=len(final) + 1, tournaments=e.tournaments, last_season_rank=None))
+                r = len(final) + 1
+            final.append(LadderIndividualEntry(
+                fencer_id=e.fencer_id,
+                rank=r,
+                counted_tournaments=e.counted_tournaments,
+                uncounted_tournaments=e.uncounted_tournaments,
+                last_season_rank=self.find_previous_rank(e.fencer_id, prev_season)))
 
         return final
 
@@ -441,12 +533,14 @@ def main():
 
     ladders_individual = dict()
     for season in sorted(seasons, key=lambda s: s["name"]):
-        tournaments: List[Tournament] = list(map(
-            lambda x: Tournament(x[0], x[1]),
-            read_json(data_dir.joinpath('seasons', season['folder'], 'tournaments.json')).items()
-        ))
-        builder = Builder(
-            tournaments, people, clubs, LadderSettings.from_dict(season['settings']))
+        tournaments: Mapping[str, Tournament] = {
+            tid: Tournament(tid, data)
+            for tid, data
+            in read_json(data_dir.joinpath('seasons', season['folder'], 'tournaments.json')).items()
+        }
+        scorer = Scorer(season['scorer'])
+        combiners = Combiners(season['combiner'])
+        builder = Builder(tournaments, people, clubs, scorer, combiners)
         if not builder.check_duplicities():
             return
         ladders_individual, ladders_club, stats = builder.build(

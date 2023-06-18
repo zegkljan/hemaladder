@@ -20,6 +20,14 @@
         </q-tooltip>
       </q-th>
     </template>
+    <template v-slot:header-cell-avgPtsPerTournament="props">
+      <q-th :props="props">
+        {{ props.col.label }}
+        <q-tooltip>
+          {{ $t('ladderTable.avgPtsPerTournamentTooltip') }}
+        </q-tooltip>
+      </q-th>
+    </template>
     <template v-slot:body-cell-previous-season-change="props">
       <q-td :props="props">
         <template v-if="props.value === null">
@@ -249,17 +257,27 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
       // style: 'width: 1px; max-width: 1px',
     },
     {
-      name: 'noTournaments',
-      label: t('noTournamentsLabel'),
-      field: (row: LadderIndividualEntry) => row.tournaments.length,
+      name: 'noCountedTournaments',
+      label: t('ladderTable.noCountedTournamentsLabel'),
+      field: (row: LadderIndividualEntry) => row.counted_tournaments.length,
+      align: 'right',
+      sortable: true,
+      // style: 'width: 1px; max-width: 1px',
+    },
+    {
+      name: 'noTotalTournaments',
+      label: t('ladderTable.noTotalTournamentsLabel'),
+      field: (row: LadderIndividualEntry) =>
+        row.counted_tournaments.length + row.uncounted_tournaments.length,
       align: 'right',
       sortable: true,
       // style: 'width: 1px; max-width: 1px',
     },
     {
       name: 'avgPtsPerTournament',
-      label: t('avgPtsPerTournamentLabel'),
-      field: (row: LadderIndividualEntry) => Math.round((row.points / row.tournaments.length) * 100) / 100,
+      label: t('ladderTable.avgPtsPerTournamentLabel'),
+      field: (row: LadderIndividualEntry) =>
+        Math.round((row.points / row.counted_tournaments.length) * 100) / 100,
       align: 'right',
       sortable: true,
       // style: 'width: 1px; max-width: 1px',
