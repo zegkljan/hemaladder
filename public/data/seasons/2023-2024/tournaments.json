@@ -87,5 +87,62 @@
         }
       }
     }
+  },
+  "-24": {
+    "name": "Steel & Chill II",
+    "date": "2023-07-01",
+    "country": "hr",
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 18,
+          "results": [
+            { "fencer_id": "11157", "rank": 3 },
+            { "fencer_id": "9350", "rank": 10 },
+            { "fencer_id": "9598", "rank": 13 }
+          ],
+          "results_link": "https://hemascorecard.com/infoSummary.php?e=354"
+        }
+      },
+      "ss": {
+        "mo": {
+          "no_participants": 16,
+          "results": [
+            { "fencer_id": "9598", "rank": 1 },
+            { "fencer_id": "9350", "rank": 4 },
+            { "fencer_id": "11157", "rank": 6 }
+          ],
+          "results_link": "https://hemascorecard.com/infoSummary.php?e=354"
+        }
+      },
+      "sab": {
+        "mo": {
+          "no_participants": 15,
+          "results": [
+            { "fencer_id": "9598", "rank": 1},
+            { "fencer_id": "11157", "rank": 2},
+            { "fencer_id": "9350", "rank": 9}
+          ],
+          "results_link": "https://hemascorecard.com/infoSummary.php?e=354"
+        }
+      }
+    }
+  },
+  "-25": {
+    "name": "2. Dresdner HEMA-CUP",
+    "date": "2023-07-08",
+    "country": "de",
+    "competitions": {
+      "ls": {
+        "mo": {
+          "no_participants": 14,
+          "results": [
+            { "fencer_id": "2140", "rank": 1 },
+            { "fencer_id": "3631", "rank": 3 },
+            { "fencer_id": "3624", "rank": 4 }
+          ]
+        }
+      }
+    }
   }
 }
