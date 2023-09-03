@@ -93,8 +93,6 @@
   <ladder-detail
     v-if="ladder !== null"
     v-model="detailTarget"
-    :division="division"
-    :category="category"
     @tournament-detail="onTournamentDetail"
   ></ladder-detail>
   <!-- <tournament-detail v-model="tournamentDetail"></tournament-detail> -->
@@ -328,8 +326,7 @@ let tournamentDetail: Ref<TournamentDetailModel | null> = ref(null);
 function onTournamentDetail(detail: {
   fencer_id: string;
   tournament_id: string;
-  category: Category;
 }) {
-  tournamentDetail.value = { ...detail, division: props.division };
+  return;
 }
 </script>

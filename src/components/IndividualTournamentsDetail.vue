@@ -32,16 +32,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="t in tournaments" :key="t.tournament_id">
+      <tr
+        v-for="c in competitions"
+        :key="c.tournament.tournament_id + (c.competition.subtitle ?? '')"
+      >
         <td class="text-left">
-          {{ data.tournaments![t.tournament_id].name }}
+          {{
+            data.tournaments![c.tournament.tournament_id].name +
+            (c.competition.subtitle === undefined
+              ? ''
+              : ' (' + c.competition.subtitle + ')')
+          }}
           <q-badge
-            v-if="data.tournaments![t.tournament_id].championship"
+            v-if="data.tournaments![c.tournament.tournament_id].championship"
             name="mdi-trophy"
             color="transparent"
             text-color="black"
             class="coeff-badge"
-            :class="{ hide: t.coefficients.length === 0 }"
+            :class="{ hide: c.tournament.coefficients.length === 0 }"
           >
             <q-icon name="mdi-trophy" class="championship" size="larger" />
             <q-tooltip>
@@ -50,54 +58,58 @@
           </q-badge>
         </td>
         <td class="text-left">
-          {{ $d(data.tournaments![t.tournament_id].date) }}
+          {{ $d(data.tournaments![c.tournament.tournament_id].date) }}
         </td>
         <td class="text-center">
           <country-flag
-            :country="data.tournaments![t.tournament_id].country"
+            :country="data.tournaments![c.tournament.tournament_id].country"
             :shadow="true"
             size="normal"
           />
           <q-tooltip>
-            {{ $t('countries.' + data.tournaments![t.tournament_id].country) }}
+            {{
+              $t(
+                'countries.' +
+                  data.tournaments![c.tournament.tournament_id].country
+              )
+            }}
           </q-tooltip>
         </td>
         <td class="text-center">
-          {{
-            data.tournaments![t.tournament_id].competitions[division!]![
-              category!
-            ]!.no_participants
-          }}
+          {{ c.competition.no_participants }}
         </td>
         <td class="text-center">
           {{
-            data.tournaments![t.tournament_id].competitions[division!]![
-              category!
-            ]!.results!.find((entry) => entry.fencer_id == fencerId)?.rank
+            c.competition.results!.find((entry) => entry.fencer_id == fencerId)
+              ?.rank
           }}
         </td>
         <td class="text-right">
           {{
             Math.round(
-              t.coefficients.map((c) => c.c).reduce((a, b) => a * b, 1) * 100
+              c.tournament.coefficients
+                .map((c) => c.c)
+                .reduce((a, b) => a * b, 1) * 100
             ) / 100
           }}
           <q-badge
             color="transparent"
             text-color="black"
             class="coeff-badge"
-            :class="{ hide: t.coefficients.length === 0 }"
+            :class="{ hide: c.tournament.coefficients.length === 0 }"
           >
             <q-icon name="mdi-information-outline" />
             <q-tooltip>
               <table class="coefficient-tooltip" cellspacing="0">
-                <tr v-for="c in t.coefficients" :key="c.type">
+                <tr v-for="coef in c.tournament.coefficients" :key="coef.type">
                   <td>
                     {{
-                      $t('ladderTable.fencerDetail.coefficientType.' + c.type)
+                      $t(
+                        'ladderTable.fencerDetail.coefficientType.' + coef.type
+                      )
                     }}
                   </td>
-                  <td class="text-right">{{ c.c }}</td>
+                  <td class="text-right">{{ coef.c }}</td>
                 </tr>
                 <tr>
                   <td>
@@ -106,7 +118,7 @@
                   <td class="text-right">
                     {{
                       Math.round(
-                        t.coefficients
+                        c.tournament.coefficients
                           .map((c) => c.c)
                           .reduce((a, b) => a * b, 1) * 100
                       ) / 100
@@ -118,21 +130,21 @@
           </q-badge>
         </td>
         <td class="text-center">
-          {{ t.points }}
+          {{ c.tournament.points }}
         </td>
         <td class="text-center">
           <div>
             <q-btn
-              :href="resultsLink(t.tournament_id)"
+              :href="c.competition.results_link"
               target="_blank"
               icon="mdi-open-in-new"
               flat
               dense
               round
-              :disable="resultsLink(t.tournament_id) === undefined"
+              :disable="c.competition.results_link === undefined"
             >
             </q-btn>
-            <q-tooltip v-if="resultsLink(t.tournament_id) === undefined">
+            <q-tooltip v-if="c.competition.results_link === undefined">
               {{ $t('resultsNoDetailTooltip') }}
             </q-tooltip>
             <q-tooltip v-else>
@@ -144,17 +156,18 @@
           <div>
             <q-btn
               :href="
-                'https://hemaratings.com/events/details/' + t.tournament_id
+                'https://hemaratings.com/events/details/' +
+                c.tournament.tournament_id
               "
               target="_blank"
               icon="mdi-open-in-new"
               flat
               dense
               round
-              :disable="t.tournament_id.startsWith('-')"
+              :disable="c.tournament.tournament_id.startsWith('-')"
             >
             </q-btn>
-            <q-tooltip v-if="t.tournament_id.startsWith('-')">
+            <q-tooltip v-if="c.tournament.tournament_id.startsWith('-')">
               {{ $t('hemaratingsNoDetailTooltip') }}
             </q-tooltip>
             <q-tooltip v-else>
@@ -201,8 +214,12 @@ table.coefficient-tooltip {
 </style>
 
 <script setup lang="ts">
-import { Division, Category, TournamentLadderEntry } from 'src/logic/ladder';
+import {
+  TournamentLadderEntry,
+  Competition,
+} from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
+import { computed } from 'vue';
 import CountryFlag from 'vue-country-flag-next';
 
 const data = useData();
@@ -211,15 +228,25 @@ const data = useData();
 const props = defineProps<{
   fencerId: string;
   tournaments: TournamentLadderEntry[];
-  division: Division | null;
-  category: Category | null;
 }>();
 
-function resultsLink(tid: string): string | undefined {
-  if (props.division === null || props.category === null) {
-    return undefined;
-  }
-  return data.tournaments?.[tid].competitions[props.division]?.[props.category]
-    ?.results_link;
-}
+const competitions = computed<
+  {
+    competition: Competition;
+    tournament: TournamentLadderEntry;
+  }[]
+>(() => {
+  return props.tournaments.flatMap((t) => {
+    if (data.tournaments === undefined) {
+      return [];
+    }
+    return [
+      {
+        competition:
+          data.tournaments[t.tournament_id].competitions[t.competition_idx],
+        tournament: t,
+      },
+    ];
+  });
+});
 </script>

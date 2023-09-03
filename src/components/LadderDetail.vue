@@ -48,8 +48,6 @@
             <individual-tournaments-detail
               :fencer-id="modelValue!.fencer_id"
               :tournaments="modelValue!.counted_tournaments"
-              :division="division"
-              :category="category"
             />
           </div>
         </q-expansion-item>
@@ -61,8 +59,6 @@
             <individual-tournaments-detail
               :fencer-id="modelValue!.fencer_id"
               :tournaments="modelValue!.uncounted_tournaments"
-              :division="division"
-              :category="category"
             />
           </div>
         </q-expansion-item>
@@ -71,8 +67,6 @@
         <individual-tournaments-detail
           :fencer-id="modelValue!.fencer_id"
           :tournaments="modelValue!.counted_tournaments"
-          :division="division"
-          :category="category"
         />
       </q-card-section>
 
@@ -121,7 +115,7 @@ table.coefficient-tooltip {
 </style>
 
 <script setup lang="ts">
-import { LadderIndividualEntry, Division, Category } from 'src/logic/ladder';
+import { LadderIndividualEntry } from 'src/logic/ladder';
 import IndividualTournamentsDetail from './IndividualTournamentsDetail.vue';
 import { useI18n } from 'vue-i18n';
 import { useData } from 'src/stores/data';
@@ -134,8 +128,6 @@ const data = useData();
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   modelValue: LadderIndividualEntry | null;
-  division: Division | null;
-  category: Category | null;
 }>();
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const emit = defineEmits<{
@@ -145,7 +137,6 @@ const emit = defineEmits<{
     value: {
       fencer_id: string;
       tournament_id: string;
-      category: Category;
     }
   ): void;
 }>();

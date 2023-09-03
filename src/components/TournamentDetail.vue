@@ -39,7 +39,7 @@
           </thead>
           <tbody>
             <tr
-              v-for="p in data.tournaments![modelValue!.tournament_id].competitions[modelValue!.division]![modelValue!.category]!.results"
+              v-for="p in modelValue!.competition!.results"
               :key="p.fencer_id"
               :class="{'highlight': p.fencer_id == modelValue!.fencer_id}"
             >

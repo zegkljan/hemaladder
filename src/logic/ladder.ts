@@ -89,14 +89,12 @@ export type TournamentResultEntry = {
 };
 
 export type Competition = {
+  subtitle?: string;
+  division: Division;
+  category: Category;
   no_participants: number;
   results: TournamentResultEntry[];
   results_link?: string;
-};
-
-export type CompetitionsCategories = { [C in Category]?: Competition };
-export type CompetitionsDivisions = {
-  [D in Division]?: CompetitionsCategories;
 };
 
 export type Tournament = {
@@ -104,7 +102,7 @@ export type Tournament = {
   date: Date;
   country: string;
   championship: boolean;
-  competitions: CompetitionsDivisions;
+  competitions: Competition[];
 };
 
 export type Tournaments = Record<string, Tournament>;
@@ -117,24 +115,14 @@ function parseTournaments(json: Record<string, unknown>): Tournaments {
       date: string;
       country: string;
       championship: boolean;
-      competitions: Record<string, Record<string, Record<string, unknown>>>;
+      competitions: Record<string, unknown>[];
     };
     res[k] = {
       name: d.name,
       date: date.parseISO(d.date),
       country: d.country,
       championship: d.championship,
-      competitions: Object.keys(d.competitions).reduce((divs, div) => {
-        const categories = d.competitions[div];
-        divs[divisionReverseMap[div as keyof typeof divisionReverseMap]] =
-          Object.keys(categories).reduce((cats, cat) => {
-            const competitions = categories[cat];
-            cats[categoryReverseMap[cat as keyof typeof categoryReverseMap]] =
-              parseCompetition(competitions);
-            return cats;
-          }, {} as CompetitionsCategories);
-        return divs;
-      }, {} as CompetitionsDivisions),
+      competitions: d.competitions.map(parseCompetition),
     };
   });
   return res;
@@ -143,6 +131,11 @@ function parseTournaments(json: Record<string, unknown>): Tournaments {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseCompetition(json: Record<string, any>): Competition {
   return {
+    subtitle: json['subtitle'] ?? undefined,
+    division:
+      divisionReverseMap[json['division'] as keyof typeof divisionReverseMap],
+    category:
+      categoryReverseMap[json['category'] as keyof typeof categoryReverseMap],
     no_participants: json['no_participants'],
     results: parseResults(json['results']),
     results_link: json['results_link'],
@@ -214,6 +207,7 @@ export type Coefficient = {
 
 export type TournamentLadderEntry = {
   tournament_id: string;
+  competition_idx: number;
   coefficients: Coefficient[];
   base_points: number;
   rank: number;
@@ -299,6 +293,7 @@ function parseTournamentLadderEntry(
 ): TournamentLadderEntry {
   return {
     tournament_id: json['tournament_id'] as string,
+    competition_idx: json['competition_idx'] as number,
     rank: json['rank'] as number,
     base_points: json['base_points'] as number,
     coefficients: (json['coefficients'] as Record<string, unknown>[]).map(

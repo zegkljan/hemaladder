@@ -89,6 +89,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "12162": {
+    "surname": "Daneš",
+    "name": "Karel",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "11157": {
     "surname": "Demeter",
     "name": "David",
@@ -127,6 +133,18 @@
   },
   "10053": {
     "surname": "Filip",
+    "name": "Jan",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12165": {
+    "surname": "Forejt",
+    "name": "Vojtěch",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12166": {
+    "surname": "Gruber",
     "name": "Jan",
     "nationality": "cz",
     "category": "mo"
@@ -419,6 +437,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "12163": {
+    "surname": "Melko",
+    "name": "Michal",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "9271": {
     "surname": "Mesarč",
     "name": "Jan",
@@ -458,6 +482,12 @@
   "2039": {
     "surname": "Nerandžič",
     "name": "Vladimír",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12164": {
+    "surname": "Netopil",
+    "name": "Petr",
     "nationality": "cz",
     "category": "mo"
   },
@@ -617,6 +647,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "152": {
+    "surname": "Stankevich",
+    "name": "Alexander",
+    "nationality": "ru",
+    "category": "mo"
+  },
   "10134": {
     "surname": "Stiess",
     "name": "Jan",
@@ -677,6 +713,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "12161": {
+    "surname": "Trnka",
+    "name": "Jiří",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "9105": {
     "surname": "Truhlář",
     "name": "Jan",
@@ -704,6 +746,12 @@
   "11059": {
     "surname": "Vedral",
     "name": "Jan",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12167": {
+    "surname": "Veselý",
+    "name": "Matěj",
     "nationality": "cz",
     "category": "mo"
   },
@@ -819,6 +867,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "12168": {
+    "surname": "Žebro",
+    "name": "Michal",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "3631": {
     "surname": "Žegklitz",
     "name": "Jan",
@@ -828,12 +882,6 @@
   "-1": {
     "surname": "Šrajer",
     "name": "Matěj",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-2": {
-    "surname": "Daneš",
-    "name": "Karel",
     "nationality": "cz",
     "category": "mo"
   },
@@ -851,12 +899,6 @@
   },
   "-7": {
     "surname": "Švoma",
-    "name": "Jan",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-8": {
-    "surname": "Gruber",
     "name": "Jan",
     "nationality": "cz",
     "category": "mo"
@@ -897,18 +939,6 @@
     "nationality": "cz",
     "category": "mo"
   },
-  "-32": {
-    "surname": "Veselý",
-    "name": "Matěj",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-33": {
-    "surname": "Žebro",
-    "name": "Michal",
-    "nationality": "cz",
-    "category": "mo"
-  },
   "-44": {
     "surname": "Otta",
     "name": "Vladimír",
@@ -918,30 +948,6 @@
   "-45": {
     "surname": "Bekárek",
     "name": "Štěpán",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-46": {
-    "surname": "Trnka",
-    "name": "Jiří",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-47": {
-    "surname": "Netopil",
-    "name": "Petr",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-48": {
-    "surname": "Melko",
-    "name": "Michal",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-49": {
-    "surname": "Forejt",
-    "name": "Vojtěch",
     "nationality": "cz",
     "category": "mo"
   }

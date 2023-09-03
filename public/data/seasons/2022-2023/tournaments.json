@@ -3,1194 +3,1214 @@
     "name": "KR Spring Tournament 2022",
     "date": "2022-05-28",
     "country": "hu",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 41,
-          "results": [
-            { "fencer_id": "2090", "rank": 1 },
-            { "fencer_id": "9349", "rank": 2 },
-            { "fencer_id": "9598", "rank": 3 },
-            { "fencer_id": "9348", "rank": 6 },
-            { "fencer_id": "9270", "rank": 7 },
-            { "fencer_id": "9272", "rank": 13 },
-            { "fencer_id": "10136", "rank": 18 },
-            { "fencer_id": "9350", "rank": 19 },
-            { "fencer_id": "10349", "rank": 30 },
-            { "fencer_id": "10131", "rank": 34 }
-          ],
-          "results_link": "https://docs.google.com/spreadsheets/d/1oyXN5QleoNmwrY4jAAggpsH9pRw14gYw/edit?fbclid=IwAR3g3IaeFnfvP-9gzC6OIoPWc-oKF9vtoWL90BoBYqFTLvbytcbo2uytx7k#gid=612232966"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 41,
+        "results": [
+          { "fencer_id": "2090", "rank": 1 },
+          { "fencer_id": "9349", "rank": 2 },
+          { "fencer_id": "9598", "rank": 3 },
+          { "fencer_id": "9348", "rank": 6 },
+          { "fencer_id": "9270", "rank": 7 },
+          { "fencer_id": "9272", "rank": 13 },
+          { "fencer_id": "10136", "rank": 18 },
+          { "fencer_id": "9350", "rank": 19 },
+          { "fencer_id": "10349", "rank": 30 },
+          { "fencer_id": "10131", "rank": 34 }
+        ],
+        "results_link": "https://docs.google.com/spreadsheets/d/1oyXN5QleoNmwrY4jAAggpsH9pRw14gYw/edit?fbclid=IwAR3g3IaeFnfvP-9gzC6OIoPWc-oKF9vtoWL90BoBYqFTLvbytcbo2uytx7k#gid=612232966"
       }
-    }
+    ]
   },
   "1726": {
     "name": "Black Horns Cup 2022",
     "date": "2022-06-04",
     "country": "pl",
-    "competitions": {
-      "sb": {
-        "mo": {
-          "no_participants": 34,
-          "results": [
-            { "fencer_id": "3626", "rank": 20 },
-            { "fencer_id": "7837", "rank": 24 },
-            { "fencer_id": "9598", "rank": 26 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=241"
-        }
+    "competitions": [
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 34,
+        "results": [
+          { "fencer_id": "3626", "rank": 20 },
+          { "fencer_id": "7837", "rank": 24 },
+          { "fencer_id": "9598", "rank": 26 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=241"
       },
-      "ls": {
-        "mo": {
-          "no_participants": 30,
-          "results": [
-            { "fencer_id": "3631", "rank": 2 },
-            { "fencer_id": "9598", "rank": 11 },
-            { "fencer_id": "3626", "rank": 26 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=241"
-        }
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 30,
+        "results": [
+          { "fencer_id": "3631", "rank": 2 },
+          { "fencer_id": "9598", "rank": 11 },
+          { "fencer_id": "3626", "rank": 26 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=241"
       },
-      "rad": {
-        "mo": {
-          "no_participants": 27,
-          "results": [
-            { "fencer_id": "9598", "rank": 7 },
-            { "fencer_id": "3631", "rank": 15 },
-            { "fencer_id": "7837", "rank": 19 },
-            { "fencer_id": "3626", "rank": 23 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=241"
-        }
+      {
+        "division": "rad",
+        "category": "mo",
+        "no_participants": 27,
+        "results": [
+          { "fencer_id": "9598", "rank": 7 },
+          { "fencer_id": "3631", "rank": 15 },
+          { "fencer_id": "7837", "rank": 19 },
+          { "fencer_id": "3626", "rank": 23 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=241"
       },
-      "sab": {
-        "mo": {
-          "no_participants": 14,
-          "results": [
-            { "fencer_id": "3631", "rank": 5 },
-            { "fencer_id": "9598", "rank": 6 },
-            { "fencer_id": "7837", "rank": 12 },
-            { "fencer_id": "3626", "rank": 13 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=241"
-        }
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 14,
+        "results": [
+          { "fencer_id": "3631", "rank": 5 },
+          { "fencer_id": "9598", "rank": 6 },
+          { "fencer_id": "7837", "rank": 12 },
+          { "fencer_id": "3626", "rank": 13 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=241"
       }
-    }
+    ]
   },
   "1768": {
     "name": "Dresdner HEMA-Cup 2022",
     "date": "2022-07-09",
     "country": "de",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 36,
-          "results": [
-            { "fencer_id": "3624", "rank": 2 },
-            { "fencer_id": "2140", "rank": 3 },
-            { "fencer_id": "8755", "rank": 27 }
-          ]
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 36,
+        "results": [
+          { "fencer_id": "3624", "rank": 2 },
+          { "fencer_id": "2140", "rank": 3 },
+          { "fencer_id": "8755", "rank": 27 }
+        ]
       }
-    }
+    ]
   },
   "1743": {
     "name": "Dragoon Sabre 2022",
     "date": "2022-09-17",
     "country": "cz",
-    "competitions": {
-      "sb": {
-        "mo": {
-          "no_participants": 17,
-          "results": [
-            { "fencer_id": "1471", "rank": 3 },
-            { "fencer_id": "5822", "rank": 4 },
-            { "fencer_id": "9598", "rank": 6 },
-            { "fencer_id": "8907", "rank": 8 },
-            { "fencer_id": "9339", "rank": 10 },
-            { "fencer_id": "7829", "rank": 12 },
-            { "fencer_id": "9272", "rank": 13 },
-            { "fencer_id": "9350", "rank": 14 },
-            { "fencer_id": "4785", "rank": 15 },
-            { "fencer_id": "6598", "rank": 16 },
-            { "fencer_id": "8899", "rank": 17 }
-          ],
-          "results_link": "https://www.facebook.com/photo/?fbid=6187483797981337&set=gm.625830769184147&idorvanity=556499252783966"
-        }
+    "competitions": [
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 17,
+        "results": [
+          { "fencer_id": "1471", "rank": 3 },
+          { "fencer_id": "5822", "rank": 4 },
+          { "fencer_id": "9598", "rank": 6 },
+          { "fencer_id": "8907", "rank": 8 },
+          { "fencer_id": "9339", "rank": 10 },
+          { "fencer_id": "7829", "rank": 12 },
+          { "fencer_id": "9272", "rank": 13 },
+          { "fencer_id": "9350", "rank": 14 },
+          { "fencer_id": "4785", "rank": 15 },
+          { "fencer_id": "6598", "rank": 16 },
+          { "fencer_id": "8899", "rank": 17 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=6187483797981337&set=gm.625830769184147&idorvanity=556499252783966"
       }
-    }
+    ]
   },
   "1739": {
     "name": "MHS Grand Prix 2022",
     "date": "2022-09-24",
     "country": "hu",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 60,
-          "results": [
-            { "fencer_id": "2090", "rank": 2 },
-            { "fencer_id": "2140", "rank": 5 },
-            { "fencer_id": "9348", "rank": 6 },
-            { "fencer_id": "10136", "rank": 7 },
-            { "fencer_id": "9598", "rank": 8 },
-            { "fencer_id": "1471", "rank": 9 },
-            { "fencer_id": "5822", "rank": 12 },
-            { "fencer_id": "9272", "rank": 14 },
-            { "fencer_id": "10349", "rank": 17 },
-            { "fencer_id": "9271", "rank": 25 },
-            { "fencer_id": "3631", "rank": 25 },
-            { "fencer_id": "10392", "rank": 25 },
-            { "fencer_id": "9339", "rank": 38 }
-          ],
-          "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
-        },
-        "w": {
-          "no_participants": 13,
-          "results": [{ "fencer_id": "9339", "rank": 1 }],
-          "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 60,
+        "results": [
+          { "fencer_id": "2090", "rank": 2 },
+          { "fencer_id": "2140", "rank": 5 },
+          { "fencer_id": "9348", "rank": 6 },
+          { "fencer_id": "10136", "rank": 7 },
+          { "fencer_id": "9598", "rank": 8 },
+          { "fencer_id": "1471", "rank": 9 },
+          { "fencer_id": "5822", "rank": 12 },
+          { "fencer_id": "9272", "rank": 14 },
+          { "fencer_id": "10349", "rank": 17 },
+          { "fencer_id": "9271", "rank": 25 },
+          { "fencer_id": "3631", "rank": 25 },
+          { "fencer_id": "10392", "rank": 25 },
+          { "fencer_id": "9339", "rank": 38 }
+        ],
+        "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
       },
-      "sb": {
-        "mo": {
-          "no_participants": 27,
-          "results": [
-            { "fencer_id": "2090", "rank": 2 },
-            { "fencer_id": "5822", "rank": 10 },
-            { "fencer_id": "9598", "rank": 12 },
-            { "fencer_id": "9272", "rank": 15 },
-            { "fencer_id": "1471", "rank": 18 },
-            { "fencer_id": "2140", "rank": 19 },
-            { "fencer_id": "9339", "rank": 27 }
-          ],
-          "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
-        }
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 13,
+        "results": [{ "fencer_id": "9339", "rank": 1 }],
+        "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
       },
-      "r": {
-        "mo": {
-          "no_participants": 24,
-          "results": [
-            { "fencer_id": "2140", "rank": 2 },
-            { "fencer_id": "2090", "rank": 4 },
-            { "fencer_id": "9598", "rank": 7 },
-            { "fencer_id": "3631", "rank": 22 }
-          ],
-          "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
-        }
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 27,
+        "results": [
+          { "fencer_id": "2090", "rank": 2 },
+          { "fencer_id": "5822", "rank": 10 },
+          { "fencer_id": "9598", "rank": 12 },
+          { "fencer_id": "9272", "rank": 15 },
+          { "fencer_id": "1471", "rank": 18 },
+          { "fencer_id": "2140", "rank": 19 },
+          { "fencer_id": "9339", "rank": 27 }
+        ],
+        "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
+      },
+      {
+        "division": "r",
+        "category": "mo",
+        "no_participants": 24,
+        "results": [
+          { "fencer_id": "2140", "rank": 2 },
+          { "fencer_id": "2090", "rank": 4 },
+          { "fencer_id": "9598", "rank": 7 },
+          { "fencer_id": "3631", "rank": 22 }
+        ],
+        "results_link": "https://docs.google.com/spreadsheets/d/12F5kIvGvOy7AvLcwX7IGsf1v7_zz5NLPv-t2_D_ETaQ/edit?fbclid=IwAR2RVkXe91dub7_qhRYfUsODWVHQMl2_Z15o1TgcZB8lFGMGVcgXztXGZ48#gid=0"
       }
-    }
+    ]
   },
   "-6": {
     "name": "Warszawskie Warsztaty Walki 2022",
     "date": "2022-09-25",
     "country": "pl",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 18,
-          "results": [
-            { "fencer_id": "1478", "rank": 8 },
-            { "fencer_id": "2039", "rank": 11 }
-          ]
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 18,
+        "results": [
+          { "fencer_id": "1478", "rank": 8 },
+          { "fencer_id": "2039", "rank": 11 }
+        ]
       }
-    }
+    ]
   },
   "-7": {
     "name": "Zabłocki Sabre (SabreSlash) 2022",
     "date": "2022-10-02",
     "country": "cz",
-    "competitions": {
-      "sb": {
-        "mo": {
-          "no_participants": 12,
-          "results": [
-            { "fencer_id": "1471", "rank": 1 },
-            { "fencer_id": "-7", "rank": 2 },
-            { "fencer_id": "-8", "rank": 3 },
-            { "fencer_id": "-9", "rank": 4 },
-            { "fencer_id": "-10", "rank": 5 }
-          ]
-        }
+    "competitions": [
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 12,
+        "results": [
+          { "fencer_id": "1471", "rank": 1 },
+          { "fencer_id": "-7", "rank": 2 },
+          { "fencer_id": "12166", "rank": 3 },
+          { "fencer_id": "-9", "rank": 4 },
+          { "fencer_id": "-10", "rank": 5 }
+        ]
       }
-    }
+    ]
   },
   "1755": {
     "name": "Podzimové mečoklání II",
     "date": "2022-10-09",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 45,
-          "results": [
-            { "fencer_id": "5822", "rank": 1 },
-            { "fencer_id": "3631", "rank": 3 },
-            { "fencer_id": "1512", "rank": 4 },
-            { "fencer_id": "7298", "rank": 5 },
-            { "fencer_id": "9598", "rank": 6 },
-            { "fencer_id": "8907", "rank": 7 },
-            { "fencer_id": "9271", "rank": 8 },
-            { "fencer_id": "9349", "rank": 9 },
-            { "fencer_id": "7825", "rank": 10 },
-            { "fencer_id": "6753", "rank": 11 },
-            { "fencer_id": "10136", "rank": 12 },
-            { "fencer_id": "1480", "rank": 13 },
-            { "fencer_id": "9270", "rank": 14 },
-            { "fencer_id": "8936", "rank": 15 },
-            { "fencer_id": "10391", "rank": 16 },
-            { "fencer_id": "9338", "rank": 17 },
-            { "fencer_id": "8935", "rank": 18 },
-            { "fencer_id": "3624", "rank": 19 },
-            { "fencer_id": "5826", "rank": 20 },
-            { "fencer_id": "7829", "rank": 21 },
-            { "fencer_id": "11072", "rank": 22 },
-            { "fencer_id": "8903", "rank": 23 },
-            { "fencer_id": "6597", "rank": 24 },
-            { "fencer_id": "10202", "rank": 25 },
-            { "fencer_id": "10131", "rank": 26 },
-            { "fencer_id": "6598", "rank": 27 },
-            { "fencer_id": "8899", "rank": 28 },
-            { "fencer_id": "6601", "rank": 29 },
-            { "fencer_id": "9596", "rank": 30 },
-            { "fencer_id": "11074", "rank": 31 },
-            { "fencer_id": "11058", "rank": 32 },
-            { "fencer_id": "10053", "rank": 33 },
-            { "fencer_id": "11059", "rank": 34 },
-            { "fencer_id": "9637", "rank": 35 },
-            { "fencer_id": "11067", "rank": 36 },
-            { "fencer_id": "11070", "rank": 37 },
-            { "fencer_id": "11069", "rank": 38 },
-            { "fencer_id": "8905", "rank": 39 },
-            { "fencer_id": "11071", "rank": 40 },
-            { "fencer_id": "9339", "rank": 41 },
-            { "fencer_id": "9639", "rank": 42 },
-            { "fencer_id": "9636", "rank": 43 },
-            { "fencer_id": "11073", "rank": 44 },
-            { "fencer_id": "11034", "rank": 45 }
-          ],
-          "results_link": "https://www.facebook.com/photo?fbid=475278247952522&set=gm.645214397119989&idorvanity=591468405827922"
-        },
-        "w": {
-          "no_participants": 5,
-          "results": [
-            { "fencer_id": "11060", "rank": 1 },
-            { "fencer_id": "9339", "rank": 2 },
-            { "fencer_id": "11065", "rank": 3 },
-            { "fencer_id": "11064", "rank": 4 }
-          ],
-          "results_link": "https://www.facebook.com/photo?fbid=474991061314574&set=pcb.644988090475953"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 45,
+        "results": [
+          { "fencer_id": "5822", "rank": 1 },
+          { "fencer_id": "3631", "rank": 3 },
+          { "fencer_id": "1512", "rank": 4 },
+          { "fencer_id": "7298", "rank": 5 },
+          { "fencer_id": "9598", "rank": 6 },
+          { "fencer_id": "8907", "rank": 7 },
+          { "fencer_id": "9271", "rank": 8 },
+          { "fencer_id": "9349", "rank": 9 },
+          { "fencer_id": "7825", "rank": 10 },
+          { "fencer_id": "6753", "rank": 11 },
+          { "fencer_id": "10136", "rank": 12 },
+          { "fencer_id": "1480", "rank": 13 },
+          { "fencer_id": "9270", "rank": 14 },
+          { "fencer_id": "8936", "rank": 15 },
+          { "fencer_id": "10391", "rank": 16 },
+          { "fencer_id": "9338", "rank": 17 },
+          { "fencer_id": "8935", "rank": 18 },
+          { "fencer_id": "3624", "rank": 19 },
+          { "fencer_id": "5826", "rank": 20 },
+          { "fencer_id": "7829", "rank": 21 },
+          { "fencer_id": "11072", "rank": 22 },
+          { "fencer_id": "8903", "rank": 23 },
+          { "fencer_id": "6597", "rank": 24 },
+          { "fencer_id": "10202", "rank": 25 },
+          { "fencer_id": "10131", "rank": 26 },
+          { "fencer_id": "6598", "rank": 27 },
+          { "fencer_id": "8899", "rank": 28 },
+          { "fencer_id": "6601", "rank": 29 },
+          { "fencer_id": "9596", "rank": 30 },
+          { "fencer_id": "11074", "rank": 31 },
+          { "fencer_id": "11058", "rank": 32 },
+          { "fencer_id": "10053", "rank": 33 },
+          { "fencer_id": "11059", "rank": 34 },
+          { "fencer_id": "9637", "rank": 35 },
+          { "fencer_id": "11067", "rank": 36 },
+          { "fencer_id": "11070", "rank": 37 },
+          { "fencer_id": "11069", "rank": 38 },
+          { "fencer_id": "8905", "rank": 39 },
+          { "fencer_id": "11071", "rank": 40 },
+          { "fencer_id": "9339", "rank": 41 },
+          { "fencer_id": "9639", "rank": 42 },
+          { "fencer_id": "9636", "rank": 43 },
+          { "fencer_id": "11073", "rank": 44 },
+          { "fencer_id": "11034", "rank": 45 }
+        ],
+        "results_link": "https://www.facebook.com/photo?fbid=475278247952522&set=gm.645214397119989&idorvanity=591468405827922"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 5,
+        "results": [
+          { "fencer_id": "11060", "rank": 1 },
+          { "fencer_id": "9339", "rank": 2 },
+          { "fencer_id": "11065", "rank": 3 },
+          { "fencer_id": "11064", "rank": 4 }
+        ],
+        "results_link": "https://www.facebook.com/photo?fbid=474991061314574&set=pcb.644988090475953"
       }
-    }
+    ]
   },
   "1771": {
     "name": "Valkyrie Cup 2",
     "date": "2022-10-22",
     "country": "pl",
-    "competitions": {
-      "rad": {
-        "mo": {
-          "no_participants": 30,
-          "results": [
-            { "fencer_id": "9598", "rank": 12 },
-            { "fencer_id": "9350", "rank": 27 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=285"
-        }
+    "competitions": [
+      {
+        "division": "rad",
+        "category": "mo",
+        "no_participants": 30,
+        "results": [
+          { "fencer_id": "9598", "rank": 12 },
+          { "fencer_id": "9350", "rank": 27 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=285"
       },
-      "sb": {
-        "mo": {
-          "no_participants": 31,
-          "results": [{ "fencer_id": "9350", "rank": 13 }],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=285"
-        }
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 31,
+        "results": [{ "fencer_id": "9350", "rank": 13 }],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=285"
       },
-      "r": {
-        "mo": {
-          "no_participants": 18,
-          "results": [
-            { "fencer_id": "9350", "rank": 8 },
-            { "fencer_id": "9598", "rank": 14 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=285"
-        }
+      {
+        "division": "r",
+        "category": "mo",
+        "no_participants": 18,
+        "results": [
+          { "fencer_id": "9350", "rank": 8 },
+          { "fencer_id": "9598", "rank": 14 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=285"
       }
-    }
+    ]
   },
   "1757": {
     "name": "Krkavčí podzimní fechtík 2022",
     "date": "2022-11-05",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 18,
-          "results": [
-            { "fencer_id": "10054", "rank": 1 },
-            { "fencer_id": "2140", "rank": 2 },
-            { "fencer_id": "8907", "rank": 3 },
-            { "fencer_id": "7298", "rank": 4 },
-            { "fencer_id": "6753", "rank": 5 },
-            { "fencer_id": "3624", "rank": 6 },
-            { "fencer_id": "9352", "rank": 7 },
-            { "fencer_id": "2139", "rank": 8 },
-            { "fencer_id": "9338", "rank": 9 },
-            { "fencer_id": "8755", "rank": 10 },
-            { "fencer_id": "6598", "rank": 11 },
-            { "fencer_id": "9637", "rank": 12 },
-            { "fencer_id": "10131", "rank": 13 },
-            { "fencer_id": "9339", "rank": 14 },
-            { "fencer_id": "10053", "rank": 15 },
-            { "fencer_id": "10347", "rank": 16 },
-            { "fencer_id": "11034", "rank": 17 }
-          ],
-          "results_link": "https://krkavci.cz/tournament/kpf2022"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 18,
+        "results": [
+          { "fencer_id": "10054", "rank": 1 },
+          { "fencer_id": "2140", "rank": 2 },
+          { "fencer_id": "8907", "rank": 3 },
+          { "fencer_id": "7298", "rank": 4 },
+          { "fencer_id": "6753", "rank": 5 },
+          { "fencer_id": "3624", "rank": 6 },
+          { "fencer_id": "9352", "rank": 7 },
+          { "fencer_id": "2139", "rank": 8 },
+          { "fencer_id": "9338", "rank": 9 },
+          { "fencer_id": "8755", "rank": 10 },
+          { "fencer_id": "6598", "rank": 11 },
+          { "fencer_id": "9637", "rank": 12 },
+          { "fencer_id": "10131", "rank": 13 },
+          { "fencer_id": "9339", "rank": 14 },
+          { "fencer_id": "10053", "rank": 15 },
+          { "fencer_id": "10347", "rank": 16 },
+          { "fencer_id": "11034", "rank": 17 }
+        ],
+        "results_link": "https://krkavci.cz/tournament/kpf2022"
       }
-    }
+    ]
   },
   "1772": {
     "name": "Pardubický meč 2022",
     "date": "2022-11-26",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 83,
-          "results": [
-            { "fencer_id": "3631", "rank": 2 },
-            { "fencer_id": "5822", "rank": 3 },
-            { "fencer_id": "8907", "rank": 7 },
-            { "fencer_id": "9270", "rank": 8 },
-            { "fencer_id": "5576", "rank": 9 },
-            { "fencer_id": "2090", "rank": 11 },
-            { "fencer_id": "9349", "rank": 12 },
-            { "fencer_id": "7298", "rank": 13 },
-            { "fencer_id": "9348", "rank": 17 },
-            { "fencer_id": "2140", "rank": 18 },
-            { "fencer_id": "6755", "rank": 24 },
-            { "fencer_id": "9271", "rank": 27 },
-            { "fencer_id": "8936", "rank": 28 },
-            { "fencer_id": "9639", "rank": 29 },
-            { "fencer_id": "9352", "rank": 26 },
-            { "fencer_id": "10392", "rank": 38 },
-            { "fencer_id": "1488", "rank": 39 },
-            { "fencer_id": "8755", "rank": 40 },
-            { "fencer_id": "1512", "rank": 42 },
-            { "fencer_id": "10057", "rank": 47 },
-            { "fencer_id": "10136", "rank": 48 },
-            { "fencer_id": "10058", "rank": 50 },
-            { "fencer_id": "11071", "rank": 51 },
-            { "fencer_id": "4785", "rank": 54 },
-            { "fencer_id": "1478", "rank": 55 },
-            { "fencer_id": "9596", "rank": 56 },
-            { "fencer_id": "11069", "rank": 57 },
-            { "fencer_id": "8934", "rank": 59 },
-            { "fencer_id": "10202", "rank": 60 },
-            { "fencer_id": "10349", "rank": 60 },
-            { "fencer_id": "8935", "rank": 65 },
-            { "fencer_id": "7829", "rank": 65 },
-            { "fencer_id": "8903", "rank": 65 },
-            { "fencer_id": "11070", "rank": 69 },
-            { "fencer_id": "9339", "rank": 70 },
-            { "fencer_id": "10346", "rank": 72 },
-            { "fencer_id": "6598", "rank": 74 },
-            { "fencer_id": "11157", "rank": 75 },
-            { "fencer_id": "11158", "rank": 75 },
-            { "fencer_id": "4783", "rank": 77 },
-            { "fencer_id": "2138", "rank": 78 },
-            { "fencer_id": "10391", "rank": 79 },
-            { "fencer_id": "8899", "rank": 80 },
-            { "fencer_id": "10131", "rank": 81 },
-            { "fencer_id": "10053", "rank": 82 },
-            { "fencer_id": "11034", "rank": 83 }
-          ],
-          "results_link": "https://www.facebook.com/events/499062961689319/?post_id=662971528631794&view=permalink"
-        },
-        "w": {
-          "no_participants": 19,
-          "results": [
-            { "fencer_id": "1478", "rank": 1 },
-            { "fencer_id": "9603", "rank": 2 },
-            { "fencer_id": "9339", "rank": 4 },
-            { "fencer_id": "11060", "rank": 8 },
-            { "fencer_id": "11162", "rank": 14 },
-            { "fencer_id": "11065", "rank": 16 }
-          ],
-          "results_link": "https://www.facebook.com/events/499062961689319/?post_id=662971528631794&view=permalink"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 83,
+        "results": [
+          { "fencer_id": "3631", "rank": 2 },
+          { "fencer_id": "5822", "rank": 3 },
+          { "fencer_id": "8907", "rank": 7 },
+          { "fencer_id": "9270", "rank": 8 },
+          { "fencer_id": "5576", "rank": 9 },
+          { "fencer_id": "2090", "rank": 11 },
+          { "fencer_id": "9349", "rank": 12 },
+          { "fencer_id": "7298", "rank": 13 },
+          { "fencer_id": "9348", "rank": 17 },
+          { "fencer_id": "2140", "rank": 18 },
+          { "fencer_id": "6755", "rank": 24 },
+          { "fencer_id": "9271", "rank": 27 },
+          { "fencer_id": "8936", "rank": 28 },
+          { "fencer_id": "9639", "rank": 29 },
+          { "fencer_id": "9352", "rank": 26 },
+          { "fencer_id": "10392", "rank": 38 },
+          { "fencer_id": "1488", "rank": 39 },
+          { "fencer_id": "8755", "rank": 40 },
+          { "fencer_id": "1512", "rank": 42 },
+          { "fencer_id": "10057", "rank": 47 },
+          { "fencer_id": "10136", "rank": 48 },
+          { "fencer_id": "10058", "rank": 50 },
+          { "fencer_id": "11071", "rank": 51 },
+          { "fencer_id": "4785", "rank": 54 },
+          { "fencer_id": "1478", "rank": 55 },
+          { "fencer_id": "9596", "rank": 56 },
+          { "fencer_id": "11069", "rank": 57 },
+          { "fencer_id": "8934", "rank": 59 },
+          { "fencer_id": "10202", "rank": 60 },
+          { "fencer_id": "10349", "rank": 60 },
+          { "fencer_id": "8935", "rank": 65 },
+          { "fencer_id": "7829", "rank": 65 },
+          { "fencer_id": "8903", "rank": 65 },
+          { "fencer_id": "11070", "rank": 69 },
+          { "fencer_id": "9339", "rank": 70 },
+          { "fencer_id": "10346", "rank": 72 },
+          { "fencer_id": "6598", "rank": 74 },
+          { "fencer_id": "11157", "rank": 75 },
+          { "fencer_id": "11158", "rank": 75 },
+          { "fencer_id": "4783", "rank": 77 },
+          { "fencer_id": "2138", "rank": 78 },
+          { "fencer_id": "10391", "rank": 79 },
+          { "fencer_id": "8899", "rank": 80 },
+          { "fencer_id": "10131", "rank": 81 },
+          { "fencer_id": "10053", "rank": 82 },
+          { "fencer_id": "11034", "rank": 83 }
+        ],
+        "results_link": "https://www.facebook.com/events/499062961689319/?post_id=662971528631794&view=permalink"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 19,
+        "results": [
+          { "fencer_id": "1478", "rank": 1 },
+          { "fencer_id": "9603", "rank": 2 },
+          { "fencer_id": "9339", "rank": 4 },
+          { "fencer_id": "11060", "rank": 8 },
+          { "fencer_id": "11162", "rank": 14 },
+          { "fencer_id": "11065", "rank": 16 }
+        ],
+        "results_link": "https://www.facebook.com/events/499062961689319/?post_id=662971528631794&view=permalink"
       }
-    }
+    ]
   },
   "-10": {
     "name": "Swordplay 2022",
     "date": "2022-11-26",
     "country": "rs",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 37,
-          "results": [
-            { "fencer_id": "9598", "rank": 15 },
-            { "fencer_id": "9350", "rank": 24 }
-          ]
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 37,
+        "results": [
+          { "fencer_id": "9598", "rank": 15 },
+          { "fencer_id": "9350", "rank": 24 }
+        ]
       },
-      "ss": {
-        "mo": {
-          "no_participants": 30,
-          "results": [{ "fencer_id": "9598", "rank": 8 }]
-        }
+      {
+        "division": "ss",
+        "category": "mo",
+        "no_participants": 30,
+        "results": [{ "fencer_id": "9598", "rank": 8 }]
       },
-      "r": {
-        "mo": {
-          "no_participants": 30,
-          "results": [
-            { "fencer_id": "9598", "rank": 3 },
-            { "fencer_id": "9350", "rank": 30 }
-          ]
-        }
+      {
+        "division": "r",
+        "category": "mo",
+        "no_participants": 30,
+        "results": [
+          { "fencer_id": "9598", "rank": 3 },
+          { "fencer_id": "9350", "rank": 30 }
+        ]
       },
-      "sm": {
-        "mo": {
-          "no_participants": 18,
-          "results": [
-            { "fencer_id": "9598", "rank": 3 },
-            { "fencer_id": "9350", "rank": 11 }
-          ]
-        }
+      {
+        "division": "sm",
+        "category": "mo",
+        "no_participants": 18,
+        "results": [
+          { "fencer_id": "9598", "rank": 3 },
+          { "fencer_id": "9350", "rank": 11 }
+        ]
       }
-    }
+    ]
   },
   "1796": {
     "name": "Vánoční šermířský přátelák 2022",
     "date": "2022-12-10",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 27,
-          "results": [
-            { "fencer_id": "9598", "rank": 1 },
-            { "fencer_id": "8936", "rank": 4 },
-            { "fencer_id": "10392", "rank": 5 },
-            { "fencer_id": "1478", "rank": 6 },
-            { "fencer_id": "11308", "rank": 8 },
-            { "fencer_id": "-23", "rank": 9 },
-            { "fencer_id": "11306", "rank": 10 },
-            { "fencer_id": "11393", "rank": 11 },
-            { "fencer_id": "10348", "rank": 13 },
-            { "fencer_id": "11158", "rank": 15 },
-            { "fencer_id": "10057", "rank": 16 },
-            { "fencer_id": "11399", "rank": 17 },
-            { "fencer_id": "11157", "rank": 19 },
-            { "fencer_id": "10058", "rank": 23 },
-            { "fencer_id": "11398", "rank": 25 },
-            { "fencer_id": "11162", "rank": 26 },
-            { "fencer_id": "11071", "rank": 27 }
-          ],
-          "results_link": "https://www.facebook.com/photo/?fbid=6208975105779828&set=gm.966001448120677&idorvanity=923598269027662"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 27,
+        "results": [
+          { "fencer_id": "9598", "rank": 1 },
+          { "fencer_id": "8936", "rank": 4 },
+          { "fencer_id": "10392", "rank": 5 },
+          { "fencer_id": "1478", "rank": 6 },
+          { "fencer_id": "11308", "rank": 8 },
+          { "fencer_id": "-23", "rank": 9 },
+          { "fencer_id": "11306", "rank": 10 },
+          { "fencer_id": "11393", "rank": 11 },
+          { "fencer_id": "10348", "rank": 13 },
+          { "fencer_id": "11158", "rank": 15 },
+          { "fencer_id": "10057", "rank": 16 },
+          { "fencer_id": "11399", "rank": 17 },
+          { "fencer_id": "11157", "rank": 19 },
+          { "fencer_id": "10058", "rank": 23 },
+          { "fencer_id": "11398", "rank": 25 },
+          { "fencer_id": "11162", "rank": 26 },
+          { "fencer_id": "11071", "rank": 27 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=6208975105779828&set=gm.966001448120677&idorvanity=923598269027662"
       }
-    }
+    ]
   },
   "-9": {
     "name": "Pilsen Hau 2022",
     "date": "2022-12-17",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 26,
-          "results": [
-            { "fencer_id": "2090", "rank": 1 },
-            { "fencer_id": "5822", "rank": 2 },
-            { "fencer_id": "9349", "rank": 3 },
-            { "fencer_id": "3631", "rank": 4 },
-            { "fencer_id": "9598", "rank": 5 },
-            { "fencer_id": "2139", "rank": 6 },
-            { "fencer_id": "8907", "rank": 7 },
-            { "fencer_id": "10136", "rank": 8 },
-            { "fencer_id": "-28", "rank": 9 },
-            { "fencer_id": "9596", "rank": 10 },
-            { "fencer_id": "6755", "rank": 11 },
-            { "fencer_id": "9350", "rank": 12 },
-            { "fencer_id": "9105", "rank": 14 },
-            { "fencer_id": "3626", "rank": 15 },
-            { "fencer_id": "-29", "rank": 16 },
-            { "fencer_id": "2041", "rank": 17 },
-            { "fencer_id": "2138", "rank": 18 },
-            { "fencer_id": "8906", "rank": 19 },
-            { "fencer_id": "9102", "rank": 20 },
-            { "fencer_id": "9339", "rank": 21 },
-            { "fencer_id": "6597", "rank": 22 },
-            { "fencer_id": "10192", "rank": 23 },
-            { "fencer_id": "-31", "rank": 24 },
-            { "fencer_id": "8903", "rank": 25 },
-            { "fencer_id": "11060", "rank": 26 }
-          ]
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 26,
+        "results": [
+          { "fencer_id": "2090", "rank": 1 },
+          { "fencer_id": "5822", "rank": 2 },
+          { "fencer_id": "9349", "rank": 3 },
+          { "fencer_id": "3631", "rank": 4 },
+          { "fencer_id": "9598", "rank": 5 },
+          { "fencer_id": "2139", "rank": 6 },
+          { "fencer_id": "8907", "rank": 7 },
+          { "fencer_id": "10136", "rank": 8 },
+          { "fencer_id": "-28", "rank": 9 },
+          { "fencer_id": "9596", "rank": 10 },
+          { "fencer_id": "6755", "rank": 11 },
+          { "fencer_id": "9350", "rank": 12 },
+          { "fencer_id": "9105", "rank": 14 },
+          { "fencer_id": "3626", "rank": 15 },
+          { "fencer_id": "-29", "rank": 16 },
+          { "fencer_id": "2041", "rank": 17 },
+          { "fencer_id": "2138", "rank": 18 },
+          { "fencer_id": "8906", "rank": 19 },
+          { "fencer_id": "9102", "rank": 20 },
+          { "fencer_id": "9339", "rank": 21 },
+          { "fencer_id": "6597", "rank": 22 },
+          { "fencer_id": "10192", "rank": 23 },
+          { "fencer_id": "-31", "rank": 24 },
+          { "fencer_id": "8903", "rank": 25 },
+          { "fencer_id": "11060", "rank": 26 }
+        ]
       },
-      "m": {
-        "mo": {
-          "no_participants": 19,
-          "results": [
-            { "fencer_id": "9598", "rank": 1 },
-            { "fencer_id": "5822", "rank": 2 },
-            { "fencer_id": "2090", "rank": 3 },
-            { "fencer_id": "9349", "rank": 4 },
-            { "fencer_id": "7837", "rank": 6 },
-            { "fencer_id": "-28", "rank": 7 },
-            { "fencer_id": "8907", "rank": 8 },
-            { "fencer_id": "9350", "rank": 9 },
-            { "fencer_id": "10136", "rank": 10 },
-            { "fencer_id": "3626", "rank": 11 },
-            { "fencer_id": "2139", "rank": 12 },
-            { "fencer_id": "-32", "rank": 13 },
-            { "fencer_id": "7835", "rank": 14 },
-            { "fencer_id": "9101", "rank": 15 },
-            { "fencer_id": "5118", "rank": 16 },
-            { "fencer_id": "-33", "rank": 17 },
-            { "fencer_id": "9105", "rank": 18 },
-            { "fencer_id": "10192", "rank": 19 }
-          ]
-        }
+      {
+        "division": "m",
+        "category": "mo",
+        "no_participants": 19,
+        "results": [
+          { "fencer_id": "9598", "rank": 1 },
+          { "fencer_id": "5822", "rank": 2 },
+          { "fencer_id": "2090", "rank": 3 },
+          { "fencer_id": "9349", "rank": 4 },
+          { "fencer_id": "7837", "rank": 6 },
+          { "fencer_id": "-28", "rank": 7 },
+          { "fencer_id": "8907", "rank": 8 },
+          { "fencer_id": "9350", "rank": 9 },
+          { "fencer_id": "10136", "rank": 10 },
+          { "fencer_id": "3626", "rank": 11 },
+          { "fencer_id": "2139", "rank": 12 },
+          { "fencer_id": "12167", "rank": 13 },
+          { "fencer_id": "7835", "rank": 14 },
+          { "fencer_id": "9101", "rank": 15 },
+          { "fencer_id": "5118", "rank": 16 },
+          { "fencer_id": "12168", "rank": 17 },
+          { "fencer_id": "9105", "rank": 18 },
+          { "fencer_id": "10192", "rank": 19 }
+        ]
       }
-    }
+    ]
   },
   "1794": {
     "name": "Helsinki Longsword Open 2023",
     "date": "2023-01-27",
     "country": "fi",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 76,
-          "results": [
-            { "fencer_id": "3631", "rank": 12 },
-            { "fencer_id": "2140", "rank": 15 },
-            { "fencer_id": "5822", "rank": 25 },
-            { "fencer_id": "3624", "rank": 36 }
-          ],
-          "results_link": "https://hemagon.com/tournament/HLO23/nomination/OpenLS"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 76,
+        "results": [
+          { "fencer_id": "3631", "rank": 12 },
+          { "fencer_id": "2140", "rank": 15 },
+          { "fencer_id": "5822", "rank": 25 },
+          { "fencer_id": "3624", "rank": 36 }
+        ],
+        "results_link": "https://hemagon.com/tournament/HLO23/nomination/OpenLS"
       },
-      "sab": {
-        "mo": {
-          "no_participants": 28,
-          "results": [
-            { "fencer_id": "2140", "rank": 7 },
-            { "fencer_id": "3631", "rank": 13 }
-          ],
-          "results_link": "https://hemagon.com/tournament/HLO23/nomination/OS&B"
-        }
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 28,
+        "results": [
+          { "fencer_id": "2140", "rank": 7 },
+          { "fencer_id": "3631", "rank": 13 }
+        ],
+        "results_link": "https://hemagon.com/tournament/HLO23/nomination/OS&B"
       },
-      "m": {
-        "mo": {
-          "no_participants": 31,
-          "results": [
-            { "fencer_id": "2140", "rank": 6 },
-            { "fencer_id": "5822", "rank": 9 },
-            { "fencer_id": "5119", "rank": 15 },
-            { "fencer_id": "1503", "rank": 18 },
-            { "fencer_id": "10194", "rank": 21 }
-          ],
-          "results_link": "https://hemagon.com/tournament/HLO23/nomination/Messer"
-        }
+      {
+        "division": "m",
+        "category": "mo",
+        "no_participants": 31,
+        "results": [
+          { "fencer_id": "2140", "rank": 6 },
+          { "fencer_id": "5822", "rank": 9 },
+          { "fencer_id": "5119", "rank": 15 },
+          { "fencer_id": "1503", "rank": 18 },
+          { "fencer_id": "10194", "rank": 21 }
+        ],
+        "results_link": "https://hemagon.com/tournament/HLO23/nomination/Messer"
       }
-    }
+    ]
   },
   "1783": {
     "name": "Rotyčí spár 2023",
     "date": "2023-02-11",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 42,
-          "results": [
-            { "fencer_id": "9349", "rank": 2 },
-            { "fencer_id": "3631", "rank": 3 },
-            { "fencer_id": "7298", "rank": 4 },
-            { "fencer_id": "7825", "rank": 5 },
-            { "fencer_id": "5822", "rank": 6 },
-            { "fencer_id": "8907", "rank": 7 },
-            { "fencer_id": "9348", "rank": 8 },
-            { "fencer_id": "9635", "rank": 9 },
-            { "fencer_id": "7829", "rank": 10 },
-            { "fencer_id": "10136", "rank": 11 },
-            { "fencer_id": "2039", "rank": 12 },
-            { "fencer_id": "11074", "rank": 13 },
-            { "fencer_id": "9598", "rank": 14 },
-            { "fencer_id": "7308", "rank": 15 },
-            { "fencer_id": "11158", "rank": 16 },
-            { "fencer_id": "9338", "rank": 17 },
-            { "fencer_id": "9271", "rank": 18 },
-            { "fencer_id": "2139", "rank": 19 },
-            { "fencer_id": "10058", "rank": 21 },
-            { "fencer_id": "6755", "rank": 22 },
-            { "fencer_id": "1478", "rank": 23 },
-            { "fencer_id": "6598", "rank": 24 },
-            { "fencer_id": "9350", "rank": 25 },
-            { "fencer_id": "9339", "rank": 27 },
-            { "fencer_id": "9636", "rank": 28 },
-            { "fencer_id": "10057", "rank": 29 },
-            { "fencer_id": "10053", "rank": 30 },
-            { "fencer_id": "8905", "rank": 31 },
-            { "fencer_id": "9596", "rank": 32 },
-            { "fencer_id": "9637", "rank": 33 },
-            { "fencer_id": "11286", "rank": 34 },
-            { "fencer_id": "11162", "rank": 35 },
-            { "fencer_id": "11279", "rank": 36 },
-            { "fencer_id": "11069", "rank": 37 },
-            { "fencer_id": "9639", "rank": 38 },
-            { "fencer_id": "11034", "rank": 39 },
-            { "fencer_id": "11064", "rank": 40 },
-            { "fencer_id": "11285", "rank": 41 },
-            { "fencer_id": "11284", "rank": 42 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/24"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 42,
+        "results": [
+          { "fencer_id": "9349", "rank": 2 },
+          { "fencer_id": "3631", "rank": 3 },
+          { "fencer_id": "7298", "rank": 4 },
+          { "fencer_id": "7825", "rank": 5 },
+          { "fencer_id": "5822", "rank": 6 },
+          { "fencer_id": "8907", "rank": 7 },
+          { "fencer_id": "9348", "rank": 8 },
+          { "fencer_id": "9635", "rank": 9 },
+          { "fencer_id": "7829", "rank": 10 },
+          { "fencer_id": "10136", "rank": 11 },
+          { "fencer_id": "2039", "rank": 12 },
+          { "fencer_id": "11074", "rank": 13 },
+          { "fencer_id": "9598", "rank": 14 },
+          { "fencer_id": "7308", "rank": 15 },
+          { "fencer_id": "11158", "rank": 16 },
+          { "fencer_id": "9338", "rank": 17 },
+          { "fencer_id": "9271", "rank": 18 },
+          { "fencer_id": "2139", "rank": 19 },
+          { "fencer_id": "10058", "rank": 21 },
+          { "fencer_id": "6755", "rank": 22 },
+          { "fencer_id": "1478", "rank": 23 },
+          { "fencer_id": "6598", "rank": 24 },
+          { "fencer_id": "9350", "rank": 25 },
+          { "fencer_id": "9339", "rank": 27 },
+          { "fencer_id": "9636", "rank": 28 },
+          { "fencer_id": "10057", "rank": 29 },
+          { "fencer_id": "10053", "rank": 30 },
+          { "fencer_id": "8905", "rank": 31 },
+          { "fencer_id": "9596", "rank": 32 },
+          { "fencer_id": "9637", "rank": 33 },
+          { "fencer_id": "11286", "rank": 34 },
+          { "fencer_id": "11162", "rank": 35 },
+          { "fencer_id": "11279", "rank": 36 },
+          { "fencer_id": "11069", "rank": 37 },
+          { "fencer_id": "9639", "rank": 38 },
+          { "fencer_id": "11034", "rank": 39 },
+          { "fencer_id": "11064", "rank": 40 },
+          { "fencer_id": "11285", "rank": 41 },
+          { "fencer_id": "11284", "rank": 42 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/24"
       },
-      "rad": {
-        "mo": {
-          "no_participants": 21,
-          "results": [
-            { "fencer_id": "8907", "rank": 1 },
-            { "fencer_id": "7837", "rank": 2 },
-            { "fencer_id": "1473", "rank": 3 },
-            { "fencer_id": "7835", "rank": 4 },
-            { "fencer_id": "9635", "rank": 5 },
-            { "fencer_id": "9598", "rank": 6 },
-            { "fencer_id": "10196", "rank": 8 },
-            { "fencer_id": "1499", "rank": 9 },
-            { "fencer_id": "10193", "rank": 10 },
-            { "fencer_id": "9349", "rank": 11 },
-            { "fencer_id": "9348", "rank": 12 },
-            { "fencer_id": "3631", "rank": 13 },
-            { "fencer_id": "11287", "rank": 14 },
-            { "fencer_id": "9350", "rank": 16 },
-            { "fencer_id": "10195", "rank": 17 },
-            { "fencer_id": "3626", "rank": 19 },
-            { "fencer_id": "5118", "rank": 20 },
-            { "fencer_id": "6598", "rank": 21 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/23"
-        }
+      {
+        "division": "rad",
+        "category": "mo",
+        "no_participants": 21,
+        "results": [
+          { "fencer_id": "8907", "rank": 1 },
+          { "fencer_id": "7837", "rank": 2 },
+          { "fencer_id": "1473", "rank": 3 },
+          { "fencer_id": "7835", "rank": 4 },
+          { "fencer_id": "9635", "rank": 5 },
+          { "fencer_id": "9598", "rank": 6 },
+          { "fencer_id": "10196", "rank": 8 },
+          { "fencer_id": "1499", "rank": 9 },
+          { "fencer_id": "10193", "rank": 10 },
+          { "fencer_id": "9349", "rank": 11 },
+          { "fencer_id": "9348", "rank": 12 },
+          { "fencer_id": "3631", "rank": 13 },
+          { "fencer_id": "11287", "rank": 14 },
+          { "fencer_id": "9350", "rank": 16 },
+          { "fencer_id": "10195", "rank": 17 },
+          { "fencer_id": "3626", "rank": 19 },
+          { "fencer_id": "5118", "rank": 20 },
+          { "fencer_id": "6598", "rank": 21 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/23"
       }
-    }
+    ]
   },
   "-13": {
     "name": "FechtBerg Poker Cup 2023",
     "date": "2023-02-25",
     "country": "pl",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 49,
-          "results": [
-            { "fencer_id": "5822", "rank": 5 },
-            { "fencer_id": "8907", "rank": 11 },
-            { "fencer_id": "11158", "rank": 12 },
-            { "fencer_id": "9598", "rank": 15 },
-            { "fencer_id": "1512", "rank": 17 },
-            { "fencer_id": "3631", "rank": 20 },
-            { "fencer_id": "9635", "rank": 21 },
-            { "fencer_id": "10392", "rank": 25 },
-            { "fencer_id": "3624", "rank": 28 },
-            { "fencer_id": "11157", "rank": 32 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
-        },
-        "w": {
-          "no_participants": 11,
-          "results": [{ "fencer_id": "9339", "rank": 3 }],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 49,
+        "results": [
+          { "fencer_id": "5822", "rank": 5 },
+          { "fencer_id": "8907", "rank": 11 },
+          { "fencer_id": "11158", "rank": 12 },
+          { "fencer_id": "9598", "rank": 15 },
+          { "fencer_id": "1512", "rank": 17 },
+          { "fencer_id": "3631", "rank": 20 },
+          { "fencer_id": "9635", "rank": 21 },
+          { "fencer_id": "10392", "rank": 25 },
+          { "fencer_id": "3624", "rank": 28 },
+          { "fencer_id": "11157", "rank": 32 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
       },
-      "sb": {
-        "mo": {
-          "no_participants": 41,
-          "results": [
-            { "fencer_id": "5822", "rank": 9 },
-            { "fencer_id": "1471", "rank": 13 },
-            { "fencer_id": "9635", "rank": 14 },
-            { "fencer_id": "8907", "rank": 24 },
-            { "fencer_id": "9350", "rank": 31 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
-        },
-        "w": {
-          "no_participants": 10,
-          "results": [{ "fencer_id": "9339", "rank": 3 }],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
-        }
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 11,
+        "results": [{ "fencer_id": "9339", "rank": 3 }],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
       },
-      "rad": {
-        "mo": {
-          "no_participants": 40,
-          "results": [
-            { "fencer_id": "1499", "rank": 2 },
-            { "fencer_id": "9598", "rank": 6 },
-            { "fencer_id": "1473", "rank": 8 },
-            { "fencer_id": "3631", "rank": 22 },
-            { "fencer_id": "9350", "rank": 29 },
-            { "fencer_id": "9635", "rank": 33 },
-            { "fencer_id": "10194", "rank": 40 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
-        }
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 41,
+        "results": [
+          { "fencer_id": "5822", "rank": 9 },
+          { "fencer_id": "1471", "rank": 13 },
+          { "fencer_id": "9635", "rank": 14 },
+          { "fencer_id": "8907", "rank": 24 },
+          { "fencer_id": "9350", "rank": 31 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
       },
-      "sab": {
-        "mo": {
-          "no_participants": 28,
-          "results": [
-            { "fencer_id": "9598", "rank": 5 },
-            { "fencer_id": "9635", "rank": 7 },
-            { "fencer_id": "3631", "rank": 8 },
-            { "fencer_id": "11158", "rank": 10 },
-            { "fencer_id": "9350", "rank": 15 },
-            { "fencer_id": "11157", "rank": 16 },
-            { "fencer_id": "1473", "rank": 17 }
-          ],
-          "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
-        }
+      {
+        "division": "sb",
+        "category": "w",
+        "no_participants": 10,
+        "results": [{ "fencer_id": "9339", "rank": 3 }],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
+      },
+      {
+        "division": "rad",
+        "category": "mo",
+        "no_participants": 40,
+        "results": [
+          { "fencer_id": "1499", "rank": 2 },
+          { "fencer_id": "9598", "rank": 6 },
+          { "fencer_id": "1473", "rank": 8 },
+          { "fencer_id": "3631", "rank": 22 },
+          { "fencer_id": "9350", "rank": 29 },
+          { "fencer_id": "9635", "rank": 33 },
+          { "fencer_id": "10194", "rank": 40 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
+      },
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 28,
+        "results": [
+          { "fencer_id": "9598", "rank": 5 },
+          { "fencer_id": "9635", "rank": 7 },
+          { "fencer_id": "3631", "rank": 8 },
+          { "fencer_id": "11158", "rank": 10 },
+          { "fencer_id": "9350", "rank": 15 },
+          { "fencer_id": "11157", "rank": 16 },
+          { "fencer_id": "1473", "rank": 17 }
+        ],
+        "results_link": "https://hemascorecard.com/infoSummary.php?e=316"
       }
-    }
+    ]
   },
   "1790": {
     "name": "Žilinský kumšt VI.",
     "date": "2023-03-11",
     "country": "sk",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 70,
-          "results": [
-            { "fencer_id": "2090", "rank": 1 },
-            { "fencer_id": "3631", "rank": 5 },
-            { "fencer_id": "5576", "rank": 8 },
-            { "fencer_id": "7825", "rank": 9 },
-            { "fencer_id": "9271", "rank": 11 },
-            { "fencer_id": "8936", "rank": 13 },
-            { "fencer_id": "11158", "rank": 15 },
-            { "fencer_id": "3624", "rank": 16 },
-            { "fencer_id": "8907", "rank": 17 },
-            { "fencer_id": "2140", "rank": 18 },
-            { "fencer_id": "9349", "rank": 19 },
-            { "fencer_id": "9352", "rank": 22 },
-            { "fencer_id": "5822", "rank": 26 },
-            { "fencer_id": "10349", "rank": 27 },
-            { "fencer_id": "7308", "rank": 34 },
-            { "fencer_id": "11298", "rank": 36 },
-            { "fencer_id": "11286", "rank": 37 },
-            { "fencer_id": "10346", "rank": 38 },
-            { "fencer_id": "10202", "rank": 39 },
-            { "fencer_id": "10136", "rank": 40 },
-            { "fencer_id": "8935", "rank": 41 },
-            { "fencer_id": "11296", "rank": 45 },
-            { "fencer_id": "3626", "rank": 47 },
-            { "fencer_id": "9350", "rank": 48 },
-            { "fencer_id": "10058", "rank": 50 },
-            { "fencer_id": "10057", "rank": 53 },
-            { "fencer_id": "7837", "rank": 58 },
-            { "fencer_id": "11297", "rank": 59 },
-            { "fencer_id": "11294", "rank": 66 },
-            { "fencer_id": "10131", "rank": 70 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/29"
-        },
-        "w": {
-          "no_participants": 11,
-          "results": [
-            { "fencer_id": "11065", "rank": 2 },
-            { "fencer_id": "1478", "rank": 3 },
-            { "fencer_id": "9339", "rank": 4 },
-            { "fencer_id": "11162", "rank": 8 },
-            { "fencer_id": "11064", "rank": 10 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/31"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 70,
+        "results": [
+          { "fencer_id": "2090", "rank": 1 },
+          { "fencer_id": "3631", "rank": 5 },
+          { "fencer_id": "5576", "rank": 8 },
+          { "fencer_id": "7825", "rank": 9 },
+          { "fencer_id": "9271", "rank": 11 },
+          { "fencer_id": "8936", "rank": 13 },
+          { "fencer_id": "11158", "rank": 15 },
+          { "fencer_id": "3624", "rank": 16 },
+          { "fencer_id": "8907", "rank": 17 },
+          { "fencer_id": "2140", "rank": 18 },
+          { "fencer_id": "9349", "rank": 19 },
+          { "fencer_id": "9352", "rank": 22 },
+          { "fencer_id": "5822", "rank": 26 },
+          { "fencer_id": "10349", "rank": 27 },
+          { "fencer_id": "7308", "rank": 34 },
+          { "fencer_id": "11298", "rank": 36 },
+          { "fencer_id": "11286", "rank": 37 },
+          { "fencer_id": "10346", "rank": 38 },
+          { "fencer_id": "10202", "rank": 39 },
+          { "fencer_id": "10136", "rank": 40 },
+          { "fencer_id": "8935", "rank": 41 },
+          { "fencer_id": "11296", "rank": 45 },
+          { "fencer_id": "3626", "rank": 47 },
+          { "fencer_id": "9350", "rank": 48 },
+          { "fencer_id": "10058", "rank": 50 },
+          { "fencer_id": "10057", "rank": 53 },
+          { "fencer_id": "7837", "rank": 58 },
+          { "fencer_id": "11297", "rank": 59 },
+          { "fencer_id": "11294", "rank": 66 },
+          { "fencer_id": "10131", "rank": 70 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/29"
       },
-      "sab": {
-        "mo": {
-          "no_participants": 30,
-          "results": [
-            { "fencer_id": "9598", "rank": 1 },
-            { "fencer_id": "5576", "rank": 3 },
-            { "fencer_id": "9349", "rank": 4 },
-            { "fencer_id": "2090", "rank": 5 },
-            { "fencer_id": "10136", "rank": 6 },
-            { "fencer_id": "11158", "rank": 8 },
-            { "fencer_id": "1499", "rank": 9 },
-            { "fencer_id": "2140", "rank": 10 },
-            { "fencer_id": "8907", "rank": 11 },
-            { "fencer_id": "7825", "rank": 13 },
-            { "fencer_id": "5822", "rank": 15 },
-            { "fencer_id": "7837", "rank": 17 },
-            { "fencer_id": "6753", "rank": 20 },
-            { "fencer_id": "11294", "rank": 21 },
-            { "fencer_id": "3626", "rank": 22 },
-            { "fencer_id": "9352", "rank": 25 },
-            { "fencer_id": "9350", "rank": 26 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/30"
-        }
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 11,
+        "results": [
+          { "fencer_id": "11065", "rank": 2 },
+          { "fencer_id": "1478", "rank": 3 },
+          { "fencer_id": "9339", "rank": 4 },
+          { "fencer_id": "11162", "rank": 8 },
+          { "fencer_id": "11064", "rank": 10 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/31"
+      },
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 30,
+        "results": [
+          { "fencer_id": "9598", "rank": 1 },
+          { "fencer_id": "5576", "rank": 3 },
+          { "fencer_id": "9349", "rank": 4 },
+          { "fencer_id": "2090", "rank": 5 },
+          { "fencer_id": "10136", "rank": 6 },
+          { "fencer_id": "11158", "rank": 8 },
+          { "fencer_id": "1499", "rank": 9 },
+          { "fencer_id": "2140", "rank": 10 },
+          { "fencer_id": "8907", "rank": 11 },
+          { "fencer_id": "7825", "rank": 13 },
+          { "fencer_id": "5822", "rank": 15 },
+          { "fencer_id": "7837", "rank": 17 },
+          { "fencer_id": "6753", "rank": 20 },
+          { "fencer_id": "11294", "rank": 21 },
+          { "fencer_id": "3626", "rank": 22 },
+          { "fencer_id": "9352", "rank": 25 },
+          { "fencer_id": "9350", "rank": 26 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/30"
       }
-    }
+    ]
   },
   "-15": {
     "name": "Ordál",
     "date": "2023-03-25",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 15,
-          "results": [
-            { "fencer_id": "2140", "rank": 1 },
-            { "fencer_id": "5822", "rank": 2 },
-            { "fencer_id": "3631", "rank": 4 },
-            { "fencer_id": "3624", "rank": 5 },
-            { "fencer_id": "7825", "rank": 6 },
-            { "fencer_id": "1512", "rank": 7 },
-            { "fencer_id": "10054", "rank": 8 },
-            { "fencer_id": "8907", "rank": 9 },
-            { "fencer_id": "9271", "rank": 10 },
-            { "fencer_id": "9338", "rank": 11 },
-            { "fencer_id": "9596", "rank": 11 },
-            { "fencer_id": "1488", "rank": 13 },
-            { "fencer_id": "7829", "rank": 14 },
-            { "fencer_id": "2138", "rank": 15 }
-          ],
-          "results_link": "https://www.facebook.com/events/1850946741933342/?post_id=1907767159584633&view=permalink"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 15,
+        "results": [
+          { "fencer_id": "2140", "rank": 1 },
+          { "fencer_id": "5822", "rank": 2 },
+          { "fencer_id": "3631", "rank": 4 },
+          { "fencer_id": "3624", "rank": 5 },
+          { "fencer_id": "7825", "rank": 6 },
+          { "fencer_id": "1512", "rank": 7 },
+          { "fencer_id": "10054", "rank": 8 },
+          { "fencer_id": "8907", "rank": 9 },
+          { "fencer_id": "9271", "rank": 10 },
+          { "fencer_id": "9338", "rank": 11 },
+          { "fencer_id": "9596", "rank": 11 },
+          { "fencer_id": "1488", "rank": 13 },
+          { "fencer_id": "7829", "rank": 14 },
+          { "fencer_id": "2138", "rank": 15 }
+        ],
+        "results_link": "https://www.facebook.com/events/1850946741933342/?post_id=1907767159584633&view=permalink"
       }
-    }
+    ]
   },
   "1775": {
     "name": "Krkavčí jarní fechtík 2023",
     "date": "2023-04-01",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 25,
-          "results": [
-            { "fencer_id": "5822", "rank": 1 },
-            { "fencer_id": "7298", "rank": 2 },
-            { "fencer_id": "8907", "rank": 3 },
-            { "fencer_id": "8905", "rank": 4 },
-            { "fencer_id": "3624", "rank": 5 },
-            { "fencer_id": "2139", "rank": 7 },
-            { "fencer_id": "9352", "rank": 8 },
-            { "fencer_id": "9271", "rank": 11 },
-            { "fencer_id": "10348", "rank": 13 },
-            { "fencer_id": "1478", "rank": 14 },
-            { "fencer_id": "9338", "rank": 15 },
-            { "fencer_id": "6598", "rank": 16 },
-            { "fencer_id": "10131", "rank": 17 },
-            { "fencer_id": "10347", "rank": 18 },
-            { "fencer_id": "11279", "rank": 19 },
-            { "fencer_id": "11282", "rank": 20 },
-            { "fencer_id": "10053", "rank": 21 },
-            { "fencer_id": "11278", "rank": 22 },
-            { "fencer_id": "8935", "rank": 23 },
-            { "fencer_id": "2041", "rank": 24 },
-            { "fencer_id": "11064", "rank": 25 }
-          ],
-          "results_link": "https://krkavci.cz/tournament/kjf2023"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 25,
+        "results": [
+          { "fencer_id": "5822", "rank": 1 },
+          { "fencer_id": "7298", "rank": 2 },
+          { "fencer_id": "8907", "rank": 3 },
+          { "fencer_id": "8905", "rank": 4 },
+          { "fencer_id": "3624", "rank": 5 },
+          { "fencer_id": "2139", "rank": 7 },
+          { "fencer_id": "9352", "rank": 8 },
+          { "fencer_id": "9271", "rank": 11 },
+          { "fencer_id": "10348", "rank": 13 },
+          { "fencer_id": "1478", "rank": 14 },
+          { "fencer_id": "9338", "rank": 15 },
+          { "fencer_id": "6598", "rank": 16 },
+          { "fencer_id": "10131", "rank": 17 },
+          { "fencer_id": "10347", "rank": 18 },
+          { "fencer_id": "11279", "rank": 19 },
+          { "fencer_id": "11282", "rank": 20 },
+          { "fencer_id": "10053", "rank": 21 },
+          { "fencer_id": "11278", "rank": 22 },
+          { "fencer_id": "8935", "rank": 23 },
+          { "fencer_id": "2041", "rank": 24 },
+          { "fencer_id": "11064", "rank": 25 }
+        ],
+        "results_link": "https://krkavci.cz/tournament/kjf2023"
       }
-    }
+    ]
   },
   "1791": {
     "name": "Pražský Argument 2023",
     "date": "2023-04-15",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 62,
-          "results": [
-            { "fencer_id": "2140", "rank": 2 },
-            { "fencer_id": "10136", "rank": 4 },
-            { "fencer_id": "9349", "rank": 5 },
-            { "fencer_id": "7298", "rank": 6 },
-            { "fencer_id": "1482", "rank": 7 },
-            { "fencer_id": "8907", "rank": 9 },
-            { "fencer_id": "5822", "rank": 10 },
-            { "fencer_id": "10349", "rank": 11 },
-            { "fencer_id": "9348", "rank": 13 },
-            { "fencer_id": "3631", "rank": 14 },
-            { "fencer_id": "10346", "rank": 15 },
-            { "fencer_id": "2139", "rank": 16 },
-            { "fencer_id": "6755", "rank": 17 },
-            { "fencer_id": "3624", "rank": 18 },
-            { "fencer_id": "11158", "rank": 19 },
-            { "fencer_id": "7829", "rank": 21 },
-            { "fencer_id": "10057", "rank": 24 },
-            { "fencer_id": "10131", "rank": 25 },
-            { "fencer_id": "6598", "rank": 28 },
-            { "fencer_id": "6601", "rank": 29 },
-            { "fencer_id": "11282", "rank": 30 },
-            { "fencer_id": "11074", "rank": 31 },
-            { "fencer_id": "9600", "rank": 32 },
-            { "fencer_id": "9352", "rank": 34 },
-            { "fencer_id": "7991", "rank": 35 },
-            { "fencer_id": "10053", "rank": 36 },
-            { "fencer_id": "9350", "rank": 37 },
-            { "fencer_id": "9105", "rank": 38 },
-            { "fencer_id": "8755", "rank": 39 },
-            { "fencer_id": "3626", "rank": 41 },
-            { "fencer_id": "11070", "rank": 42 },
-            { "fencer_id": "1478", "rank": 43 },
-            { "fencer_id": "2041", "rank": 44 },
-            { "fencer_id": "8905", "rank": 45 },
-            { "fencer_id": "9596", "rank": 49 },
-            { "fencer_id": "11069", "rank": 51 },
-            { "fencer_id": "11073", "rank": 52 },
-            { "fencer_id": "6597", "rank": 53 },
-            { "fencer_id": "11308", "rank": 54 },
-            { "fencer_id": "11306", "rank": 56 },
-            { "fencer_id": "11284", "rank": 58 },
-            { "fencer_id": "11064", "rank": 59 },
-            { "fencer_id": "11278", "rank": 60 },
-            { "fencer_id": "2138", "rank": 61 },
-            { "fencer_id": "11285", "rank": 62 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/39"
-        },
-        "w": {
-          "no_participants": 10,
-          "results": [
-            { "fencer_id": "1478", "rank": 1 },
-            { "fencer_id": "9600", "rank": 2 },
-            { "fencer_id": "11065", "rank": 4 },
-            { "fencer_id": "11064", "rank": 6 },
-            { "fencer_id": "11060", "rank": 7 },
-            { "fencer_id": "11162", "rank": 8 },
-            { "fencer_id": "9603", "rank": 10 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/41"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 62,
+        "results": [
+          { "fencer_id": "2140", "rank": 2 },
+          { "fencer_id": "10136", "rank": 4 },
+          { "fencer_id": "9349", "rank": 5 },
+          { "fencer_id": "7298", "rank": 6 },
+          { "fencer_id": "1482", "rank": 7 },
+          { "fencer_id": "8907", "rank": 9 },
+          { "fencer_id": "5822", "rank": 10 },
+          { "fencer_id": "10349", "rank": 11 },
+          { "fencer_id": "9348", "rank": 13 },
+          { "fencer_id": "3631", "rank": 14 },
+          { "fencer_id": "10346", "rank": 15 },
+          { "fencer_id": "2139", "rank": 16 },
+          { "fencer_id": "6755", "rank": 17 },
+          { "fencer_id": "3624", "rank": 18 },
+          { "fencer_id": "11158", "rank": 19 },
+          { "fencer_id": "7829", "rank": 21 },
+          { "fencer_id": "10057", "rank": 24 },
+          { "fencer_id": "10131", "rank": 25 },
+          { "fencer_id": "6598", "rank": 28 },
+          { "fencer_id": "6601", "rank": 29 },
+          { "fencer_id": "11282", "rank": 30 },
+          { "fencer_id": "11074", "rank": 31 },
+          { "fencer_id": "9600", "rank": 32 },
+          { "fencer_id": "9352", "rank": 34 },
+          { "fencer_id": "7991", "rank": 35 },
+          { "fencer_id": "10053", "rank": 36 },
+          { "fencer_id": "9350", "rank": 37 },
+          { "fencer_id": "9105", "rank": 38 },
+          { "fencer_id": "8755", "rank": 39 },
+          { "fencer_id": "3626", "rank": 41 },
+          { "fencer_id": "11070", "rank": 42 },
+          { "fencer_id": "1478", "rank": 43 },
+          { "fencer_id": "2041", "rank": 44 },
+          { "fencer_id": "8905", "rank": 45 },
+          { "fencer_id": "9596", "rank": 49 },
+          { "fencer_id": "11069", "rank": 51 },
+          { "fencer_id": "11073", "rank": 52 },
+          { "fencer_id": "6597", "rank": 53 },
+          { "fencer_id": "11308", "rank": 54 },
+          { "fencer_id": "11306", "rank": 56 },
+          { "fencer_id": "11284", "rank": 58 },
+          { "fencer_id": "11064", "rank": 59 },
+          { "fencer_id": "11278", "rank": 60 },
+          { "fencer_id": "2138", "rank": 61 },
+          { "fencer_id": "11285", "rank": 62 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/39"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 10,
+        "results": [
+          { "fencer_id": "1478", "rank": 1 },
+          { "fencer_id": "9600", "rank": 2 },
+          { "fencer_id": "11065", "rank": 4 },
+          { "fencer_id": "11064", "rank": 6 },
+          { "fencer_id": "11060", "rank": 7 },
+          { "fencer_id": "11162", "rank": 8 },
+          { "fencer_id": "9603", "rank": 10 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/41"
       }
-    }
+    ]
   },
   "-18": {
     "name": "Trofeo Dukale 2022",
     "date": "2022-12-04",
     "country": "it",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 65,
-          "results": [{ "fencer_id": "9600", "rank": 27 }],
-          "results_link": "https://www.facebook.com/CSENsettorescherma/posts/pfbid0t16w4SGp5DkRdVLq1yRNZ3RwvVKjMtguD7ruAcwr5McoTENfuBdtJN1rdT7oFwFcl"
-        },
-        "w": {
-          "no_participants": 6,
-          "results": [{ "fencer_id": "9600", "rank": 1 }],
-          "results_link": "https://www.facebook.com/CSENsettorescherma/posts/pfbid0t16w4SGp5DkRdVLq1yRNZ3RwvVKjMtguD7ruAcwr5McoTENfuBdtJN1rdT7oFwFcl"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 65,
+        "results": [{ "fencer_id": "9600", "rank": 27 }],
+        "results_link": "https://www.facebook.com/CSENsettorescherma/posts/pfbid0t16w4SGp5DkRdVLq1yRNZ3RwvVKjMtguD7ruAcwr5McoTENfuBdtJN1rdT7oFwFcl"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 6,
+        "results": [{ "fencer_id": "9600", "rank": 1 }],
+        "results_link": "https://www.facebook.com/CSENsettorescherma/posts/pfbid0t16w4SGp5DkRdVLq1yRNZ3RwvVKjMtguD7ruAcwr5McoTENfuBdtJN1rdT7oFwFcl"
       }
-    }
+    ]
   },
   "1813": {
     "name": "Brünner Stich 2023",
     "date": "2023-05-13",
     "country": "cz",
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 50,
-          "results": [
-            { "fencer_id": "10054", "rank": 1 },
-            { "fencer_id": "7831", "rank": 2 },
-            { "fencer_id": "9270", "rank": 3 },
-            { "fencer_id": "5822", "rank": 4 },
-            { "fencer_id": "1512", "rank": 6 },
-            { "fencer_id": "10057", "rank": 8 },
-            { "fencer_id": "11158", "rank": 10 },
-            { "fencer_id": "9598", "rank": 11 },
-            { "fencer_id": "3624", "rank": 13 },
-            { "fencer_id": "3631", "rank": 17 },
-            { "fencer_id": "8907", "rank": 18 },
-            { "fencer_id": "10134", "rank": 20 },
-            { "fencer_id": "9271", "rank": 24 },
-            { "fencer_id": "11689", "rank": 25 },
-            { "fencer_id": "11073", "rank": 29 },
-            { "fencer_id": "6598", "rank": 31 },
-            { "fencer_id": "11060", "rank": 32 },
-            { "fencer_id": "10348", "rank": 33 },
-            { "fencer_id": "11286", "rank": 34 },
-            { "fencer_id": "10202", "rank": 35 },
-            { "fencer_id": "9596", "rank": 38 },
-            { "fencer_id": "11298", "rank": 40 },
-            { "fencer_id": "11308", "rank": 41 },
-            { "fencer_id": "9355", "rank": 41 },
-            { "fencer_id": "11278", "rank": 43 },
-            { "fencer_id": "7991", "rank": 45 },
-            { "fencer_id": "10058", "rank": 46 }
-          ],
-          "results_link": "https://www.facebook.com/photo/?fbid=930327141664033&set=pcb.1395442977682003"
-        },
-        "w": {
-          "no_participants": 13,
-          "results": [
-            { "fencer_id": "7828", "rank": 1 },
-            { "fencer_id": "11064", "rank": 4 },
-            { "fencer_id": "11065", "rank": 6 },
-            { "fencer_id": "11060", "rank": 7 },
-            { "fencer_id": "9603", "rank": 10 },
-            { "fencer_id": "11162", "rank": 12 }
-          ],
-          "results_link": "https://www.facebook.com/photo/?fbid=930326804997400&set=gm.1395442704348697"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 50,
+        "results": [
+          { "fencer_id": "10054", "rank": 1 },
+          { "fencer_id": "7831", "rank": 2 },
+          { "fencer_id": "9270", "rank": 3 },
+          { "fencer_id": "5822", "rank": 4 },
+          { "fencer_id": "1512", "rank": 6 },
+          { "fencer_id": "10057", "rank": 8 },
+          { "fencer_id": "11158", "rank": 10 },
+          { "fencer_id": "9598", "rank": 11 },
+          { "fencer_id": "3624", "rank": 13 },
+          { "fencer_id": "3631", "rank": 17 },
+          { "fencer_id": "8907", "rank": 18 },
+          { "fencer_id": "10134", "rank": 20 },
+          { "fencer_id": "9271", "rank": 24 },
+          { "fencer_id": "11689", "rank": 25 },
+          { "fencer_id": "11073", "rank": 29 },
+          { "fencer_id": "6598", "rank": 31 },
+          { "fencer_id": "11060", "rank": 32 },
+          { "fencer_id": "10348", "rank": 33 },
+          { "fencer_id": "11286", "rank": 34 },
+          { "fencer_id": "10202", "rank": 35 },
+          { "fencer_id": "9596", "rank": 38 },
+          { "fencer_id": "11298", "rank": 40 },
+          { "fencer_id": "11308", "rank": 41 },
+          { "fencer_id": "9355", "rank": 41 },
+          { "fencer_id": "11278", "rank": 43 },
+          { "fencer_id": "7991", "rank": 45 },
+          { "fencer_id": "10058", "rank": 46 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=930327141664033&set=pcb.1395442977682003"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 13,
+        "results": [
+          { "fencer_id": "7828", "rank": 1 },
+          { "fencer_id": "11064", "rank": 4 },
+          { "fencer_id": "11065", "rank": 6 },
+          { "fencer_id": "11060", "rank": 7 },
+          { "fencer_id": "9603", "rank": 10 },
+          { "fencer_id": "11162", "rank": 12 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=930326804997400&set=gm.1395442704348697"
       }
-    }
+    ]
   },
   "1814": {
     "name": "Bratislava En Garde! 2023",
     "date": "2023-05-27",
     "country": "sk",
-    "competitions": {
-      "rad": {
-        "mo": {
-          "no_participants": 15,
-          "results": [
-            { "fencer_id": "1499", "rank": 2 },
-            { "fencer_id": "9598", "rank": 5 },
-            { "fencer_id": "10193", "rank": 7 },
-            { "fencer_id": "9350", "rank": 8 },
-            { "fencer_id": "1503", "rank": 9 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/54"
-        }
+    "competitions": [
+      {
+        "division": "rad",
+        "category": "mo",
+        "no_participants": 15,
+        "results": [
+          { "fencer_id": "1499", "rank": 2 },
+          { "fencer_id": "9598", "rank": 5 },
+          { "fencer_id": "10193", "rank": 7 },
+          { "fencer_id": "9350", "rank": 8 },
+          { "fencer_id": "1503", "rank": 9 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/54"
       },
-      "sab": {
-        "mo": {
-          "no_participants": 10,
-          "results": [
-            { "fencer_id": "9598", "rank": 2 },
-            { "fencer_id": "9350", "rank": 10 }
-          ],
-          "results_link": "https://system.onlyfence.eu/public/53"
-        }
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 10,
+        "results": [
+          { "fencer_id": "9598", "rank": 2 },
+          { "fencer_id": "9350", "rank": 10 }
+        ],
+        "results_link": "https://system.onlyfence.eu/public/53"
       }
-    }
+    ]
   },
   "-20": {
     "name": "MČR v šermu dlouhým mečem",
     "date": "2023-06-03",
     "country": "cz",
     "championship": true,
-    "competitions": {
-      "ls": {
-        "mo": {
-          "no_participants": 47,
-          "results": [
-            { "fencer_id": "5822", "rank": 1 },
-            { "fencer_id": "7298", "rank": 2 },
-            { "fencer_id": "11158", "rank": 3 },
-            { "fencer_id": "2140", "rank": 4 },
-            { "fencer_id": "2090", "rank": 5 },
-            { "fencer_id": "10136", "rank": 6 },
-            { "fencer_id": "8907", "rank": 7 },
-            { "fencer_id": "3624", "rank": 8 },
-            { "fencer_id": "9349", "rank": 9 },
-            { "fencer_id": "9270", "rank": 10 },
-            { "fencer_id": "9348", "rank": 11 },
-            { "fencer_id": "9635", "rank": 12 },
-            { "fencer_id": "9352", "rank": 13 },
-            { "fencer_id": "1512", "rank": 14 },
-            { "fencer_id": "10054", "rank": 15 },
-            { "fencer_id": "6598", "rank": 16 },
-            { "fencer_id": "9271", "rank": 17 },
-            { "fencer_id": "10392", "rank": 18 },
-            { "fencer_id": "8936", "rank": 19 },
-            { "fencer_id": "2041", "rank": 20 },
-            { "fencer_id": "6755", "rank": 21 },
-            { "fencer_id": "3631", "rank": 22 },
-            { "fencer_id": "10057", "rank": 23 },
-            { "fencer_id": "11073", "rank": 24 },
-            { "fencer_id": "5826", "rank": 25 },
-            { "fencer_id": "10058", "rank": 26 },
-            { "fencer_id": "1478", "rank": 27 },
-            { "fencer_id": "11071", "rank": 28 },
-            { "fencer_id": "11278", "rank": 29 },
-            { "fencer_id": "9338", "rank": 30 },
-            { "fencer_id": "10053", "rank": 31 },
-            { "fencer_id": "11064", "rank": 32 },
-            { "fencer_id": "9636", "rank": 33 },
-            { "fencer_id": "11399", "rank": 34 },
-            { "fencer_id": "10202", "rank": 35 },
-            { "fencer_id": "10348", "rank": 36 },
-            { "fencer_id": "11306", "rank": 37 },
-            { "fencer_id": "11069", "rank": 38 },
-            { "fencer_id": "11286", "rank": 39 },
-            { "fencer_id": "9339", "rank": 40 },
-            { "fencer_id": "11067", "rank": 41 },
-            { "fencer_id": "9600", "rank": 42 },
-            { "fencer_id": "11308", "rank": 43 },
-            { "fencer_id": "11284", "rank": 44 },
-            { "fencer_id": "9637", "rank": 45 },
-            { "fencer_id": "11285", "rank": 46 },
-            { "fencer_id": "10131", "rank": 47 }
-          ],
-          "results_link": "https://www.facebook.com/photo/?fbid=641417838005228&set=gm.274474588288583&idorvanity=228427826226593"
-        },
-        "w": {
-          "no_participants": 8,
-          "results": [
-            { "fencer_id": "9600", "rank": 1 },
-            { "fencer_id": "11064", "rank": 2 },
-            { "fencer_id": "1478", "rank": 3 },
-            { "fencer_id": "11065", "rank": 4 },
-            { "fencer_id": "7828", "rank": 5 },
-            { "fencer_id": "9339", "rank": 6 },
-            { "fencer_id": "9603", "rank": 7 },
-            { "fencer_id": "11060", "rank": 8 }
-          ],
-          "results_link": "https://www.facebook.com/photo/?fbid=641289234684755&set=pcb.274350374967671"
-        }
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 47,
+        "results": [
+          { "fencer_id": "5822", "rank": 1 },
+          { "fencer_id": "7298", "rank": 2 },
+          { "fencer_id": "11158", "rank": 3 },
+          { "fencer_id": "2140", "rank": 4 },
+          { "fencer_id": "2090", "rank": 5 },
+          { "fencer_id": "10136", "rank": 6 },
+          { "fencer_id": "8907", "rank": 7 },
+          { "fencer_id": "3624", "rank": 8 },
+          { "fencer_id": "9349", "rank": 9 },
+          { "fencer_id": "9270", "rank": 10 },
+          { "fencer_id": "9348", "rank": 11 },
+          { "fencer_id": "9635", "rank": 12 },
+          { "fencer_id": "9352", "rank": 13 },
+          { "fencer_id": "1512", "rank": 14 },
+          { "fencer_id": "10054", "rank": 15 },
+          { "fencer_id": "6598", "rank": 16 },
+          { "fencer_id": "9271", "rank": 17 },
+          { "fencer_id": "10392", "rank": 18 },
+          { "fencer_id": "8936", "rank": 19 },
+          { "fencer_id": "2041", "rank": 20 },
+          { "fencer_id": "6755", "rank": 21 },
+          { "fencer_id": "3631", "rank": 22 },
+          { "fencer_id": "10057", "rank": 23 },
+          { "fencer_id": "11073", "rank": 24 },
+          { "fencer_id": "5826", "rank": 25 },
+          { "fencer_id": "10058", "rank": 26 },
+          { "fencer_id": "1478", "rank": 27 },
+          { "fencer_id": "11071", "rank": 28 },
+          { "fencer_id": "11278", "rank": 29 },
+          { "fencer_id": "9338", "rank": 30 },
+          { "fencer_id": "10053", "rank": 31 },
+          { "fencer_id": "11064", "rank": 32 },
+          { "fencer_id": "9636", "rank": 33 },
+          { "fencer_id": "11399", "rank": 34 },
+          { "fencer_id": "10202", "rank": 35 },
+          { "fencer_id": "10348", "rank": 36 },
+          { "fencer_id": "11306", "rank": 37 },
+          { "fencer_id": "11069", "rank": 38 },
+          { "fencer_id": "11286", "rank": 39 },
+          { "fencer_id": "9339", "rank": 40 },
+          { "fencer_id": "11067", "rank": 41 },
+          { "fencer_id": "9600", "rank": 42 },
+          { "fencer_id": "11308", "rank": 43 },
+          { "fencer_id": "11284", "rank": 44 },
+          { "fencer_id": "9637", "rank": 45 },
+          { "fencer_id": "11285", "rank": 46 },
+          { "fencer_id": "10131", "rank": 47 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=641417838005228&set=gm.274474588288583&idorvanity=228427826226593"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 8,
+        "results": [
+          { "fencer_id": "9600", "rank": 1 },
+          { "fencer_id": "11064", "rank": 2 },
+          { "fencer_id": "1478", "rank": 3 },
+          { "fencer_id": "11065", "rank": 4 },
+          { "fencer_id": "7828", "rank": 5 },
+          { "fencer_id": "9339", "rank": 6 },
+          { "fencer_id": "9603", "rank": 7 },
+          { "fencer_id": "11060", "rank": 8 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=641289234684755&set=pcb.274350374967671"
       }
-    }
+    ]
   },
   "-21": {
     "name": "C. a K. Turnaj ve vojenském šermu",
     "date": "2023-04-23",
     "country": "cz",
-    "competitions": {
-      "sb": {
-        "mo": {
-          "no_participants": 8,
-          "results": [
-            { "fencer_id": "-8", "rank": 1 },
-            { "fencer_id": "8907", "rank": 3 },
-            { "fencer_id": "-10", "rank": 4 },
-            { "fencer_id": "-7", "rank": 5 },
-            { "fencer_id": "-44", "rank": 6 },
-            { "fencer_id": "-45", "rank": 7 },
-            { "fencer_id": "9350", "rank": 8 }
-          ]
-        }
+    "competitions": [
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 8,
+        "results": [
+          { "fencer_id": "12166", "rank": 1 },
+          { "fencer_id": "8907", "rank": 3 },
+          { "fencer_id": "-10", "rank": 4 },
+          { "fencer_id": "-7", "rank": 5 },
+          { "fencer_id": "-44", "rank": 6 },
+          { "fencer_id": "-45", "rank": 7 },
+          { "fencer_id": "9350", "rank": 8 }
+        ]
       },
-      "b": {
-        "mo": {
-          "no_participants": 8,
-          "results": [
-            { "fencer_id": "8907", "rank": 2 },
-            { "fencer_id": "-44", "rank": 3 },
-            { "fencer_id": "-10", "rank": 4 },
-            { "fencer_id": "-7", "rank": 5 },
-            { "fencer_id": "-8", "rank": 6 },
-            { "fencer_id": "-45", "rank": 7 },
-            { "fencer_id": "9350", "rank": 8 }
-          ]
-        }
+      {
+        "division": "b",
+        "category": "mo",
+        "no_participants": 8,
+        "results": [
+          { "fencer_id": "8907", "rank": 2 },
+          { "fencer_id": "-44", "rank": 3 },
+          { "fencer_id": "-10", "rank": 4 },
+          { "fencer_id": "-7", "rank": 5 },
+          { "fencer_id": "12166", "rank": 6 },
+          { "fencer_id": "-45", "rank": 7 },
+          { "fencer_id": "9350", "rank": 8 }
+        ]
       }
-    }
+    ]
   }
 }

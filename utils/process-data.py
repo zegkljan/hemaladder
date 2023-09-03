@@ -54,16 +54,24 @@ class TournamentResultEntry:
 
 @dataclass
 class Competition:
+    subtitle: Optional[str]
+    division: Division
+    category: Category
     no_participants: int
     results: List[TournamentResultEntry]
     results_link: Optional[str]
 
     def as_dict(self) -> dict:
-        return {
+        res = {
+            'division': self.division,
+            'category': self.category,
             'no_participants': self.no_participants,
             'results': [e.as_dict() for e in self.results],
             'results_link': self.results_link
         }
+        if self.subtitle is not None:
+            res['subtitle'] = self.subtitle
+        return res
 
 
 class Tournament:
@@ -74,17 +82,16 @@ class Tournament:
         self.country: str = raw['country']
         self.championship: bool = raw.get('championship', False)
 
-        self.competitions: Mapping[Division, Mapping[Category, Competition]] = {
-            Division(k1): {
-                Category(k2): Competition(
-                    v2['no_participants'],
-                    [
-                        TournamentResultEntry(entry['fencer_id'], int(entry['rank'])) for entry in v2['results']
-                    ],
-                    v2.get('results_link', None)
-                ) for k2, v2 in v1.items()
-            } for k1, v1 in raw['competitions'].items()
-        }
+        self.competitions: List[Competition] = [
+            Competition(
+                subtitle=c.get('subtitle', None),
+                division=Division(c['division']),
+                category=Category(c['category']),
+                no_participants=c['no_participants'],
+                results=[TournamentResultEntry(entry['fencer_id'], int(entry['rank'])) for entry in c['results']],
+                results_link=c.get('results_link', None)
+            ) for c in raw['competitions']
+        ]
     
     def as_dict(self) -> dict:
         return {
@@ -93,11 +100,7 @@ class Tournament:
             'date': self.date,
             'country': self.country,
             'championship': self.championship,
-            'competitions': {
-                division.value: {
-                    category.value: competition.as_dict() for category, competition in categories.items()
-                } for division, categories in self.competitions.items()
-            }
+            'competitions': [competition.as_dict() for competition in self.competitions]
         }
 
 
@@ -151,6 +154,7 @@ class Coefficient:
 @dataclass
 class TournamentLadderEntry:
     tournament_id: str
+    competition_idx: int
     coefficients: List[Coefficient]
     base_points: float
     rank: int
@@ -162,6 +166,7 @@ class TournamentLadderEntry:
     def to_dict(self) -> dict:
         return {
             "tournament_id": self.tournament_id,
+            "competition_idx": self.competition_idx,
             "base_points": self.base_points,
             "rank": self.rank,
             "points": self.points(),
@@ -231,20 +236,20 @@ class Scorer:
     def __init__(self, d: dict) -> None:
         self.rules: List[dict] = d['coefficients']
     
-    def score(self, t: Tournament, d: Division, c: Category, r: int) -> Tuple[List[Coefficient], int]:
+    def score(self, t: Tournament, c: Competition, r: int) -> Tuple[List[Coefficient], int]:
         """Returns list of coefficients applied to this tournament and rank, and base number of points for this rank."""
         coeffs = []
         for rule in self.rules:
             result = jl.jsonLogic(rule, {
                 'tournament': t.as_dict(),
-                'competition': t.competitions[d][c].as_dict(),
+                'competition': c.as_dict(),
                 'rank': r
             })
             if result is None:
                 continue
             coeffs.append(Coefficient(result['value'], CoefficientType(result['type'])))
         
-        points = t.competitions[d][c].no_participants - r + 1
+        points = c.no_participants - r + 1
 
         return coeffs, points
     
@@ -378,13 +383,12 @@ class Builder:
     def build(self, previous_season: LaddersIndividual) -> Tuple[LaddersIndividual, LaddersClub, Stats]:
         self._intermediate_individual = {}
         for tournament in self.tournaments.values():
-            for division in tournament.competitions:
-                if division not in self._intermediate_individual:
-                    self._intermediate_individual[division] = {}
-                for category in tournament.competitions[division]:
-                    if category not in self._intermediate_individual[division]:
-                        self._intermediate_individual[division][category] = {}
-                    self.process_competition(tournament, division, category)
+            for idx, competition in enumerate(tournament.competitions):
+                if competition.division not in self._intermediate_individual:
+                    self._intermediate_individual[competition.division] = {}
+                if competition.category not in self._intermediate_individual[competition.division]:
+                    self._intermediate_individual[competition.division][competition.category] = {}
+                self.process_competition(tournament, competition, idx)
 
         ladder_individual = {
             division: {
@@ -419,25 +423,24 @@ class Builder:
 
         return ladder_individual, ladder_club, self._stats
 
-    def process_competition(self, tournament: Tournament, division: Division, category: Category):
-        competition = tournament.competitions[division][category]
-        _intermediate_individual = self._intermediate_individual[division][category]
+    def process_competition(self, tournament: Tournament, competition: Competition, competition_idx: int):
+        _intermediate_individual = self._intermediate_individual[competition.division][competition.category]
 
-        if division not in self._stats.national_fencer_count:
-            self._stats.national_fencer_count[division] = dict()
-        if category not in self._stats.national_fencer_count[division]:
-            self._stats.national_fencer_count[division][category] = dict()
-        self._stats.national_fencer_count[division][category][tournament.tournament_id] = 0
+        if competition.division not in self._stats.national_fencer_count:
+            self._stats.national_fencer_count[competition.division] = dict()
+        if competition.category not in self._stats.national_fencer_count[competition.division]:
+            self._stats.national_fencer_count[competition.division][competition.category] = dict()
+        self._stats.national_fencer_count[competition.division][competition.category][tournament.tournament_id] = 0
 
         for entry in competition.results:
             try:
                 person = self.people[entry.fencer_id]
             except KeyError:
-                print("Tournament {}, division {}, category {} - missing person {}.".format(
-                    tournament.tournament_id, division.value, category.value, entry.fencer_id))
-                person, person_club = find_person(entry.fencer_id, category.value)
-                print("Attempted to find person at HR:\n\"{}\": {}\n{}".format(
-                    entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False), person_club))
+                print("Tournament {}, subtitle {}, division {}, category {} - missing person {}.".format(
+                    tournament.tournament_id, competition.subtitle, competition.division.value, competition.category.value, entry.fencer_id))
+                person, person_club, club = find_person(entry.fencer_id, competition.category.value)
+                print("Attempted to find person at HR:\n\"{}\": {}\n{}\n{}".format(
+                    entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False), person_club, club))
                 sys.exit(1)
             if self.people_clubs.get(person.id, None) is not None:
                 try:
@@ -456,13 +459,14 @@ class Builder:
             if nationality != 'cz':
                 continue
 
-            self._stats.national_fencer_count[division][category][tournament.tournament_id] += 1
+            self._stats.national_fencer_count[competition.division][competition.category][tournament.tournament_id] += 1
 
             if entry.fencer_id not in _intermediate_individual:
                 _intermediate_individual[entry.fencer_id] = []
 
-            coeffs, base_points = self.scorer.score(tournament, division, category, entry.rank)
+            coeffs, base_points = self.scorer.score(tournament, competition, entry.rank)
             ladder_entry = TournamentLadderEntry(tournament_id=tournament.tournament_id,
+                                                 competition_idx=competition_idx,
                                                  coefficients=coeffs,
                                                  base_points=base_points,
                                                  rank=entry.rank,
@@ -556,10 +560,10 @@ def main():
 
     print()
     print('Check for existence of these people on HR (have no HR ID yet):')
-    print('\n'.join([f'{v.name} {v.surname}' for k, v in people.items() if int(k) < 0]))
+    print('\n'.join([f'{v.name} {v.surname} {k}' for k, v in people.items() if int(k) < 0]))
     print()
     print('Check for existence of these clubs on HR (have no HR ID yet):')
-    print('\n'.join([v.name for k, v in clubs.items() if int(k) < 0]))
+    print('\n'.join([f'{v.name} {k}' for k, v in clubs.items() if int(k) < 0]))
 
 
 def ladders_individual_to_dict(ladders: LaddersIndividual) -> dict:

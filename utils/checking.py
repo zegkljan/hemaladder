@@ -34,14 +34,16 @@ def find_person(pid, category):
         'name': name,
     }
 
-    club_entry = None
+    fencer_club_entry = None
+    club = None
     if club_find:
-        club_entry = { pid: club_find[0] }
+        fencer_club_entry = { pid: club_find[0] }
+        club = find_club(club_find[0])
     if nationality_find:
         new_entry['nationality'] = nationality_find[0]
     new_entry['category'] = category
 
-    return new_entry, club_entry
+    return new_entry, fencer_club_entry, club
 
 
 def find_club(cid):

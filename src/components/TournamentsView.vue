@@ -144,6 +144,7 @@ import CountryFlag from 'vue-country-flag-next';
 type TournamentView = {
   id: string;
   name: string;
+  competition_subtitle?: string;
   date: Date;
   country: string;
   championship: boolean;
@@ -171,7 +172,11 @@ const columns: ComputedRef<QTableProps['columns']> = computed(
     {
       name: 'name',
       label: t('tournamentLabel'),
-      field: (row: TournamentView): string => row.name,
+      field: (row: TournamentView): string =>
+        row.name +
+        (row.competition_subtitle === undefined
+          ? ''
+          : ' (' + row.competition_subtitle + ')'),
       align: 'left',
       sortable: true,
       // style: 'width: 1px',
@@ -226,23 +231,23 @@ const tournaments: ComputedRef<TournamentView[] | undefined | null> = computed(
       return Object.entries(data.tournaments).flatMap((entry) => {
         const tournamentID = entry[0];
         const tournament = entry[1];
-        const comp = tournament.competitions[props.division]?.[props.category];
-        if (comp === undefined) {
-          return [];
-        } else {
-          return [
-            {
-              id: tournamentID,
-              name: tournament.name,
-              date: tournament.date,
-              country: tournament.country,
-              championship: tournament.championship,
-              noParticipants: comp.no_participants,
-              results: comp.results,
-              results_link: comp.results_link,
-            },
-          ];
-        }
+        return tournament.competitions
+          .filter(
+            (comp) =>
+              comp.division === props.division &&
+              comp.category === props.category
+          )
+          .map((comp) => ({
+            id: tournamentID,
+            name: tournament.name,
+            competition_subtitle: comp.subtitle,
+            date: tournament.date,
+            country: tournament.country,
+            championship: tournament.championship,
+            noParticipants: comp.no_participants,
+            results: comp.results,
+            results_link: comp.results_link,
+          }));
       });
     }
   }

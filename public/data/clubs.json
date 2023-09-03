@@ -3,6 +3,10 @@
     "name": "Adeptus",
     "country": "cz"
   },
+  "1418": {
+    "name": "Ars Dimicatoria",
+    "country": "cz"
+  },
   "286": {
     "name": "Bellátor",
     "country": "cz"
@@ -33,6 +37,10 @@
   },
   "1357": {
     "name": "HEMA Praha",
+    "country": "cz"
+  },
+  "1417": {
+    "name": "Manus Regis",
     "country": "cz"
   },
   "288": {
@@ -93,14 +101,6 @@
   },
   "-4": {
     "name": "KEBU Plzeň Paridon",
-    "country": "cz"
-  },
-  "-5": {
-    "name": "Manus Regis",
-    "country": "cz"
-  },
-  "-6": {
-    "name": "Ars Dimicatoria",
     "country": "cz"
   }
 }
