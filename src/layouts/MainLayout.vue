@@ -262,10 +262,9 @@ const divisions: ComputedRef<
       const tours = Object.values(data.tournaments);
       const divs = new Map<Division, number>();
       tours
-        .flatMap((t) => Object.keys(t.competitions))
-        .forEach((k) => {
-          const div = divisionReverseMap[k as keyof typeof divisionReverseMap];
-          divs.set(div, 1 + (divs.get(div) ?? 0));
+        .flatMap((t) => t.competitions)
+        .forEach((c) => {
+          divs.set(c.division, 1 + (divs.get(c.division) ?? 0));
         });
       const res = Object.keys(divisionReverseMap)
         .map((d) => {
@@ -300,10 +299,9 @@ const categories: ComputedRef<
     const tours = Object.values(data.tournaments);
     const cats = new Set<Category>();
     tours
-      .flatMap((t) => Object.keys(t.competitions[division.value] ?? {}))
-      .forEach((k) => {
-        const cat = categoryReverseMap[k as keyof typeof categoryReverseMap];
-        cats.add(cat);
+      .flatMap((t) => t.competitions.filter((c) => c.division === division.value))
+      .forEach((c) => {
+        cats.add(c.category);
       });
     const res = Object.keys(categoryReverseMap)
       .map((c) => {
