@@ -144,5 +144,41 @@
         ]
       }
     ]
+  },
+  "1850": {
+    "name": "Bratislava Fecht 5",
+    "date": "2023-07-22",
+    "country": "sk",
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 43,
+        "results": [
+          { "fencer_id": "3624", "rank": 6 },
+          { "fencer_id": "11689", "rank": 9 },
+          { "fencer_id": "11071", "rank": 16 },
+          { "fencer_id": "10202", "rank": 20 },
+          { "fencer_id": "8935", "rank": 26 },
+          { "fencer_id": "9339", "rank": 28 },
+          { "fencer_id": "11073", "rank": 33 },
+          { "fencer_id": "10348", "rank": 40 }
+        ]
+      },
+      {
+        "subtitle": "advanced",
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 24,
+        "results": [
+          { "fencer_id": "2140", "rank": 1 },
+          { "fencer_id": "5822", "rank": 7 },
+          { "fencer_id": "7991", "rank": 9 },
+          { "fencer_id": "3631", "rank": 10 },
+          { "fencer_id": "152", "rank": 18 },
+          { "fencer_id": "8936", "rank": 24 }
+        ]
+      }
+    ]
   }
 }
