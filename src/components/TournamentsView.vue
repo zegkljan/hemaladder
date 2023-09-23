@@ -42,7 +42,7 @@
           :disable="props.row.results_link === undefined"
         >
         </q-btn>
-        <q-tooltip v-if="props.row.id.startsWith('-')">
+        <q-tooltip v-if="props.row.results_link === undefined">
           {{ $t('resultsNoDetailTooltip') }}
         </q-tooltip>
         <q-tooltip v-else>
