@@ -88,6 +88,68 @@
       }
     ]
   },
+  "1854": {
+    "name": "Black Horns Cup 2023",
+    "date": "2023-06-23",
+    "country": "pl",
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 54,
+        "results": [
+          { "fencer_id": "7298", "rank": 5 },
+          { "fencer_id": "11157", "rank": 14 },
+          { "fencer_id": "3631", "rank": 20 },
+          { "fencer_id": "2039", "rank": 28 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=318&t=1515"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 9,
+        "results": [
+          { "fencer_id": "1478", "rank": 8 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=318&t=1519"
+      },
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 49,
+        "results": [
+          { "fencer_id": "11157", "rank": 15 },
+          { "fencer_id": "9598", "rank": 31 },
+          { "fencer_id": "9350", "rank": 36 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=318&t=1516"
+      },
+      {
+        "division": "rad",
+        "category": "mo",
+        "no_participants": 35,
+        "results": [
+          { "fencer_id": "9598", "rank": 10 },
+          { "fencer_id": "3631", "rank": 24 },
+          { "fencer_id": "9350", "rank": 33 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=318&t=1517"
+      },
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 27,
+        "results": [
+          { "fencer_id": "9598", "rank": 9 },
+          { "fencer_id": "3631", "rank": 12 },
+          { "fencer_id": "11157", "rank": 17 },
+          { "fencer_id": "9350", "rank": 26 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=318&t=1518"
+      }
+    ]
+  },
   "1847": {
     "name": "Steel & Chill II",
     "date": "2023-07-01",
