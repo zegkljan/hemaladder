@@ -244,6 +244,62 @@
       }
     ]
   },
+  "-27": {
+    "name": "Oslo Penguin Cup 2023",
+    "date": "2023-09-02",
+    "country": "no",
+    "competitions": [
+      {
+        "subtitle": "open",
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 43,
+        "results": [
+          { "fencer_id": "5822", "rank": 6 },
+          { "fencer_id": "7991", "rank": 14 },
+          { "fencer_id": "11689", "rank": 27 }
+        ],
+        "results_link": "https://hemagon.com/tournament/OPC2023/nomination/OLS"
+      },
+      {
+        "subtitle": "beginner",
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 18,
+        "results": [
+          { "fencer_id": "12553", "rank": 13 }
+        ],
+        "results_link": "https://hemagon.com/tournament/OPC2023/nomination/BLS"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 11,
+        "results": [
+          { "fencer_id": "9339", "rank": 5 }
+        ],
+        "results_link": "https://hemagon.com/tournament/OPC2023/nomination/WLS"
+      },
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 23,
+        "results": [
+          { "fencer_id": "5822", "rank": 4 }
+        ],
+        "results_link": "https://hemagon.com/tournament/OPC2023/nomination/OSAB"
+      },
+      {
+        "division": "sb",
+        "category": "w",
+        "no_participants": 4,
+        "results": [
+          { "fencer_id": "9339", "rank": 4 }
+        ],
+        "results_link": "https://hemagon.com/tournament/OPC2023/nomination/WSAB"
+      }
+    ]
+  },
   "-26": {
     "name": "Dragoon Sabre 2023",
     "date": "2023-09-16",
