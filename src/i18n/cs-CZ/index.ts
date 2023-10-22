@@ -43,6 +43,7 @@ export default {
                   </li>
                 </ul>
               </li>
+              <li>Odkaz na výsledkovou listinu zveřejněnou organizátory, existuje-li (odkaz na stránku na OnlyFence, HEMA Scorecard, HEMAGON, post u FB události, či cokoliv jiného, z čeho jde vyčíst alespoň částečné výsledky).</li>
             </ul>
           </li>
         </ul>

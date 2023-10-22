@@ -327,6 +327,106 @@
     ]
   },
   "-28": {
+    "name": "Battle of the Bridge 2023",
+    "date": "2023-09-29",
+    "country": "se",
+    "competitions": [
+      {
+        "subtitle": "1",
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 47,
+        "results": [
+          { "fencer_id": "11158", "rank": 3 },
+          { "fencer_id": "9350", "rank": 15 }
+        ],
+        "results_link": "https://www.facebook.com/photo?fbid=849251363708913&set=pcb.849252303708819"
+      },
+      {
+        "subtitle": "Men",
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 48,
+        "results": [
+          { "fencer_id": "11158", "rank": 19 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=849251980375518&set=pcb.849252303708819"
+      },
+      {
+        "division": "m",
+        "category": "mo",
+        "no_participants": 18,
+        "results": [
+          { "fencer_id": "11158", "rank": 3 },
+          { "fencer_id": "9350", "rank": 8 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=849251240375592&set=pcb.849252303708819"
+      },
+      {
+        "division": "rad",
+        "category": "mo",
+        "no_participants": 24,
+        "results": [
+          { "fencer_id": "11158", "rank": 4 },
+          { "fencer_id": "9598", "rank": 13 },
+          { "fencer_id": "9350", "rank": 15 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=849251200375596&set=pcb.849252303708819"
+      },
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 32,
+        "results": [
+          { "fencer_id": "11158", "rank": 20 },
+          { "fencer_id": "9350", "rank": 22 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=849251577042225&set=pcb.849252303708819"
+      },
+      {
+        "division": "ss",
+        "category": "mo",
+        "no_participants": 20,
+        "results": [
+          { "fencer_id": "9598", "rank": 6 },
+          { "fencer_id": "11158", "rank": 20 },
+          { "fencer_id": "9350", "rank": 22 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=849251577042225&set=pcb.849252303708819"
+      },
+      {
+        "subtitle": "1",
+        "division": "sm",
+        "category": "mo",
+        "no_participants": 19,
+        "results": [
+          { "fencer_id": "9598", "rank": 5 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=849252020375514&set=pcb.849252303708819"
+      },
+      {
+        "subtitle": "2",
+        "division": "sm",
+        "category": "mo",
+        "no_participants": 14,
+        "results": [
+          { "fencer_id": "9350", "rank": 6 },
+          { "fencer_id": "11158", "rank": 8 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=849252020375514&set=pcb.849252303708819"
+      },
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 22,
+        "results": [
+          { "fencer_id": "11158", "rank": 4 }
+        ],
+        "results_link": "https://www.facebook.com/photo/?fbid=849252163708833&set=pcb.849252303708819"
+      }
+    ]
+  },
+  "-29": {
     "name": "Swordmasters Cup",
     "date": "2023-10-07",
     "country": "pl",
