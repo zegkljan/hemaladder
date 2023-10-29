@@ -92,7 +92,7 @@ class Tournament:
                 results_link=c.get('results_link', None)
             ) for c in raw['competitions']
         ]
-    
+
     def as_dict(self) -> dict:
         return {
             'tournament_id': self.tournament_id,
@@ -235,7 +235,7 @@ LaddersClub = Mapping[Division,
 class Scorer:
     def __init__(self, d: dict) -> None:
         self.rules: List[dict] = d['coefficients']
-    
+
     def score(self, t: Tournament, c: Competition, r: int) -> Tuple[List[Coefficient], int]:
         """Returns list of coefficients applied to this tournament and rank, and base number of points for this rank."""
         coeffs = []
@@ -248,11 +248,11 @@ class Scorer:
             if result is None:
                 continue
             coeffs.append(Coefficient(result['value'], CoefficientType(result['type'])))
-        
+
         points = c.no_participants - r + 1
 
         return coeffs, points
-    
+
 
 class Combiner:
     def combine(self, ts: Sequence[TournamentLadderEntry]) -> Tuple[Sequence[TournamentLadderEntry], Sequence[TournamentLadderEntry]]:
@@ -290,7 +290,7 @@ class Combiners:
             for category in Category:
                 if division.value in d and category.value in d[division.value]:
                     self.combiners[division, category] = self.get_combiner(d[division.value][category.value])
-    
+
     def get(self, d: Division, c: Category) -> Combiner:
         res = self.combiners.get((d, c), None)
         if res is not None:
@@ -299,7 +299,7 @@ class Combiners:
         if res is not None:
             return res
         return self.combiners[None, None]
-    
+
     @staticmethod
     def get_combiner(d: dict) -> Combiner:
         t = d['type']
@@ -363,7 +363,7 @@ class Builder:
         for dup in dup_people:
             details = [f'{{id: {p.id}, club: {p.club_id}, nationality: {p.nationality}}}' for p in dup]
             print(f'Duplicate person {dup[0].name} {dup[0].surname}: {", ".join(details)}')
-        
+
         club_rev_map: Mapping[str, List[Club]] = dict()
         for c in self.clubs.values():
             if c.name not in club_rev_map:
@@ -376,10 +376,10 @@ class Builder:
         for dup in dup_clubs:
             details = [f'{{id: {c.id}, country: {c.country}}}' for c in dup]
             print(f'Duplicate club {dup[0].name}: {", ".join(details)}')
-        
+
         return res
-                
-    
+
+
     def build(self, previous_season: LaddersIndividual) -> Tuple[LaddersIndividual, LaddersClub, Stats]:
         self._intermediate_individual = {}
         for tournament in self.tournaments.values():
@@ -440,7 +440,7 @@ class Builder:
                     tournament.tournament_id, competition.subtitle, competition.division.value, competition.category.value, entry.fencer_id))
                 person, person_club, club = find_person(entry.fencer_id, competition.category.value)
                 print("Attempted to find person at HR:\n\"{}\": {}\n{}\n{}".format(
-                    entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False), person_club, club))
+                    entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False), json.dumps(person_club), json.dumps(club, indent=2, ensure_ascii=False)))
                 sys.exit(1)
             if self.people_clubs.get(person.id, None) is not None:
                 try:
@@ -486,7 +486,7 @@ class Builder:
                 rank=0
             )
             entries.append(entry)
-        
+
 
         def key(e: LadderIndividualEntry) -> Tuple[int, float]:
             return (
@@ -556,6 +556,21 @@ def main():
                    ladders_club_to_dict(ladders_club))
         write_json(data_dir.joinpath(
             'seasons', season['folder'], 'stats.json'), stats.to_dict())
+
+        people_wo_club = dict()
+        for ls in ladders_individual.values():
+            for l in ls.values():
+                for e in l:
+                    if e.fencer_id not in people_clubs:
+                        found_club_mapping = e.fencer_id
+                        if int(e.fencer_id) >= 0:
+                            _, f, c = find_person(e.fencer_id, None)
+                            found_club_mapping = f'{c["name"]} -- "{f[0]}": "{f[1]}"'
+                        people_wo_club[e.fencer_id] = found_club_mapping
+
+        print(f'Check for club assignment of these people (have no club in season {season["name"]}):')
+        print('\n'.join([f'{people[k].name} {people[k].surname} -- {v}' for k, v in people_wo_club.items()]))
+        print()
     print('DONE')
 
     print()

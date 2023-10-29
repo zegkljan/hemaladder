@@ -335,10 +335,16 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "3481": {
+    "surname": "Kurian",
+    "name": "Matúš",
+    "nationality": "sk",
+    "category": "mo"
+  },
   "11284": {
     "surname": "Kuzder",
     "name": "Dávid",
-    "nationality": "cz",
+    "nationality": "sk",
     "category": "mo"
   },
   "10054": {
@@ -521,6 +527,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "12784": {
+    "surname": "Okáč",
+    "name": "Jiří",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "1482": {
     "surname": "Ondra",
     "name": "Radek",
@@ -584,6 +596,12 @@
   "8905": {
     "surname": "Polanský",
     "name": "Kryštof",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12786": {
+    "surname": "Prochaska",
+    "name": "Adam",
     "nationality": "cz",
     "category": "mo"
   },
@@ -966,6 +984,12 @@
   "-47": {
     "surname": "Szadkowski",
     "name": "Rudolv",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "-48": {
+    "surname": "Kolovrátník",
+    "name": "Petr",
     "nationality": "cz",
     "category": "mo"
   }

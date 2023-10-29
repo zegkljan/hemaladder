@@ -37,7 +37,7 @@ def find_person(pid, category):
     fencer_club_entry = None
     club = None
     if club_find:
-        fencer_club_entry = { pid: club_find[0] }
+        fencer_club_entry = (pid, club_find[0])
         club = find_club(club_find[0])
     if nationality_find:
         new_entry['nationality'] = nationality_find[0]
