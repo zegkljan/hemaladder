@@ -579,5 +579,85 @@
         "results_link": "https://www.facebook.com/events/2705585149584120/?post_id=2717328645076437&view=permalink"
       }
     ]
+  },
+  "-29": {
+    "name": "VALKYRIE CUP 3 2023",
+    "date": "2023-11-17",
+    "country": "cz",
+    "competitions": [
+      {
+        "division": "sb",
+        "category": "mo",
+        "no_participants": 55,
+        "results": [
+          { "fencer_id": "8907", "rank": 5 },
+          { "fencer_id": "1471", "rank": 15 },
+          { "fencer_id": "11158", "rank": 19 },
+          { "fencer_id": "3631", "rank": 23 },
+          { "fencer_id": "9350", "rank": 46 },
+          { "fencer_id": "11157", "rank": 48 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=430&t=1857&m=0#"
+      },
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 41,
+        "results": [
+          { "fencer_id": "11158", "rank": 9 },
+          { "fencer_id": "8907", "rank": 10 },
+          { "fencer_id": "3631", "rank": 16 },
+          { "fencer_id": "10057", "rank": 24 },
+          { "fencer_id": "11286", "rank": 28 },
+          { "fencer_id": "11157", "rank": 38 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=430&t=1859&m=0#"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 11,
+        "results": [
+          { "fencer_id": "11065", "rank": 10 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=430&t=1860&m=0#"
+      },
+      {
+        "division": "rad",
+        "category": "mo",
+        "no_participants": 32,
+        "results": [
+          { "fencer_id": "11158", "rank": 13 },
+          { "fencer_id": "3631", "rank": 17 },
+          { "fencer_id": "9350", "rank": 26 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=430&t=1861&m=0#"
+      },
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 24,
+        "results": [
+          { "fencer_id": "11157", "rank": 4 },
+          { "fencer_id": "3631", "rank": 8 },
+          { "fencer_id": "11158", "rank": 11 },
+          { "fencer_id": "9350", "rank": 19 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=430&t=1863&m=0#"
+      },
+      {
+        "division": "sm",
+        "category": "mo",
+        "no_participants": 27,
+        "results": [
+          { "fencer_id": "9598", "rank": 5 },
+          { "fencer_id": "11158", "rank": 14 },
+          { "fencer_id": "11157", "rank": 23 },
+          { "fencer_id": "9350", "rank": 24 },
+          { "fencer_id": "10057", "rank": 26 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=430&t=1856&m=0#"
+      }
+    ]
   }
 }
