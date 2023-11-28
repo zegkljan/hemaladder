@@ -315,10 +315,10 @@
           { "fencer_id": "7829", "rank": 11 },
           { "fencer_id": "11278", "rank": 13 },
           { "fencer_id": "3626", "rank": 16 },
-          { "fencer_id": "-46", "rank": 17 },
+          { "fencer_id": "12713", "rank": 17 },
           { "fencer_id": "6598", "rank": 18 },
           { "fencer_id": "9103", "rank": 21 },
-          { "fencer_id": "-47", "rank": 22 },
+          { "fencer_id": "12714", "rank": 22 },
           { "fencer_id": "9339", "rank": 25 },
           { "fencer_id": "8899", "rank": 26 }
         ],
@@ -517,7 +517,7 @@
       }
     ]
   },
-  "-29": {
+  "1924": {
     "name": "Krkavčí podzimní fechtík 2023",
     "date": "2023-10-28",
     "country": "cz",
@@ -546,10 +546,37 @@
           { "fencer_id": "11071", "rank": 17 },
           { "fencer_id": "3481", "rank": 18 },
           { "fencer_id": "8899", "rank": 19 },
-          { "fencer_id": "-48", "rank": 20 },
+          { "fencer_id": "12852", "rank": 20 },
           { "fencer_id": "11072", "rank": 21 },
           { "fencer_id": "12786", "rank": 22 }
-        ]
+        ],
+        "results_link": "https://krkavci.cz/tournament/kpf2023"
+      }
+    ]
+  },
+  "1925": {
+    "name": "Kolaudačka nové haly",
+    "date": "2023-11-05",
+    "country": "cz",
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 11,
+        "results": [
+          { "fencer_id": "11157", "rank": 1 },
+          { "fencer_id": "9270", "rank": 2 },
+          { "fencer_id": "11392", "rank": 3 },
+          { "fencer_id": "12855", "rank": 4 },
+          { "fencer_id": "10349", "rank": 5 },
+          { "fencer_id": "12854", "rank": 6 },
+          { "fencer_id": "10346", "rank": 7 },
+          { "fencer_id": "11835", "rank": 8 },
+          { "fencer_id": "9350", "rank": 9 },
+          { "fencer_id": "12853", "rank": 10 },
+          { "fencer_id": "12856", "rank": 11 }
+        ],
+        "results_link": "https://www.facebook.com/events/2705585149584120/?post_id=2717328645076437&view=permalink"
       }
     ]
   }

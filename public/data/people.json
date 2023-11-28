@@ -1,4 +1,10 @@
 {
+  "12853": {
+    "surname": "Barák",
+    "name": "David",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "9639": {
     "surname": "Beneš",
     "name": "Jan",
@@ -37,7 +43,13 @@
   },
   "10346": {
     "surname": "Boček",
-    "name": "Martina",
+    "name": "Martin",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12856": {
+    "surname": "Boček",
+    "name": "Štěpán",
     "nationality": "cz",
     "category": "mo"
   },
@@ -53,6 +65,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "11835": {
+    "surname": "Buchta",
+    "name": "Adam",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "9600": {
     "surname": "Burešová",
     "name": "Klára",
@@ -62,6 +80,12 @@
   "11074": {
     "surname": "Cizl",
     "name": "Eliáš",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12713": {
+    "surname": "Chalupa",
+    "name": "Miroslav",
     "nationality": "cz",
     "category": "mo"
   },
@@ -167,6 +191,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "11392": {
+    "surname": "Horansý",
+    "name": "Marek",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "11072": {
     "surname": "Horák",
     "name": "Martin",
@@ -239,6 +269,12 @@
     "nationality": "cz",
     "category": "mo"
   },
+  "12854": {
+    "surname": "Kantor",
+    "name": "Martin",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "1473": {
     "surname": "Kazelle",
     "name": "Kamil",
@@ -248,6 +284,12 @@
   "3624": {
     "surname": "Kliment",
     "name": "Viktor",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12852": {
+    "surname": "Kolovrátník",
+    "name": "Petr",
     "nationality": "cz",
     "category": "mo"
   },
@@ -695,6 +737,12 @@
     "nationality": "cz",
     "category": "w"
   },
+  "12714": {
+    "surname": "Szadkowski",
+    "name": "Rudolf",
+    "nationality": "cz",
+    "category": "mo"
+  },
   "11282": {
     "surname": "Šerý",
     "name": "Martin",
@@ -734,6 +782,12 @@
   "8903": {
     "surname": "Tkáč",
     "name": "Rudolf",
+    "nationality": "cz",
+    "category": "mo"
+  },
+  "12855": {
+    "surname": "Tomčala",
+    "name": "Radoslav",
     "nationality": "cz",
     "category": "mo"
   },
@@ -975,21 +1029,9 @@
     "nationality": "cz",
     "category": "mo"
   },
-  "-46": {
-    "surname": "Chalupa",
-    "name": "Miroslav",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-47": {
-    "surname": "Szadkowski",
-    "name": "Rudolv",
-    "nationality": "cz",
-    "category": "mo"
-  },
-  "-48": {
-    "surname": "Kolovrátník",
-    "name": "Petr",
+  "-49": {
+    "surname": "...",
+    "name": "...",
     "nationality": "cz",
     "category": "mo"
   }
