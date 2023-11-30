@@ -440,7 +440,11 @@ class Builder:
                     tournament.tournament_id, competition.subtitle, competition.division.value, competition.category.value, entry.fencer_id))
                 person, person_club, club = find_person(entry.fencer_id, competition.category.value)
                 print("Attempted to find person at HR:\n\"{}\": {}\n{}\n{}".format(
-                    entry.fencer_id, json.dumps(person, indent=2, ensure_ascii=False), json.dumps(person_club), json.dumps(club, indent=2, ensure_ascii=False)))
+                    entry.fencer_id,
+                    json.dumps(person, indent=2, ensure_ascii=False),
+                    "\"{}\": \"{}\"".format(person_club[0], person_club[1]) if person_club is not None else "no club mapping",
+                    json.dumps(club, indent=2, ensure_ascii=False)
+                ))
                 sys.exit(1)
             if self.people_clubs.get(person.id, None) is not None:
                 try:

@@ -388,9 +388,7 @@
         "category": "mo",
         "no_participants": 20,
         "results": [
-          { "fencer_id": "9598", "rank": 6 },
-          { "fencer_id": "11158", "rank": 20 },
-          { "fencer_id": "9350", "rank": 22 }
+          { "fencer_id": "9598", "rank": 6 }
         ],
         "results_link": "https://www.facebook.com/photo/?fbid=849251577042225&set=pcb.849252303708819"
       },
@@ -657,6 +655,99 @@
           { "fencer_id": "10057", "rank": 26 }
         ],
         "results_link": "https://hemascorecard.com/finalsBracket.php?e=430&t=1856&m=0#"
+      }
+    ]
+  },
+  "-30": {
+    "name": "Coornhert Side Sword Gathering 2023",
+    "date": "2023-11-24",
+    "country": "nl",
+    "competitions": [
+      {
+        "division": "ss",
+        "category": "mo",
+        "no_participants": 22,
+        "results": [
+          { "fencer_id": "9598", "rank": 2 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=373&t=1623&m=0#"
+      },
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 13,
+        "results": [
+          { "fencer_id": "9598", "rank": 1 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=373&t=1806&m=0#"
+      }
+    ]
+  },
+  "1948": {
+    "name": "Pardubický meč 2023",
+    "date": "2023-11-25",
+    "country": "cz",
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 68,
+        "results": [
+          { "fencer_id": "2090", "rank": 1 },
+          { "fencer_id": "2140", "rank": 2 },
+          { "fencer_id": "5822", "rank": 6 },
+          { "fencer_id": "3631", "rank": 7 },
+          { "fencer_id": "7991", "rank": 8 },
+          { "fencer_id": "7298", "rank": 9 },
+          { "fencer_id": "11074", "rank": 15 },
+          { "fencer_id": "10058", "rank": 16 },
+          { "fencer_id": "11158", "rank": 19 },
+          { "fencer_id": "8907", "rank": 20 },
+          { "fencer_id": "9349", "rank": 21 },
+          { "fencer_id": "9348", "rank": 23 },
+          { "fencer_id": "1488", "rank": 24 },
+          { "fencer_id": "6755", "rank": 25 },
+          { "fencer_id": "11157", "rank": 26 },
+          { "fencer_id": "10349", "rank": 27 },
+          { "fencer_id": "2041", "rank": 29 },
+          { "fencer_id": "10346", "rank": 30 },
+          { "fencer_id": "8936", "rank": 32 },
+          { "fencer_id": "1512", "rank": 35 },
+          { "fencer_id": "5826", "rank": 36 },
+          { "fencer_id": "13082", "rank": 37 },
+          { "fencer_id": "11279", "rank": 39 },
+          { "fencer_id": "11071", "rank": 40 },
+          { "fencer_id": "9271", "rank": 41 },
+          { "fencer_id": "11278", "rank": 43 },
+          { "fencer_id": "4785", "rank": 46 },
+          { "fencer_id": "8934", "rank": 47 },
+          { "fencer_id": "9105", "rank": 48 },
+          { "fencer_id": "10057", "rank": 49 },
+          { "fencer_id": "11059", "rank": 51 },
+          { "fencer_id": "9600", "rank": 52 },
+          { "fencer_id": "11286", "rank": 53 },
+          { "fencer_id": "12786", "rank": 55 },
+          { "fencer_id": "13078", "rank": 57 },
+          { "fencer_id": "2760", "rank": 60 },
+          { "fencer_id": "9339", "rank": 62 },
+          { "fencer_id": "11073", "rank": 62 },
+          { "fencer_id": "11308", "rank": 64 },
+          { "fencer_id": "12553", "rank": 65 },
+          { "fencer_id": "4783", "rank": 67 }
+        ],
+        "results_link": "https://www.facebook.com/PSASERM/posts/pfbid02bzw3Y4cZuJYq3Cnmvcj1wQCHGewJMx2hjPTH8CRKW9mBLaEM8G56FL4g1oJqBfF8l"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 11,
+        "results": [
+          { "fencer_id": "9339", "rank": 5 },
+          { "fencer_id": "9600", "rank": 6 },
+          { "fencer_id": "11060", "rank": 9 },
+          { "fencer_id": "11162", "rank": 10 },
+          { "fencer_id": "11065", "rank": 11 }
+        ]
       }
     ]
   }
