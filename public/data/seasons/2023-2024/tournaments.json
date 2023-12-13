@@ -750,5 +750,23 @@
         ]
       }
     ]
+  },
+  "-31": {
+    "name": "Basilisk Cup 2023",
+    "date": "2023-12-09",
+    "country": "pl",
+    "competitions": [
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 19,
+        "results": [
+          { "fencer_id": "11158", "rank": 6 },
+          { "fencer_id": "9350", "rank": 14 },
+          { "fencer_id": "12854", "rank": 18 }
+        ],
+        "results_link": "https://hemascorecard.com/finalsBracket.php?e=440&t=1887&m=0#"
+      }
+    ]
   }
 }
