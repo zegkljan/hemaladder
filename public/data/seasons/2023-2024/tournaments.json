@@ -578,7 +578,7 @@
       }
     ]
   },
-  "-29": {
+  "1975": {
     "name": "VALKYRIE CUP 3 2023",
     "date": "2023-11-17",
     "country": "cz",
@@ -658,7 +658,7 @@
       }
     ]
   },
-  "-30": {
+  "1962": {
     "name": "Coornhert Side Sword Gathering 2023",
     "date": "2023-11-24",
     "country": "nl",
@@ -751,7 +751,54 @@
       }
     ]
   },
-  "-31": {
+  "1969": {
+    "name": "Swordplay 2023",
+    "date": "2023-12-02",
+    "country": "rs",
+    "competitions": [
+      {
+        "division": "sm",
+        "category": "mo",
+        "no_participants": 20,
+        "results": [
+          { "fencer_id": "9598", "rank": 2 },
+          { "fencer_id": "11158", "rank": 4 },
+          { "fencer_id": "11157", "rank": 13 },
+          { "fencer_id": "9350", "rank": 18 }
+        ]
+      },
+      {
+        "division": "ss",
+        "category": "mo",
+        "no_participants": 24,
+        "results": [
+          { "fencer_id": "9598", "rank": 1 },
+          { "fencer_id": "11157", "rank": 2 },
+          { "fencer_id": "11158", "rank": 5 }
+        ]
+      },
+      {
+        "division": "r",
+        "category": "mo",
+        "no_participants": 24,
+        "results": [
+          { "fencer_id": "11158", "rank": 1 },
+          { "fencer_id": "9598", "rank": 4 },
+          { "fencer_id": "9350", "rank": 11 }
+        ]
+      },
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 40,
+        "results": [
+          { "fencer_id": "11158", "rank": 5 },
+          { "fencer_id": "11157", "rank": 16 }
+        ]
+      }
+    ]
+  },
+  "1971": {
     "name": "Basilisk Cup 2023",
     "date": "2023-12-09",
     "country": "pl",
