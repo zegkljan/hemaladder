@@ -815,5 +815,56 @@
         "results_link": "https://hemascorecard.com/finalsBracket.php?e=440&t=1887&m=0#"
       }
     ]
+  },
+  "-29": {
+    "name": "Helsinki Longsword Open 2024",
+    "date": "2024-01-19",
+    "country": "fi",
+    "competitions": [
+      {
+        "division": "ls",
+        "category": "mo",
+        "no_participants": 115,
+        "results": [
+          { "fencer_id": "7991", "rank": 8 },
+          { "fencer_id": "5822", "rank": 9 },
+          { "fencer_id": "3631", "rank": 13 },
+          { "fencer_id": "152", "rank": 23 },
+          { "fencer_id": "12786", "rank": 47 },
+          { "fencer_id": "12553", "rank": 64 },
+          { "fencer_id": "9339", "rank": 108 }
+        ],
+        "results_link": "https://hemagon.com/tournament/hlo24/nomination/hlo24-ols"
+      },
+      {
+        "division": "ls",
+        "category": "w",
+        "no_participants": 23,
+        "results": [
+          { "fencer_id": "9339", "rank": 7 }
+        ],
+        "results_link": "https://hemagon.com/tournament/hlo24/nomination/hlo24-wurgls"
+      },
+      {
+        "division": "m",
+        "category": "mo",
+        "no_participants": 48,
+        "results": [
+          { "fencer_id": "1503", "rank": 21 },
+          { "fencer_id": "5118", "rank": 24 },
+          { "fencer_id": "5119", "rank": 44 }
+        ],
+        "results_link": "https://hemagon.com/tournament/hlo24/nomination/hlo24-oms"
+      },
+      {
+        "division": "sab",
+        "category": "mo",
+        "no_participants": 43,
+        "results": [
+          { "fencer_id": "3631", "rank": 11 }
+        ],
+        "results_link": "https://hemagon.com/tournament/hlo24/nomination/hlo24-osb"
+      }
+    ]
   }
 }
