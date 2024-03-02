@@ -42,7 +42,11 @@
             <q-icon name="mdi-open-in-new"></q-icon>
           </q-item-section>
         </q-item>
-        <q-item href="https://facebook.com/HEMAzebricekCZ" target="_blank">
+        <q-item
+          v-if="config.fbLink !== undefined"
+          :href="config.fbLink"
+          target="_blank"
+        >
           <q-item-section avatar>
             <q-icon name="mdi-facebook"></q-icon>
           </q-item-section>
@@ -90,35 +94,37 @@
         <q-item v-if="season === null">
           {{ $t('chooseSeason') }}
         </q-item>
-        <q-item
-          v-else
-          v-for="d in divisions"
-          :key="d.division"
-          :to="routeLink(null, d.division, null)"
-          :disable="d.noTournaments === 0"
-          :active="d.division === division"
-        >
-          <q-tooltip v-if="d.noTournaments === 0">{{
-            $t('divisionNoData')
-          }}</q-tooltip>
-          <q-item-section>
-            <q-item-label>{{ $t('division.' + d.division) }}</q-item-label>
-          </q-item-section>
-          <q-item-section side v-if="d.noTournaments > 0">
-            <q-item-label>
-              <q-icon
-                v-if="d.noTournaments === 1"
-                name="mdi-alert"
-                color="warning"
-              >
-                <q-tooltip>{{
-                  $t('divisionSingleTournamentWarningTooltip')
-                }}</q-tooltip>
-              </q-icon>
-              {{ d.noTournaments }}
-            </q-item-label>
-          </q-item-section>
-        </q-item>
+        <template v-else>
+          <template v-for="d in divisions" :key="d.division">
+            <q-item
+              v-if="d.noTournaments > 0"
+              :to="routeLink(null, d.division, null)"
+              :disable="d.noTournaments === 0"
+              :active="d.division === division"
+            >
+              <q-tooltip v-if="d.noTournaments === 0">{{
+                $t('divisionNoData')
+              }}</q-tooltip>
+              <q-item-section>
+                <q-item-label>{{ $t('division.' + d.division) }}</q-item-label>
+              </q-item-section>
+              <q-item-section side v-if="d.noTournaments > 0">
+                <q-item-label>
+                  <q-icon
+                    v-if="d.noTournaments === 1"
+                    name="mdi-alert"
+                    color="warning"
+                  >
+                    <q-tooltip>{{
+                      $t('divisionSingleTournamentWarningTooltip')
+                    }}</q-tooltip>
+                  </q-icon>
+                  {{ d.noTournaments }}
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+          </template>
+        </template>
         <q-separator />
 
         <q-item dense>
@@ -164,50 +170,6 @@
   </q-layout>
 </template>
 
-<style lang="scss">
-.fit-content {
-  width: fit-content;
-  max-width: fit-content !important;
-}
-
-.footnotes {
-  font-size: smaller;
-
-  ol {
-    list-style: none;
-    counter-reset: fnc;
-
-    li {
-      counter-increment: fnc;
-
-      &::before {
-        content: counter(fnc);
-        vertical-align: super;
-        font-size: smaller;
-      }
-    }
-
-    li {
-      counter-increment: fnc;
-
-      & + li {
-        margin-top: 0.4rem;
-      }
-
-      &::before {
-        content: counter(fnc);
-        vertical-align: super;
-        font-size: smaller;
-        float: left;
-        position: relative;
-        top: -0.15rem;
-        margin-right: 0.1rem;
-      }
-    }
-  }
-}
-</style>
-
 <script setup lang="ts">
 import { computed } from '@vue/reactivity';
 import {
@@ -221,14 +183,33 @@ import { useData } from 'src/stores/data';
 import { ComputedRef, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute, useRouter } from 'vue-router';
+import { config } from 'src/build/resources/brand/config';
+import { useHead } from '@unhead/vue';
 
 const leftDrawerOpen = ref(false);
 
 const { locale } = useI18n({ useScope: 'global' });
 const localeOptions = [
   { value: 'cs-CZ', label: 'Čeština', flag: 'cz' },
-  { value: 'en-US', label: 'English', flag: 'uk' },
-];
+  { value: 'en-US', label: 'English', flag: 'us' },
+].filter((x) => config.enabledLocales.find((l) => l === x.value) !== undefined);
+
+const { t } = useI18n();
+useHead({
+  title: () => t('appName'),
+  meta: () => {
+    const descr = t('appDescription');
+    if (descr === '') {
+      return [];
+    }
+    return [
+      {
+        name: 'description',
+        content: descr,
+      },
+    ];
+  },
+});
 
 let addResultsDialogOpen = ref(false);
 
@@ -299,7 +280,9 @@ const categories: ComputedRef<
     const tours = Object.values(data.tournaments);
     const cats = new Set<Category>();
     tours
-      .flatMap((t) => t.competitions.filter((c) => c.division === division.value))
+      .flatMap((t) =>
+        t.competitions.filter((c) => c.division === division.value)
+      )
       .forEach((c) => {
         cats.add(c.category);
       });
@@ -337,3 +320,47 @@ function routeLink(
   return `/${s}/${d}/${c}/${w}`;
 }
 </script>
+
+<style lang="scss">
+.fit-content {
+  width: fit-content;
+  max-width: fit-content !important;
+}
+
+.footnotes {
+  font-size: smaller;
+
+  ol {
+    list-style: none;
+    counter-reset: fnc;
+
+    li {
+      counter-increment: fnc;
+
+      &::before {
+        content: counter(fnc);
+        vertical-align: super;
+        font-size: smaller;
+      }
+    }
+
+    li {
+      counter-increment: fnc;
+
+      & + li {
+        margin-top: 0.4rem;
+      }
+
+      &::before {
+        content: counter(fnc);
+        vertical-align: super;
+        font-size: smaller;
+        float: left;
+        position: relative;
+        top: -0.15rem;
+        margin-right: 0.1rem;
+      }
+    }
+  }
+}
+</style>

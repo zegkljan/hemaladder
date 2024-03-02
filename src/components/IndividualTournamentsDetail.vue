@@ -214,10 +214,7 @@ table.coefficient-tooltip {
 </style>
 
 <script setup lang="ts">
-import {
-  TournamentLadderEntry,
-  Competition,
-} from 'src/logic/ladder';
+import { TournamentLadderEntry, Competition } from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
 import { computed } from 'vue';
 import CountryFlag from 'vue-country-flag-next';

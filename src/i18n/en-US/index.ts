@@ -1,77 +1,16 @@
 import { Category, CoefficientType, Division, View } from 'src/logic/ladder';
+import { texts } from 'src/build/resources/brand/config';
 
 export default {
-  appName: 'Unofficial czech HEMA ladder',
+  appName: texts.en?.appName ?? 'HEMA Ladder',
+  appDescription: texts.en?.appDescription ?? '',
   sourceCode: 'Source code',
   ladderOnFacebook: 'Facebook page',
   addResults: {
     buttonLabel: 'Supply results',
     title: 'How to supply results?',
-    main: `If the ladder does not include results of a tournament you
-    attended, please let me know like this:
-    <ol>
-      <li>
-        Prepare the data:
-        <ul>
-          <li>Tournament name</li>
-          <li>Date of the tournament<sup>1</sup></li>
-          <li>Country the tournament took place in</li>
-          <li>Web page or FB event of the tournament, if one exists</li>
-          <li>HEMA Ratings page of the tournament, if one exists</li>
-          <li>Results for each division<sup>2</sup> and category<sup>3</sup> comprising of
-            <ul>
-              <li>The total number of participants in the given division and category.</li>
-              <li>
-                List of results of people you want to add<sup>4</sup>.
-                For each person state
-                <ul>
-                  <li>Name and surname</li>
-                  <li>Their final rank at the end of the tournament</li>
-                  <li>Their HEMA Ratings ID<sup>5</sup>, if one exists</li>
-                  <li>Club they represented</li>
-                  <li>HEMA Ratings ID of the club<sup>6</sup>, if one exists</li>
-                </ul>
-              </li>
-              <li>Odkaz na výsledkovou listinu zveřejněnou organizátory, existuje-li (odkaz na stránku na OnlyFence, HEMA Scorecard, HEMAGON, post u FB události, či cokoliv jiného, z čeho jde vyčíst alespoň částečné výsledky).</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>
-        Send the data to
-        <a href="mailto:zegkljan{'@'}gmail.com">zegkljan{'@'}gmail.com</a> and state
-        <em>HEMA ladder data</em> in the subject.
-      </li>
-      <li>
-        Wait untill I incorporate the data, possibly react to my supplementary questions.
-      </li>
-    </ol>`,
-    footnotes: `<ol>
-    <li>In case of multi-day tournament state the first day.</li>
-    <li>Divisions are: long sword, rapier and dagger, saber...</li>
-    <li>Categories are: men/open, women, girls under 10 years...</li>
-    <li>
-      We record only fencers representing Czech clubs, or Czech fencers competing without any club.
-    </li>
-    <li>
-      The number in the address of the "profile" page on HEMA Ratings of the given person.<br />
-      Example: Jan Žegklitz has page
-      <a href="https://hemaratings.com/fighters/details/3631/"
-        >https://hemaratings.com/fighters/details/<strong
-          >3631</strong
-        ></a
-      >
-      a therefore his ID is 3631.
-    </li>
-    <li>
-      The number in the address of the "profile" page of on HEMA Ratings of the given club.<br />
-      Example: SHŠ Krkavci have page
-      <a href="https://hemaratings.com/clubs/details/362/"
-        >https://hemaratings.com/clubs/details/<strong>362</strong></a
-      >
-      a therefore their ID is 362.
-    </li>
-  </ol>`,
+    main: texts.en?.supplyResultsText ?? 'Contact the ladder manager.',
+    footnotes: texts.en?.supplyResultsFootnotes ?? '',
   },
   close: 'Close',
   settings: 'Settings',

@@ -6,6 +6,8 @@ from dataclasses import dataclass
 from math import prod
 from re import U
 import sys
+import os
+import shutil
 from typing import Any, List, Mapping, Optional, Sequence, Tuple, Union
 from checking import find_person, find_club
 import json_logic as jl
@@ -110,7 +112,6 @@ class Person:
     name: str
     surname: str
     nationality: Union[str, None]
-    category: Union[Category, None]
 
     def __init__(self, id: str, raw: dict) -> None:
         self.id = id
@@ -121,22 +122,20 @@ class Person:
         else:
             self.nationality = raw['nationality']
 
-        if 'category' not in raw:
-            self.category = None
-        else:
-            self.category = Category(raw['category'])
-
 
 @dataclass
 class Club:
     id: str
     name: str
-    country: str
+    country: Union[str, None]
 
     def __init__(self, id: str, raw: dict) -> None:
         self.id = id
         self.name = raw['name']
-        self.country = raw['country']
+        if 'country' not in raw:
+            self.country = None
+        else:
+            self.country = raw['country']
 
 
 @dataclass
@@ -456,12 +455,6 @@ class Builder:
                     print("Attempted to find club at HR: \"{}\": {}".format(
                         self.people_clubs[person.id], json.dumps(club, indent=2, ensure_ascii=False)))
                     sys.exit(1)
-                nationality = club.country
-            else:
-                nationality = person.nationality
-
-            if nationality != 'cz':
-                continue
 
             self._stats.national_fencer_count[competition.division][competition.category][tournament.tournament_id] += 1
 
@@ -528,24 +521,32 @@ class Builder:
 
 
 def main():
-    data_dir = pathlib.Path(__file__).parent.parent.joinpath('public', 'data')
+    dst_data_dir = src_data_dir = pathlib.Path(sys.argv[1])
+    if len(sys.argv) > 1:
+        dst_data_dir = pathlib.Path(sys.argv[2])
+
+    # source data is always part of the destination data => clear the destination and copy source to destination, if it is a different directory
+    if dst_data_dir != src_data_dir:
+        if dst_data_dir.exists():
+            shutil.rmtree(dst_data_dir)
+        shutil.copytree(src_data_dir, dst_data_dir, ignore=shutil.ignore_patterns('.git'))
 
     people: Mapping[str, Person] = {
-        x[0]: Person(x[0], x[1]) for x in read_json(data_dir.joinpath('people.json')).items()
+        x[0]: Person(x[0], x[1]) for x in read_json(src_data_dir.joinpath('people.json')).items()
     }
     clubs: Mapping[str, Club] = {
-        x[0]: Club(x[0], x[1]) for x in read_json(data_dir.joinpath('clubs.json')).items()
+        x[0]: Club(x[0], x[1]) for x in read_json(src_data_dir.joinpath('clubs.json')).items()
     }
 
-    seasons = read_json(data_dir.joinpath('seasons.json'))
+    seasons = read_json(src_data_dir.joinpath('seasons.json'))
 
     ladders_individual = dict()
     for season in sorted(seasons, key=lambda s: s["name"]):
-        people_clubs: Mapping[str, str] = read_json(data_dir.joinpath('seasons', season['folder'], 'people-clubs.json'))
+        people_clubs: Mapping[str, str] = read_json(src_data_dir.joinpath('seasons', season['folder'], 'people-clubs.json'))
         tournaments: Mapping[str, Tournament] = {
             tid: Tournament(tid, data)
             for tid, data
-            in read_json(data_dir.joinpath('seasons', season['folder'], 'tournaments.json')).items()
+            in read_json(src_data_dir.joinpath('seasons', season['folder'], 'tournaments.json')).items()
         }
         scorer = Scorer(season['scorer'])
         combiners = Combiners(season['combiner'])
@@ -554,11 +555,11 @@ def main():
             return
         ladders_individual, ladders_club, stats = builder.build(
             ladders_individual)
-        write_json(data_dir.joinpath('seasons', season['folder'], 'ladders-individual.json'),
+        write_json(dst_data_dir.joinpath('seasons', season['folder'], 'ladders-individual.json'),
                    ladders_individual_to_dict(ladders_individual))
-        write_json(data_dir.joinpath('seasons', season['folder'], 'ladders-club.json'),
+        write_json(dst_data_dir.joinpath('seasons', season['folder'], 'ladders-club.json'),
                    ladders_club_to_dict(ladders_club))
-        write_json(data_dir.joinpath(
+        write_json(dst_data_dir.joinpath(
             'seasons', season['folder'], 'stats.json'), stats.to_dict())
 
         people_wo_club = dict()
@@ -612,6 +613,7 @@ def read_json(path: pathlib.Path) -> dict:
 
 
 def write_json(path: pathlib.Path, obj: Any):
+    os.makedirs(path.parent, exist_ok=True)
     with open(path, 'w') as f:
         json.dump(obj, f, indent=2)
 

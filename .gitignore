@@ -37,5 +37,8 @@ yarn-error.log*
 *.pyc
 
 # Generated data
-/public/data/seasons/*/ladders*.json
-/public/data/seasons/*/stats.json
+/public
+
+# Resources
+/src/build/resources
+/src/build/logo.png

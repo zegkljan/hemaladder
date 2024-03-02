@@ -1,89 +1,16 @@
 import { Category, CoefficientType, Division, View } from 'src/logic/ladder';
+import { texts } from 'src/build/resources/brand/config';
 
 export default {
-  appName: 'Neoficiální český HEMA žebříček',
+  appName: texts.cz?.appName ?? 'HEMA žebříček',
+  appDescription: texts.cz?.appDescription ?? '',
   sourceCode: 'Zdrojový kód',
   ladderOnFacebook: 'Facebooková stránka',
   addResults: {
     buttonLabel: 'Doplnit výsledky',
     title: 'Jak doplnit výsledky?',
-    main: `Pokud v žebříčku nejsou zahrnuty výsledky turnaje, kde jste byli,
-    dejte prosím vědět, a to následujícím způsobem:
-    <ol>
-      <li>
-        Připravte si data:
-        <ul>
-          <li>Název turnaje</li>
-          <li>Datum konání<sup>1</sup></li>
-          <li>Země, ve které se turnaj odehrával</li>
-          <li>Stránka či FB událost turnaje, existuje-li</li>
-          <li>Stránka turnaje na HEMA Ratings, existuje-li</li>
-          <li>
-            Výsledky pro každou divizi<sup>2</sup> a kategorii<sup
-              >3</sup
-            >
-            sestávající se z
-            <ul>
-              <li>Celkový počet účastníků v dané divizi a kategorii</li>
-              <li>
-                Seznam výsledků lidí, které chcete doplnit<sup>4</sup>.
-                Pro každého člověka uveďte
-                <ul>
-                  <li>Jméno a příjmení</li>
-                  <li>
-                    Konečná příčka, na jaké se umístil(a) na konci
-                    turnaje
-                  </li>
-                  <li>
-                    Jeho/její HEMA Ratings ID<sup>5</sup>, existuje-li
-                  </li>
-                  <li>Klub, za který startoval(a)</li>
-                  <li>
-                    HEMA Ratings ID klubu<sup>6</sup>, existuje-li
-                  </li>
-                </ul>
-              </li>
-              <li>Odkaz na výsledkovou listinu zveřejněnou organizátory, existuje-li (odkaz na stránku na OnlyFence, HEMA Scorecard, HEMAGON, post u FB události, či cokoliv jiného, z čeho jde vyčíst alespoň částečné výsledky).</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>
-        Data odešlete na
-        <a href="mailto:zegkljan{'@'}gmail.com">zegkljan{'@'}gmail.com</a> a do
-        předmětu uveďte <em>Data pro HEMA žebříček</em>.
-      </li>
-      <li>
-        Vyčkejte, než data zapracuji, případně reagujte na mé doplňující dotazy.
-      </li>
-    </ol>`,
-    footnotes: `<ol>
-    <li>V případě vícedenního turnaje uveďte první den.</li>
-    <li>Divize jsou: dlouhý meč, rapír a dýka, šavle...</li>
-    <li>Kategorie jsou: muži/open, ženy, dívky do 10 let...</li>
-    <li>
-      Evidujeme jen šermíře startující za české kluby, případně české
-      šermíře, kteří soutěží bez klubu.
-    </li>
-    <li>
-      Číslo v adrese stránky "profilu" daného člověka na HEMA Ratings.<br />
-      Příklad: Jan Žegklitz má stránku
-      <a href="https://hemaratings.com/fighters/details/3631/"
-        >https://hemaratings.com/fighters/details/<strong
-          >3631</strong
-        ></a
-      >
-      a tedy jeho ID je 3631.
-    </li>
-    <li>
-      Číslo v adrese stránky "profilu" daného klubu na HEMA Ratings.<br />
-      Příklad: SHŠ Krkavci mají stránku
-      <a href="https://hemaratings.com/clubs/details/362/"
-        >https://hemaratings.com/clubs/details/<strong>362</strong></a
-      >
-      a tedy jejich ID je 362.
-    </li>
-  </ol>`,
+    main: texts.cz?.supplyResultsText ?? 'Kontaktujte správce žebříčku.',
+    footnotes: texts.cz?.supplyResultsFootnotes ?? '',
   },
   close: 'Zavřít',
   settings: 'Nastavení',
