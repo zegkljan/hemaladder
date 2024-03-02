@@ -102,7 +102,7 @@ It will be transformed into appropriate formats for the web app during the build
 
 Contains the information about all clubs, in the following format:
 
-```json
+```javascript
 {
   "id": {
     "name": "Club Name",
@@ -116,7 +116,7 @@ where `id` is a numeric ID of the club as at [hemaratings.com](https://hemaratin
 
 If a club does not exist on HEMA Ratings (yet), use a negative `id`, e.g.:
 
-```json
+```javascript
 "-42": {
   "name": "Brand New Club",
   "country": "cz"
@@ -127,7 +127,7 @@ If a club does not exist on HEMA Ratings (yet), use a negative `id`, e.g.:
 
 Contains the information about all people, in the following format:
 
-```json
+```javascript
 {
   "id": {
     "surname": "Surname",
@@ -142,7 +142,7 @@ where `id` is a numeric ID of the fencer as at [hemaratings.com](https://hemarat
 
 If a fencer does not exist on HEMA Ratings (yet), use a negative `id`, e.g.:
 
-```json
+```javascript
 "-42": {
   "surname": "Fencer",
   "name": "New",
@@ -154,7 +154,7 @@ If a fencer does not exist on HEMA Ratings (yet), use a negative `id`, e.g.:
 
 Contains the information about the individual seasons for which is the ladder computed, in the following format:
 
-```json
+```javascript
 [
   {
     "name": "season name", // human-readable season name
@@ -186,7 +186,7 @@ This is important, because previous season results are used to compute changes c
 
 Contains a simple mapping from fencer IDs to club IDs, in the following format:
 
-```json
+```javascript
 {
   "fencer1ID": "club1ID",
   "fencer2ID": "club1ID",
@@ -205,7 +205,7 @@ Inside one season, however, a fencer must be associated with only one club (or n
 
 This is the most important data file, as it contains the results of the tournaments, in the following format:
 
-```json
+```javascript
 {
   "id": {
     "name": "Tournament Name",
@@ -261,7 +261,7 @@ Coefficients are multiplicative constants that multiply the base number of point
 Each entry is a rule that determines whether a coefficient is to be used, and its value.
 A rule is a [JsonLogic](https://jsonlogic.com/) expression (with a few additions, see below) that is applied to an object of this structure:
 
-```json
+```javascript
 {
   "tournament": <tournament>, // a tournament object, as in tournaments.json
   "competition": <competition>, // a competition object, as in tournaments.json
@@ -271,7 +271,7 @@ A rule is a [JsonLogic](https://jsonlogic.com/) expression (with a few additions
 
 A rule is expected to produce either `null` (when no coefficient is to be used based on this rule), or an object of this structure:
 
-```json
+```javascript
 {
   "type": "type of the coefficient", // used for display in results breakdown
   "value": 1.5 // value of the coefficient
@@ -286,7 +286,7 @@ If no coefficient was produced by the rules, the default coefficient of 1 is use
 Two extra operators are available:
 
 - `val` produces the argument as a raw value; used as the root node of the expression to produce the coefficient:
-  ```json
+  ```javascript
   {
     "val": {
       "type": "championship",
@@ -295,7 +295,7 @@ Two extra operators are available:
   }
   ```
 - `len` produces the length of the argument, which must be an array; typically used to get the number of recorded participants:
-  ```json
+  ```javascript
   {
     "len": {
       "var": ["competition.results"]
@@ -314,7 +314,7 @@ There are currently two types of combiners: _All_ and _Best-n + championship_
 All tournaments are counted.
 Defined as
 
-```json
+```javascript
 {
   "type": "all"
 }
@@ -329,7 +329,7 @@ This combiner counts only these tournaments:
 
 Defined as
 
-```json
+```javascript
 {
   "type": "best-n+champ",
   "n": 5 // the n, i.e. the number of counted non-championship tournaments
