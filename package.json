@@ -13,7 +13,7 @@
     "build": "quasar build",
     "make-ladder": "python src/build/process-data.py src/build/resources/data public/data",
     "prebuild": "npm run make-ladder && npm run generate-icons",
-    "predev": "npm run generate-icons",
+    "predev": "npm run make-ladder && npm run generate-icons",
     "pregenerate-icons": "node src/build/logo-svg2png.mjs",
     "generate-icons": "mkdir -p public && npx icongenie generate --icon src/build/logo.png && rm src/build/logo.png"
   },
