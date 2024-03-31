@@ -437,7 +437,7 @@ class Builder:
             except KeyError:
                 print("Tournament {}, subtitle {}, division {}, category {} - missing person {}.".format(
                     tournament.tournament_id, competition.subtitle, competition.division.value, competition.category.value, entry.fencer_id))
-                person, person_club, club = find_person(entry.fencer_id, competition.category.value)
+                person, person_club, club = find_person(entry.fencer_id)
                 print("Attempted to find person at HR:\n\"{}\": {}\n{}\n{}".format(
                     entry.fencer_id,
                     json.dumps(person, indent=2, ensure_ascii=False),
@@ -569,7 +569,7 @@ def main():
                     if e.fencer_id not in people_clubs:
                         found_club_mapping = e.fencer_id
                         if int(e.fencer_id) >= 0:
-                            _, f, c = find_person(e.fencer_id, None)
+                            _, f, c = find_person(e.fencer_id)
                             found_club_mapping = f'{c["name"]} -- "{f[0]}": "{f[1]}"'
                         people_wo_club[e.fencer_id] = found_club_mapping
 

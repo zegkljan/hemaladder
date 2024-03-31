@@ -7,7 +7,7 @@ import http.client
 import sys
 
 
-def find_person(pid, category):
+def find_person(pid):
     conn = http.client.HTTPSConnection('hemaratings.com')
     conn.request('GET', '/fighters/details/{}/'.format(pid))
     res = conn.getresponse()
@@ -41,7 +41,6 @@ def find_person(pid, category):
         club = find_club(club_find[0])
     if nationality_find:
         new_entry['nationality'] = nationality_find[0]
-    new_entry['category'] = category
 
     return new_entry, fencer_club_entry, club
 
@@ -81,7 +80,7 @@ def check_tournament(tid, t, people):
                 rank = entry['rank']
                 pid = entry['fencer_id']
                 if pid not in people:
-                    new_entry = find_person(pid, category)
+                    new_entry = find_person(pid)
                     print('Missing person ID {} (tournament ID {}, division {}, category {}, rank {}) -- {}'.format(
                         pid, tid, division, category, rank, new_entry))
 
