@@ -567,10 +567,11 @@ def main():
             for l in ls.values():
                 for e in l:
                     if e.fencer_id not in people_clubs:
-                        found_club_mapping = e.fencer_id
+                        found_club_mapping = None
                         if int(e.fencer_id) >= 0:
                             _, f, c = find_person(e.fencer_id)
-                            found_club_mapping = f'{c["name"]} -- "{f[0]}": "{f[1]}"'
+                            if c is not None:
+                                found_club_mapping = f'{c["name"]} -- "{f[0]}": "{f[1]}"'
                         people_wo_club[e.fencer_id] = found_club_mapping
 
         print(f'Check for club assignment of these people (have no club in season {season["name"]}):')
