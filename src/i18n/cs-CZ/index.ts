@@ -1,16 +1,18 @@
 import { Category, CoefficientType, Division, View } from 'src/logic/ladder';
-import { texts } from 'src/build/resources/brand/config';
+import { texts } from 'src/build/resources/brand/config.mjs';
+
+const txt = texts['cs-CZ'];
 
 export default {
-  appName: texts.cz?.appName ?? 'HEMA žebříček',
-  appDescription: texts.cz?.appDescription ?? '',
+  appName: txt?.appName ?? 'HEMA žebříček',
+  appDescription: txt?.appDescription ?? '',
   sourceCode: 'Zdrojový kód',
   ladderOnFacebook: 'Facebooková stránka',
   addResults: {
     buttonLabel: 'Doplnit výsledky',
     title: 'Jak doplnit výsledky?',
-    main: texts.cz?.supplyResultsText ?? 'Kontaktujte správce žebříčku.',
-    footnotes: texts.cz?.supplyResultsFootnotes ?? '',
+    main: txt?.supplyResultsText ?? 'Kontaktujte správce žebříčku.',
+    footnotes: txt?.supplyResultsFootnotes ?? '',
   },
   close: 'Zavřít',
   settings: 'Nastavení',

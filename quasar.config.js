@@ -11,7 +11,8 @@
 const { configure } = require('quasar/wrappers');
 const path = require('path');
 
-module.exports = configure(function (/* ctx */) {
+module.exports = configure(async function (/* ctx */) {
+  const { config } = await import(path.resolve(__dirname, './src/build/resources/brand/config.mjs'));
   return {
     eslint: {
       // fix: true,
@@ -65,7 +66,7 @@ module.exports = configure(function (/* ctx */) {
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
 
-      // publicPath: '.',
+      publicPath: config.url,
       // analyze: true,
       // env: {},
       // rawDefine: {}

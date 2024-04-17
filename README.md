@@ -44,7 +44,7 @@ The required directory structure is
 ```
 src/build/resources
 ├── brand
-│   ├── config.ts
+│   ├── config.mjs
 │   └── logo.svg
 └── data
     ├── clubs.json
@@ -64,39 +64,35 @@ src/build/resources
 
 Contains app-wide configuration.
 
-The file `config.ts` is expected to have this structure:
+The file `config.mjs` is expected to conform to this definition (a file named `config.d.mts` with this content may exist as a sibling, but does not have to):
 
 ```typescript
 type Texts = {
-  // keys are locale codes: cs-CZ, en-US
   [key in string]?: {
-    // name of the app, shown in the header and in <title> in <head>
     appName: string;
-    // description of the app, shown in <meta name="description">
     appDescription?: string;
-    // main text of instructions for supplying results
     supplyResultsText: string;
-    // footnotes for the supply results instructions
     supplyResultsFootnotes: string;
   };
 };
 
 type Config = {
-  // if not specified, no FB link will be present
   fbLink?: string;
-  // list of available locales in the locale switcher: cs-CZ, en-US
+  // locales that will be available in the language switcher
+  // the first one will also be used to get the app name for the og:title meta tag
   enabledLocales: string[];
   // one from enabledLocales; if none, detected automatically by system
   defaultLocale?: string;
+  // base url of the page
+  url?: string;
 }
 
-export const texts: Texts = ...;
-
-export const config: Config = ...;
+export declare const texts: Texts;
+export declare const config: Config;
 ```
 
 The file `logo.svg` is expected to contain the logo of the ladder, in an SVG format.
-It will be transformed into appropriate formats for the web app during the build.
+It will be transformed into appropriate formats for the web app favicon, and for the `og:image` meta information of the page during the build.
 
 ### `clubs.json`
 

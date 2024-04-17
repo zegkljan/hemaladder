@@ -1,16 +1,18 @@
 import { Category, CoefficientType, Division, View } from 'src/logic/ladder';
-import { texts } from 'src/build/resources/brand/config';
+import { texts } from 'src/build/resources/brand/config.mjs';
+
+const txt = texts['en-US'];
 
 export default {
-  appName: texts.en?.appName ?? 'HEMA Ladder',
-  appDescription: texts.en?.appDescription ?? '',
+  appName: txt?.appName ?? 'HEMA Ladder',
+  appDescription: txt?.appDescription ?? '',
   sourceCode: 'Source code',
   ladderOnFacebook: 'Facebook page',
   addResults: {
     buttonLabel: 'Supply results',
     title: 'How to supply results?',
-    main: texts.en?.supplyResultsText ?? 'Contact the ladder manager.',
-    footnotes: texts.en?.supplyResultsFootnotes ?? '',
+    main: txt?.supplyResultsText ?? 'Contact the ladder manager.',
+    footnotes: txt?.supplyResultsFootnotes ?? '',
   },
   close: 'Close',
   settings: 'Settings',
