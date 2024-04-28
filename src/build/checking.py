@@ -9,8 +9,12 @@ import sys
 
 def find_person(pid):
     conn = http.client.HTTPSConnection('hemaratings.com')
-    conn.request('GET', '/fighters/details/{}/'.format(pid))
-    res = conn.getresponse()
+    try:
+        conn.request('GET', '/fighters/details/{}/'.format(pid))
+        res = conn.getresponse()
+    except Exception as e:
+        print('HEMA Ratings unavailable.', e)
+        return None, None, None
     page = res.read()
     try:
         page = page.decode('utf-8')
@@ -19,8 +23,6 @@ def find_person(pid):
         page = page.decode('utf-8')
     name_find = re.findall('<h2>(.*)</h2>', page)
     club_find = re.findall('/clubs/details/([0-9]*)/', page)
-    nationality_find = re.findall(
-        'flag-icon flag-icon-([a-z]*)', page)
     if name_find:
         name, surname = name_find[0].split(' ', maxsplit=1)
         name = html.unescape(name)
@@ -39,8 +41,6 @@ def find_person(pid):
     if club_find:
         fencer_club_entry = (pid, club_find[0])
         club = find_club(club_find[0])
-    if nationality_find:
-        new_entry['nationality'] = nationality_find[0]
 
     return new_entry, fencer_club_entry, club
 
@@ -62,7 +62,7 @@ def find_club(cid):
     country = 'N/A'
     if name_find:
         name = re.sub(
-            '\s+', ' ', name_find[0], flags=re.MULTILINE).strip()
+            '\\s+', ' ', name_find[0], flags=re.MULTILINE).strip()
         name = html.unescape(name)
     if country_find:
         country = country_find[0]

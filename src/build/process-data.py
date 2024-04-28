@@ -111,16 +111,11 @@ class Person:
     id: str
     name: str
     surname: str
-    nationality: Union[str, None]
 
     def __init__(self, id: str, raw: dict) -> None:
         self.id = id
         self.name = raw['name']
         self.surname = raw['surname']
-        if 'nationality' not in raw:
-            self.nationality = None
-        else:
-            self.nationality = raw['nationality']
 
 
 @dataclass
@@ -360,7 +355,7 @@ class Builder:
         if len(dup_people) > 0:
             res = False
         for dup in dup_people:
-            details = [f'{{id: {p.id}, club: {p.club_id}, nationality: {p.nationality}}}' for p in dup]
+            details = [f'{{id: {p.id}, club: {p.club_id}}}' for p in dup]
             print(f'Duplicate person {dup[0].name} {dup[0].surname}: {", ".join(details)}')
 
         club_rev_map: Mapping[str, List[Club]] = dict()
