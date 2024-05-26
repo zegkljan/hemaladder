@@ -68,11 +68,13 @@ The file `config.mjs` is expected to conform to this definition (a file named `c
 
 ```typescript
 type Texts = {
+  // keys correspond to the locales, e.g. cs-CZ, en-US etc.
   [key in string]?: {
     appName: string;
     appDescription?: string;
     supplyResultsText: string;
     supplyResultsFootnotes: string;
+    coefficientTypes: Record<string, string>; // keys correspond to coefficient types in seasons.json
   };
 };
 
@@ -276,6 +278,7 @@ A rule is expected to produce either `null` (when no coefficient is to be used b
 
 All non-null results from the rules are collected, and the final coefficient is then the product of the individual coefficient values.
 If no coefficient was produced by the rules, the default coefficient of 1 is used.
+The `type` field should correspond to one of the keys in the field `coefficientTypes` in `config.mjs` in the [brand directory](#brand-directory).
 
 #### Additions to JsonLogic
 

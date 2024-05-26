@@ -1,4 +1,4 @@
-import { Category, CoefficientType, Division, View } from 'src/logic/ladder';
+import { Category, Division, View } from 'src/logic/ladder';
 import { texts } from 'src/build/resources/brand/config.mjs';
 
 const txt = texts['cs-CZ'];
@@ -93,17 +93,7 @@ export default {
       countedTournaments: 'Započítané turnaje',
       uncountedTournaments: 'Nezapočítané turnaje',
       rank: 'Umístění',
-      coefficientType: {
-        [CoefficientType.FOREIGN]: 'Zahraniční turnaj',
-        [CoefficientType.FOREIGN_25_50]: 'Zahraniční účast 25-50 %',
-        [CoefficientType.FOREIGN_50_75]: 'Zahraniční účast 50-75 %',
-        [CoefficientType.FOREIGN_75_100]: 'Zahraniční účast >75 %',
-        [CoefficientType.CHAMPIONSHIP]: 'Mistrovství',
-        [CoefficientType.RANK_1]: 'První místo',
-        [CoefficientType.RANK_2]: 'Druhé místo',
-        [CoefficientType.RANK_3]: 'Třetí místo',
-        [CoefficientType.RANK_4]: 'Čtvrté místo',
-      },
+      coefficientType: txt?.coefficientTypes,
       coefficientTotal: 'Celkem',
       points: 'Počet bodů',
       tournamentResultsLabel: 'Celkové výsledky',

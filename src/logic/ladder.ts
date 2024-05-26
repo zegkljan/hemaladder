@@ -59,30 +59,6 @@ export const viewReverseMap = {
   tournaments: View.TOURNAMENTS,
 };
 
-export enum CoefficientType {
-  CHAMPIONSHIP = 'championship',
-  FOREIGN = 'foreign',
-  FOREIGN_25_50 = 'foreign_25_50',
-  FOREIGN_50_75 = 'foreign_50_75',
-  FOREIGN_75_100 = 'foreign_75_100',
-  RANK_1 = 'rank_1',
-  RANK_2 = 'rank_2',
-  RANK_3 = 'rank_3',
-  RANK_4 = 'rank_4',
-}
-
-const coefficientTypeReverseMap = {
-  championship: CoefficientType.CHAMPIONSHIP,
-  foreign: CoefficientType.FOREIGN,
-  foreign_25_50: CoefficientType.FOREIGN_25_50,
-  foreign_50_75: CoefficientType.FOREIGN_50_75,
-  foreign_75_100: CoefficientType.FOREIGN_75_100,
-  rank_1: CoefficientType.RANK_1,
-  rank_2: CoefficientType.RANK_2,
-  rank_3: CoefficientType.RANK_3,
-  rank_4: CoefficientType.RANK_4,
-};
-
 export type TournamentResultEntry = {
   fencer_id: string;
   rank: number;
@@ -202,7 +178,7 @@ function parsePeopleClubs(json: Record<string, unknown>): PeopleClubs {
 
 export type Coefficient = {
   c: number;
-  type: CoefficientType;
+  type: string;
 };
 
 export type TournamentLadderEntry = {
@@ -306,9 +282,7 @@ function parseTournamentLadderEntry(
 function parseCoefficient(json: Record<string, unknown>): Coefficient {
   return {
     c: json['c'] as number,
-    type: coefficientTypeReverseMap[
-      json['type'] as keyof typeof coefficientTypeReverseMap
-    ],
+    type: json['type'] as string,
   };
 }
 

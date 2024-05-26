@@ -1,4 +1,4 @@
-import { Category, CoefficientType, Division, View } from 'src/logic/ladder';
+import { Category, Division, View } from 'src/logic/ladder';
 import { texts } from 'src/build/resources/brand/config.mjs';
 
 const txt = texts['en-US'];
@@ -97,17 +97,7 @@ export default {
       countedTournaments: 'Counted tournaments',
       uncountedTournaments: 'Not counted tournaments',
       rank: 'Rank',
-      coefficientType: {
-        [CoefficientType.FOREIGN]: 'Tournament abroad',
-        [CoefficientType.FOREIGN_25_50]: '25-50 % participants from abroad',
-        [CoefficientType.FOREIGN_50_75]: '50-75 % participants from abroad',
-        [CoefficientType.FOREIGN_75_100]: '>75 % participants from abroad',
-        [CoefficientType.CHAMPIONSHIP]: 'Championship',
-        [CoefficientType.RANK_1]: 'First place',
-        [CoefficientType.RANK_2]: 'Second place',
-        [CoefficientType.RANK_3]: 'Third place',
-        [CoefficientType.RANK_4]: 'Fourth place',
-      },
+      coefficientType: txt?.coefficientTypes,
       coefficientTotal: 'Total',
       points: 'No. of points',
       tournamentResultsLabel: 'Full results',

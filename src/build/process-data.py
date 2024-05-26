@@ -30,18 +30,6 @@ class Division(enum.Enum):
     B = 'b'      # bayonet
 
 
-class CoefficientType(enum.Enum):
-    FOREIGN = 'foreign'
-    FOREIGN_25_50 = 'foreign_25_50'
-    FOREIGN_50_75 = 'foreign_50_75'
-    FOREIGN_75_100 = 'foreign_75_100'
-    CHAMPIONSHIP = 'championship'
-    RANK_1 = 'rank_1'
-    RANK_2 = 'rank_2'
-    RANK_3 = 'rank_3'
-    RANK_4 = 'rank_4'
-
-
 @dataclass
 class TournamentResultEntry:
     fencer_id: str
@@ -136,12 +124,12 @@ class Club:
 @dataclass
 class Coefficient:
     c: float
-    c_type: CoefficientType
+    c_type: str
 
     def to_dict(self) -> dict:
         return {
             "c": self.c,
-            "type": self.c_type.value
+            "type": self.c_type
         }
 
 
@@ -241,7 +229,7 @@ class Scorer:
             })
             if result is None:
                 continue
-            coeffs.append(Coefficient(result['value'], CoefficientType(result['type'])))
+            coeffs.append(Coefficient(result['value'], result['type']))
 
         points = c.no_participants - r + 1
 
