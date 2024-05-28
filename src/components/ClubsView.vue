@@ -3,7 +3,7 @@
     v-if="ladder !== null"
     ref="table"
     :columns="columns"
-    :rows="ladder"
+    :rows="ladder ?? []"
     row-key="club_id"
     :pagination="{ rowsPerPage: 0, sortBy: 'name', descending: false }"
     :loading="ladder === undefined"
@@ -101,7 +101,6 @@ thead tr:first-child th {
 </style>
 
 <script setup lang="ts">
-import { computed } from '@vue/reactivity';
 import { QTableProps } from 'quasar';
 import {
   Category,
@@ -110,7 +109,7 @@ import {
   LadderClubEntry,
 } from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
-import { ComputedRef, watchEffect } from 'vue';
+import { ComputedRef, computed, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();

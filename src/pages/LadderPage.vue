@@ -21,9 +21,8 @@
 <style lang="scss"></style>
 
 <script setup lang="ts">
-import { computed } from '@vue/reactivity';
-import { ComputedRef } from 'vue';
 import { View, viewReverseMap } from 'src/logic/ladder';
+import { ComputedRef, computed } from 'vue';
 
 const views: ComputedRef<View[]> = computed((): View[] => {
   return Object.values(viewReverseMap);

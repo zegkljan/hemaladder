@@ -151,12 +151,11 @@
           <q-card-section>
             <div class="text-h6">{{ $t('addResults.title') }}</div>
           </q-card-section>
-          <q-card-section v-html="$t('addResults.main')"> </q-card-section>
+          <q-card-section>{{ $t('addResults.main') }}</q-card-section>
           <q-separator inset />
           <q-card-section
             class="footnotes"
-            v-html="$t('addResults.footnotes')"
-          ></q-card-section>
+          >{{ $t('addResults.footnotes') }}</q-card-section>
           <q-card-actions align="right" class="text-primary">
             <q-btn v-close-popup flat :label="$t('close')" />
           </q-card-actions>
@@ -171,7 +170,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from '@vue/reactivity';
 import {
   Category,
   categoryReverseMap,
@@ -180,11 +178,11 @@ import {
   Season,
 } from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
-import { ComputedRef, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute, useRouter } from 'vue-router';
-import { config } from 'src/build/resources/brand/config';
+import { config } from 'src/build/resources/brand/config.mjs';
 import { useHead } from '@unhead/vue';
+import { computed, ComputedRef, ref } from 'vue';
 
 const leftDrawerOpen = ref(false);
 
@@ -192,7 +190,7 @@ const { locale } = useI18n({ useScope: 'global' });
 const localeOptions = [
   { value: 'cs-CZ', label: 'Čeština', flag: 'cz' },
   { value: 'en-US', label: 'English', flag: 'us' },
-].filter((x) => config.enabledLocales.find((l) => l === x.value) !== undefined);
+].filter((x) => config.enabledLocales.find((l: string) => l === x.value) !== undefined);
 
 const { t } = useI18n();
 useHead({

@@ -3,8 +3,8 @@
     v-if="tournaments !== null"
     ref="table"
     :columns="columns"
-    :rows="tournaments"
-    row-key="id"
+    :rows="tournaments ?? []"
+    row-key="key"
     :loading="tournaments === undefined"
     :pagination="{ rowsPerPage: 0, sortBy: 'date', descending: false }"
     binary-state-sort
@@ -133,15 +133,15 @@ thead tr:first-child th {
 </style>
 
 <script setup lang="ts">
-import { computed } from '@vue/reactivity';
 import { QTableProps } from 'quasar';
 import { Category, Division, TournamentResultEntry } from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
-import { ComputedRef, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 import CountryFlag from 'vue-country-flag-next';
+import { ComputedRef, computed, watchEffect } from 'vue';
 
 type TournamentView = {
+  key: string;
   id: string;
   name: string;
   competition_subtitle?: string;
@@ -237,7 +237,8 @@ const tournaments: ComputedRef<TournamentView[] | undefined | null> = computed(
               comp.division === props.division &&
               comp.category === props.category
           )
-          .map((comp) => ({
+          .map((comp, idx) => ({
+            key: `${tournamentID}-${idx}`,
             id: tournamentID,
             name: tournament.name,
             competition_subtitle: comp.subtitle,

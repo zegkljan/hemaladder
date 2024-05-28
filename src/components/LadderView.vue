@@ -3,7 +3,7 @@
     v-if="ladder !== null"
     ref="table"
     :columns="columns"
-    :rows="ladder"
+    :rows="ladder ?? []"
     row-key="fencer_id"
     :pagination="{ rowsPerPage: 0, sortBy: 'rank', descending: false }"
     :loading="ladder === undefined"
@@ -90,11 +90,11 @@
       {{ $t('noData') }}
     </div>
   </div>
-  <ladder-detail
+  <!-- <ladder-detail
     v-if="ladder !== null"
     v-model="detailTarget"
     @tournament-detail="onTournamentDetail"
-  ></ladder-detail>
+  ></ladder-detail> -->
   <!-- <tournament-detail v-model="tournamentDetail"></tournament-detail> -->
 </template>
 
@@ -153,10 +153,7 @@ thead tr:first-child th {
 </style>
 
 <script setup lang="ts">
-import { computed, ref } from '@vue/reactivity';
 import { QTableProps } from 'quasar';
-import LadderDetail from 'src/components/LadderDetail.vue';
-import { TournamentDetailModel } from 'src/components/models';
 import {
   Category,
   Division,
@@ -164,7 +161,7 @@ import {
   LadderIndividualEntry,
 } from 'src/logic/ladder';
 import { useData } from 'src/stores/data';
-import { ComputedRef, Ref, watchEffect } from 'vue';
+import { ComputedRef, Ref, computed, ref, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
@@ -321,6 +318,7 @@ function onDetailClick(entry: LadderIndividualEntry) {
   detailTarget.value = entry;
 }
 
+/*
 let tournamentDetail: Ref<TournamentDetailModel | null> = ref(null);
 
 function onTournamentDetail(detail: {
@@ -329,4 +327,5 @@ function onTournamentDetail(detail: {
 }) {
   return;
 }
+*/
 </script>

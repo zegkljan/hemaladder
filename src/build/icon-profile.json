@@ -1,0 +1,18 @@
+{
+  "params": {
+    "icon": "src/build/logo.png"
+  },
+  "assets": [
+    {
+      "generator": "png",
+      "name": "favicon-{size}x{size}.png",
+      "folder": "src/build/resources/brand/assets/icons",
+      "sizes": [16, 32, 96, 128]
+    },
+    {
+      "generator": "ico",
+      "name": "favicon.ico",
+      "folder": "src/build/resources/brand/assets"
+    }
+  ]
+}
