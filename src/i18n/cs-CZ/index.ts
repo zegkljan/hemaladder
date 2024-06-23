@@ -87,6 +87,7 @@ export default {
     avgPtsPerTournamentLabel: 'Průměrný počet bodů na turnaj',
     avgPtsPerTournamentTooltip: 'Ze započítaných turnajů',
     detailsLabel: 'Detaily',
+    exportTooltip: 'Exportovat tabulku do TSV',
     fencerDetail: {
       hemaratingsFencerLinkLabel: 'HEMA Ratings profil šermíře',
       hemaratingsClubLinkLabel: 'HEMA Ratings profil klubu',

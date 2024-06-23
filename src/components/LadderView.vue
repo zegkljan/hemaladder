@@ -1,90 +1,101 @@
 <template>
-  <q-table
-    v-if="ladder !== null"
-    ref="table"
-    :columns="columns"
-    :rows="ladder"
-    row-key="fencer_id"
-    :pagination="{ rowsPerPage: 0, sortBy: 'rank', descending: false }"
-    :loading="ladder === undefined"
-    binary-state-sort
-    hide-bottom
-    square
-    :style="style"
-  >
-    <template v-slot:header-cell-previous-season-change="props">
-      <q-th :props="props">
-        {{ props.col.label }}
-        <q-tooltip>
-          {{ $t('ladderTable.previousSeasonChangeTooltip') }}
-        </q-tooltip>
-      </q-th>
-    </template>
-    <template v-slot:header-cell-avgPtsPerTournament="props">
-      <q-th :props="props">
-        {{ props.col.label }}
-        <q-tooltip>
-          {{ $t('ladderTable.avgPtsPerTournamentTooltip') }}
-        </q-tooltip>
-      </q-th>
-    </template>
-    <template v-slot:body-cell-previous-season-change="props">
-      <q-td :props="props">
-        <template v-if="props.value === null">
-          <div class="change new">
-            {{ props.value }}
-          </div>
-          <q-tooltip>{{
-            $t('ladderTable.previousSeasonChangeNewInSeasonTooltip')
-          }}</q-tooltip>
-        </template>
-        <template v-else-if="props.value === 0">
-          <q-tooltip>{{
-            $t('ladderTable.previousSeasonChangeNoChangeTooltip')
-          }}</q-tooltip>
-        </template>
-        <template v-else-if="props.value > 0">
-          <div class="change worse">
-            {{ props.value }}
-          </div>
-          <q-tooltip v-if="props.value == -1">{{
-            t('ladderTable.previousSeasonChangeWorseTooltip.n1')
-          }}</q-tooltip>
-          <q-tooltip v-else-if="props.value > -5">{{
-            t('ladderTable.previousSeasonChangeWorseTooltip.n2', props.value)
-          }}</q-tooltip>
-          <q-tooltip v-else>{{
-            t('ladderTable.previousSeasonChangeWorseTooltip.n5', props.value)
-          }}</q-tooltip>
-        </template>
-        <template v-else-if="props.value < 0">
-          <div class="change better">
-            {{ -props.value }}
-          </div>
-          <q-tooltip v-if="props.value == -1">{{
-            t('ladderTable.previousSeasonChangeBetterTooltip.n1')
-          }}</q-tooltip>
-          <q-tooltip v-else-if="props.value > -5">{{
-            t('ladderTable.previousSeasonChangeBetterTooltip.n2', -props.value)
-          }}</q-tooltip>
-          <q-tooltip v-else>{{
-            t('ladderTable.previousSeasonChangeBetterTooltip.n5', -props.value)
-          }}</q-tooltip>
-        </template>
-      </q-td>
-    </template>
-    <template v-slot:body-cell-details="props">
-      <q-td :props="props">
-        <q-btn
-          @click="onDetailClick(props.row)"
-          flat
-          dense
-          round
-          icon="mdi-information-outline"
-        />
-      </q-td>
-    </template>
-  </q-table>
+  <div v-if="ladder !== null" :style="style">
+    <q-table
+      ref="table"
+      :columns="columns"
+      :rows="ladder"
+      row-key="fencer_id"
+      :pagination="{ rowsPerPage: 0, sortBy: 'rank', descending: false }"
+      :loading="ladder === undefined"
+      binary-state-sort
+      hide-bottom
+      square
+    >
+      <template v-slot:header-cell-previous-season-change="props">
+        <q-th :props="props">
+          {{ props.col.label }}
+          <q-tooltip>
+            {{ $t('ladderTable.previousSeasonChangeTooltip') }}
+          </q-tooltip>
+        </q-th>
+      </template>
+      <template v-slot:header-cell-avgPtsPerTournament="props">
+        <q-th :props="props">
+          {{ props.col.label }}
+          <q-tooltip>
+            {{ $t('ladderTable.avgPtsPerTournamentTooltip') }}
+          </q-tooltip>
+        </q-th>
+      </template>
+      <template v-slot:body-cell-previous-season-change="props">
+        <q-td :props="props">
+          <template v-if="props.value === null">
+            <div class="change new">
+              {{ props.value }}
+            </div>
+            <q-tooltip>{{
+              $t('ladderTable.previousSeasonChangeNewInSeasonTooltip')
+            }}</q-tooltip>
+          </template>
+          <template v-else-if="props.value === 0">
+            <q-tooltip>{{
+              $t('ladderTable.previousSeasonChangeNoChangeTooltip')
+            }}</q-tooltip>
+          </template>
+          <template v-else-if="props.value > 0">
+            <div class="change worse">
+              {{ props.value }}
+            </div>
+            <q-tooltip v-if="props.value == -1">{{
+              t('ladderTable.previousSeasonChangeWorseTooltip.n1')
+            }}</q-tooltip>
+            <q-tooltip v-else-if="props.value > -5">{{
+              t('ladderTable.previousSeasonChangeWorseTooltip.n2', props.value)
+            }}</q-tooltip>
+            <q-tooltip v-else>{{
+              t('ladderTable.previousSeasonChangeWorseTooltip.n5', props.value)
+            }}</q-tooltip>
+          </template>
+          <template v-else-if="props.value < 0">
+            <div class="change better">
+              {{ -props.value }}
+            </div>
+            <q-tooltip v-if="props.value == -1">{{
+              t('ladderTable.previousSeasonChangeBetterTooltip.n1')
+            }}</q-tooltip>
+            <q-tooltip v-else-if="props.value > -5">{{
+              t(
+                'ladderTable.previousSeasonChangeBetterTooltip.n2',
+                -props.value
+              )
+            }}</q-tooltip>
+            <q-tooltip v-else>{{
+              t(
+                'ladderTable.previousSeasonChangeBetterTooltip.n5',
+                -props.value
+              )
+            }}</q-tooltip>
+          </template>
+        </q-td>
+      </template>
+      <template v-slot:body-cell-details="props">
+        <q-td :props="props">
+          <q-btn
+            @click="onDetailClick(props.row)"
+            flat
+            dense
+            round
+            icon="mdi-information-outline"
+          />
+        </q-td>
+      </template>
+    </q-table>
+    <q-page-sticky position="bottom-left" :offset="[16, 16]">
+      <q-btn round icon="mdi-download" size="sm" @click="onExportClick">
+        <q-tooltip>{{ $t('ladderTable.exportTooltip') }}</q-tooltip>
+      </q-btn>
+    </q-page-sticky>
+  </div>
   <div v-else>
     <div class="text-center text-h2" style="margin: 2rem">
       {{ $t('noData') }}
@@ -154,7 +165,7 @@ thead tr:first-child th {
 
 <script setup lang="ts">
 import { computed, ref } from '@vue/reactivity';
-import { QTableProps } from 'quasar';
+import { QTableProps, exportFile } from 'quasar';
 import LadderDetail from 'src/components/LadderDetail.vue';
 import { TournamentDetailModel } from 'src/components/models';
 import {
@@ -319,6 +330,53 @@ let detailTarget: Ref<LadderIndividualEntry | null> = ref(null);
 
 function onDetailClick(entry: LadderIndividualEntry) {
   detailTarget.value = entry;
+}
+
+function onExportClick() {
+  if (ladder.value === undefined || ladder.value === null) {
+    return;
+  }
+  const lines = [
+    [
+      'rank',
+      'last_season_rank',
+      'name',
+      'surname',
+      'club',
+      'points',
+      'counted_tournaments',
+      'total_tournaments',
+      'championship',
+    ].join('\t'),
+  ];
+  lines.push(
+    ...ladder.value.map((item) => {
+      const fencer = data.people[item.fencer_id];
+      const clubId = data.peopleClubs?.[item.fencer_id];
+      return [
+        item.rank,
+        item.last_season_rank ?? '',
+        fencer.name,
+        fencer.surname,
+        clubId === undefined ? '' : data.clubs[clubId].name,
+        item.points,
+        item.counted_tournaments.length,
+        item.counted_tournaments.length + item.uncounted_tournaments.length,
+        item.counted_tournaments.findIndex(
+          (t) => data.tournaments?.[t.tournament_id].championship ?? false
+        ) !== -1,
+      ].join('\t');
+    })
+  );
+  exportFile(
+    `${props.season.replaceAll('/', '-')}_${props.division}_${
+      props.category
+    }.tsv`,
+    lines.join('\n'),
+    {
+      mimeType: 'text/tab-separated-values',
+    }
+  );
 }
 
 let tournamentDetail: Ref<TournamentDetailModel | null> = ref(null);

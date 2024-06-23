@@ -87,7 +87,7 @@ type Config = {
   defaultLocale?: string;
   // base url of the page
   url?: string;
-}
+};
 
 export declare const texts: Texts;
 export declare const config: Config;

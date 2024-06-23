@@ -84,11 +84,12 @@ export default {
     previousSeasonChangeNoChangeTooltip: 'No change',
     nameLabel: 'Name',
     surnameLabel: 'Surname',
-    detailsLabel: 'Details',
     noCountedTournamentsLabel: 'No. of counted tournaments',
     noTotalTournamentsLabel: 'Total No. of tournaments',
     avgPtsPerTournamentLabel: 'Average points per tournament',
     avgPtsPerTournamentTooltip: 'Out of counted tournaments',
+    detailsLabel: 'Details',
+    exportTooltip: 'Exportovat table to TSV',
     fencerDetail: {
       fencer: 'About fencer',
       tournaments: 'Tournament participation',
