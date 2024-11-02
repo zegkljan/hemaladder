@@ -11,6 +11,7 @@ import shutil
 from typing import Any, List, Mapping, Optional, Sequence, Tuple, Union
 from checking import find_person, find_club
 import json_logic as jl
+import argparse
 
 
 class Category(enum.Enum):
@@ -504,9 +505,47 @@ class Builder:
 
 
 def main():
-    dst_data_dir = src_data_dir = pathlib.Path(sys.argv[1])
-    if len(sys.argv) > 1:
-        dst_data_dir = pathlib.Path(sys.argv[2])
+    ap = argparse.ArgumentParser('process-data')
+    ap.add_argument('--only-last', action='store_true')
+    ap.add_argument('src', type=pathlib.Path)
+    ap.add_argument('dst', type=pathlib.Path, nargs='?', default=None)
+    args = ap.parse_args()
+    only_last = args.only_last
+    src_data_dir = args.src
+    dst_data_dir = args.dst
+    if dst_data_dir is None:
+        dst_data_dir = src_data_dir
+
+    seasons = read_json(src_data_dir.joinpath('seasons.json'))
+    seasons = sorted(seasons, key=lambda s: s['name'])
+    if only_last:
+        # if processing only last season, load the previous season in order to have last season rank available
+        if len(seasons) > 1:
+            prev_season_raw = read_json(dst_data_dir.joinpath('seasons', seasons[-2]['folder'], 'ladders-individual.json'))
+            ladders_individual: LaddersIndividual = {
+                Division(division): {
+                    Category(category): [
+                        LadderIndividualEntry(
+                            fencer_id=entry['fencer_id'],
+                            rank=entry['rank'],
+                            last_season_rank=None,
+                            counted_tournaments=[],
+                            uncounted_tournaments=[]
+                        )
+                        for entry
+                        in cat_data
+                    ]
+                    for category, cat_data
+                    in div_data.items()
+                }
+                for division, div_data
+                in prev_season_raw.items()
+            }
+        else:
+            ladders_individual = dict()
+        seasons = [seasons[-1]]
+    else:
+        ladders_individual = dict()
 
     # source data is always part of the destination data => clear the destination and copy source to destination, if it is a different directory
     if dst_data_dir != src_data_dir:
@@ -521,10 +560,7 @@ def main():
         x[0]: Club(x[0], x[1]) for x in read_json(src_data_dir.joinpath('clubs.json')).items()
     }
 
-    seasons = read_json(src_data_dir.joinpath('seasons.json'))
-
-    ladders_individual = dict()
-    for season in sorted(seasons, key=lambda s: s["name"]):
+    for season in seasons:
         people_clubs: Mapping[str, str] = read_json(src_data_dir.joinpath('seasons', season['folder'], 'people-clubs.json'))
         tournaments: Mapping[str, Tournament] = {
             tid: Tournament(tid, data)
