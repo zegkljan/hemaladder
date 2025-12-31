@@ -15,8 +15,7 @@
     "prebuild": "npm run make-ladder && npm run generate-icons",
     "postbuild": "npm run generate-meta",
     "predev": "npm run prebuild",
-    "pregenerate-icons": "node src/build/logo-svg2png.mjs",
-    "generate-icons": "mkdir -p public && npx icongenie generate --icon src/build/logo.png && rm src/build/logo.png",
+    "generate-icons": "node src/build/generate-icons.mjs",
     "generate-meta": "node src/build/setup-meta.mjs"
   },
   "dependencies": {
@@ -34,7 +33,6 @@
     "@quasar/app-vite": "^1.0.5",
     "@quasar/cli": "^2.0.0",
     "@quasar/extras": "^1.15.0",
-    "@quasar/icongenie": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "autoprefixer": "^10.4.8",
@@ -42,7 +40,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-vue": "^8.7.1",
     "prettier": "^2.7.1",
-    "sharp": "^0.33.2"
+    "xml2json": "^0.12.0"
   },
   "engines": {
     "node": "^18 || ^16 || ^14.19",
